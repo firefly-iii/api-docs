@@ -3897,6 +3897,14 @@ paths:
         schema:
           type: string
           format: date
+      - in: query
+        name: currency_code
+        description: |
+          A currency code like EUR or USD, to filter the result.
+        required: false
+        schema:
+          type: string
+          format: string
       description: |
         Returns basic sums of the users data, like the net worth, spent and earned amounts. It is multi-currency, and is in Firefly III to populate the dashboard.
       responses:
@@ -4692,7 +4700,7 @@ components:
           type: string
           format: string
           example: asset
-          description: "Can only be one one these four account types."
+          description: "Can only be one one these account types."
           enum:
           - asset
           - expense
@@ -7369,10 +7377,10 @@ components:
           properties:
             version:
               type: string
-              example: 4.7.9
+              example: 4.8.0
             api_version:
               type: string
-              example: '0.9.0'
+              example: '0.10.0'
             php_version:
               type: string
               example: "7.2"
