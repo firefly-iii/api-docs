@@ -130,6 +130,7 @@ paths:
         required: false
         schema:
           type: string
+          format: string
           enum:
             - all
             - asset
@@ -214,6 +215,7 @@ paths:
         required: false
         schema:
           type: string
+          format: date
       responses:
         '200':
           description: 'The requested account'
@@ -347,6 +349,7 @@ paths:
         required: false
         schema:
           type: string
+          format: date
           example: 2018-09-17
       - in: query
         name: end
@@ -355,6 +358,7 @@ paths:
         required: false
         schema:
           type: string
+          format: date
           example: 2018-09-17
       - in: query
         name: type
@@ -362,6 +366,7 @@ paths:
         required: false
         schema:
           type: string
+          format: string
           enum:
           - all
           - withdrawal
@@ -384,6 +389,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/TransactionArray'
+  
   /api/v1/attachments:
     get:
       summary: List all attachments.
@@ -596,6 +602,7 @@ paths:
         required: false
         schema:
           type: string
+          format: date
           example: 2018-09-17
       - in: query
         name: end
@@ -604,6 +611,7 @@ paths:
         required: false
         schema:
           type: string
+          format: date
           example: 2018-12-31
       responses:
         '200':
@@ -722,6 +730,7 @@ paths:
           description: Available budget deleted.
         '404':
           description: No such available budget.
+  
   /api/v1/bills:
     get:
       summary: List all bills.
@@ -744,6 +753,7 @@ paths:
         required: false
         schema:
           type: string
+          format: date
           example: 2018-09-17
       - in: query
         name: end
@@ -752,6 +762,7 @@ paths:
         required: false
         schema:
           type: string
+          format: date
           example: 2018-12-31
       responses:
         '200':
@@ -809,6 +820,7 @@ paths:
         required: false
         schema:
           type: string
+          format: date
           example: 2018-09-17
       - in: query
         name: end
@@ -817,6 +829,7 @@ paths:
         required: false
         schema:
           type: string
+          format: date
           example: 2018-12-31
       tags:
         - bills
@@ -958,6 +971,7 @@ paths:
         required: false
         schema:
           type: string
+          format: date
           example: 2018-09-17
       - in: query
         name: end
@@ -966,6 +980,7 @@ paths:
         required: false
         schema:
           type: string
+          format: date
           example: 2018-12-31
       - in: query
         name: type
@@ -973,6 +988,7 @@ paths:
         required: false
         schema:
           type: string
+          format: string
           enum:
           - all
           - withdrawal
@@ -995,6 +1011,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/TransactionArray'
+  
   /api/v1/budgets:
     get:
       summary: List all budgets.
@@ -1017,6 +1034,7 @@ paths:
         required: false
         schema:
           type: string
+          format: date
           example: 2018-09-17
       - in: query
         name: end
@@ -1025,6 +1043,7 @@ paths:
         required: false
         schema:
           type: string
+          format: date
           example: 2018-12-31
       responses:
         '200':
@@ -1082,6 +1101,7 @@ paths:
         required: false
         schema:
           type: string
+          format: date
           example: 2018-09-17
       - in: query
         name: end_date
@@ -1090,6 +1110,7 @@ paths:
         required: false
         schema:
           type: string
+          format: date
           example: 2018-12-31
       tags:
         - budgets
@@ -1197,6 +1218,7 @@ paths:
         required: false
         schema:
           type: string
+          format: date
           example: 2018-09-17
       - in: query
         name: end
@@ -1205,6 +1227,7 @@ paths:
         required: false
         schema:
           type: string
+          format: date
           example: 2018-12-31
       - in: query
         name: type
@@ -1212,6 +1235,7 @@ paths:
         required: false
         schema:
           type: string
+          format: string
           enum:
           - all
           - withdrawal
@@ -1258,6 +1282,7 @@ paths:
         required: false
         schema:
           type: string
+          format: date
           example: 2018-09-17
       - in: query
         name: end
@@ -1266,6 +1291,7 @@ paths:
         required: false
         schema:
           type: string
+          format: date
           example: 2018-12-31
       responses:
         '200':
@@ -1423,6 +1449,7 @@ paths:
         required: false
         schema:
           type: string
+          format: string
           enum:
           - all
           - withdrawal
@@ -1445,6 +1472,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/TransactionArray'
+  
   /api/v1/categories:
     get:
       summary: List all categories.
@@ -1605,6 +1633,7 @@ paths:
         required: false
         schema:
           type: string
+          format: date
           example: 2018-09-17
       - in: query
         name: end
@@ -1613,6 +1642,7 @@ paths:
         required: false
         schema:
           type: string
+          format: date
           example: 2018-12-31
       - in: query
         name: type
@@ -1620,6 +1650,7 @@ paths:
         required: false
         schema:
           type: string
+          format: string
           enum:
           - all
           - withdrawal
@@ -1642,6 +1673,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/TransactionArray'
+  
   /api/v1/cer:
     get:
       summary: Get an exchange rate.
@@ -1887,6 +1919,7 @@ paths:
         required: true
         schema:
           type: string
+          format: string
           example: "single_user_mode"
           enum:
             - is_demo_site
@@ -1915,6 +1948,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ConfigurationUpdate'
         required: true
+  
   /api/v1/currencies:
     get:
       summary: List all currencies.
@@ -1979,6 +2013,7 @@ paths:
         required: true
         schema:
           type: string
+          format: string
           example: USD
         description: The currency code.
       responses:
@@ -2025,6 +2060,7 @@ paths:
         required: true
         schema:
           type: string
+          format: string
           example: USD
         description: The currency code.
       responses:
@@ -2045,6 +2081,7 @@ paths:
         required: true
         schema:
           type: string
+          format: string
           example: USD
         description: The currency code.
       tags:
@@ -2070,6 +2107,7 @@ paths:
         required: true
         schema:
           type: string
+          format: string
           example: EUR
         description: The currency code.
       requestBody:
@@ -2107,6 +2145,7 @@ paths:
         required: true
         schema:
           type: string
+          format: string
           example: GBP
         description: The currency code.
       responses:
@@ -2127,6 +2166,7 @@ paths:
         required: true
         schema:
           type: string
+          format: string
           example: USD
         description: The currency code.
       - in: query
@@ -2143,12 +2183,14 @@ paths:
         required: false
         schema:
           type: string
+          format: string
       - in: query
         name: type
         description: Optional filter on the account type(s) returned
         required: false
         schema:
           type: string
+          format: string
           enum:
             - all
             - asset
@@ -2194,6 +2236,7 @@ paths:
         required: true
         schema:
           type: string
+          format: string
           example: EUR
         description: The currency code.
       - in: query
@@ -2223,6 +2266,7 @@ paths:
         required: true
         schema:
           type: string
+          format: string
           example: USD
         description: The currency code.
       - in: query
@@ -2252,6 +2296,7 @@ paths:
         required: true
         schema:
           type: string
+          format: string
           example: USD
         description: The currency code.
       - in: query
@@ -2297,6 +2342,7 @@ paths:
         required: true
         schema:
           type: string
+          format: string
           example: GBP
         description: The currency code.
       - in: query
@@ -2350,6 +2396,7 @@ paths:
         required: true
         schema:
           type: string
+          format: string
           example: EUR
         description: The currency code.
       - in: query
@@ -2379,6 +2426,7 @@ paths:
         required: true
         schema:
           type: string
+          format: string
           example: USD
         description: The currency code.
       - in: query
@@ -2408,6 +2456,7 @@ paths:
         required: true
         schema:
           type: string
+          format: string
           example: USD
         description: The currency code.
       - in: query
@@ -2424,6 +2473,7 @@ paths:
         required: false
         schema:
           type: string
+          format: date
           example: 2018-09-17
       - in: query
         name: end_date
@@ -2432,6 +2482,7 @@ paths:
         required: false
         schema:
           type: string
+          format: date
           example: 2018-12-31
       - in: query
         name: type
@@ -2439,6 +2490,7 @@ paths:
         required: false
         schema:
           type: string
+          format: string
           enum:
           - all
           - withdrawal
@@ -2461,6 +2513,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/TransactionArray'
+  
   
   /api/v1/import/list:
     get:
@@ -2497,6 +2550,7 @@ paths:
         required: true
         schema:
           type: string
+          format: string
           example: x2Akaijm2
         description: The job key of an import job.
       responses:
@@ -2522,6 +2576,7 @@ paths:
         required: true
         schema:
           type: string
+          format: string
           example: abcde
         description: The key of the import job
       - in: query
@@ -2538,6 +2593,7 @@ paths:
         required: false
         schema:
           type: string
+          format: date
           example: 2018-09-17
       - in: query
         name: end
@@ -2546,6 +2602,7 @@ paths:
         required: false
         schema:
           type: string
+          format:  date
           example: 2018-09-17
       - in: query
         name: type
@@ -2553,6 +2610,7 @@ paths:
         required: false
         schema:
           type: string
+          format: date
           enum:
           - all
           - withdrawal
@@ -2585,6 +2643,7 @@ paths:
   # set config value for job
   # read config value for job
   # list of config values for job that need filling in
+  
   /api/v1/link_types:
     get:
       tags:
@@ -2754,6 +2813,7 @@ paths:
         required: false
         schema:
           type: string
+          format: date
           example: 2018-09-17
       - in: query
         name: end
@@ -2762,6 +2822,7 @@ paths:
         required: false
         schema:
           type: string
+          format: date
           example: 2018-09-17
       - in: query
         name: type
@@ -2769,6 +2830,7 @@ paths:
         required: false
         schema:
           type: string
+          format: string
           enum:
           - all
           - withdrawal
@@ -2902,6 +2964,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ValidationError'
+  
   /api/v1/piggy_banks:
     get:
       summary: List all piggy banks.
@@ -3095,6 +3158,7 @@ paths:
         required: true
         schema:
           type: string
+          format: string
           example: currencyPreference
         description: The name of the preference.
       tags:
@@ -3116,6 +3180,7 @@ paths:
         required: true
         schema:
           type: string
+          format: string
           example: currencyPreference
         description: The name of the preference. Will always overwrite. Will be created if it does not exist.
       tags:
@@ -3143,6 +3208,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ValidationError'
+  
   /api/v1/recurrences:
     get:
       summary: List all recurring transactions.
@@ -3303,6 +3369,7 @@ paths:
         required: false
         schema:
           type: string
+          format: date
           example: 2018-09-17
       - in: query
         name: end
@@ -3311,6 +3378,7 @@ paths:
         required: false
         schema:
           type: string
+          format: date
           example: 2018-09-17
       - in: query
         name: type
@@ -3318,6 +3386,7 @@ paths:
         required: false
         schema:
           type: string
+          format: string
           enum:
           - all
           - withdrawal
@@ -3514,6 +3583,7 @@ paths:
         required: false
         schema:
           type: string
+          format: date
           example: 2018-09-17
       - in: query
         name: end
@@ -3522,6 +3592,7 @@ paths:
         required: false
         schema:
           type: string
+          format: date
           example: 2018-09-17
       - in: query
         name: search_limit
@@ -3546,6 +3617,7 @@ paths:
         example: "1,2,3"
         schema:
           type: string
+          format: string
       responses:
         '200':
           description: A list of transactions that would be changed by any of the rules of the rule group. No changes will be made.
@@ -3624,9 +3696,11 @@ paths:
         example: "1,2,3"
         schema:
           type: string
+          format: string
       responses:
         '204':
           description: "The rules in the group are executed. Due to the setup of this function (asynchronous job execution) the result cannot be displayed."
+  
   /api/v1/rules:
     get:
       summary: List all rules.
@@ -3787,6 +3861,7 @@ paths:
         required: false
         schema:
           type: string
+          format: date
           example: 2018-09-17
       - in: query
         name: end
@@ -3795,6 +3870,7 @@ paths:
         required: false
         schema:
           type: string
+          format: date
           example: 2018-09-17
       - in: query
         name: search_limit
@@ -3819,6 +3895,7 @@ paths:
         example: "1,2,3"
         schema:
           type: string
+          format: string
       responses:
         '200':
           description: A list of transactions that would be changed by the rule. No changes will be made.
@@ -3868,9 +3945,11 @@ paths:
         example: "1,2,3"
         schema:
           type: string
+          format: string
       responses:
         '204':
           description: "The rules in the group are executed. Due to the setup of this function (asynchronous job execution) the result cannot be displayed."
+  
   # search
   # limit to specific objects
   # mixed result list?
@@ -4008,6 +4087,7 @@ paths:
         required: true
         schema:
           type: string
+          format: string
           example: groceries
       - in: query
         name: page
@@ -4039,6 +4119,7 @@ paths:
         required: true
         schema:
           type: string
+          format: string
           example: groceries
       requestBody:
         content:
@@ -4076,6 +4157,7 @@ paths:
         required: true
         schema:
           type: string
+          format: string
           example: groceries
       responses:
         '204':
@@ -4097,6 +4179,7 @@ paths:
         required: true
         schema:
           type: string
+          format: string
           example: groceries
       - in: query
         name: page
@@ -4112,6 +4195,7 @@ paths:
         required: false
         schema:
           type: string
+          format: date
           example: 2018-09-17
       - in: query
         name: end
@@ -4120,6 +4204,7 @@ paths:
         required: false
         schema:
           type: string
+          format: date
           example: 2018-09-17
       - in: query
         name: type
@@ -4127,6 +4212,7 @@ paths:
         required: false
         schema:
           type: string
+          format: string
           enum:
           - all
           - withdrawal
@@ -4149,6 +4235,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/TransactionArray'
+  
   /api/v1/transactions:
     get:
       summary: |
@@ -4172,6 +4259,7 @@ paths:
         required: false
         schema:
           type: string
+          format: date
           example: 2018-09-17
       - in: query
         name: end
@@ -4180,6 +4268,7 @@ paths:
         required: false
         schema:
           type: string
+          format: date
           example: 2018-09-17
       - in: query
         name: type
@@ -4187,6 +4276,7 @@ paths:
         required: false
         schema:
           type: string
+          format: string
           enum:
           - all
           - withdrawal
@@ -4380,6 +4470,7 @@ paths:
                 $ref: '#/components/schemas/PiggyBankEventArray'
         '404':
           description: No such transaction.
+  
   /api/v1/users:
     get:
       summary: List all users.
@@ -4684,13 +4775,6 @@ components:
         - name
         - type
         - account_role
-        - cc_type
-        - cc_monthly_payment_date
-        - liability_type
-        - liability_amount
-        - liability_start_date
-        - interest
-        - interest_period
       properties:
         name:
           type: string
@@ -4709,7 +4793,7 @@ components:
           - liabilities
         iban:
           type: string
-          format: string
+          format: iban
           example: "GB98MIDL07009312345678"
         bic:
           type: string
@@ -4809,6 +4893,7 @@ components:
           type: string
           format: string
           example: "Some example notes"
+    
     Attachment:
       type: object
       required:
@@ -4868,7 +4953,7 @@ components:
               example: "https://demo.firefly-iii.org/api/v1/attachments/191/download"
             title:
               type: string
-              format: title
+              format: string
               example: "Example PDF file"
             notes:
               type: string
@@ -6080,12 +6165,15 @@ components:
           properties:
             rel:
               type: string
+              format: string
               example: "self"
             uri:
               type: string
+              format: string
               example: "/OBJECTS/1"
         self:
           type: string
+          format: uri
           example: "https://demo.firefly-iii.org/api/v1/OBJECTS/1"
     
     PageLink:
@@ -6093,13 +6181,17 @@ components:
       properties:
         self:
           type: string
+          format: uri
           example: "https://demo.firefly-iii.org/api/v1/OBJECT?&page=4"
         first:
           type: string
+          format: uri
           example: "https://demo.firefly-iii.org/api/v1/OBJECT?&page=1"
         last:
           type: string
+          format: uri
           example: "https://demo.firefly-iii.org/api/v1/OBJECT?&page=12"
+    
     PiggyBank:
       type: object
       properties:
@@ -6504,6 +6596,7 @@ components:
           description: "An array of tags (so the exploded version of the name-field). Will only be set when the name is 'tags'."
           items:
             type: string
+            format: string
         piggy_bank_id:
           type: integer
           format: int32
@@ -6514,6 +6607,7 @@ components:
           format: string
           example: "New couch"
           description: "Piggy bank name. Will only be set when the name is 'piggy_bank_id'."
+    
     RecurrenceRepetition:
       type: object
       properties:
@@ -7364,6 +7458,7 @@ components:
     
     
     SystemInfo:
+      type: object
       required:
         - data
       properties:
@@ -7377,20 +7472,26 @@ components:
           properties:
             version:
               type: string
+              format: semver
               example: 4.8.0
             api_version:
               type: string
+              format: semver
               example: '0.10.0'
             php_version:
               type: string
+              format: semver
               example: "7.2"
             os:
               type: string
+              format: string
               example: Linux vagrant-ubuntu-trusty-64
             driver:
               type: string
+              format: string
               example: mysql
           type: object
+    
     Tag:
       title: A single tag
       type: object
@@ -7816,10 +7917,12 @@ components:
                   description: SEPA External Purpose indicator
                 sepa_ci:
                   type: string
+                  format: string
                   nullable: true
                   description: SEPA Creditor Identifier
                 sepa_batch_id:
                   type: string
+                  format: string
                   nullable: true
                   description: SEPA Batch ID
                 interest_date:
@@ -7848,6 +7951,7 @@ components:
                   nullable: true
         links:
           $ref: '#/components/schemas/ObjectLink'
+    
     TransactionArray:
       type: object
       properties:
@@ -8122,10 +8226,12 @@ components:
           description: SEPA External Purpose indicator
         sepa_ci:
           type: string
+          format: string
           nullable: true
           description: SEPA Creditor Identifier
         sepa_batch_id:
           type: string
+          format: string
           nullable: true
           description: SEPA Batch ID
         interest_date:
@@ -8170,6 +8276,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TransactionSplitUpdate'
+    
     User:
       title: A single user
       type: object
@@ -8241,6 +8348,7 @@ components:
       properties:
         email:
           type: string
+          format: email
           example: "thegrumpydictator@gmail.com"
           description: The new users email address.
         blocked:
@@ -8249,6 +8357,7 @@ components:
           description: Creates a new users who is blocked immediately.
         blocked_code:
           type: string
+          format: string
           nullable: true
           example: "email_changed"
           description: If you say the user must be blocked, this will be the reason code.
@@ -8256,12 +8365,14 @@ components:
           - email_changed
         role:
           type: string
+          format: string
           nullable: true
           example: "owner"
           description: Role for the new user. Can be empty or omitted.
           enum:
           - owner
           - demo
+    
     ValidationError:
       type: object
       required:
@@ -8269,6 +8380,7 @@ components:
       properties:
         message:
           type: string
+          format: string
           example: "The given data was invalid."
         errors:
           type: object
@@ -8277,10 +8389,12 @@ components:
               type: array
               items:
                 type: string
+                format: string
             field2:
               type: array
               items:
                 type: string
+                format: string
     
   securitySchemes:
     firefly_iii_auth:
