@@ -443,7 +443,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ValidationError'
-  /api/v1/attachment/{id}:
+  /api/v1/attachments/{id}:
     get:
       summary: Get a single attachment.
       description: |
@@ -5401,6 +5401,11 @@ components:
     BudgetSpent:
       type: object
       properties:
+        sum:
+          type: number
+          format: double
+          example: -1929.11
+          description: The amount spent.
         currency_id:
           type: integer
           format: int32
@@ -5418,11 +5423,7 @@ components:
           format: int32
           example: 2
           description: Number of decimals supported by the currency
-        amount:
-          type: number
-          format: double
-          example: -1929.11
-          description: The amount spent.
+    
     Category:
       type: object
       required:
