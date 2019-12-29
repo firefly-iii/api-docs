@@ -129,33 +129,7 @@ paths:
         description: Optional filter on the account type(s) returned
         required: false
         schema:
-          type: string
-          format: string
-          enum:
-            - all
-            - asset
-            - cash
-            - expense
-            - revenue
-            - special
-            - hidden
-            - liability
-            - liabilities
-            - Default account
-            - Cash account
-            - Asset account
-            - Expense account
-            - Revenue account
-            - Initial balance account
-            - Beneficiary account
-            - Import account
-            - Reconciliation account
-            - Loan
-            - Debt
-            - Mortgage
-            - loan
-            - debt
-            - mortgage
+          $ref: '#/components/schemas/AccountTypeFilter'
       responses:
         '200':
           description: A list of accounts
@@ -365,23 +339,7 @@ paths:
         description: Optional filter on the transaction type(s) returned.
         required: false
         schema:
-          type: string
-          format: string
-          enum:
-          - all
-          - withdrawal
-          - withdrawals
-          - expense
-          - deposit
-          - deposits
-          - income
-          - transfer
-          - transfers
-          - opening_balance
-          - reconciliation
-          - special
-          - specials
-          - default
+          $ref: '#/components/schemas/TransactionTypeFilter'
       responses:
         '200':
           description: A list of transactions
@@ -989,23 +947,7 @@ paths:
         description: Optional filter on the transaction type(s) returned
         required: false
         schema:
-          type: string
-          format: string
-          enum:
-          - all
-          - withdrawal
-          - withdrawals
-          - expense
-          - deposit
-          - deposits
-          - income
-          - transfer
-          - transfers
-          - opening_balance
-          - reconciliation
-          - special
-          - specials
-          - default
+          $ref: '#/components/schemas/TransactionTypeFilter'
       responses:
         '200':
           description: A list of transactions
@@ -1236,23 +1178,7 @@ paths:
         description: Optional filter on the transaction type(s) returned
         required: false
         schema:
-          type: string
-          format: string
-          enum:
-          - all
-          - withdrawal
-          - withdrawals
-          - expense
-          - deposit
-          - deposits
-          - income
-          - transfer
-          - transfers
-          - opening_balance
-          - reconciliation
-          - special
-          - specials
-          - default
+          $ref: '#/components/schemas/TransactionTypeFilter'
       responses:
         '200':
           description: A list of transactions.
@@ -1450,23 +1376,7 @@ paths:
         description: Optional filter on the transaction type(s) returned
         required: false
         schema:
-          type: string
-          format: string
-          enum:
-          - all
-          - withdrawal
-          - withdrawals
-          - expense
-          - deposit
-          - deposits
-          - income
-          - transfer
-          - transfers
-          - opening_balance
-          - reconciliation
-          - special
-          - specials
-          - default
+          $ref: '#/components/schemas/TransactionTypeFilter'
       responses:
         '200':
           description: A list of transactions.
@@ -1651,23 +1561,7 @@ paths:
         description: Optional filter on the transaction type(s) returned
         required: false
         schema:
-          type: string
-          format: string
-          enum:
-          - all
-          - withdrawal
-          - withdrawals
-          - expense
-          - deposit
-          - deposits
-          - income
-          - transfer
-          - transfers
-          - opening_balance
-          - reconciliation
-          - special
-          - specials
-          - default
+          $ref: '#/components/schemas/TransactionTypeFilter'
       responses:
         '200':
           description: A list of transactions.
@@ -2191,33 +2085,7 @@ paths:
         description: Optional filter on the account type(s) returned
         required: false
         schema:
-          type: string
-          format: string
-          enum:
-            - all
-            - asset
-            - cash
-            - expense
-            - revenue
-            - special
-            - hidden
-            - liability
-            - liabilities
-            - Default account
-            - Cash account
-            - Asset account
-            - Expense account
-            - Revenue account
-            - Initial balance account
-            - Beneficiary account
-            - Import account
-            - Reconciliation account
-            - Loan
-            - Debt
-            - Mortgage
-            - loan
-            - debt
-            - mortgage
+          $ref: '#/components/schemas/AccountTypeFilter'
       responses:
         '200':
           description: A list of accounts
@@ -2491,23 +2359,7 @@ paths:
         description: Optional filter on the transaction type(s) returned
         required: false
         schema:
-          type: string
-          format: string
-          enum:
-          - all
-          - withdrawal
-          - withdrawals
-          - expense
-          - deposit
-          - deposits
-          - income
-          - transfer
-          - transfers
-          - opening_balance
-          - reconciliation
-          - special
-          - specials
-          - default
+          $ref: '#/components/schemas/TransactionTypeFilter'
       responses:
         '200':
           description: A list of transactions.
@@ -2611,23 +2463,7 @@ paths:
         description: Optional filter on the transaction type(s) returned.
         required: false
         schema:
-          type: string
-          format: date
-          enum:
-          - all
-          - withdrawal
-          - withdrawals
-          - expense
-          - deposit
-          - deposits
-          - income
-          - transfer
-          - transfers
-          - opening_balance
-          - reconciliation
-          - special
-          - specials
-          - default
+          $ref: '#/components/schemas/TransactionTypeFilter'
       responses:
         '200':
           description: A list of transactions.
@@ -2831,23 +2667,7 @@ paths:
         description: Optional filter on the transaction type(s) returned.
         required: false
         schema:
-          type: string
-          format: string
-          enum:
-          - all
-          - withdrawal
-          - withdrawals
-          - expense
-          - deposit
-          - deposits
-          - income
-          - transfer
-          - transfers
-          - opening_balance
-          - reconciliation
-          - special
-          - specials
-          - default
+          $ref: '#/components/schemas/TransactionTypeFilter'
       responses:
         '200':
           description: A list of transactions
@@ -3411,23 +3231,7 @@ paths:
         description: Optional filter on the transaction type(s) returned
         required: false
         schema:
-          type: string
-          format: string
-          enum:
-          - all
-          - withdrawal
-          - withdrawals
-          - expense
-          - deposit
-          - deposits
-          - income
-          - transfer
-          - transfers
-          - opening_balance
-          - reconciliation
-          - special
-          - specials
-          - default
+          $ref: '#/components/schemas/TransactionTypeFilter'
       responses:
         '200':
           description: A list of transactions
@@ -4082,10 +3886,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Tag'
+              $ref: '#/components/schemas/TagModel'
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/Tag'
+              $ref: '#/components/schemas/TagModel'
         description: "JSON array or key=value pairs with the necessary tag information. See the model for the exact specifications."
         required: true
       responses:
@@ -4151,10 +3955,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Tag'
+              $ref: '#/components/schemas/TagModel'
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/Tag'
+              $ref: '#/components/schemas/TagModel'
         description: JSON array with updated tag information. See the model for the exact specifications.
         required: true
       responses:
@@ -4237,23 +4041,7 @@ paths:
         description: Optional filter on the transaction type(s) returned.
         required: false
         schema:
-          type: string
-          format: string
-          enum:
-          - all
-          - withdrawal
-          - withdrawals
-          - expense
-          - deposit
-          - deposits
-          - income
-          - transfer
-          - transfers
-          - opening_balance
-          - reconciliation
-          - special
-          - specials
-          - default
+          $ref: '#/components/schemas/TransactionTypeFilter'
       responses:
         '200':
           description: A list of transactions.
@@ -4301,23 +4089,7 @@ paths:
         description: Optional filter on the transaction type(s) returned.
         required: false
         schema:
-          type: string
-          format: string
-          enum:
-          - all
-          - withdrawal
-          - withdrawals
-          - expense
-          - deposit
-          - deposits
-          - income
-          - transfer
-          - transfers
-          - opening_balance
-          - reconciliation
-          - special
-          - specials
-          - default
+          $ref: '#/components/schemas/TransactionTypeFilter'
       responses:
         '200':
           description: A list of transactions.
@@ -4718,7 +4490,7 @@ components:
           example: 1000
         current_balance:
           type: number
-          format: number
+          format: double
           example: 152.34
           readOnly: true
         current_balance_date:
@@ -4851,6 +4623,48 @@ components:
         data:
           $ref: '#/components/schemas/AccountRead'
     
+    AccountTypeFilter:
+      type: string
+      enum:
+        - all
+        - asset
+        - cash
+        - expense
+        - revenue
+        - special
+        - hidden
+        - liability
+        - liabilities
+        - Default account
+        - Cash account
+        - Asset account
+        - Expense account
+        - Revenue account
+        - Initial balance account
+        - Beneficiary account
+        - Import account
+        - Reconciliation account
+        - Loan
+        - Debt
+        - Mortgage
+    AccountTypeProperty:
+      type: string
+      format: string
+      example: "Asset account"
+      readOnly: true
+      enum:
+        - Default account
+        - Cash account
+        - Asset account
+        - Expense account
+        - Revenue account
+        - Initial balance account
+        - Beneficiary account
+        - Import account
+        - Reconciliation account
+        - Loan
+        - Debt
+        - Mortgage
     Attachment:
       type: object
       required:
@@ -5084,7 +4898,7 @@ components:
           example: 123.45
           description: "The amount as a float."
         currency_id:
-          type: number
+          type: integer
           format: int32
           example: 5
           description: "The currency ID of the associated currency."
@@ -5598,7 +5412,7 @@ components:
           example: "Checking account"
           description: "This is the title of the current set. It can refer to an account, a budget or another object (by name)."
         currency_id:
-          type: number
+          type: integer
           format: int32
           example: 5
           description: "The currency ID of the currency associated to the data in the entries."
@@ -6599,23 +6413,7 @@ components:
           nullable: true
           readOnly: true
         source_type:
-          type: string
-          format: string
-          example: "Asset account"
-          readOnly: true
-          enum:
-            - Default account
-            - Cash account
-            - Asset account
-            - Expense account
-            - Revenue account
-            - Initial balance account
-            - Beneficiary account
-            - Import account
-            - Reconciliation account
-            - Loan
-            - Debt
-            - Mortgage
+          $ref: '#/components/schemas/AccountTypeProperty'
         destination_id:
           type: integer
           format: int32
@@ -6633,23 +6431,7 @@ components:
           nullable: true
           readOnly: true
         destination_type:
-          type: string
-          format: string
-          example: "Asset account"
-          readOnly: true
-          enum:
-            - Default account
-            - Cash account
-            - Asset account
-            - Expense account
-            - Revenue account
-            - Initial balance account
-            - Beneficiary account
-            - Import account
-            - Reconciliation account
-            - Loan
-            - Debt
-            - Mortgage
+          $ref: '#/components/schemas/AccountTypeProperty'
         tags:
           type: array
           nullable: true
@@ -6781,7 +6563,7 @@ components:
           - set_description
           - append_description
           - prepend_description
-          - aet_source_account
+          - set_source_account
           - set_destination_account
           - set_notes
           - append_notes
@@ -7030,7 +6812,51 @@ components:
               example: mysql
           type: object
     
-    Tag:
+    TagArray:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/TagRead'
+        meta:
+          $ref: '#/components/schemas/Meta'
+        links:
+          $ref: '#/components/schemas/PageLink'
+    TagCloud:
+      type: object
+      properties:
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/TagCloudTag'
+    
+    TagCloudTag:
+      title: A single tag cloud entry
+      type: object
+      properties:
+        tag:
+          type: string
+          format: string
+          example: "expensive"
+          description: The tag
+        id:
+          type: integer
+          format: int32
+          example: 2
+          description: "ID of the tag"
+        size:
+          type: number
+          format: double
+          example: 24.56
+          description: "The total amount of money related to this tag. There is no currency information available, and this is a basic sum of all amounts added together."
+        relative:
+          type: number
+          format: double
+          example: 0.345
+          description: "A number between 0 and 1. 1 is given to the largest tag in the tag cloud, and 0 to the smallest. The rest are given a number between 0 and 1, related to their size in comparison to the largest tag."
+    
+    TagModel:
       title: A single tag
       type: object
       required:
@@ -7080,50 +6906,6 @@ components:
           nullable: true
           description: "Zoom level for the map, if drawn. This to set the box right. Unfortunately this is a proprietary value because each map provider has different zoom levels."
     
-    TagArray:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/TagRead'
-        meta:
-          $ref: '#/components/schemas/Meta'
-        links:
-          $ref: '#/components/schemas/PageLink'
-    TagCloud:
-      type: object
-      properties:
-        tags:
-          type: array
-          items:
-            $ref: '#/components/schemas/TagCloudTag'
-    
-    TagCloudTag:
-      title: A single tag cloud entry
-      type: object
-      properties:
-        tag:
-          type: string
-          format: string
-          example: "expensive"
-          description: The tag
-        id:
-          type: integer
-          format: int32
-          example: 2
-          description: "ID of the tag"
-        size:
-          type: number
-          format: double
-          example: 24.56
-          description: "The total amount of money related to this tag. There is no currency information available, and this is a basic sum of all amounts added together."
-        relative:
-          type: number
-          format: double
-          example: 0.345
-          description: "A number between 0 and 1. 1 is given to the largest tag in the tag cloud, and 0 to the smallest. The rest are given a number between 0 and 1, related to their size in comparison to the largest tag."
-    
     TagRead:
       type: object
       properties:
@@ -7137,7 +6919,7 @@ components:
           format: int32
           example: 2
         attributes:
-          $ref: '#/components/schemas/Tag'
+          $ref: '#/components/schemas/TagModel'
         links:
           $ref: '#/components/schemas/ObjectLink'
     
@@ -7377,6 +7159,7 @@ components:
           type: number
           format: double
           example: 16.95
+          nullable: true
           description: The amount in a foreign currency.
         foreign_currency_id:
           type: integer
@@ -7406,6 +7189,7 @@ components:
         budget_id:
           type: integer
           format: int32
+          nullable: true
           example: 4
           description: The budget ID for this transaction.
         budget_name:
@@ -7443,23 +7227,7 @@ components:
           nullable: true
           readOnly: true
         source_type:
-          type: string
-          format: string
-          example: "Asset account"
-          readOnly: true
-          enum:
-            - Default account
-            - Cash account
-            - Asset account
-            - Expense account
-            - Revenue account
-            - Initial balance account
-            - Beneficiary account
-            - Import account
-            - Reconciliation account
-            - Loan
-            - Debt
-            - Mortgage
+          $ref: '#/components/schemas/AccountTypeProperty'
         destination_id:
           type: integer
           format: int32
@@ -7477,23 +7245,7 @@ components:
           nullable: true
           readOnly: true
         destination_type:
-          type: string
-          format: string
-          example: "Asset account"
-          readOnly: true
-          enum:
-            - Default account
-            - Cash account
-            - Asset account
-            - Expense account
-            - Revenue account
-            - Initial balance account
-            - Beneficiary account
-            - Import account
-            - Reconciliation account
-            - Loan
-            - Debt
-            - Mortgage
+          $ref: '#/components/schemas/AccountTypeProperty'
         reconciled:
           type: boolean
           format: boolean
@@ -7632,6 +7384,24 @@ components:
           type: string
           format: date
           nullable: true
+    
+    TransactionTypeFilter:
+      type: string
+      enum:
+        - all
+        - withdrawal
+        - withdrawals
+        - expense
+        - deposit
+        - deposits
+        - income
+        - transfer
+        - transfers
+        - opening_balance
+        - reconciliation
+        - special
+        - specials
+        - default
     
     User:
       title: A single user
