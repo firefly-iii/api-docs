@@ -7101,13 +7101,12 @@ components:
           type: string
           format: string
           example:  "withdrawal"
-          description: Type of transaction. expense cannot be written.
+          description: Type of transaction.
           enum:
             - withdrawal
             - expense
             - deposit
             - transfer
-            - "opening-balance"
             - reconciliation
         date:
           type: string
@@ -7128,16 +7127,19 @@ components:
           type: integer
           format: int32
           example: 0
+          nullable: true
           description: "Order of this entry in the list of transactions."
         currency_id:
           type: integer
           format: int32
           example: 12
+          nullable: true
           description: Currency ID. Default is the source account's currency, or the user's default currency. Can be used instead of currency_code.
         currency_code:
           type: string
           format: string
           example: EUR
+          nullable: true
           description: Currency code. Default is the source account's currency, or the user's default currency. Can be used instead of currency_id.
         currency_symbol:
           type: string
@@ -7214,11 +7216,13 @@ components:
           type: integer
           format: int32
           example: 2
+          nullable: true
           description: "ID of the source account. For a withdrawal or a transfer, this must always be an asset account. For deposits, this must be a revenue account."
         source_name:
           type: string
           format: string
           example: "Checking account"
+          nullable: true
           description: "Name of the source account. For a withdrawal or a transfer, this must always be an asset account. For deposits, this must be a revenue account. Can be used instead of the source_id. If the transaction is a deposit, the source_name can be filled in freely: the account will be created based on the name."
         source_iban:
           type: string
@@ -7232,11 +7236,13 @@ components:
           type: integer
           format: int32
           example: 2
+          nullable: true
           description: "ID of the destination account. For a deposit or a transfer, this must always be an asset account. For withdrawals this must be an expense account."
         destination_name:
           type: string
           format: string
           example: "Buy and Large"
+          nullable: true
           description: "Name of the destination account. You can submit the name instead of the ID. For everything except transfers, the account will be auto-generated if unknown, so submitting a name is enough."
         destination_iban:
           type: string
