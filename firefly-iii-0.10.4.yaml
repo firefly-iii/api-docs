@@ -4611,8 +4611,8 @@ components:
           example: "accounts"
           description: "Immutable value"
         id:
-          type: integer
-          format: int32
+          type: string
+          format: string
           example: 2
         attributes:
           $ref: '#/components/schemas/Account'
@@ -4768,8 +4768,8 @@ components:
           example: "attachments"
           description: "Immutable value"
         id:
-          type: integer
-          format: int32
+          type: string
+          format: string
           example: 2
         attributes:
           $ref: '#/components/schemas/Attachment'
@@ -4862,8 +4862,8 @@ components:
           example: "available_budgets"
           description: "Immutable value"
         id:
-          type: integer
-          format: int32
+          type: string
+          format: string
           example: 2
         attributes:
           $ref: '#/components/schemas/AvailableBudget'
@@ -5067,8 +5067,8 @@ components:
           example: "bills"
           description: "Immutable value"
         id:
-          type: integer
-          format: int32
+          type: string
+          format: string
           example: 2
         attributes:
           $ref: '#/components/schemas/Bill'
@@ -5204,8 +5204,8 @@ components:
           example: "budget_limits"
           description: "Immutable value"
         id:
-          type: integer
-          format: int32
+          type: string
+          format: string
           example: 2
         attributes:
           $ref: '#/components/schemas/BudgetLimit'
@@ -5225,8 +5225,8 @@ components:
           example: "budgets"
           description: "Immutable value"
         id:
-          type: integer
-          format: int32
+          type: string
+          format: string
           example: 2
         attributes:
           $ref: '#/components/schemas/Budget'
@@ -5344,8 +5344,8 @@ components:
           example: "categories"
           description: "Immutable value"
         id:
-          type: integer
-          format: int32
+          type: string
+          format: string
           example: 2
         attributes:
           $ref: '#/components/schemas/Category'
@@ -5559,8 +5559,8 @@ components:
           example: "currencies"
           description: "Immutable value"
         id:
-          type: integer
-          format: int32
+          type: string
+          format: string
           example: 2
         attributes:
           $ref: '#/components/schemas/Currency'
@@ -5790,8 +5790,8 @@ components:
           example: "link_types"
           description: "Immutable value"
         id:
-          type: integer
-          format: int32
+          type: string
+          format: string
           example: 2
         attributes:
           $ref: '#/components/schemas/LinkType'
@@ -6033,8 +6033,8 @@ components:
           example: "piggy_bank_eventss"
           description: "Immutable value"
         id:
-          type: integer
-          format: int32
+          type: string
+          format: string
           example: 2
         attributes:
           $ref: '#/components/schemas/PiggyBank'
@@ -6050,8 +6050,8 @@ components:
           example: "piggy_banks"
           description: "Immutable value"
         id:
-          type: integer
-          format: int32
+          type: string
+          format: string
           example: 2
         attributes:
           $ref: '#/components/schemas/PiggyBank'
@@ -6110,8 +6110,8 @@ components:
           example: "preferences"
           description: "Immutable value"
         id:
-          type: integer
-          format: int32
+          type: string
+          format: string
           example: 2
         attributes:
           $ref: '#/components/schemas/Preference'
@@ -6221,8 +6221,8 @@ components:
           example: "recurrences"
           description: "Immutable value"
         id:
-          type: integer
-          format: int32
+          type: string
+          format: string
           example: 2
         attributes:
           $ref: '#/components/schemas/Recurrence'
@@ -6659,8 +6659,8 @@ components:
           example: "rules_group"
           description: "Immutable value"
         id:
-          type: integer
-          format: int32
+          type: string
+          format: string
           example: 2
         attributes:
           $ref: '#/components/schemas/RuleGroup'
@@ -6681,8 +6681,8 @@ components:
           example: "rules"
           description: "Immutable value"
         id:
-          type: integer
-          format: int32
+          type: string
+          format: string
           example: 2
         attributes:
           $ref: '#/components/schemas/Rule'
@@ -6915,8 +6915,8 @@ components:
           example: "tags"
           description: "Immutable value"
         id:
-          type: integer
-          format: int32
+          type: string
+          format: string
           example: 2
         attributes:
           $ref: '#/components/schemas/TagModel'
@@ -7037,8 +7037,8 @@ components:
           example: "transactionLinks"
           description: "Immutable value"
         id:
-          type: integer
-          format: int32
+          type: string
+          format: string
           example: 2
         attributes:
           $ref: '#/components/schemas/TransactionLink'
@@ -7060,8 +7060,8 @@ components:
           example: "transactions"
           description: "Immutable value"
         id:
-          type: integer
-          format: int32
+          type: string
+          format: string
           example: 2
         attributes:
           $ref: '#/components/schemas/Transaction'
@@ -7473,8 +7473,8 @@ components:
           example: "users"
           description: "Immutable value"
         id:
-          type: integer
-          format: int32
+          type: string
+          format: string
           example: 2
         attributes:
           $ref: '#/components/schemas/User'
