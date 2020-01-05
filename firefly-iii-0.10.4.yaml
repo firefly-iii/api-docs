@@ -4433,7 +4433,6 @@ components:
       required:
         - name
         - type
-        - account_role
       properties:
         created_at:
           type: string
