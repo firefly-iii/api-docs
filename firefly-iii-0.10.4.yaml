@@ -4593,6 +4593,9 @@ components:
     
     AccountArray:
       type: object
+      required:
+        - data
+        - meta
       properties:
         data:
           type: array
@@ -4751,6 +4754,9 @@ components:
     
     AttachmentArray:
       type: object
+      required:
+        - data
+        - meta
       properties:
         data:
           type: array
@@ -4845,6 +4851,9 @@ components:
     
     AvailableBudgetArray:
       type: object
+      required:
+        - data
+        - meta
       properties:
         data:
           type: array
@@ -5050,6 +5059,9 @@ components:
     
     BillArray:
       type: object
+      required:
+        - data
+        - meta
       properties:
         data:
           type: array
@@ -5115,6 +5127,9 @@ components:
     
     BudgetArray:
       type: object
+      required:
+        - data
+        - meta
       properties:
         data:
           type: array
@@ -5187,6 +5202,9 @@ components:
     
     BudgetLimitArray:
       type: object
+      required:
+        - data
+        - meta
       properties:
         data:
           type: array
@@ -5294,6 +5312,9 @@ components:
     
     CategoryArray:
       type: object
+      required:
+        - data
+        - meta
       properties:
         data:
           type: array
@@ -5540,6 +5561,10 @@ components:
     
     CurrencyArray:
       type: object
+      required:
+        - data
+        - meta
+        - links
       properties:
         data:
           type: array
@@ -5644,6 +5669,10 @@ components:
               description: The amount in the "to"-currency, if provided in the request.
     ExchangeRateArray:
       type: object
+      required:
+        - data
+        - meta
+        - links
       properties:
         data:
           type: array
@@ -5729,6 +5758,10 @@ components:
               description: JSON string with a list of errors.
     ImportJobArray:
       type: object
+      required:
+        - data
+        - meta
+        - links
       properties:
         data:
           type: array
@@ -5771,6 +5804,10 @@ components:
     
     LinkTypeArray:
       type: object
+      required:
+        - data
+        - meta
+        - links
       properties:
         data:
           type: array
@@ -5962,6 +5999,10 @@ components:
     
     PiggyBankArray:
       type: object
+      required:
+        - data
+        - meta
+        - links
       properties:
         data:
           type: array
@@ -6014,6 +6055,10 @@ components:
     
     PiggyBankEventArray:
       type: object
+      required:
+        - data
+        - meta
+        - links
       properties:
         data:
           type: array
@@ -6091,6 +6136,10 @@ components:
     
     PreferenceArray:
       type: object
+      required:
+        - data
+        - meta
+        - links
       properties:
         data:
           type: array
@@ -6202,6 +6251,10 @@ components:
     
     RecurrenceArray:
       type: object
+      required:
+        - data
+        - meta
+        - links
       properties:
         data:
           type: array
@@ -6596,6 +6649,10 @@ components:
     
     RuleArray:
       type: object
+      required:
+        - data
+        - meta
+        - links
       properties:
         data:
           type: array
@@ -6640,6 +6697,10 @@ components:
     
     RuleGroupArray:
       type: object
+      required:
+        - data
+        - meta
+        - links
       properties:
         data:
           type: array
@@ -6813,6 +6874,10 @@ components:
     
     TagArray:
       type: object
+      required:
+        - data
+        - meta
+        - links
       properties:
         data:
           type: array
@@ -6962,6 +7027,10 @@ components:
     
     TransactionArray:
       type: object
+      required:
+        - data
+        - meta
+        - links
       properties:
         data:
           type: array
@@ -7018,6 +7087,10 @@ components:
     
     TransactionLinkArray:
       type: object
+      required:
+        - data
+        - meta
+        - links
       properties:
         data:
           type: array
@@ -7454,6 +7527,10 @@ components:
     
     UserArray:
       type: object
+      required:
+        - data
+        - meta
+        - links
       properties:
         data:
           type: array
