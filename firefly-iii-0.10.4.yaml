@@ -4606,6 +4606,10 @@ components:
     
     AccountRead:
       type: object
+      required:
+        - type
+        - id
+        - attributes
       properties:
         type:
           type: string
@@ -4766,6 +4770,11 @@ components:
           $ref: '#/components/schemas/Meta'
     AttachmentRead:
       type: object
+      required:
+        - type
+        - id
+        - attributes
+        - links
       properties:
         type:
           type: string
@@ -4863,6 +4872,10 @@ components:
           $ref: '#/components/schemas/Meta'
     AvailableBudgetRead:
       type: object
+      required:
+        - type
+        - id
+        - attributes
       properties:
         type:
           type: string
@@ -5071,6 +5084,10 @@ components:
           $ref: '#/components/schemas/Meta'
     BillRead:
       type: object
+      required:
+        - type
+        - id
+        - attributes
       properties:
         type:
           type: string
@@ -5214,6 +5231,10 @@ components:
           $ref: '#/components/schemas/Meta'
     BudgetLimitRead:
       type: object
+      required:
+        - type
+        - id
+        - attributes
       properties:
         type:
           type: string
@@ -5235,6 +5256,10 @@ components:
     
     BudgetRead:
       type: object
+      required:
+        - type
+        - id
+        - attributes
       properties:
         type:
           type: string
@@ -5357,6 +5382,10 @@ components:
           description: The amount earned.
     CategoryRead:
       type: object
+      required:
+        - type
+        - id
+        - attributes
       properties:
         type:
           type: string
@@ -5576,6 +5605,10 @@ components:
           $ref: '#/components/schemas/PageLink'
     CurrencyRead:
       type: object
+      required:
+        - type
+        - id
+        - attributes
       properties:
         type:
           type: string
@@ -5819,6 +5852,11 @@ components:
           $ref: '#/components/schemas/PageLink'
     LinkTypeRead:
       type: object
+      required:
+        - type
+        - id
+        - attributes
+        - links
       properties:
         type:
           type: string
@@ -6070,6 +6108,11 @@ components:
           $ref: '#/components/schemas/PageLink'
     PiggyBankEventRead:
       type: object
+      required:
+        - type
+        - id
+        - attributes
+        - links
       properties:
         type:
           type: string
@@ -6087,6 +6130,11 @@ components:
     
     PiggyBankRead:
       type: object
+      required:
+        - type
+        - id
+        - attributes
+        - links
       properties:
         type:
           type: string
@@ -6151,6 +6199,10 @@ components:
           $ref: '#/components/schemas/PageLink'
     PreferenceRead:
       type: object
+      required:
+        - type
+        - id
+        - attributes
       properties:
         type:
           type: string
@@ -6266,6 +6318,11 @@ components:
           $ref: '#/components/schemas/PageLink'
     RecurrenceRead:
       type: object
+      required:
+        - type
+        - id
+        - attributes
+        - links
       properties:
         type:
           type: string
@@ -6712,6 +6769,11 @@ components:
           $ref: '#/components/schemas/PageLink'
     RuleGroupRead:
       type: object
+      required:
+        - type
+        - id
+        - attributes
+        - links
       properties:
         type:
           type: string
@@ -6734,6 +6796,11 @@ components:
           $ref: '#/components/schemas/RuleGroupRead'
     RuleRead:
       type: object
+      required:
+        - type
+        - id
+        - attributes
+        - links
       properties:
         type:
           type: string
@@ -6972,6 +7039,11 @@ components:
     
     TagRead:
       type: object
+      required:
+        - type
+        - id
+        - attributes
+        - links
       properties:
         type:
           type: string
@@ -7102,6 +7174,11 @@ components:
           $ref: '#/components/schemas/PageLink'
     TransactionLinkRead:
       type: object
+      required:
+        - type
+        - id
+        - attributes
+        - links
       properties:
         type:
           type: string
@@ -7125,6 +7202,11 @@ components:
     
     TransactionRead:
       type: object
+      required:
+        - type
+        - id
+        - attributes
+        - links
       properties:
         type:
           type: string
@@ -7465,6 +7547,7 @@ components:
     
     TransactionTypeFilter:
       type: string
+      format: string
       enum:
         - all
         - withdrawal
@@ -7542,6 +7625,11 @@ components:
           $ref: '#/components/schemas/PageLink'
     UserRead:
       type: object
+      required:
+        - type
+        - id
+        - attributes
+        - links
       properties:
         type:
           type: string
