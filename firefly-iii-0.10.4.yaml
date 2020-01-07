@@ -4433,7 +4433,6 @@ components:
       required:
         - name
         - type
-        - account_role
       properties:
         created_at:
           type: string
@@ -4594,6 +4593,9 @@ components:
     
     AccountArray:
       type: object
+      required:
+        - data
+        - meta
       properties:
         data:
           type: array
@@ -4604,6 +4606,10 @@ components:
     
     AccountRead:
       type: object
+      required:
+        - type
+        - id
+        - attributes
       properties:
         type:
           type: string
@@ -4619,6 +4625,8 @@ components:
     
     AccountSingle:
       type: object
+      required:
+        - data
       properties:
         data:
           $ref: '#/components/schemas/AccountRead'
@@ -4752,6 +4760,9 @@ components:
     
     AttachmentArray:
       type: object
+      required:
+        - data
+        - meta
       properties:
         data:
           type: array
@@ -4759,8 +4770,14 @@ components:
             $ref: '#/components/schemas/AttachmentRead'
         meta:
           $ref: '#/components/schemas/Meta'
+    
     AttachmentRead:
       type: object
+      required:
+        - type
+        - id
+        - attributes
+        - links
       properties:
         type:
           type: string
@@ -4778,6 +4795,8 @@ components:
     
     AttachmentSingle:
       type: object
+      required:
+        - data
       properties:
         data:
           $ref: '#/components/schemas/AttachmentRead'
@@ -4846,6 +4865,9 @@ components:
     
     AvailableBudgetArray:
       type: object
+      required:
+        - data
+        - meta
       properties:
         data:
           type: array
@@ -4853,8 +4875,13 @@ components:
             $ref: '#/components/schemas/AvailableBudgetRead'
         meta:
           $ref: '#/components/schemas/Meta'
+    
     AvailableBudgetRead:
       type: object
+      required:
+        - type
+        - id
+        - attributes
       properties:
         type:
           type: string
@@ -4870,6 +4897,8 @@ components:
     
     AvailableBudgetSingle:
       type: object
+      required:
+        - data
       properties:
         data:
           $ref: '#/components/schemas/AvailableBudgetRead'
@@ -5051,6 +5080,9 @@ components:
     
     BillArray:
       type: object
+      required:
+        - data
+        - meta
       properties:
         data:
           type: array
@@ -5058,8 +5090,13 @@ components:
             $ref: '#/components/schemas/BillRead'
         meta:
           $ref: '#/components/schemas/Meta'
+    
     BillRead:
       type: object
+      required:
+        - type
+        - id
+        - attributes
       properties:
         type:
           type: string
@@ -5075,6 +5112,8 @@ components:
     
     BillSingle:
       type: object
+      required:
+        - data
       properties:
         data:
           $ref: '#/components/schemas/BillRead'
@@ -5116,6 +5155,9 @@ components:
     
     BudgetArray:
       type: object
+      required:
+        - data
+        - meta
       properties:
         data:
           type: array
@@ -5123,6 +5165,7 @@ components:
             $ref: '#/components/schemas/BudgetRead'
         meta:
           $ref: '#/components/schemas/Meta'
+    
     BudgetLimit:
       type: object
       required:
@@ -5188,6 +5231,9 @@ components:
     
     BudgetLimitArray:
       type: object
+      required:
+        - data
+        - meta
       properties:
         data:
           type: array
@@ -5195,8 +5241,13 @@ components:
             $ref: '#/components/schemas/BudgetLimitRead'
         meta:
           $ref: '#/components/schemas/Meta'
+    
     BudgetLimitRead:
       type: object
+      required:
+        - type
+        - id
+        - attributes
       properties:
         type:
           type: string
@@ -5212,12 +5263,18 @@ components:
     
     BudgetLimitSingle:
       type: object
+      required:
+        - data
       properties:
         data:
           $ref: '#/components/schemas/BudgetLimitRead'
     
     BudgetRead:
       type: object
+      required:
+        - type
+        - id
+        - attributes
       properties:
         type:
           type: string
@@ -5233,6 +5290,8 @@ components:
     
     BudgetSingle:
       type: object
+      required:
+        - data
       properties:
         data:
           $ref: '#/components/schemas/BudgetRead'
@@ -5295,6 +5354,9 @@ components:
     
     CategoryArray:
       type: object
+      required:
+        - data
+        - meta
       properties:
         data:
           type: array
@@ -5302,6 +5364,7 @@ components:
             $ref: '#/components/schemas/CategoryRead'
         meta:
           $ref: '#/components/schemas/Meta'
+    
     CategoryEarned:
       type: object
       properties:
@@ -5337,6 +5400,10 @@ components:
           description: The amount earned.
     CategoryRead:
       type: object
+      required:
+        - type
+        - id
+        - attributes
       properties:
         type:
           type: string
@@ -5352,6 +5419,8 @@ components:
     
     CategorySingle:
       type: object
+      required:
+        - data
       properties:
         data:
           $ref: '#/components/schemas/CategoryRead'
@@ -5541,6 +5610,10 @@ components:
     
     CurrencyArray:
       type: object
+      required:
+        - data
+        - meta
+        - links
       properties:
         data:
           type: array
@@ -5550,8 +5623,13 @@ components:
           $ref: '#/components/schemas/Meta'
         links:
           $ref: '#/components/schemas/PageLink'
+    
     CurrencyRead:
       type: object
+      required:
+        - type
+        - id
+        - attributes
       properties:
         type:
           type: string
@@ -5567,6 +5645,8 @@ components:
     
     CurrencySingle:
       type: object
+      required:
+        - data
       properties:
         data:
           $ref: '#/components/schemas/CurrencyRead'
@@ -5645,6 +5725,10 @@ components:
               description: The amount in the "to"-currency, if provided in the request.
     ExchangeRateArray:
       type: object
+      required:
+        - data
+        - meta
+        - links
       properties:
         data:
           type: array
@@ -5654,6 +5738,7 @@ components:
           $ref: '#/components/schemas/Meta'
         links:
           $ref: '#/components/schemas/PageLink'
+    
     ImportJob:
       type: object
       properties:
@@ -5730,6 +5815,10 @@ components:
               description: JSON string with a list of errors.
     ImportJobArray:
       type: object
+      required:
+        - data
+        - meta
+        - links
       properties:
         data:
           type: array
@@ -5739,8 +5828,11 @@ components:
           $ref: '#/components/schemas/Meta'
         links:
           $ref: '#/components/schemas/PageLink'
+    
     ImportJobSingle:
       type: object
+      required:
+        - data
       properties:
         data:
           $ref: '#/components/schemas/ImportJob'
@@ -5772,6 +5864,10 @@ components:
     
     LinkTypeArray:
       type: object
+      required:
+        - data
+        - meta
+        - links
       properties:
         data:
           type: array
@@ -5781,8 +5877,14 @@ components:
           $ref: '#/components/schemas/Meta'
         links:
           $ref: '#/components/schemas/PageLink'
+    
     LinkTypeRead:
       type: object
+      required:
+        - type
+        - id
+        - attributes
+        - links
       properties:
         type:
           type: string
@@ -5800,6 +5902,8 @@ components:
     
     LinkTypeSingle:
       type: object
+      required:
+        - data
       properties:
         data:
           $ref: '#/components/schemas/LinkTypeRead'
@@ -5963,6 +6067,10 @@ components:
     
     PiggyBankArray:
       type: object
+      required:
+        - data
+        - meta
+        - links
       properties:
         data:
           type: array
@@ -5972,6 +6080,7 @@ components:
           $ref: '#/components/schemas/Meta'
         links:
           $ref: '#/components/schemas/PageLink'
+    
     PiggyBankEvent:
       type: object
       properties:
@@ -6015,6 +6124,10 @@ components:
     
     PiggyBankEventArray:
       type: object
+      required:
+        - data
+        - meta
+        - links
       properties:
         data:
           type: array
@@ -6024,8 +6137,14 @@ components:
           $ref: '#/components/schemas/Meta'
         links:
           $ref: '#/components/schemas/PageLink'
+    
     PiggyBankEventRead:
       type: object
+      required:
+        - type
+        - id
+        - attributes
+        - links
       properties:
         type:
           type: string
@@ -6043,6 +6162,11 @@ components:
     
     PiggyBankRead:
       type: object
+      required:
+        - type
+        - id
+        - attributes
+        - links
       properties:
         type:
           type: string
@@ -6060,6 +6184,8 @@ components:
     
     PiggyBankSingle:
       type: object
+      required:
+        - data
       properties:
         data:
           $ref: '#/components/schemas/PiggyBankRead'
@@ -6092,6 +6218,10 @@ components:
     
     PreferenceArray:
       type: object
+      required:
+        - data
+        - meta
+        - links
       properties:
         data:
           type: array
@@ -6101,8 +6231,13 @@ components:
           $ref: '#/components/schemas/Meta'
         links:
           $ref: '#/components/schemas/PageLink'
+    
     PreferenceRead:
       type: object
+      required:
+        - type
+        - id
+        - attributes
       properties:
         type:
           type: string
@@ -6118,6 +6253,8 @@ components:
     
     PreferenceSingle:
       type: object
+      required:
+        - data
       properties:
         data:
           $ref: '#/components/schemas/PreferenceRead'
@@ -6203,6 +6340,10 @@ components:
     
     RecurrenceArray:
       type: object
+      required:
+        - data
+        - meta
+        - links
       properties:
         data:
           type: array
@@ -6212,8 +6353,14 @@ components:
           $ref: '#/components/schemas/Meta'
         links:
           $ref: '#/components/schemas/PageLink'
+    
     RecurrenceRead:
       type: object
+      required:
+        - type
+        - id
+        - attributes
+        - links
       properties:
         type:
           type: string
@@ -6303,6 +6450,8 @@ components:
     
     RecurrenceSingle:
       type: object
+      required:
+        - data
       properties:
         data:
           $ref: '#/components/schemas/RecurrenceRead'
@@ -6597,6 +6746,10 @@ components:
     
     RuleArray:
       type: object
+      required:
+        - data
+        - meta
+        - links
       properties:
         data:
           type: array
@@ -6606,6 +6759,7 @@ components:
           $ref: '#/components/schemas/Meta'
         links:
           $ref: '#/components/schemas/PageLink'
+    
     RuleGroup:
       type: object
       required:
@@ -6641,6 +6795,10 @@ components:
     
     RuleGroupArray:
       type: object
+      required:
+        - data
+        - meta
+        - links
       properties:
         data:
           type: array
@@ -6650,8 +6808,14 @@ components:
           $ref: '#/components/schemas/Meta'
         links:
           $ref: '#/components/schemas/PageLink'
+    
     RuleGroupRead:
       type: object
+      required:
+        - type
+        - id
+        - attributes
+        - links
       properties:
         type:
           type: string
@@ -6669,11 +6833,19 @@ components:
     
     RuleGroupSingle:
       type: object
+      required:
+        - data
       properties:
         data:
           $ref: '#/components/schemas/RuleGroupRead'
+    
     RuleRead:
       type: object
+      required:
+        - type
+        - id
+        - attributes
+        - links
       properties:
         type:
           type: string
@@ -6691,6 +6863,8 @@ components:
     
     RuleSingle:
       type: object
+      required:
+        - data
       properties:
         data:
           $ref: '#/components/schemas/RuleRead'
@@ -6814,6 +6988,10 @@ components:
     
     TagArray:
       type: object
+      required:
+        - data
+        - meta
+        - links
       properties:
         data:
           type: array
@@ -6823,6 +7001,7 @@ components:
           $ref: '#/components/schemas/Meta'
         links:
           $ref: '#/components/schemas/PageLink'
+    
     TagCloud:
       type: object
       properties:
@@ -6908,6 +7087,11 @@ components:
     
     TagRead:
       type: object
+      required:
+        - type
+        - id
+        - attributes
+        - links
       properties:
         type:
           type: string
@@ -6925,6 +7109,8 @@ components:
     
     TagSingle:
       type: object
+      required:
+        - data
       properties:
         data:
           $ref: '#/components/schemas/TagRead'
@@ -6963,6 +7149,10 @@ components:
     
     TransactionArray:
       type: object
+      required:
+        - data
+        - meta
+        - links
       properties:
         data:
           type: array
@@ -6972,6 +7162,7 @@ components:
           $ref: '#/components/schemas/Meta'
         links:
           $ref: '#/components/schemas/PageLink'
+    
     TransactionLink:
       type: object
       required:
@@ -7019,6 +7210,10 @@ components:
     
     TransactionLinkArray:
       type: object
+      required:
+        - data
+        - meta
+        - links
       properties:
         data:
           type: array
@@ -7028,8 +7223,14 @@ components:
           $ref: '#/components/schemas/Meta'
         links:
           $ref: '#/components/schemas/PageLink'
+    
     TransactionLinkRead:
       type: object
+      required:
+        - type
+        - id
+        - attributes
+        - links
       properties:
         type:
           type: string
@@ -7047,12 +7248,19 @@ components:
     
     TransactionLinkSingle:
       type: object
+      required:
+        - data
       properties:
         data:
           $ref: '#/components/schemas/TransactionLinkRead'
     
     TransactionRead:
       type: object
+      required:
+        - type
+        - id
+        - attributes
+        - links
       properties:
         type:
           type: string
@@ -7070,6 +7278,8 @@ components:
     
     TransactionSingle:
       type: object
+      required:
+        - data
       properties:
         data:
           $ref: '#/components/schemas/TransactionRead'
@@ -7455,6 +7665,10 @@ components:
     
     UserArray:
       type: object
+      required:
+        - data
+        - meta
+        - links
       properties:
         data:
           type: array
@@ -7464,8 +7678,14 @@ components:
           $ref: '#/components/schemas/Meta'
         links:
           $ref: '#/components/schemas/PageLink'
+    
     UserRead:
       type: object
+      required:
+        - type
+        - id
+        - attributes
+        - links
       properties:
         type:
           type: string
@@ -7483,6 +7703,8 @@ components:
     
     UserSingle:
       type: object
+      required:
+        - data
       properties:
         data:
           $ref: '#/components/schemas/UserRead'
