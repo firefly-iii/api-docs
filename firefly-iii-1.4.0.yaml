@@ -35,9 +35,6 @@ tags:
   description: This endpoint delivers optimised data for charts and graphics.
 - name: categories
   description: Manage all the user&#039;s categories
-- name: currency_exchange_rates
-  description: Manage system currency exchange rates, add your own rates or read them
-    from providers configured in Firefly III
 - name: configuration
   description: Manage the global Firefly III configuration
 - name: currencies
@@ -1476,7 +1473,7 @@ paths:
           example: 1
         description: The ID of the requested budget.
       - in: query
-        name: start_date
+        name: start
         description: |
           A date formatted YYYY-MM-DD, to get info on how much the user has spent.
         required: false
@@ -1485,7 +1482,7 @@ paths:
           format: date
           example: 2018-09-17
       - in: query
-        name: end_date
+        name: end
         description: |
           A date formatted YYYY-MM-DD, to get info on how much the user has spent.
         required: false
@@ -2087,53 +2084,6 @@ paths:
         '404':
           description: No such category.
   
-  /api/v1/cer:
-    get:
-      summary: Get an exchange rate.
-      description: Get an exchange rate. If Firefly III doesn't know the rate it will set the rate to 1.0.
-      operationId: getExchangeRate
-      tags:
-        - currency_exchange_rates
-      parameters:
-      - in: query
-        name: from
-        required: false
-        schema:
-          type: string
-          format: string
-          example: EUR
-        description: The source currency code. If omitted, defaults to EUR.
-      - in: query
-        name: to
-        required: false
-        schema:
-          type: string
-          format: string
-          example: USD
-        description: The destination currency code. If omitted, defaults to USD.
-      - in: query
-        name: date
-        required: false
-        schema:
-          type: string
-          format: date
-          example: "2018-09-17"
-        description: The date you want to know the exchange rate on.
-      - in: query
-        name: amount
-        required: false
-        schema:
-          type: number
-          format: double
-          example: 120.12
-        description: The amount in the source currency. If added, Firefly III will calculate the amount in the destination currency.
-      responses:
-        '200':
-          description: The exchange rate as requested
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ExchangeRate'
   /api/v1/chart/ab/overview/{id}:
     get:
       tags:
@@ -4261,13 +4211,6 @@ paths:
           example: 1
         description: The ID of the rule.
       - in: query
-        name: page
-        description: Page number. The default pagination is 50 items.
-        required: false
-        schema:
-          type: integer
-          example: 1
-      - in: query
         name: start
         description: |
           A date formatted YYYY-MM-DD, to limit the transactions the test will be applied to. Both the start date and the end date must be present.
@@ -4285,20 +4228,6 @@ paths:
           type: string
           format: date
           example: 2018-09-17
-      - in: query
-        name: search_limit
-        description: |
-          Maximum number of transactions Firefly III will try. Don't set this too high, or it will take Firefly III very long to run the test. I suggest a max of 200.
-        required: false
-        schema:
-          type: integer
-      - in: query
-        name: triggered_limit
-        description: |
-          Maximum number of transactions the rule can actually trigger on, before Firefly III stops. I would suggest setting this to 10 or 15. Don't go above the user's page size, because browsing to page 2 or 3 of a test result would fire the test again, making any navigation efforts very slow.
-        required: false
-        schema:
-          type: integer
       - in: query
         name: accounts
         explode: false
@@ -5161,9 +5090,9 @@ components:
           format: string
           example: "7009312345678"
         opening_balance:
-          type: number
-          format: double
-          example: -1012.12
+          type: string
+          format: amount
+          example: "-1012.12"
         opening_balance_date:
           type: string
           format: date
@@ -5205,14 +5134,18 @@ components:
         active:
           type: boolean
           format: boolean
-          example: true
+          example: false
           description: "If omitted, defaults to true."
+        order:
+          type: integer
+          format: int32
+          example: false
+          description: "Order of the account"
         include_net_worth:
           type: boolean
           format: boolean
           example: true
           description: "If omitted, defaults to true."
-          writeOnly: true
         account_role:
           type: string
           format: string
@@ -5483,6 +5416,11 @@ components:
         - id
         - name
         - name_with_balance
+        - type
+        - currency_id
+        - currency_code
+        - currency_symbol
+        - currency_decimal_places
       properties:
         id:
           type: integer
@@ -5563,7 +5501,6 @@ components:
       required:
         - id
         - name
-        - name_with_balance
       properties:
         id:
           type: integer
@@ -5573,42 +5510,8 @@ components:
         name:
           type: string
           format: string
-          example: "Checking Account"
-          description: Name of the account found by an auto-complete search.
-          readOnly: true
-        name_with_balance:
-          type: string
-          format: string
-          example: "Checking Account ($123.45)"
-          description: Asset accounts and liabilities have a second field with the given date's account balance.
-          readOnly: true
-        type:
-          type: string
-          format: string
-          example: "Asset account"
-          description: Account type of the account found by the auto-complete search.
-          readOnly: true
-        currency_id:
-          type: integer
-          format: int32
-          example: 12
-          description: Currency ID for this account.
-          readOnly: true
-        currency_code:
-          type: string
-          format: string
-          example: "EUR"
-          description: Currency code for this account.
-          readOnly: true
-        currency_symbol:
-          type: string
-          format: string
-          example: "$"
-          readOnly: true
-        currency_decimal_places:
-          type: integer
-          format: int32
-          example: 2
+          example: "Groceries"
+          description: Name of the budget found by an auto-complete search.
           readOnly: true
     
     AutocompleteBudgetArray:
@@ -5621,7 +5524,6 @@ components:
       required:
         - id
         - name
-        - name_with_balance
       properties:
         id:
           type: integer
@@ -5631,42 +5533,8 @@ components:
         name:
           type: string
           format: string
-          example: "Checking Account"
-          description: Name of the account found by an auto-complete search.
-          readOnly: true
-        name_with_balance:
-          type: string
-          format: string
-          example: "Checking Account ($123.45)"
-          description: Asset accounts and liabilities have a second field with the given date's account balance.
-          readOnly: true
-        type:
-          type: string
-          format: string
-          example: "Asset account"
-          description: Account type of the account found by the auto-complete search.
-          readOnly: true
-        currency_id:
-          type: integer
-          format: int32
-          example: 12
-          description: Currency ID for this account.
-          readOnly: true
-        currency_code:
-          type: string
-          format: string
-          example: "EUR"
-          description: Currency code for this account.
-          readOnly: true
-        currency_symbol:
-          type: string
-          format: string
-          example: "$"
-          readOnly: true
-        currency_decimal_places:
-          type: integer
-          format: int32
-          example: 2
+          example: "Category X"
+          description: Name of the category found by an auto-complete search.
           readOnly: true
     
     AutocompleteCategoryArray:
@@ -5679,7 +5547,9 @@ components:
       required:
         - id
         - name
-        - name_with_balance
+        - code
+        - symbol
+        - decimal_places
       properties:
         id:
           type: integer
@@ -5689,39 +5559,21 @@ components:
         name:
           type: string
           format: string
-          example: "Checking Account"
-          description: Name of the account found by an auto-complete search.
+          example: "Currency name"
+          description: Currency name.
           readOnly: true
-        name_with_balance:
-          type: string
-          format: string
-          example: "Checking Account ($123.45)"
-          description: Asset accounts and liabilities have a second field with the given date's account balance.
-          readOnly: true
-        type:
-          type: string
-          format: string
-          example: "Asset account"
-          description: Account type of the account found by the auto-complete search.
-          readOnly: true
-        currency_id:
-          type: integer
-          format: int32
-          example: 12
-          description: Currency ID for this account.
-          readOnly: true
-        currency_code:
+        code:
           type: string
           format: string
           example: "EUR"
           description: Currency code for this account.
           readOnly: true
-        currency_symbol:
+        symbol:
           type: string
           format: string
           example: "$"
           readOnly: true
-        currency_decimal_places:
+        decimal_places:
           type: integer
           format: int32
           example: 2
@@ -5737,7 +5589,9 @@ components:
       required:
         - id
         - name
-        - name_with_balance
+        - code
+        - symbol
+        - decimal_places
       properties:
         id:
           type: integer
@@ -5747,39 +5601,21 @@ components:
         name:
           type: string
           format: string
-          example: "Checking Account"
-          description: Name of the account found by an auto-complete search.
+          example: "Currency name (XCN)"
+          description: Currency name with the code between brackets.
           readOnly: true
-        name_with_balance:
-          type: string
-          format: string
-          example: "Checking Account ($123.45)"
-          description: Asset accounts and liabilities have a second field with the given date's account balance.
-          readOnly: true
-        type:
-          type: string
-          format: string
-          example: "Asset account"
-          description: Account type of the account found by the auto-complete search.
-          readOnly: true
-        currency_id:
-          type: integer
-          format: int32
-          example: 12
-          description: Currency ID for this account.
-          readOnly: true
-        currency_code:
+        code:
           type: string
           format: string
           example: "EUR"
           description: Currency code for this account.
           readOnly: true
-        currency_symbol:
+        symbol:
           type: string
           format: string
           example: "$"
           readOnly: true
-        currency_decimal_places:
+        decimal_places:
           type: integer
           format: int32
           example: 2
@@ -8536,6 +8372,7 @@ components:
         - destination_id
         - date
         - description
+        - type
       properties:
         user:
           type: integer
@@ -8561,10 +8398,11 @@ components:
             - deposit
             - transfer
             - reconciliation
+            - opening balance
         date:
           type: string
           format: date
-          example: "2018-09-17"
+          example: "2018-09-17T08:00+08:00"
           description: "Date of the transaction"
         amount:
           type: string
@@ -8768,6 +8606,18 @@ components:
           nullable: true
           format: int32
           description: Reference to recurrence that made the transaction.
+          readOnly: true
+        recurrence_total:
+          type: integer
+          format: int32
+          example: 0
+          description: "Total number of transactions expected to be created by this recurrence repetition. Will be 0 if infinite."
+          readOnly: true
+        recurrence_count:
+          type: integer
+          format: int32
+          example: 12
+          description: "The # of the current transaction created under this recurrence."
           readOnly: true
         bunq_payment_id:
           type: string
