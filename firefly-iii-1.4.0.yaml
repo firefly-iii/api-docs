@@ -5760,7 +5760,7 @@ components:
       items:
         $ref: '#/components/schemas/AutocompletePiggy'
     
-    AutocompletePiggy:
+    AutocompletePiggyBalance:
       type: object
       required:
         - id
