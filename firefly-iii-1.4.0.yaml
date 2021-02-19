@@ -5295,9 +5295,9 @@ components:
           example: "accounts"
           description: "Immutable value"
         id:
-          type: integer
-          format: int32
-          example: 2
+          type: string
+          format: string
+          example: "2"
         attributes:
           $ref: '#/components/schemas/Account'
     
@@ -5454,9 +5454,9 @@ components:
           example: "attachments"
           description: "Immutable value"
         id:
-          type: integer
-          format: int32
-          example: 2
+          type: string
+          format: string
+          example: "2"
         attributes:
           $ref: '#/components/schemas/Attachment'
         links:
@@ -5483,9 +5483,9 @@ components:
         - currency_decimal_places
       properties:
         id:
-          type: integer
-          format: int32
-          example: 2
+          type: string
+          format: string
+          example: "2"
           readOnly: true
         name:
           type: string
@@ -5540,9 +5540,9 @@ components:
         - name
       properties:
         id:
-          type: integer
-          format: int32
-          example: 2
+          type: string
+          format: string
+          example: "2"
           readOnly: true
         name:
           type: string
@@ -5563,9 +5563,9 @@ components:
         - name
       properties:
         id:
-          type: integer
-          format: int32
-          example: 2
+          type: string
+          format: string
+          example: "2"
           readOnly: true
         name:
           type: string
@@ -5586,9 +5586,9 @@ components:
         - name
       properties:
         id:
-          type: integer
-          format: int32
-          example: 2
+          type: string
+          format: string
+          example: "2"
           readOnly: true
         name:
           type: string
@@ -5612,9 +5612,9 @@ components:
         - decimal_places
       properties:
         id:
-          type: integer
-          format: int32
-          example: 2
+          type: string
+          format: string
+          example: "2"
           readOnly: true
         name:
           type: string
@@ -5654,9 +5654,9 @@ components:
         - decimal_places
       properties:
         id:
-          type: integer
-          format: int32
-          example: 2
+          type: string
+          format: string
+          example: "2"
           readOnly: true
         name:
           type: string
@@ -5694,9 +5694,9 @@ components:
         - name
       properties:
         id:
-          type: integer
-          format: int32
-          example: 2
+          type: string
+          format: string
+          example: "2"
           readOnly: true
         title:
           type: string
@@ -5723,9 +5723,9 @@ components:
         - name
       properties:
         id:
-          type: integer
-          format: int32
-          example: 2
+          type: string
+          format: string
+          example: "2"
           readOnly: true
         name:
           type: string
@@ -5767,9 +5767,9 @@ components:
         - name
       properties:
         id:
-          type: integer
-          format: int32
-          example: 2
+          type: string
+          format: string
+          example: "2"
           readOnly: true
         name:
           type: string
@@ -5817,9 +5817,9 @@ components:
         - name
       properties:
         id:
-          type: integer
-          format: int32
-          example: 2
+          type: string
+          format: string
+          example: "2"
           readOnly: true
         name:
           type: string
@@ -5840,9 +5840,9 @@ components:
         - name
       properties:
         id:
-          type: integer
-          format: int32
-          example: 2
+          type: string
+          format: string
+          example: "2"
           readOnly: true
         name:
           type: string
@@ -5864,9 +5864,9 @@ components:
         - tag
       properties:
         id:
-          type: integer
-          format: int32
-          example: 2
+          type: string
+          format: string
+          example: "2"
           readOnly: true
         name:
           type: string
@@ -5894,9 +5894,9 @@ components:
         - description
       properties:
         id:
-          type: integer
-          format: int32
-          example: 2
+          type: string
+          format: string
+          example: "2"
           readOnly: true
         name:
           type: string
@@ -5924,9 +5924,9 @@ components:
         - description
       properties:
         id:
-          type: integer
-          format: int32
-          example: 2
+          type: string
+          format: string
+          example: "2"
           readOnly: true
         name:
           type: string
@@ -5953,9 +5953,9 @@ components:
         - type
       properties:
         id:
-          type: integer
-          format: int32
-          example: 2
+          type: string
+          format: string
+          example: "2"
           readOnly: true
         name:
           type: string
@@ -6063,9 +6063,9 @@ components:
           example: "available_budgets"
           description: "Immutable value"
         id:
-          type: integer
-          format: int32
-          example: 2
+          type: string
+          format: string
+          example: "2"
         attributes:
           $ref: '#/components/schemas/AvailableBudget'
     
@@ -6293,9 +6293,9 @@ components:
           example: "bills"
           description: "Immutable value"
         id:
-          type: integer
-          format: int32
-          example: 2
+          type: string
+          format: string
+          example: "2"
         attributes:
           $ref: '#/components/schemas/Bill'
     
@@ -6479,9 +6479,9 @@ components:
           example: "budget_limits"
           description: "Immutable value"
         id:
-          type: integer
-          format: int32
-          example: 2
+          type: string
+          format: string
+          example: "2"
         attributes:
           $ref: '#/components/schemas/BudgetLimit'
     
@@ -6506,9 +6506,9 @@ components:
           example: "budgets"
           description: "Immutable value"
         id:
-          type: integer
-          format: int32
-          example: 2
+          type: string
+          format: string
+          example: "2"
         attributes:
           $ref: '#/components/schemas/Budget'
     
@@ -6640,9 +6640,9 @@ components:
           example: "categories"
           description: "Immutable value"
         id:
-          type: integer
-          format: int32
-          example: 2
+          type: string
+          format: string
+          example: "2"
         attributes:
           $ref: '#/components/schemas/Category'
     
@@ -6862,9 +6862,9 @@ components:
           example: "currencies"
           description: "Immutable value"
         id:
-          type: integer
-          format: int32
-          example: 2
+          type: string
+          format: string
+          example: "2"
         attributes:
           $ref: '#/components/schemas/Currency'
     
@@ -6906,9 +6906,9 @@ components:
           example: "currency_exchange_rates"
           description: "Immutable value"
         id:
-          type: integer
-          format: int32
-          example: 2
+          type: string
+          format: string
+          example: "2"
         attributes:
           type: object
           properties:
@@ -6995,9 +6995,9 @@ components:
           example: "import_jobs"
           description: "Immutable value"
         id:
-          type: integer
-          format: int32
-          example: 2
+          type: string
+          format: string
+          example: "2"
         attributes:
           type: object
           properties:
@@ -7139,9 +7139,9 @@ components:
           example: "link_types"
           description: "Immutable value"
         id:
-          type: integer
-          format: int32
-          example: 2
+          type: string
+          format: string
+          example: "2"
         attributes:
           $ref: '#/components/schemas/LinkType'
         links:
@@ -7413,9 +7413,9 @@ components:
           example: "piggy_bank_eventss"
           description: "Immutable value"
         id:
-          type: integer
-          format: int32
-          example: 2
+          type: string
+          format: string
+          example: "2"
         attributes:
           $ref: '#/components/schemas/PiggyBankEvent'
         links:
@@ -7435,9 +7435,9 @@ components:
           example: "piggy_banks"
           description: "Immutable value"
         id:
-          type: integer
-          format: int32
-          example: 2
+          type: string
+          format: string
+          example: "2"
         attributes:
           $ref: '#/components/schemas/PiggyBank'
         links:
@@ -7506,9 +7506,9 @@ components:
           example: "preferences"
           description: "Immutable value"
         id:
-          type: integer
-          format: int32
-          example: 2
+          type: string
+          format: string
+          example: "2"
         attributes:
           $ref: '#/components/schemas/Preference'
     
@@ -7629,9 +7629,9 @@ components:
           example: "recurrences"
           description: "Immutable value"
         id:
-          type: integer
-          format: int32
-          example: 2
+          type: string
+          format: string
+          example: "2"
         attributes:
           $ref: '#/components/schemas/Recurrence'
         links:
@@ -7644,9 +7644,9 @@ components:
         - moment
       properties:
         id:
-          type: integer
-          format: int32
-          example: 2
+          type: string
+          format: string
+          example: "2"
           readOnly: true
         created_at:
           type: string
@@ -7942,9 +7942,9 @@ components:
         - value
       properties:
         id:
-          type: integer
-          format: int32
-          example: 2
+          type: string
+          format: string
+          example: "2"
           readOnly: true
         created_at:
           type: string
@@ -8084,9 +8084,9 @@ components:
           example: "rules_group"
           description: "Immutable value"
         id:
-          type: integer
-          format: int32
-          example: 2
+          type: string
+          format: string
+          example: "2"
         attributes:
           $ref: '#/components/schemas/RuleGroup'
         links:
@@ -8114,9 +8114,9 @@ components:
           example: "rules"
           description: "Immutable value"
         id:
-          type: integer
-          format: int32
-          example: 2
+          type: string
+          format: string
+          example: "2"
         attributes:
           $ref: '#/components/schemas/Rule'
         links:
@@ -8137,9 +8137,9 @@ components:
         - value
       properties:
         id:
-          type: integer
-          format: int32
-          example: 2
+          type: string
+          format: string
+          example: "2"
           readOnly: true
         created_at:
           type: string
@@ -8281,9 +8281,9 @@ components:
           example: "expensive"
           description: The tag
         id:
-          type: integer
-          format: int32
-          example: 2
+          type: string
+          format: string
+          example: "2"
           description: "ID of the tag"
         size:
           type: number
@@ -8360,9 +8360,9 @@ components:
           example: "tags"
           description: "Immutable value"
         id:
-          type: integer
-          format: int32
-          example: 2
+          type: string
+          format: string
+          example: "2"
         attributes:
           $ref: '#/components/schemas/TagModel'
         links:
@@ -8511,9 +8511,9 @@ components:
           example: "transactionLinks"
           description: "Immutable value"
         id:
-          type: integer
-          format: int32
-          example: 2
+          type: string
+          format: string
+          example: "2"
         attributes:
           $ref: '#/components/schemas/TransactionLink'
         links:
@@ -8541,9 +8541,9 @@ components:
           example: "transactions"
           description: "Immutable value"
         id:
-          type: integer
-          format: int32
-          example: 2
+          type: string
+          format: string
+          example: "2"
         attributes:
           $ref: '#/components/schemas/Transaction'
         links:
@@ -8979,9 +8979,9 @@ components:
           example: "users"
           description: "Immutable value"
         id:
-          type: integer
-          format: int32
-          example: 2
+          type: string
+          format: string
+          example: "2"
         attributes:
           $ref: '#/components/schemas/User'
         links:
