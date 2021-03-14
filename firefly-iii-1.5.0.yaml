@@ -3,7 +3,7 @@ servers:
   - description: Firefly III demo site
     url: https://demo.firefly-iii.org
 info:
-  title: Firefly III API 1.5.0
+  title: Firefly III API v1.5.0
   description: |
     This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below.
   version: "1.5.0"
@@ -3451,10 +3451,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PiggyBank'
+              $ref: '#/components/schemas/PiggyBankStore'
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/PiggyBank'
+              $ref: '#/components/schemas/PiggyBankStore'
         description: "JSON array or key=value pairs with the necessary piggy bank information. See the model for the exact specifications."
         required: true
       responses:
@@ -3582,10 +3582,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Currency'
+              $ref: '#/components/schemas/CurrencyStore'
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/Currency'
+              $ref: '#/components/schemas/CurrencyStore'
         description: "JSON array or key=value pairs with the necessary currency information. See the model for the exact specifications."
         required: true
       responses:
@@ -3948,10 +3948,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/TagModel'
+              $ref: '#/components/schemas/TagModelStore'
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/TagModel'
+              $ref: '#/components/schemas/TagModelStore'
         description: "JSON array or key=value pairs with the necessary tag information. See the model for the exact specifications."
         required: true
       responses:
@@ -5063,10 +5063,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/RuleGroup'
+              $ref: '#/components/schemas/RuleGroupStore'
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/RuleGroup'
+              $ref: '#/components/schemas/RuleGroupStore'
         description: "JSON array or key=value pairs with the necessary rule group information. See the model for the exact specifications."
         required: true
       responses:
@@ -5691,10 +5691,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/TransactionLink'
+              $ref: '#/components/schemas/TransactionLinkStore'
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/TransactionLink'
+              $ref: '#/components/schemas/TransactionLinkStore'
         description: JSON array with the necessary link type information or key=value pairs. See the model for the exact specifications.
         required: true
   /api/v1/transaction_links/{id}:
@@ -8761,6 +8761,40 @@ components:
           format: int32
           example: 2
           description: Supports 0-16 decimals.
+    CurrencyStore:
+      type: object
+      required:
+        - code
+        - name
+        - symbol
+      properties:
+        enabled:
+          type: boolean
+          format: boolean
+          example: true
+          description: Defaults to true
+        default:
+          type: boolean
+          format: boolean
+          example: false
+          description: Make this currency the default currency.
+        code:
+          type: string
+          format: string
+          example: AMS
+        name:
+          type: string
+          format: string
+          example: Ankh-Morpork dollar
+        symbol:
+          type: string
+          format: string
+          example: "AM$"
+        decimal_places:
+          type: integer
+          format: int32
+          example: 2
+          description: Supports 0-16 decimals.
     Webhook:
       title: A single webhook
       type: object
@@ -9133,6 +9167,25 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/RecurrenceTransactionUpdate'
+    LinkTypeStore:
+      type: object
+      required:
+        - name
+        - inward
+        - outward
+      properties:
+        name:
+          type: string
+          format: string
+          example: "Paid"
+        inward:
+          type: string
+          format: string
+          example: "is (partially) paid for by"
+        outward:
+          type: string
+          format: string
+          example: "(partially) pays for"
     LinkTypeUpdate:
       type: object
       properties:
@@ -9607,6 +9660,20 @@ components:
           example: "Example Group"
           nullable: true
           description: The name of the group. NULL if no group.
+    CategoryStore:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+          format: string
+          example: "Lunch"
+        notes:
+          type: string
+          format: string
+          nullable: true
+          example: "Some example notes"
     Category:
       type: object
       required:
@@ -10707,6 +10774,67 @@ components:
           example: "Example Group"
           nullable: true
           description: The name of the group. NULL if no group.
+    PiggyBankStore:
+      type: object
+      required:
+        - name
+        - account_id
+        - target_amount
+      properties:
+        name:
+          type: string
+          format: string
+          example: "New digital camera"
+        account_id:
+          type: string
+          format: string
+          example: 13
+          description: The ID of the asset account this piggy bank is connected to.
+        target_amount:
+          type: string
+          format: amount
+          example: "123.45"
+        current_amount:
+          type: string
+          format: amount
+          example: "123.45"
+        start_date:
+          type: string
+          format: date
+          example: "2018-09-17"
+          description: The date you started with this piggy bank.
+        target_date:
+          type: string
+          format: date
+          nullable: true
+          example: "2020-09-17"
+          description: The date you intend to finish saving money.
+        order:
+          type: integer
+          format: int32
+          example: 5
+        active:
+          type: boolean
+          format: boolean
+          example: true
+          readOnly: true
+        notes:
+          type: string
+          format: string
+          nullable: true
+          example: "Some notes"
+        object_group_id:
+          type: string
+          format: string
+          example: "5"
+          nullable: true
+          description: The group ID of the group this object is part of. NULL if no group.
+        object_group_title:
+          type: string
+          format: string
+          example: "Example Group"
+          nullable: true
+          description: The name of the group. NULL if no group.
     PiggyBankUpdate:
       type: object
       properties:
@@ -10971,6 +11099,28 @@ components:
           type: string
           format: uri
           example: "https://demo.firefly-iii.org/api/v1/OBJECT?&page=12"
+    RuleGroupStore:
+      type: object
+      required:
+        - title
+      properties:
+        title:
+          type: string
+          format: string
+          example: "Default rule group"
+        description:
+          type: string
+          format: string
+          example: "Description of this rule group"
+          nullable: true
+        order:
+          type: integer
+          format: int32
+          example: 4
+        active:
+          type: boolean
+          format: boolean
+          example: true
     RuleGroupUpdate:
       type: object
       properties:
@@ -11597,7 +11747,8 @@ components:
           type: integer
           format: int32
           example: 1
-          description: "Order of the account"
+          nullable: true
+          description: "Order of the account. Is NULL if account is not asset or liability."
         include_net_worth:
           type: boolean
           format: boolean
@@ -11720,6 +11871,41 @@ components:
           format: date-time
           example: "2018-09-17T12:46:47+01:00"
           readOnly: true
+        link_type_id:
+          type: string
+          format: string
+          example: "5"
+          description: The link type ID to use. You can also use the link_type_name field.
+          writeOnly: true
+        link_type_name:
+          type: string
+          format: string
+          example: "Is paid by"
+          description: The link type name to use. You can also use the link_type_id field.
+          writeOnly: true
+        inward_id:
+          type: string
+          format: string
+          example: "131"
+          description: "The inward transaction transaction_journal_id for the link. This becomes the 'is paid by' transaction of the set."
+        outward_id:
+          type: string
+          format: string
+          example: "131"
+          description: "The outward transaction transaction_journal_id for the link. This becomes the 'pays for' transaction of the set."
+        notes:
+          type: string
+          format: string
+          example: "Some example notes"
+          nullable: true
+          description: Optional. Some notes.
+    TransactionLinkStore:
+      type: object
+      required:
+        - link_type_id
+        - inward_id
+        - outward_id
+      properties:
         link_type_id:
           type: string
           format: string
@@ -11898,6 +12084,46 @@ components:
           format: date
           example: "2017-09-17"
           description: End date of the available budget.
+    TagModelStore:
+      title: A single tag
+      type: object
+      required:
+        - tag
+      properties:
+        tag:
+          type: string
+          format: string
+          example: "expensive"
+          description: The tag
+        date:
+          type: string
+          format: date
+          example: "2018-09-17"
+          description: The date to which the tag is applicable.
+          nullable: true
+        description:
+          type: string
+          format: string
+          example: "Tag for expensive stuff"
+          nullable: true
+        latitude:
+          type: number
+          format: double
+          example: 51.983333
+          nullable: true
+          description: Latitude of the tag's location, if applicable. Can be used to draw a map.
+        longitude:
+          type: number
+          format: double
+          example: 5.916667
+          nullable: true
+          description: Latitude of the tag's location, if applicable. Can be used to draw a map.
+        zoom_level:
+          type: integer
+          format: int32
+          example: 6
+          nullable: true
+          description: "Zoom level for the map, if drawn. This to set the box right. Unfortunately this is a proprietary value because each map provider has different zoom levels."
     TagModel:
       title: A single tag
       type: object
