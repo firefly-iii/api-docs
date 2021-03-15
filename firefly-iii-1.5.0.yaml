@@ -5,7 +5,7 @@ servers:
 info:
   title: Firefly III API v1.5.0
   description: |
-    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2021-03-14T09:00:50+00:00
+    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2021-03-15T07:52:04+00:00
   version: "1.5.0"
   contact:
     name: James Cole
@@ -2731,10 +2731,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Rule'
+              $ref: '#/components/schemas/RuleStore'
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/Rule'
+              $ref: '#/components/schemas/RuleStore'
         description: "JSON array or key=value pairs with the necessary rule information. See the model for the exact specifications."
         required: true
       responses:
@@ -2887,10 +2887,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Transaction'
+              $ref: '#/components/schemas/TransactionStore'
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/Transaction'
+              $ref: '#/components/schemas/TransactionStore'
         description: "JSON array or key=value pairs with the necessary transaction information. See the model for the exact specifications."
         required: true
       responses:
@@ -8978,6 +8978,7 @@ components:
         - type
         - title
         - first_date
+        - repeat_until
         - repetitions
         - transactions
       properties:
@@ -9270,7 +9271,6 @@ components:
       required:
         - type
         - moment
-        - weekend
       properties:
         type:
           type: string
@@ -10000,6 +10000,60 @@ components:
           format: boolean
           example: false
           description: When true, other actions will not be fired after this action has fired.
+    RuleActionStore:
+      type: object
+      required:
+        - type
+        - value
+      properties:
+        type:
+          type: string
+          format: string
+          example: "set_category"
+          description: The type of thing this action will do. A limited set is possible.
+          enum:
+          - user_action
+          - set_category
+          - clear_category
+          - set_budget
+          - clear_budget
+          - add_tag
+          - remove_tag
+          - remove_all_tags
+          - set_description
+          - append_description
+          - prepend_description
+          - set_source_account
+          - set_destination_account
+          - set_notes
+          - append_notes
+          - prepend_notes
+          - clear_notes
+          - link_to_bill
+          - convert_withdrawal
+          - convert_deposit
+          - convert_transfer
+        value:
+          type: string
+          format: string
+          example: "Daily groceries"
+          nullable: true
+          description: "The accompanying value the action will set, change or update. Can be empty, but for some types this value is mandatory."
+        order:
+          type: integer
+          format: int32
+          example: 5
+          description: "Order of the action"
+        active:
+          type: boolean
+          format: boolean
+          example: true
+          description: If the action is active. Defaults to true.
+        stop_processing:
+          type: boolean
+          format: boolean
+          example: false
+          description: When true, other actions will not be fired after this action has fired. Defaults to false.
     BudgetLimit:
       type: object
       required:
@@ -10187,6 +10241,68 @@ components:
           format: amount
           example: "-12423.45"
           description: The amount spent.
+    RuleStore:
+      type: object
+      required:
+        - title
+        - rule_group_id
+        - trigger
+        - triggers
+        - actions
+      properties:
+        title:
+          type: string
+          format: string
+          example: "First rule title."
+        description:
+          type: string
+          format: string
+          example: "First rule description"
+        rule_group_id:
+          type: string
+          format: string
+          example: "81"
+          description: "ID of the rule group under which the rule must be stored. Either this field or rule_group_title is mandatory."
+        rule_group_title:
+          type: string
+          format: string
+          example: "New rule group"
+          description: "Title of the rule group under which the rule must be stored. Either this field or rule_group_id is mandatory."
+        order:
+          type: integer
+          format: int32
+          example: 5
+        trigger:
+          type: string
+          format: string
+          example: store-journal
+          description: Which action is necessary for the rule to fire? Use either store-journal or update-journal.
+          enum:
+          - "store-journal"
+          - "update-journal"
+        active:
+          type: boolean
+          format: boolean
+          example: true
+          description: Whether or not the rule is even active. Default is true.
+        strict:
+          type: boolean
+          format: boolean
+          example: true
+          description: If the rule is set to be strict, ALL triggers must hit in order for the rule to fire. Otherwise, just one is enough. Default value is true.
+        stop_processing:
+          type: boolean
+          format: boolean
+          example: false
+          description: If this value is true and the rule is triggered, other rules  after this one in the group will be skipped. Default value is false.
+        triggers:
+          type: array
+          items:
+            $ref: '#/components/schemas/RuleTriggerStore'
+        actions:
+          type: array
+          items:
+            $ref: '#/components/schemas/RuleActionStore'
     Rule:
       type: object
       required:
@@ -10902,6 +11018,31 @@ components:
           example: "Example Group"
           nullable: true
           description: The name of the group. NULL if no group.
+    TransactionStore:
+      type: object
+      required:
+        - transactions
+      properties:
+        error_if_duplicate_hash:
+          type: boolean
+          format: boolean
+          example: false
+          description: "Break if the submitted transaction exists already."
+        apply_rules:
+          type: boolean
+          format: boolean
+          example: false
+          description: "Whether or not to apply rules when submitting transaction."
+        group_title:
+          type: string
+          format: string
+          description: "Title of the transaction if it has been split in more than one piece. Empty otherwise."
+          example: "Split transaction title."
+          nullable: true
+        transactions:
+          type: array
+          items:
+            $ref: '#/components/schemas/TransactionSplitStore'
     Transaction:
       type: object
       required:
@@ -11317,6 +11458,71 @@ components:
           format: boolean
           example: false
           description: When true, other triggers will not be checked if this trigger was triggered.
+    RuleTriggerStore:
+      type: object
+      required:
+        - type
+        - value
+      properties:
+        type:
+          type: string
+          format: string
+          example: "user_action"
+          description: The type of thing this trigger responds to. A limited set is possible
+          enum:
+          - from_account_starts
+          - from_account_ends
+          - from_account_is
+          - from_account_contains
+          - to_account_starts
+          - to_account_ends
+          - to_account_is
+          - to_account_contains
+          - amount_less
+          - amount_exactly
+          - amount_more
+          - description_starts
+          - description_ends
+          - description_contains
+          - description_is
+          - transaction_type
+          - category_is
+          - budget_is
+          - tag_is
+          - currency_is
+          - has_attachments
+          - has_no_category
+          - has_any_category
+          - has_no_budget
+          - has_any_budget
+          - has_no_tag
+          - has_any_tag
+          - notes_contain
+          - notes_start
+          - notes_end
+          - notes_are
+          - no_notes
+          - any_notes
+        value:
+          type: string
+          format: string
+          example: "tag1"
+          description: "The accompanying value the trigger responds to. This value is often mandatory, but this depends on the trigger."
+        order:
+          type: integer
+          format: int32
+          example: 5
+          description: "Order of the trigger"
+        active:
+          type: boolean
+          format: boolean
+          example: true
+          description: If the trigger is active. Defaults to true.
+        stop_processing:
+          type: boolean
+          format: boolean
+          example: false
+          description: When true, other triggers will not be checked if this trigger was triggered. Defaults to false.
     BudgetSpent:
       type: object
       properties:
@@ -12434,6 +12640,248 @@ components:
           nullable: true
           format: string
           description: Internal ID of bunq transaction.
+        sepa_cc:
+          type: string
+          format: string
+          nullable: true
+          description: SEPA Clearing Code
+        sepa_ct_op:
+          type: string
+          format: string
+          description: SEPA Opposing Account Identifier
+          nullable: true
+        sepa_ct_id:
+          type: string
+          format: string
+          nullable: true
+          description: SEPA end-to-end Identifier
+        sepa_db:
+          type: string
+          format: string
+          nullable: true
+          description: SEPA mandate identifier
+        sepa_country:
+          type: string
+          nullable: true
+          format: string
+          description: SEPA Country
+        sepa_ep:
+          type: string
+          nullable: true
+          format: string
+          description: SEPA External Purpose indicator
+        sepa_ci:
+          type: string
+          format: string
+          nullable: true
+          description: SEPA Creditor Identifier
+        sepa_batch_id:
+          type: string
+          format: string
+          nullable: true
+          description: SEPA Batch ID
+        interest_date:
+          type: string
+          format: date-time
+          nullable: true
+        book_date:
+          type: string
+          format: date-time
+          nullable: true
+        process_date:
+          type: string
+          format: date-time
+          nullable: true
+        due_date:
+          type: string
+          format: date-time
+          nullable: true
+        payment_date:
+          type: string
+          format: date-time
+          nullable: true
+        invoice_date:
+          type: string
+          format: date-time
+          nullable: true
+    TransactionSplitStore:
+      type: object
+      required:
+        - amount
+        - source_id
+        - destination_id
+        - date
+        - description
+        - type
+      properties:
+        type:
+          type: string
+          format: string
+          example:  "withdrawal"
+          description: Type of transaction.
+          enum:
+            - withdrawal
+            - deposit
+            - transfer
+            - reconciliation
+            - opening balance
+        date:
+          type: string
+          format: date-time
+          example: "2018-09-17T12:46:47+01:00"
+          description: "Date of the transaction"
+        amount:
+          type: string
+          format: amount
+          example: "123.45"
+          description: "Amount of the transaction."
+        description:
+          type: string
+          format: string
+          example: "Vegetables"
+          description: "Description of the transaction."
+        order:
+          type: integer
+          format: int32
+          example: 0
+          nullable: true
+          description: "Order of this entry in the list of transactions."
+        currency_id:
+          type: integer
+          format: int32
+          example: 12
+          nullable: true
+          description: Currency ID. Default is the source account's currency, or the user's default currency. The value you submit may be overruled by the source or destination account.
+        currency_code:
+          type: string
+          format: string
+          example: EUR
+          nullable: true
+          description: Currency code. Default is the source account's currency, or the user's default currency. The value you submit may be overruled by the source or destination account.
+        foreign_amount:
+          type: string
+          format: amount
+          example: "123.45"
+          nullable: true
+          description: The amount in a foreign currency.
+        foreign_currency_id:
+          type: integer
+          format: int32
+          example: 17
+          nullable: true
+          description: Currency ID of the foreign currency. Default is null. Is required when you submit a foreign amount.
+        foreign_currency_code:
+          type: string
+          format: string
+          example: USD
+          description: Currency code of the foreign currency. Default is NULL. Can be used instead of the foreign_currency_id, but this or the ID is required when submitting a foreign amount.
+          nullable: true
+        budget_id:
+          type: integer
+          format: int32
+          nullable: true
+          example: 4
+          description: The budget ID for this transaction.
+        budget_name:
+          type: string
+          format: string
+          example: Groceries
+          description: The name of the budget to be used. If the budget name is unknown, the ID will be used or the value will be ignored.
+          nullable: true
+          readOnly: true
+        category_id:
+          type: integer
+          format: int32
+          nullable: true
+          example: 43
+          description: The category ID for this transaction.
+        category_name:
+          type: string
+          format: string
+          example: Groceries
+          nullable: true
+          description: "The name of the category to be used. If the category is unknown, it will be created. If the ID and the name point to different categories, the ID overrules the name."
+        source_id:
+          type: integer
+          format: int32
+          example: 2
+          nullable: true
+          description: "ID of the source account. For a withdrawal or a transfer, this must always be an asset account. For deposits, this must be a revenue account."
+        source_name:
+          type: string
+          format: string
+          example: "Checking account"
+          nullable: true
+          description: "Name of the source account. For a withdrawal or a transfer, this must always be an asset account. For deposits, this must be a revenue account. Can be used instead of the source_id. If the transaction is a deposit, the source_name can be filled in freely: the account will be created based on the name."
+        destination_id:
+          type: integer
+          format: int32
+          example: 2
+          nullable: true
+          description: "ID of the destination account. For a deposit or a transfer, this must always be an asset account. For withdrawals this must be an expense account."
+        destination_name:
+          type: string
+          format: string
+          example: "Buy and Large"
+          nullable: true
+          description: "Name of the destination account. You can submit the name instead of the ID. For everything except transfers, the account will be auto-generated if unknown, so submitting a name is enough."
+        reconciled:
+          type: boolean
+          format: boolean
+          example: false
+          description: "If the transaction has been reconciled already. When you set this, the amount can no longer be edited by the user."
+        piggy_bank_id:
+          type: integer
+          format: int32
+          description: Optional. Use either this or the piggy_bank_name
+          writeOnly: true
+        piggy_bank_name:
+          type: string
+          format: string
+          description: Optional. Use either this or the piggy_bank_id
+          writeOnly: true
+        bill_id:
+          type: integer
+          format: int32
+          nullable: true
+          example: 111
+          description: Optional. Use either this or the bill_name
+        bill_name:
+          type: string
+          format: string
+          example: "Monthly rent"
+          nullable: true
+          description: Optional. Use either this or the bill_id
+        tags:
+          type: array
+          nullable: true
+          example:
+          description: Array of tags.
+          items:
+            type: string
+            format: string
+            description: Tag.
+            example: Barbecue preparation
+        notes:
+          type: string
+          format: string
+          example: "Some example notes"
+          nullable: true
+        internal_reference:
+          type: string
+          format: string
+          nullable: true
+          description: Reference to internal reference of other systems.
+        external_id:
+          type: string
+          nullable: true
+          format: string
+          description: Reference to external ID in other systems.
+        bunq_payment_id:
+          type: string
+          nullable: true
+          format: string
+          description: Internal ID of bunq transaction. Field is no longer used but still works.
         sepa_cc:
           type: string
           format: string
