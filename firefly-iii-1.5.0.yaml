@@ -5,7 +5,7 @@ servers:
 info:
   title: Firefly III API v1.5.0
   description: |
-    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2021-03-15T07:52:04+00:00
+    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2021-03-21T09:44:04+00:00
   version: "1.5.0"
   contact:
     name: James Cole
@@ -6234,6 +6234,52 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: '#/components/schemas/TransactionArray'
+  /api/v1/cron/{cliToken}:
+    get:
+      tags:
+        - about
+      parameters:
+        - in: path
+          name: cliToken
+          required: true
+          schema:
+            type: string
+            format: string
+            example: d5ea6b5fb774618dd6ad6ba6e0a7f55c
+          description: The CLI token of any user in Firefly III, required to run the cron job.
+        - in: query
+          name: date
+          description: |
+            A date formatted YYYY-MM-DD. This can be used to make the cron job pretend it's running
+            on another day.
+          required: false
+          schema:
+            type: string
+            format: date
+            example: 2018-09-17
+        - in: query
+          name: force
+          description: |
+            Forces the cron job to fire, regardless of whether it has fired before. This may result
+            in double transactions or weird budgets, so be careful.
+          required: false
+          schema:
+            type: boolean
+            format: boolean
+            example: false
+      operationId: getCron
+      summary: Cron job endpoint
+      description: |
+        Firefly III has one endpoint for its various cron related tasks. Send a GET to this endpoint
+        to run the cron. The cron requires the CLI token to be present. The cron job will fire for all
+        users.
+      responses:
+        200:
+          description: The result of the cron job(s) firing.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CronResult'
   /api/v1/configuration:
     get:
       summary: Get Firefly III system configuration values.
@@ -8597,6 +8643,43 @@ components:
       type: object
       items:
         $ref: '#/components/schemas/BasicSummaryEntry'
+    CronResultRow:
+      type: object
+      properties:
+        job_fired:
+          type: boolean
+          format: boolean
+          example: true
+          nullable: true
+          description: |
+            This value tells you if this specific cron job actually fired. It may not fire. Some cron jobs
+            only fire every 24 hours, for example.
+        job_success:
+          type: boolean
+          format: boolean
+          example: true
+          nullable: true
+          description: |
+            This value tells you if this specific cron job actually did something. The job may fire but not
+            change anything.
+        job_errored:
+          type: boolean
+          format: boolean
+          example: false
+          nullable: true
+          description: If the cron job ran into some kind of an error, this value will be true.
+        error_message:
+          type: string
+          format: string
+          example: "Firefly III Exception: some error."
+          nullable: true
+          description: If the cron job ran into some kind of an error, this value will be the error message.
+        success_message:
+          type: string
+          format: string
+          example: "Success message."
+          nullable: true
+          description: The success message if the job actually ran OK.
     UserSingle:
       type: object
       required:
@@ -8632,6 +8715,15 @@ components:
           example: true
           readOnly: false
           description: "If this config variable can be edited by the user"
+    CronResult:
+      type: object
+      properties:
+        recurring_transactions:
+          $ref: '#/components/schemas/CronResultRow'
+        auto_budgets:
+          $ref: '#/components/schemas/CronResultRow'
+        telemetry:
+          $ref: '#/components/schemas/CronResultRow'
     ConfigurationUpdate:
       type: object
       required:
