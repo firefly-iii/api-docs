@@ -5,7 +5,7 @@ servers:
 info:
   title: Firefly III API v1.5.0
   description: |
-    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2021-03-21T09:44:04+00:00
+    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2021-03-21T09:53:52+00:00
   version: "1.5.0"
   contact:
     name: James Cole
@@ -8654,7 +8654,7 @@ components:
           description: |
             This value tells you if this specific cron job actually fired. It may not fire. Some cron jobs
             only fire every 24 hours, for example.
-        job_success:
+        job_succeeded:
           type: boolean
           format: boolean
           example: true
@@ -8668,18 +8668,14 @@ components:
           example: false
           nullable: true
           description: If the cron job ran into some kind of an error, this value will be true.
-        error_message:
+        message:
           type: string
           format: string
-          example: "Firefly III Exception: some error."
+          example: "Cron result message"
           nullable: true
-          description: If the cron job ran into some kind of an error, this value will be the error message.
-        success_message:
-          type: string
-          format: string
-          example: "Success message."
-          nullable: true
-          description: The success message if the job actually ran OK.
+          description: |
+            If the cron job ran into some kind of an error, this value will be the error message. The success message
+            if the job actually ran OK.
     UserSingle:
       type: object
       required:
