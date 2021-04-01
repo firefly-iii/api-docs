@@ -5,7 +5,7 @@ servers:
 info:
   title: Firefly III API v1.5.0
   description: |
-    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2021-03-28T15:40:48+00:00
+    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2021-04-01T18:51:42+00:00
   version: "1.5.0"
   contact:
     name: James Cole
@@ -10323,14 +10323,6 @@ components:
     CategorySpent:
       type: object
       properties:
-        start:
-          type: string
-          format: date
-          example: "2018-04-01"
-        end:
-          type: string
-          format: date
-          example: "2018-04-30"
         currency_id:
           type: string
           format: string
@@ -10348,7 +10340,7 @@ components:
           format: int32
           example: 2
           description: Number of decimals supported by the currency
-        amount:
+        sum:
           type: string
           format: amount
           example: "-12423.45"
@@ -12533,14 +12525,6 @@ components:
     CategoryEarned:
       type: object
       properties:
-        start:
-          type: string
-          format: date
-          example: "2018-04-01"
-        end:
-          type: string
-          format: date
-          example: "2018-04-30"
         currency_id:
           type: string
           format: string
@@ -12558,7 +12542,7 @@ components:
           format: int32
           example: 2
           description: Number of decimals supported by the currency
-        amount:
+        sum:
           type: string
           format: amount
           example: "123.45"
