@@ -5,7 +5,7 @@ servers:
 info:
   title: Firefly III API v1.5.1
   description: |
-    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2021-04-03T06:39:41+00:00
+    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2021-04-04T11:50:40+00:00
   version: "1.5.1"
   contact:
     name: James Cole
@@ -2358,7 +2358,7 @@ paths:
           schema:
             type: string
             format: date
-            example: 2018-09-17
+            example: "2018-09-17"
         - in: query
           name: end
           description: |
@@ -2367,7 +2367,7 @@ paths:
           schema:
             type: string
             format: date
-            example: 2018-09-17
+            example: "2018-09-17"
         - in: query
           name: accounts[]
           description: |
@@ -2409,7 +2409,7 @@ paths:
           required: false
           schema:
             type: string
-            example: 2018-09-17
+            example: "2018-09-17"
             format: date
         - in: query
           name: end
@@ -2418,7 +2418,7 @@ paths:
           required: false
           schema:
             type: string
-            example: 2018-09-17
+            example: "2018-09-17"
             format: date
         - in: query
           name: accounts[]
@@ -2509,7 +2509,7 @@ paths:
           schema:
             type: string
             format: date
-            example: 2018-09-17
+            example: "2018-09-17"
         - in: query
           name: end
           description: |
@@ -2518,7 +2518,7 @@ paths:
           schema:
             type: string
             format: date
-            example: 2018-12-31
+            example: "2018-12-31"
         - in: query
           name: type
           description: Optional filter on the transaction type(s) returned
@@ -2555,7 +2555,7 @@ paths:
         schema:
           type: string
           format: date
-          example: 2018-09-17
+          example: "2018-09-17"
       - in: query
         name: end
         description: |
@@ -2564,7 +2564,7 @@ paths:
         schema:
           type: string
           format: date
-          example: 2018-12-31
+          example: "2018-12-31"
       responses:
         200:
           description: A list of bills
@@ -2622,7 +2622,7 @@ paths:
         schema:
           type: string
           format: date
-          example: 2018-09-17
+          example: "2018-09-17"
       - in: query
         name: end
         description: |
@@ -2631,7 +2631,7 @@ paths:
         schema:
           type: string
           format: date
-          example: 2018-12-31
+          example: "2018-12-31"
       tags:
         - bills
       responses:
@@ -2854,7 +2854,7 @@ paths:
         schema:
           type: string
           format: date
-          example: 2018-09-17
+          example: "2018-09-17"
       - in: query
         name: end
         description: |
@@ -2863,7 +2863,7 @@ paths:
         schema:
           type: string
           format: date
-          example: 2018-09-17
+          example: "2018-09-17"
       - in: query
         name: type
         description: Optional filter on the transaction type(s) returned.
@@ -3119,7 +3119,7 @@ paths:
           schema:
             type: string
             format: date
-            example: 2018-09-17
+            example: "2018-09-17"
         - in: query
           name: end
           description: |
@@ -3128,7 +3128,7 @@ paths:
           schema:
             type: string
             format: date
-            example: 2018-12-31
+            example: "2018-12-31"
         - in: query
           name: type
           description: Optional filter on the transaction type(s) returned
@@ -3396,7 +3396,7 @@ paths:
           schema:
             type: string
             format: date
-            example: 2018-09-17
+            example: "2018-09-17"
         - in: query
           name: end
           description: |
@@ -3405,7 +3405,7 @@ paths:
           schema:
             type: string
             format: date
-            example: 2018-09-17
+            example: "2018-09-17"
         - in: query
           name: type
           description: Optional filter on the transaction type(s) returned
@@ -3840,7 +3840,7 @@ paths:
         schema:
           type: string
           format: date
-          example: 2018-09-17
+          example: "2018-09-17"
       - in: query
         name: end
         description: |
@@ -3849,7 +3849,7 @@ paths:
         schema:
           type: string
           format: date
-          example: 2018-12-31
+          example: "2018-12-31"
       tags:
         - categories
       responses:
@@ -4530,7 +4530,7 @@ paths:
           schema:
             type: string
             format: date
-            example: 2018-09-17
+            example: "2018-09-17"
         - in: query
           name: end
           description: |
@@ -4539,7 +4539,7 @@ paths:
           schema:
             type: string
             format: date
-            example: 2018-12-31
+            example: "2018-12-31"
         - in: query
           name: type
           description: Optional filter on the transaction type(s) returned
@@ -4578,7 +4578,7 @@ paths:
           schema:
             type: string
             format: date
-            example: 2018-09-17
+            example: "2018-09-17"
         - in: query
           name: end
           description: |
@@ -4587,7 +4587,7 @@ paths:
           schema:
             type: string
             format: date
-            example: 2018-12-31
+            example: "2018-12-31"
       responses:
         200:
           description: A list of budget limits applicable to this budget.
@@ -4756,7 +4756,7 @@ paths:
           schema:
             type: string
             format: date
-            example: 2018-09-17
+            example: "2018-09-17"
         - in: query
           name: end
           description: |
@@ -4765,7 +4765,7 @@ paths:
           schema:
             type: string
             format: date
-            example: 2018-12-31
+            example: "2018-12-31"
       responses:
         200:
           description: A list of budget limits.
@@ -4796,7 +4796,7 @@ paths:
         schema:
           type: string
           format: date
-          example: 2018-09-17
+          example: "2018-09-17"
       - in: query
         name: end
         description: |
@@ -4805,7 +4805,7 @@ paths:
         schema:
           type: string
           format: date
-          example: 2018-12-31
+          example: "2018-12-31"
       responses:
         200:
           description: A list of budgets.
@@ -4863,7 +4863,7 @@ paths:
         schema:
           type: string
           format: date
-          example: 2018-09-17
+          example: "2018-09-17"
       - in: query
         name: end
         description: |
@@ -4872,7 +4872,7 @@ paths:
         schema:
           type: string
           format: date
-          example: 2018-12-31
+          example: "2018-12-31"
       tags:
         - budgets
       responses:
@@ -5193,7 +5193,7 @@ paths:
           schema:
             type: string
             format: date
-            example: 2018-09-17
+            example: "2018-09-17"
         - in: query
           name: end
           description: |
@@ -5202,7 +5202,7 @@ paths:
           schema:
             type: string
             format: date
-            example: 2018-09-17
+            example: "2018-09-17"
         - in: query
           name: type
           description: Optional filter on the transaction type(s) returned.
@@ -5240,7 +5240,7 @@ paths:
         schema:
           type: string
           format: date
-          example: 2018-09-17
+          example: "2018-09-17"
       - in: query
         name: end
         description: |
@@ -5249,7 +5249,7 @@ paths:
         schema:
           type: string
           format: date
-          example: 2018-12-31
+          example: "2018-12-31"
       responses:
         200:
           description: A list of available budget amounts.
@@ -5474,7 +5474,7 @@ paths:
           schema:
             type: string
             format: date
-            example: 2018-09-17
+            example: "2018-09-17"
         - in: query
           name: end
           description: |
@@ -5483,7 +5483,7 @@ paths:
           schema:
             type: string
             format: date
-            example: 2018-09-17
+            example: "2018-09-17"
         - in: query
           name: type
           description: Optional filter on the transaction type(s) returned.
@@ -5534,7 +5534,7 @@ paths:
           schema:
             type: string
             format: date
-            example: 2018-09-17
+            example: "2018-09-17"
         - in: query
           name: end
           description: |
@@ -5543,7 +5543,7 @@ paths:
           schema:
             type: string
             format: date
-            example: 2018-12-31
+            example: "2018-12-31"
         - in: query
           name: type
           description: Optional filter on the transaction type(s) returned
@@ -5949,7 +5949,7 @@ paths:
           schema:
             type: string
             format: date
-            example: 2018-09-17
+            example: "2018-09-17"
         - in: query
           name: end
           description: |
@@ -5958,7 +5958,7 @@ paths:
           schema:
             type: string
             format: date
-            example: 2018-09-17
+            example: "2018-09-17"
         - in: query
           name: search_limit
           description: |
@@ -6014,7 +6014,7 @@ paths:
           required: false
           schema:
             type: string
-            example: 2018-09-17
+            example: "2018-09-17"
             format: date
         - in: query
           name: end
@@ -6023,7 +6023,7 @@ paths:
           required: false
           schema:
             type: string
-            example: 2018-09-17
+            example: "2018-09-17"
             format: date
         - in: query
           name: accounts[]
@@ -6078,7 +6078,7 @@ paths:
           schema:
             type: string
             format: date
-            example: 2018-09-17
+            example: "2018-09-17"
         - in: query
           name: end
           description: |
@@ -6087,7 +6087,7 @@ paths:
           schema:
             type: string
             format: date
-            example: 2018-09-17
+            example: "2018-09-17"
         - in: query
           name: type
           description: Optional filter on the transaction type(s) returned.
@@ -6256,7 +6256,7 @@ paths:
           schema:
             type: string
             format: date
-            example: 2018-09-17
+            example: "2018-09-17"
         - in: query
           name: force
           description: |
