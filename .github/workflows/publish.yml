@@ -1,7 +1,7 @@
 name: Publish documentation
 on:
   push:
-    branches: [ main ]
+    branches: [ main, 1.5.3 ]
   workflow_dispatch:
 jobs:
   build:
