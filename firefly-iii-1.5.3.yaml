@@ -5,7 +5,7 @@ servers:
 info:
   title: Firefly III API v1.5.3
   description: |
-    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2021-09-17T14:11:39+00:00
+    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2021-09-18T03:27:38+00:00
   version: "1.5.3"
   contact:
     name: James Cole
@@ -876,29 +876,28 @@ paths:
         required: true
         schema:
           $ref: '#/components/schemas/DataDestroyObject'
-  /api/v1/data/bulk/accounts/transactions:
-    post:
-      summary: Bulk move transactions from one account to another.
-      description: |
-        Allows you to move all from one account to another. Requires two of the exact same accounts to work. Will not migrate deleted transactions. Both accounts must be of the exact same type (asset accounts for example).
-      operationId: bulkAccountMoveTransactions
-      tags:
-        - data
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/BulkAccountTransactionObject'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/BulkAccountTransactionObject'
-        description: JSON array with the necessary information to facilitate the move.
+  
+  /api/v1/data/bulk/transactions:
+    summary: Bulk update transaction properties. For more information, see https://docs.firefly-iii.org/firefly-iii/api/specials
+    description: |
+      Allows you to update transactions in bulk.
+    operationId: bulkUpdateTransactions
+    tags:
+      - data
+    parameters:
+      - in: query
+        name: query
+        description: The JSON query .
         required: true
-      responses:
-        204:
-          description: Empty response when the move was successful.
-        '500':
-          description: Internal error.
+        schema:
+          type: json
+          format: json
+          example: "{\"where\": {\"account_id\": 5},\"update\": {\"account_id\": 10}}"
+    responses:
+      204:
+        description: Empty response when the update was successful. A future improvement is to include the changed transactions.
+      '500':
+        description: Internal error.
   /api/v1/insight/expense/bill:
     get:
       summary: Insight into expenses, grouped by bill.
@@ -8559,6 +8558,14 @@ components:
           format: int32
           example: 2
           description: "Number of decimals for the currency associated to the data in the entries."
+        start_date:
+          type: string
+          format: date-time
+          example: "2018-09-17T12:46:47+01:00"
+        end_date:
+          type: string
+          format: date-time
+          example: "2018-09-17T12:46:47+01:00"
         type:
           type: string
           format: string
@@ -8602,22 +8609,7 @@ components:
         - withdrawals
         - deposits
         - transfers
-    BulkAccountTransactionObject:
-      type: object
-      required:
-        - original_account
-        - destination_account
-      properties:
-        original_account:
-          type: number
-          format: integer
-          example: 2
-          description: "The original account, where you wish to transactions away from."
-        destination_account:
-          type: number
-          format: integer
-          example: 17
-          description: "The destination account, where the transactions will be moved to."
+    
     InsightTransferEntry:
       type: object
       properties:
