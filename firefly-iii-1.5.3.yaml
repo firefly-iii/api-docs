@@ -5,7 +5,7 @@ servers:
 info:
   title: Firefly III API v1.5.3
   description: |
-    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2021-09-18T03:27:38+00:00
+    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2021-09-18T03:58:30+00:00
   version: "1.5.3"
   contact:
     name: James Cole
@@ -872,7 +872,7 @@ paths:
       parameters:
       - in: query
         name: objects
-        description: The type of data that you wish to destroy.
+        description: The type of data that you wish to destroy. You can only use one at a time.
         required: true
         schema:
           $ref: '#/components/schemas/DataDestroyObject'
