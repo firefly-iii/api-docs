@@ -5,7 +5,7 @@ servers:
 info:
   title: Firefly III API v1.5.3
   description: |
-    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2021-09-19T07:26:16+00:00
+    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2021-09-19T08:24:18+00:00
   version: "1.5.3"
   contact:
     name: James Cole
@@ -887,12 +887,11 @@ paths:
       parameters:
         - in: query
           name: query
-          description: The JSON query .
+          description: The JSON query.
           required: true
           schema:
-            type: json
+            type: string
             format: json
-            example: "{\"where\": {\"account_id\": 5},\"update\": {\"account_id\": 10}}"
       responses:
         204:
           description: Empty response when the update was successful. A future improvement is to include the changed transactions.
