@@ -5,7 +5,7 @@ servers:
 info:
   title: Firefly III API v1.5.3
   description: |
-    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2021-09-19T07:19:37+00:00
+    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2021-09-19T07:25:21+00:00
   version: "1.5.3"
   contact:
     name: James Cole
@@ -876,28 +876,28 @@ paths:
         required: true
         schema:
           $ref: '#/components/schemas/DataDestroyObject'
-  
   /api/v1/data/bulk/transactions:
-    summary: Bulk update transaction properties. For more information, see https://docs.firefly-iii.org/firefly-iii/api/specials
-    description: |
-      Allows you to update transactions in bulk.
-    operationId: bulkUpdateTransactions
-    tags:
-      - data
-    parameters:
-      - in: query
-        name: query
-        description: The JSON query .
-        required: true
-        schema:
-          type: json
-          format: json
-          example: "{\"where\": {\"account_id\": 5},\"update\": {\"account_id\": 10}}"
-    responses:
-      204:
-        description: Empty response when the update was successful. A future improvement is to include the changed transactions.
-      '500':
-        description: Internal error.
+    post:
+      summary: Bulk update transaction properties. For more information, see https://docs.firefly-iii.org/firefly-iii/api/specials
+      description: |
+        Allows you to update transactions in bulk.
+      operationId: bulkUpdateTransactions
+      tags:
+        - data
+      parameters:
+        - in: query
+          name: query
+          description: The JSON query .
+          required: true
+          schema:
+            type: json
+            format: json
+            example: "{\"where\": {\"account_id\": 5},\"update\": {\"account_id\": 10}}"
+      responses:
+        204:
+          description: Empty response when the update was successful. A future improvement is to include the changed transactions.
+        '500':
+          description: Internal error.
   /api/v1/insight/expense/bill:
     get:
       summary: Insight into expenses, grouped by bill.
@@ -3110,7 +3110,6 @@ paths:
           description: Object group deleted.
         404:
           description: No such object group
-  
   /api/v1/categories/{id}/transactions:
     get:
       summary: List all transactions in a category.
@@ -4078,7 +4077,6 @@ paths:
           description: Tag deleted.
         404:
           description: "No such tag"
-  
   /api/v1/transaction-journals/{id}/links:
     get:
       summary: Lists all the transaction links for an individual journal (individual split).
@@ -8609,7 +8607,6 @@ components:
         - withdrawals
         - deposits
         - transfers
-    
     InsightTransferEntry:
       type: object
       properties:
@@ -10016,7 +10013,7 @@ components:
           type: string
           format: string
           example: "My object group"
-        example: "2018-12-31"
+        order:
           type: integer
           format: int32
           example: 1
