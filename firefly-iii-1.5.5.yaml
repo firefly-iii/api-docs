@@ -5,7 +5,7 @@ servers:
 info:
   title: Firefly III API v1.5.5
   description: |
-    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2022-01-24T05:30:58+00:00
+    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2022-01-24T06:58:36+00:00
   version: "1.5.5"
   contact:
     name: James Cole
@@ -12663,6 +12663,11 @@ components:
           nullable: true
           format: string
           description: Reference to external ID in other systems.
+        external_url:
+          type: string
+          format: string
+          nullable: true
+          description: External, custom URL for this transaction.
         bunq_payment_id:
           type: string
           nullable: true
@@ -12894,6 +12899,11 @@ components:
           nullable: true
           format: string
           description: Reference to external ID in other systems.
+        external_url:
+          type: string
+          format: string
+          nullable: true
+          description: External, custom URL for this transaction.
         bunq_payment_id:
           type: string
           nullable: true
@@ -13176,6 +13186,11 @@ components:
           nullable: true
           format: string
           description: Reference to external ID in other systems.
+        external_url:
+          type: string
+          format: string
+          nullable: true
+          description: External, custom URL for this transaction.
         original_source:
           type: string
           nullable: true
