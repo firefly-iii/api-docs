@@ -5,7 +5,7 @@ servers:
 info:
   title: Firefly III API v1.5.5
   description: |
-    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2022-01-23T15:38:43+00:00
+    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2022-01-24T05:30:58+00:00
   version: "1.5.5"
   contact:
     name: James Cole
@@ -2229,8 +2229,8 @@ paths:
         name: id
         required: true
         schema:
-          type: integer
-          example: 1
+          type: string
+          example: "123"
         description: The ID of the attachment.
       tags:
         - attachments
@@ -2255,8 +2255,8 @@ paths:
         name: id
         required: true
         schema:
-          type: integer
-          example: 1
+          type: string
+          example: "123"
         description: The ID of the attachment.
       requestBody:
         content:
@@ -2293,8 +2293,8 @@ paths:
         name: id
         required: true
         schema:
-          type: integer
-          example: 1
+          type: string
+          example: "123"
         description: The ID of the single.
       responses:
         204:
@@ -2312,8 +2312,8 @@ paths:
         name: id
         required: true
         schema:
-          type: integer
-          example: 1
+          type: string
+          example: "123"
         description: The ID of the attachment.
       tags:
         - attachments
@@ -2338,8 +2338,8 @@ paths:
         name: id
         required: true
         schema:
-          type: integer
-          example: 1
+          type: string
+          example: "123"
         description: The ID of the attachment.
       tags:
         - attachments
@@ -2368,8 +2368,8 @@ paths:
           name: id
           required: true
           schema:
-            type: integer
-            example: 1
+            type: string
+            example: "123"
           description: The ID of the rule.
         - in: query
           name: start
@@ -2420,8 +2420,8 @@ paths:
           name: id
           required: true
           schema:
-            type: integer
-            example: 1
+            type: string
+            example: "123"
           description: The ID of the rule.
         - in: query
           name: start
@@ -2468,8 +2468,8 @@ paths:
           name: id
           required: true
           schema:
-            type: integer
-            example: 1
+            type: string
+            example: "123"
           description: The ID of the bill.
         - in: query
           name: page
@@ -2497,8 +2497,8 @@ paths:
           name: id
           required: true
           schema:
-            type: integer
-            example: 1
+            type: string
+            example: "123"
           description: The ID of the bill.
       responses:
         200:
@@ -2519,8 +2519,8 @@ paths:
           name: id
           required: true
           schema:
-            type: integer
-            example: 1
+            type: string
+            example: "123"
           description: The ID of the bill.
         - in: query
           name: start
@@ -2632,8 +2632,8 @@ paths:
         name: id
         required: true
         schema:
-          type: integer
-          example: 1
+          type: string
+          example: "123"
         description: The ID of the bill.
       - in: query
         name: start
@@ -2675,8 +2675,8 @@ paths:
         name: id
         required: true
         schema:
-          type: integer
-          example: 1
+          type: string
+          example: "123"
         description: The ID of the bill.
       requestBody:
         content:
@@ -2712,8 +2712,8 @@ paths:
         name: id
         required: true
         schema:
-          type: integer
-          example: 1
+          type: string
+          example: "123"
         description: The ID of the bill.
       responses:
         204:
@@ -2781,8 +2781,8 @@ paths:
         name: id
         required: true
         schema:
-          type: integer
-          example: 1
+          type: string
+          example: "123"
         description: The ID of the object.X
       tags:
         - rules
@@ -2806,8 +2806,8 @@ paths:
         name: id
         required: true
         schema:
-          type: integer
-          example: 1
+          type: string
+          example: "123"
         description: The ID of the object.X
       requestBody:
         content:
@@ -2843,8 +2843,8 @@ paths:
         name: id
         required: true
         schema:
-          type: integer
-          example: 1
+          type: string
+          example: "123"
         description: The ID of the rule.
       responses:
         204:
@@ -2937,8 +2937,8 @@ paths:
         name: id
         required: true
         schema:
-          type: integer
-          example: 1
+          type: string
+          example: "123"
         description: The ID of the transaction.
       tags:
         - transactions
@@ -2962,8 +2962,8 @@ paths:
         name: id
         required: true
         schema:
-          type: integer
-          example: 1
+          type: string
+          example: "123"
         description: The ID of the transaction.
       requestBody:
         content:
@@ -2999,8 +2999,8 @@ paths:
         name: id
         required: true
         schema:
-          type: integer
-          example: 1
+          type: string
+          example: "123"
         description: The ID of the transaction.
       responses:
         204:
@@ -3039,8 +3039,8 @@ paths:
           name: id
           required: true
           schema:
-            type: integer
-            example: 1
+            type: string
+            example: "123"
           description: The ID of the object group.
       tags:
         - object_groups
@@ -3064,8 +3064,8 @@ paths:
           name: id
           required: true
           schema:
-            type: integer
-            example: 1
+            type: string
+            example: "123"
           description: The ID of the object group
       requestBody:
         content:
@@ -3101,8 +3101,8 @@ paths:
           name: id
           required: true
           schema:
-            type: integer
-            example: 1
+            type: string
+            example: "123"
           description: The ID of the object group.
       responses:
         204:
@@ -3121,8 +3121,8 @@ paths:
           name: id
           required: true
           schema:
-            type: integer
-            example: 1
+            type: string
+            example: "123"
           description: The ID of the category.
         - in: query
           name: page
@@ -3174,8 +3174,8 @@ paths:
           name: id
           required: true
           schema:
-            type: integer
-            example: 1
+            type: string
+            example: "123"
           description: The ID of the category.
         - in: query
           name: page
@@ -3254,8 +3254,8 @@ paths:
         name: id
         required: true
         schema:
-          type: integer
-          example: 1
+          type: string
+          example: "123"
         description: The ID of the recurring transaction.
       tags:
         - recurrences
@@ -3279,8 +3279,8 @@ paths:
         name: id
         required: true
         schema:
-          type: integer
-          example: 1
+          type: string
+          example: "123"
         description: The ID of the recurring transaction.
       requestBody:
         content:
@@ -3316,8 +3316,8 @@ paths:
         name: id
         required: true
         schema:
-          type: integer
-          example: 1
+          type: string
+          example: "123"
         description: The ID of the recurring transaction.
       responses:
         204:
@@ -3336,8 +3336,8 @@ paths:
           name: id
           required: true
           schema:
-            type: integer
-            example: 1
+            type: string
+            example: "123"
           description: The ID of the transaction.
         - in: query
           name: page
@@ -3367,8 +3367,8 @@ paths:
           name: id
           required: true
           schema:
-            type: integer
-            example: 1
+            type: string
+            example: "123"
           description: The ID of the transaction.
         - in: query
           name: page
@@ -3398,8 +3398,8 @@ paths:
           name: id
           required: true
           schema:
-            type: integer
-            example: 1
+            type: string
+            example: "123"
           description: The ID of the recurring transaction.
         - in: query
           name: page
@@ -3500,8 +3500,8 @@ paths:
         name: id
         required: true
         schema:
-          type: integer
-          example: 1
+          type: string
+          example: "123"
         description: The ID of the piggy bank.
       tags:
         - piggy_banks
@@ -3525,8 +3525,8 @@ paths:
         name: id
         required: true
         schema:
-          type: integer
-          example: 1
+          type: string
+          example: "123"
         description: The ID of the piggy bank
       requestBody:
         content:
@@ -3558,13 +3558,13 @@ paths:
       tags:
         - piggy_banks
       parameters:
-      - in: path
-        name: id
-        required: true
-        schema:
-          type: integer
-          example: 1
-        description: The ID of the piggy bank.
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+            example: "123"
+          description: The ID of the piggy bank.
       responses:
         204:
           description: Piggy bank deleted.
@@ -3849,8 +3849,8 @@ paths:
         name: id
         required: true
         schema:
-          type: integer
-          example: 1
+          type: string
+          example: "123"
         description: The ID of the category.
       - in: query
         name: start
@@ -3892,8 +3892,8 @@ paths:
         name: id
         required: true
         schema:
-          type: integer
-          example: 1
+          type: string
+          example: "123"
         description: The ID of the category.
       requestBody:
         content:
@@ -3929,8 +3929,8 @@ paths:
         name: id
         required: true
         schema:
-          type: integer
-          example: 1
+          type: string
+          example: "123"
         description: The ID of the category.
       responses:
         204:
@@ -4088,8 +4088,8 @@ paths:
           name: id
           required: true
           schema:
-            type: integer
-            example: 1
+            type: string
+            example: "123"
           description: The ID of the transaction journal / the split.
         - in: query
           name: page
@@ -4117,8 +4117,8 @@ paths:
           name: id
           required: true
           schema:
-            type: integer
-            example: 1
+            type: string
+            example: "123"
           description: The ID of the transaction journal (split).
       tags:
         - transactions
@@ -4142,8 +4142,8 @@ paths:
           name: id
           required: true
           schema:
-            type: integer
-            example: 1
+            type: string
+            example: "123"
           description: The ID of the transaction journal (the split) you wish to delete.
       responses:
         204:
@@ -4230,8 +4230,8 @@ paths:
         name: id
         required: true
         schema:
-          type: integer
-          example: 1
+          type: string
+          example: "123"
         description: The ID of the account.
       - in: query
         name: date
@@ -4260,8 +4260,8 @@ paths:
         name: id
         required: true
         schema:
-          type: integer
-          example: 1
+          type: string
+          example: "123"
         description: The ID of the account.
       tags:
         - accounts
@@ -4298,8 +4298,8 @@ paths:
         name: id
         required: true
         schema:
-          type: integer
-          example: 1
+          type: string
+          example: "123"
         description: The ID of the account.
       tags:
         - accounts
@@ -4585,9 +4585,8 @@ paths:
           name: id
           required: true
           schema:
-            type: integer
-            minimum: 1
-            example: 1
+            type: string
+            example: "123"
           description: The ID of the requested budget.
         - in: query
           name: start
@@ -4625,9 +4624,8 @@ paths:
           name: id
           required: true
           schema:
-            type: integer
-            minimum: 1
-            example: 1
+            type: string
+            example: "123"
           description: The ID of the budget.
       requestBody:
         content:
@@ -4663,9 +4661,8 @@ paths:
           name: id
           required: true
           schema:
-            type: integer
-            minimum: 1
-            example: 1
+            type: string
+            example: "123"
           description: The ID of the budget. The budget limit MUST be associated to the budget ID.
         - in: path
           name: limitId
@@ -4695,17 +4692,15 @@ paths:
           name: id
           required: true
           schema:
-            type: integer
-            minimum: 1
-            example: 1
+            type: string
+            example: "123"
           description: The ID of the budget. The budget limit MUST be associated to the budget ID.
         - in: path
           name: limitId
           required: true
           schema:
-            type: integer
-            minimum: 1
-            example: 1
+            type: string
+            example: "123"
           description: The ID of the budget limit. The budget limit MUST be associated to the budget ID.
       requestBody:
         content:
@@ -4741,17 +4736,15 @@ paths:
           name: id
           required: true
           schema:
-            type: integer
-            minimum: 1
-            example: 1
+            type: string
+            example: "123"
           description: The ID of the budget. The budget limit MUST be associated to the budget ID.
         - in: path
           name: limitId
           required: true
           schema:
-            type: integer
-            minimum: 1
-            example: 1
+            type: string
+            example: "123"
           description: The ID of the budget limit. The budget limit MUST be associated to the budget ID.
       responses:
         204:
@@ -4871,8 +4864,8 @@ paths:
         name: id
         required: true
         schema:
-          type: integer
-          example: 1
+          type: string
+          example: "123"
         description: The ID of the requested budget.
       - in: query
         name: start
@@ -4914,9 +4907,8 @@ paths:
         name: id
         required: true
         schema:
-          type: integer
-          minimum: 1
-          example: 1
+          type: string
+          example: "123"
         description: The ID of the budget.
       requestBody:
         content:
@@ -4952,9 +4944,8 @@ paths:
         name: id
         required: true
         schema:
-          type: integer
-          minimum: 1
-          example: 1
+          type: string
+          example: "123"
         description: The ID of the budget.
       responses:
         204:
@@ -4973,8 +4964,8 @@ paths:
           name: id
           required: true
           schema:
-            type: integer
-            example: 1
+            type: string
+            example: "123"
           description: The ID of the piggy bank
         - in: query
           name: page
@@ -5002,8 +4993,8 @@ paths:
           name: id
           required: true
           schema:
-            type: integer
-            example: 1
+            type: string
+            example: "123"
           description: The ID of the piggy bank.
         - in: query
           name: page
@@ -5033,8 +5024,8 @@ paths:
           name: id
           required: true
           schema:
-            type: integer
-            example: 1
+            type: string
+            example: "123"
           description: The ID of the rule group.
         - in: query
           name: page
@@ -5111,8 +5102,8 @@ paths:
         name: id
         required: true
         schema:
-          type: integer
-          example: 1
+          type: string
+          example: "123"
         description: The ID of the rule group.
       tags:
         - rule_groups
@@ -5136,8 +5127,8 @@ paths:
         name: id
         required: true
         schema:
-          type: integer
-          example: 1
+          type: string
+          example: "123"
         description: The ID of the rule group.
       requestBody:
         content:
@@ -5173,8 +5164,8 @@ paths:
         name: id
         required: true
         schema:
-          type: integer
-          example: 1
+          type: string
+          example: "123"
         description: The ID of the rule group.
       responses:
         204:
@@ -5194,8 +5185,8 @@ paths:
           name: id
           required: true
           schema:
-            type: integer
-            example: 1
+            type: string
+            example: "123"
           description: The ID of the link type.
         - in: query
           name: page
@@ -5316,8 +5307,8 @@ paths:
         name: id
         required: true
         schema:
-          type: integer
-          example: 1
+          type: string
+          example: "123"
         description: The ID of the available budget.
       tags:
         - available_budgets
@@ -5341,8 +5332,8 @@ paths:
         name: id
         required: true
         schema:
-          type: integer
-          example: 1
+          type: string
+          example: "123"
         description: The ID of the object.X
       requestBody:
         content:
@@ -5378,8 +5369,8 @@ paths:
         name: id
         required: true
         schema:
-          type: integer
-          example: 1
+          type: string
+          example: "123"
         description: The ID of the available budget.
       responses:
         204:
@@ -5398,17 +5389,15 @@ paths:
           name: id
           required: true
           schema:
-            type: integer
-            minimum: 1
-            example: 1
+            type: string
+            example: "123"
           description: The ID of the budget. The budget limit MUST be associated to the budget ID.
         - in: path
           name: limitId
           required: true
           schema:
-            type: integer
-            minimum: 1
-            example: 1
+            type: string
+            example: "123"
           description: The ID of the budget limit. The budget limit MUST be associated to the budget ID.
         - in: query
           name: page
@@ -5528,8 +5517,8 @@ paths:
           name: id
           required: true
           schema:
-            type: integer
-            example: 1
+            type: string
+            example: "123"
           description: The ID of the budget.
         - in: query
           name: limit
@@ -5588,8 +5577,8 @@ paths:
           name: id
           required: true
           schema:
-            type: integer
-            example: 1
+            type: string
+            example: "123"
           description: The ID of the budget.
         - in: query
           name: page
@@ -5620,8 +5609,8 @@ paths:
           name: id
           required: true
           schema:
-            type: integer
-            example: 1
+            type: string
+            example: "123"
           description: The ID of the account.
         - in: query
           name: page
@@ -5648,8 +5637,8 @@ paths:
           name: id
           required: true
           schema:
-            type: integer
-            example: 1
+            type: string
+            example: "123"
           description: The ID of the account.
         - in: query
           name: page
@@ -5729,8 +5718,8 @@ paths:
           name: id
           required: true
           schema:
-            type: integer
-            example: 1
+            type: string
+            example: "123"
           description: The ID of the transaction link.
       responses:
         200:
@@ -5751,8 +5740,8 @@ paths:
           name: id
           required: true
           schema:
-            type: integer
-            example: 1
+            type: string
+            example: "123"
           description: The ID of the transaction link.
       tags:
         - links
@@ -5771,8 +5760,8 @@ paths:
           name: id
           required: true
           schema:
-            type: integer
-            example: 1
+            type: string
+            example: "123"
           description: The ID of the transaction link.
       tags:
         - links
@@ -5864,8 +5853,8 @@ paths:
           name: id
           required: true
           schema:
-            type: integer
-            example: 1
+            type: string
+            example: "123"
           description: The ID of the link type.
       responses:
         200:
@@ -5886,8 +5875,8 @@ paths:
           name: id
           required: true
           schema:
-            type: integer
-            example: 1
+            type: string
+            example: "123"
           description: The ID of the link type.
       tags:
         - links
@@ -5926,8 +5915,8 @@ paths:
           name: id
           required: true
           schema:
-            type: integer
-            example: 1
+            type: string
+            example: "123"
           description: The ID of the link type.
       tags:
         - links
@@ -5950,8 +5939,8 @@ paths:
           name: id
           required: true
           schema:
-            type: integer
-            example: 1
+            type: string
+            example: "123"
           description: The ID of the rule group.
         - in: query
           name: page
@@ -6023,8 +6012,8 @@ paths:
           name: id
           required: true
           schema:
-            type: integer
-            example: 1
+            type: string
+            example: "123"
           description: The ID of the rule group.
         - in: query
           name: start
@@ -6072,8 +6061,8 @@ paths:
           name: id
           required: true
           schema:
-            type: integer
-            example: 1
+            type: string
+            example: "123"
           description: The ID of the account.
         - in: query
           name: page
@@ -6132,8 +6121,8 @@ paths:
           name: id
           required: true
           schema:
-            type: integer
-            example: 1
+            type: string
+            example: "123"
           description: The ID of the account.
         - in: query
           name: page
@@ -6164,8 +6153,8 @@ paths:
           name: id
           required: true
           schema:
-            type: integer
-            example: 1
+            type: string
+            example: "123"
           description: The ID of the account.
         - in: query
           name: page
@@ -6432,8 +6421,8 @@ paths:
         name: id
         required: true
         schema:
-          type: integer
-          example: 1
+          type: string
+          example: "123"
         description: The user ID.
       tags:
         - users
@@ -6457,8 +6446,8 @@ paths:
         name: id
         required: true
         schema:
-          type: integer
-          example: 1
+          type: string
+          example: "123"
         description: The user ID.
       requestBody:
         content:
@@ -6494,8 +6483,8 @@ paths:
         name: id
         required: true
         schema:
-          type: integer
-          example: 1
+          type: string
+          example: "123"
         description: The user ID.
       responses:
         204:
@@ -6596,8 +6585,8 @@ paths:
         name: id
         required: true
         schema:
-          type: integer
-          example: 1
+          type: string
+          example: "123"
         description: The webhook ID.
       tags:
         - webhooks
@@ -6621,8 +6610,8 @@ paths:
         name: id
         required: true
         schema:
-          type: integer
-          example: 1
+          type: string
+          example: "123"
         description: The webhook ID.
       requestBody:
         content:
@@ -6658,8 +6647,8 @@ paths:
         name: id
         required: true
         schema:
-          type: integer
-          example: 1
+          type: string
+          example: "123"
         description: The webhook ID.
       responses:
         204:
@@ -6678,8 +6667,8 @@ paths:
           name: id
           required: true
           schema:
-            type: integer
-            example: 1
+            type: string
+            example: "123"
           description: The webhook ID.
       tags:
         - webhooks
@@ -6702,8 +6691,8 @@ paths:
           name: id
           required: true
           schema:
-            type: integer
-            example: 1
+            type: string
+            example: "123"
           description: The webhook ID.
       tags:
         - webhooks
@@ -6726,8 +6715,8 @@ paths:
           name: id
           required: true
           schema:
-            type: integer
-            example: 1
+            type: string
+            example: "123"
           description: The webhook ID.
         - in: path
           name: messageId
@@ -6758,8 +6747,8 @@ paths:
           name: id
           required: true
           schema:
-            type: integer
-            example: 1
+            type: string
+            example: "123"
           description: The webhook ID.
         - in: path
           name: messageId
@@ -6785,8 +6774,8 @@ paths:
           name: id
           required: true
           schema:
-            type: integer
-            example: 1
+            type: string
+            example: "123"
           description: The webhook ID.
         - in: path
           name: messageId
@@ -6824,8 +6813,8 @@ paths:
           name: id
           required: true
           schema:
-            type: integer
-            example: 1
+            type: string
+            example: "123"
           description: The webhook ID.
         - in: path
           name: messageId
@@ -6863,8 +6852,8 @@ paths:
           name: id
           required: true
           schema:
-            type: integer
-            example: 1
+            type: string
+            example: "123"
           description: The webhook ID.
         - in: path
           name: messageId
@@ -8066,6 +8055,203 @@ components:
           $ref: '#/components/schemas/Recurrence'
         links:
           $ref: '#/components/schemas/ObjectLink'
+    AutoBudgetPeriod:
+      type: string
+      format: string
+      example: "monthly"
+      nullable: true
+      description: "Period for the auto budget"
+      enum:
+        - daily
+        - weekly
+        - monthly
+        - quarterly
+        - "half-year"
+        - yearly
+        - null
+    AttachableType:
+      type: string
+      format: string
+      example: "Bill"
+      description: The object class to which the attachment must be linked.
+      enum:
+        - Account
+        - Budget
+        - Bill
+        - TransactionJournal
+        - PiggyBank
+        - Tag
+    RuleTriggerKeyword:
+      type: string
+      format: string
+      example: "user_action"
+      description: The type of thing this trigger responds to. A limited set is possible
+      enum:
+        - from_account_starts
+        - from_account_ends
+        - from_account_is
+        - from_account_contains
+        - to_account_starts
+        - to_account_ends
+        - to_account_is
+        - to_account_contains
+        - amount_less
+        - amount_exactly
+        - amount_more
+        - description_starts
+        - description_ends
+        - description_contains
+        - description_is
+        - transaction_type
+        - category_is
+        - budget_is
+        - tag_is
+        - currency_is
+        - has_attachments
+        - has_no_category
+        - has_any_category
+        - has_no_budget
+        - has_any_budget
+        - has_no_tag
+        - has_any_tag
+        - notes_contain
+        - notes_start
+        - notes_end
+        - notes_are
+        - no_notes
+        - any_notes
+        - source_account_is
+        - destination_account_is
+        - source_account_starts
+    AccountRoleProperty:
+      type: string
+      format: string
+      example: "defaultAsset"
+      description: "Is only mandatory when the type is asset."
+      nullable: true
+      enum:
+        - defaultAsset
+        - sharedAsset
+        - savingAsset
+        - ccAsset
+        - cashWalletAsset
+        - null
+    RecurrenceTransactionType:
+      type: string
+      format: string
+      example: "withdrawal"
+      enum:
+        - withdrawal
+        - transfer
+        - deposit
+    AutoBudgetType:
+      type: string
+      format: string
+      example: reset
+      nullable: true
+      description: "The type of auto-budget that Firefly III must create."
+      enum:
+        - reset
+        - rollover
+        - none
+        - null
+    LiabilityType:
+      type: string
+      format: string
+      example: "loan"
+      description: "Mandatory when type is liability. Specifies the exact type."
+      nullable: true
+      enum:
+        - loan
+        - debt
+        - mortgage
+        - null
+    WebhookTrigger:
+      type: string
+      format: string
+      nullable: false
+      example: "TRIGGER_DESTROY_TRANSACTION"
+      description: The trigger for the webhook.
+      enum:
+        - TRIGGER_STORE_TRANSACTION
+        - TRIGGER_UPDATE_TRANSACTION
+        - TRIGGER_DESTROY_TRANSACTION
+    WebhookResponse:
+      type: string
+      format: string
+      nullable: false
+      example: "RESPONSE_TRANSACTIONS"
+      description: Indicator for what Firefly III will deliver to the webhook URL.
+      enum:
+        - RESPONSE_TRANSACTIONS
+        - RESPONSE_ACCOUNTS
+        - RESPONSE_NONE
+    InterestPeriod:
+      type: string
+      format: string
+      example: monthly
+      description: "Mandatory when type is liability. Period over which the interest is calculated."
+      nullable: true
+      enum:
+        - weekly
+        - monthly
+        - quarterly
+        - half-year
+        - yearly
+        - null
+    BillRepeatFrequency:
+      type: string
+      format: string
+      example: "monthly"
+      description: How often the bill must be paid.
+      enum:
+        - weekly
+        - monthly
+        - quarterly
+        - "half-year"
+        - yearly
+    RuleTriggerType:
+      type: string
+      format: string
+      example: store-journal
+      description: Which action is necessary for the rule to fire? Use either store-journal or update-journal.
+      enum:
+        - "store-journal"
+        - "update-journal"
+    LiabilityDirection:
+      type: string
+      format: string
+      example: credit
+      description: "'credit' indicates somebody owes you the liability. 'debit' Indicates you owe this debt yourself. Works only for liabiltiies."
+      nullable: true
+      enum:
+        - credit
+        - debit
+        - null
+    UserRoleProperty:
+      type: string
+      format: string
+      example: "owner"
+      description: Role for the user. Can be empty or omitted.
+      enum:
+        - owner
+        - demo
+        - null
+    ShortAccountTypeProperty:
+      type: string
+      format: string
+      example: "asset"
+      description: "Can only be one one these account types. import, initial-balance and reconciliation cannot be set manually."
+      enum:
+        - asset
+        - expense
+        - import
+        - revenue
+        - cash
+        - liability
+        - liabilities
+        - "initial-balance"
+        - reconciliation
     AccountTypeProperty:
       type: string
       format: string
@@ -8084,6 +8270,80 @@ components:
         - Loan
         - Debt
         - Mortgage
+    WebhookDelivery:
+      type: string
+      format: string
+      nullable: false
+      example: "DELIVERY_JSON"
+      description: Format of the delivered response.
+      enum:
+        - DELIVERY_JSON
+    CreditCardType:
+      type: string
+      format: string
+      example: monthlyFull
+      description: "Mandatory when the account_role is ccAsset. Can only be monthlyFull or null."
+      nullable: true
+      enum:
+        - monthlyFull
+        - null
+    UserBlockedCodeProperty:
+      type: string
+      format: string
+      example: "email_changed"
+      description: If you say the user must be blocked, this will be the reason code.
+      enum:
+        - email_changed
+        - null
+    RuleActionKeyword:
+      type: string
+      format: string
+      example: "set_category"
+      description: The type of thing this action will do. A limited set is possible.
+      enum:
+        - user_action
+        - set_category
+        - clear_category
+        - set_budget
+        - clear_budget
+        - add_tag
+        - remove_tag
+        - remove_all_tags
+        - set_description
+        - append_description
+        - prepend_description
+        - set_source_account
+        - set_destination_account
+        - set_notes
+        - append_notes
+        - prepend_notes
+        - clear_notes
+        - link_to_bill
+        - convert_withdrawal
+        - convert_deposit
+        - convert_transfer
+        - delete_transaction
+    TransactionTypeProperty:
+      type: string
+      format: string
+      example: "withdrawal"
+      enum:
+        - withdrawal
+        - deposit
+        - transfer
+        - reconciliation
+        - opening balance
+    RecurrenceRepetitionType:
+      type: string
+      format: string
+      example: "weekly"
+      description: "The type of the repetition. ndom means: the n-th weekday of the month, where you can also specify which day of the week."
+      enum:
+        - daily
+        - weekly
+        - ndom
+        - monthly
+        - yearly
     AutocompleteBudget:
       type: object
       required:
@@ -9059,33 +9319,11 @@ components:
           readOnly: true
           description: A 24-character secret for the webhook. It's generated by Firefly III when saving a new webhook. If you submit a new secret through the PUT endpoint it will generate a new secret for the selected webhook, a new secret bearing no relation to whatever you just submitted.
         trigger:
-          type: string
-          format: string
-          nullable: false
-          example: "TRIGGER_DESTROY_TRANSACTION"
-          description: The trigger for the webhook.
-          enum:
-          - TRIGGER_STORE_TRANSACTION
-          - TRIGGER_UPDATE_TRANSACTION
-          - TRIGGER_DESTROY_TRANSACTION
+          $ref: '#/components/schemas/WebhookTrigger'
         response:
-          type: string
-          format: string
-          nullable: false
-          example: "RESPONSE_TRANSACTIONS"
-          description: Indicator for what Firefly III will deliver to the webhook URL.
-          enum:
-          - RESPONSE_TRANSACTIONS
-          - RESPONSE_ACCOUNTS
-          - RESPONSE_NONE
+          $ref: '#/components/schemas/WebhookResponse'
         delivery:
-          type: string
-          format: string
-          nullable: false
-          example: "DELIVERY_JSON"
-          description: Format of the delivered response.
-          enum:
-          - DELIVERY_JSON
+          $ref: '#/components/schemas/WebhookDelivery'
         url:
           type: string
           format: string
@@ -9113,33 +9351,11 @@ components:
           example: "Update magic mirror on new transaction"
           description: A title for the webhook for easy recognition.
         trigger:
-          type: string
-          format: string
-          nullable: false
-          example: "TRIGGER_DESTROY_TRANSACTION"
-          description: The trigger for the webhook.
-          enum:
-          - TRIGGER_STORE_TRANSACTION
-          - TRIGGER_UPDATE_TRANSACTION
-          - TRIGGER_DESTROY_TRANSACTION
+          $ref: '#/components/schemas/WebhookTrigger'
         response:
-          type: string
-          format: string
-          nullable: false
-          example: "RESPONSE_TRANSACTIONS"
-          description: Indicator for what Firefly III will deliver to the webhook URL.
-          enum:
-          - RESPONSE_TRANSACTIONS
-          - RESPONSE_ACCOUNTS
-          - RESPONSE_NONE
+          $ref: '#/components/schemas/WebhookResponse'
         delivery:
-          type: string
-          format: string
-          nullable: false
-          example: "DELIVERY_JSON"
-          description: Format of the delivered response.
-          enum:
-          - DELIVERY_JSON
+          $ref: '#/components/schemas/WebhookDelivery'
         url:
           type: string
           format: string
@@ -9166,33 +9382,11 @@ components:
           example: "iMLZLtLx2JHWhK9Dtyuoqyir"
           description: A 24-character secret for the webhook. It's generated by Firefly III when saving a new webhook. If you submit a new secret through the PUT endpoint it will generate a new secret for the selected webhook, a new secret bearing no relation to whatever you just submitted.
         trigger:
-          type: string
-          format: string
-          nullable: false
-          example: "TRIGGER_DESTROY_TRANSACTION"
-          description: The trigger for the webhook.
-          enum:
-          - TRIGGER_STORE_TRANSACTION
-          - TRIGGER_UPDATE_TRANSACTION
-          - TRIGGER_DESTROY_TRANSACTION
+          $ref: '#/components/schemas/WebhookTrigger'
         response:
-          type: string
-          format: string
-          nullable: false
-          example: "RESPONSE_TRANSACTIONS"
-          description: Indicator for what Firefly III will deliver to the webhook URL.
-          enum:
-          - RESPONSE_TRANSACTIONS
-          - RESPONSE_ACCOUNTS
-          - RESPONSE_NONE
+          $ref: '#/components/schemas/WebhookResponse'
         delivery:
-          type: string
-          format: string
-          nullable: false
-          example: "DELIVERY_JSON"
-          description: Format of the delivered response.
-          enum:
-          - DELIVERY_JSON
+          $ref: '#/components/schemas/WebhookDelivery'
         url:
           type: string
           format: string
@@ -9210,13 +9404,7 @@ components:
         - transactions
       properties:
         type:
-          type: string
-          format: string
-          example: "withdrawal"
-          enum:
-          - withdrawal
-          - transfer
-          - deposit
+          $ref: '#/components/schemas/RecurrenceTransactionType'
         title:
           type: string
           format: string
@@ -9280,13 +9468,7 @@ components:
           example: "2018-09-17T12:46:47+01:00"
           readOnly: true
         type:
-          type: string
-          format: string
-          example: "withdrawal"
-          enum:
-          - withdrawal
-          - transfer
-          - deposit
+          $ref: '#/components/schemas/RecurrenceTransactionType'
         title:
           type: string
           format: string
@@ -9457,16 +9639,7 @@ components:
       type: object
       properties:
         type:
-          type: string
-          format: string
-          example: "weekly"
-          description: "The type of the repetition. ndom means: the n-th weekday of the month, where you can also specify which day of the week."
-          enum:
-          - daily
-          - weekly
-          - ndom
-          - monthly
-          - yearly
+          $ref: '#/components/schemas/RecurrenceRepetitionType'
         moment:
           type: string
           format: string
@@ -9500,16 +9673,7 @@ components:
         - moment
       properties:
         type:
-          type: string
-          format: string
-          example: "weekly"
-          description: "The type of the repetition. ndom means: the n-th weekday of the month, where you can also specify which day of the week."
-          enum:
-          - daily
-          - weekly
-          - ndom
-          - monthly
-          - yearly
+          $ref: '#/components/schemas/RecurrenceRepetitionType'
         moment:
           type: string
           format: string
@@ -9558,16 +9722,7 @@ components:
           example: "2018-09-17T12:46:47+01:00"
           readOnly: true
         type:
-          type: string
-          format: string
-          example: "weekly"
-          description: "The type of the repetition. ndom means: the n-th weekday of the month, where you can also specify which day of the week."
-          enum:
-          - daily
-          - weekly
-          - ndom
-          - monthly
-          - yearly
+          $ref: '#/components/schemas/RecurrenceRepetitionType'
         moment:
           type: string
           format: string
@@ -9674,16 +9829,7 @@ components:
           example: "2018-09-17T12:46:47+01:00"
           description: "The date before which the bill must be renewed (or cancelled)"
         repeat_freq:
-          type: string
-          format: string
-          example: "monthly"
-          description: How often the bill must be paid.
-          enum:
-          - weekly
-          - monthly
-          - quarterly
-          - "half-year"
-          - yearly
+          $ref: '#/components/schemas/BillRepeatFrequency'
         skip:
           type: integer
           format: int32
@@ -9818,16 +9964,7 @@ components:
           example: "2018-09-17T12:46:47+01:00"
           description: "The date before which the bill must be renewed (or cancelled)"
         repeat_freq:
-          type: string
-          format: string
-          example: "monthly"
-          description: How often the bill must be paid.
-          enum:
-          - weekly
-          - monthly
-          - quarterly
-          - "half-year"
-          - yearly
+          $ref: '#/components/schemas/BillRepeatFrequency'
         skip:
           type: integer
           format: int32
@@ -9895,16 +10032,7 @@ components:
           example: "2018-09-17T12:46:47+01:00"
           description: "The date before which the bill must be renewed (or cancelled)"
         repeat_freq:
-          type: string
-          format: string
-          example: "monthly"
-          description: How often the bill must be paid.
-          enum:
-          - weekly
-          - monthly
-          - quarterly
-          - "half-year"
-          - yearly
+          $ref: '#/components/schemas/BillRepeatFrequency'
         skip:
           type: integer
           format: int32
@@ -10041,17 +10169,7 @@ components:
           format: string
           example: "file.pdf"
         attachable_type:
-          type: string
-          format: string
-          example: "Bill"
-          description: The object class to which the attachment must be linked.
-          enum:
-          - Account
-          - Budget
-          - Bill
-          - TransactionJournal
-          - PiggyBank
-          - Tag
+          $ref: '#/components/schemas/AttachableType'
         attachable_id:
           type: string
           format: string
@@ -10084,17 +10202,7 @@ components:
           example: "2018-09-17T12:46:47+01:00"
           readOnly: true
         attachable_type:
-          type: string
-          format: string
-          example: "Bill"
-          description: The object class to which the attachment must be linked.
-          enum:
-          - Account
-          - Budget
-          - Bill
-          - TransactionJournal
-          - PiggyBank
-          - Tag
+          $ref: '#/components/schemas/AttachableType'
         attachable_id:
           type: string
           format: string
@@ -10174,33 +10282,7 @@ components:
           example: "2018-09-17T12:46:47+01:00"
           readOnly: true
         type:
-          type: string
-          format: string
-          example: "set_category"
-          description: The type of thing this action will do. A limited set is possible.
-          enum:
-          - user_action
-          - set_category
-          - clear_category
-          - set_budget
-          - clear_budget
-          - add_tag
-          - remove_tag
-          - remove_all_tags
-          - set_description
-          - append_description
-          - prepend_description
-          - set_source_account
-          - set_destination_account
-          - set_notes
-          - append_notes
-          - prepend_notes
-          - clear_notes
-          - link_to_bill
-          - convert_withdrawal
-          - convert_deposit
-          - convert_transfer
-          - delete_transaction
+          $ref: '#/components/schemas/RuleActionKeyword'
         value:
           type: string
           format: string
@@ -10226,33 +10308,7 @@ components:
       type: object
       properties:
         type:
-          type: string
-          format: string
-          example: "set_category"
-          description: The type of thing this action will do. A limited set is possible.
-          enum:
-          - user_action
-          - set_category
-          - clear_category
-          - set_budget
-          - clear_budget
-          - add_tag
-          - remove_tag
-          - remove_all_tags
-          - set_description
-          - append_description
-          - prepend_description
-          - set_source_account
-          - set_destination_account
-          - set_notes
-          - append_notes
-          - prepend_notes
-          - clear_notes
-          - link_to_bill
-          - convert_withdrawal
-          - convert_deposit
-          - convert_transfer
-          - delete_transaction
+          $ref: '#/components/schemas/RuleActionKeyword'
         value:
           type: string
           format: string
@@ -10281,33 +10337,7 @@ components:
         - value
       properties:
         type:
-          type: string
-          format: string
-          example: "set_category"
-          description: The type of thing this action will do. A limited set is possible.
-          enum:
-          - user_action
-          - set_category
-          - clear_category
-          - set_budget
-          - clear_budget
-          - add_tag
-          - remove_tag
-          - remove_all_tags
-          - set_description
-          - append_description
-          - prepend_description
-          - set_source_account
-          - set_destination_account
-          - set_notes
-          - append_notes
-          - prepend_notes
-          - clear_notes
-          - link_to_bill
-          - convert_withdrawal
-          - convert_deposit
-          - convert_transfer
-          - delete_transaction
+          $ref: '#/components/schemas/RuleActionKeyword'
         value:
           type: string
           format: string
@@ -10545,13 +10575,7 @@ components:
           format: int32
           example: 5
         trigger:
-          type: string
-          format: string
-          example: store-journal
-          description: Which action is necessary for the rule to fire? Use either store-journal or update-journal.
-          enum:
-          - "store-journal"
-          - "update-journal"
+          $ref: '#/components/schemas/RuleTriggerType'
         active:
           type: boolean
           format: boolean
@@ -10618,13 +10642,7 @@ components:
           example: 5
           readOnly: true
         trigger:
-          type: string
-          format: string
-          example: store-journal
-          description: Which action is necessary for the rule to fire? Use either store-journal or update-journal.
-          enum:
-          - "store-journal"
-          - "update-journal"
+          $ref: '#/components/schemas/RuleTriggerType'
         active:
           type: boolean
           format: boolean
@@ -10669,13 +10687,7 @@ components:
           format: int32
           example: 5
         trigger:
-          type: string
-          format: string
-          example: store-journal
-          description: Which action is necessary for the rule to fire? Use either store-journal or update-journal.
-          enum:
-          - "store-journal"
-          - "update-journal"
+          $ref: '#/components/schemas/RuleTriggerType'
         active:
           type: boolean
           format: boolean
@@ -11481,22 +11493,9 @@ components:
           example: false
           description: Boolean to indicate if the user is blocked.
         blocked_code:
-          type: string
-          format: string
-          example: "email_changed"
-          description: If you say the user must be blocked, this will be the reason code.
-          enum:
-          - email_changed
-          - null
+          $ref: '#/components/schemas/UserBlockedCodeProperty'
         role:
-          type: string
-          format: string
-          example: "owner"
-          description: Role for the new user. Can be empty or omitted.
-          enum:
-          - owner
-          - demo
-          - null
+          $ref: '#/components/schemas/UserRoleProperty'
     PageLink:
       type: object
       properties:
@@ -11609,47 +11608,7 @@ components:
           example: "2018-09-17T12:46:47+01:00"
           readOnly: true
         type:
-          type: string
-          format: string
-          example: "user_action"
-          description: The type of thing this trigger responds to. A limited set is possible
-          enum:
-          - from_account_starts
-          - from_account_ends
-          - from_account_is
-          - from_account_contains
-          - to_account_starts
-          - to_account_ends
-          - to_account_is
-          - to_account_contains
-          - amount_less
-          - amount_exactly
-          - amount_more
-          - description_starts
-          - description_ends
-          - description_contains
-          - description_is
-          - transaction_type
-          - category_is
-          - budget_is
-          - tag_is
-          - currency_is
-          - has_attachments
-          - has_no_category
-          - has_any_category
-          - has_no_budget
-          - has_any_budget
-          - has_no_tag
-          - has_any_tag
-          - notes_contain
-          - notes_start
-          - notes_end
-          - notes_are
-          - no_notes
-          - any_notes
-          - source_account_is
-          - destination_account_is
-          - source_account_starts
+          $ref: '#/components/schemas/RuleTriggerKeyword'
         value:
           type: string
           format: string
@@ -11675,47 +11634,7 @@ components:
       type: object
       properties:
         type:
-          type: string
-          format: string
-          example: "user_action"
-          description: The type of thing this trigger responds to. A limited set is possible
-          enum:
-          - from_account_starts
-          - from_account_ends
-          - from_account_is
-          - from_account_contains
-          - to_account_starts
-          - to_account_ends
-          - to_account_is
-          - to_account_contains
-          - amount_less
-          - amount_exactly
-          - amount_more
-          - description_starts
-          - description_ends
-          - description_contains
-          - description_is
-          - transaction_type
-          - category_is
-          - budget_is
-          - tag_is
-          - currency_is
-          - has_attachments
-          - has_no_category
-          - has_any_category
-          - has_no_budget
-          - has_any_budget
-          - has_no_tag
-          - has_any_tag
-          - notes_contain
-          - notes_start
-          - notes_end
-          - notes_are
-          - no_notes
-          - any_notes
-          - source_account_is
-          - destination_account_is
-          - source_account_starts
+          $ref: '#/components/schemas/RuleTriggerKeyword'
         value:
           type: string
           format: string
@@ -11743,47 +11662,7 @@ components:
         - value
       properties:
         type:
-          type: string
-          format: string
-          example: "user_action"
-          description: The type of thing this trigger responds to. A limited set is possible
-          enum:
-          - from_account_starts
-          - from_account_ends
-          - from_account_is
-          - from_account_contains
-          - to_account_starts
-          - to_account_ends
-          - to_account_is
-          - to_account_contains
-          - amount_less
-          - amount_exactly
-          - amount_more
-          - description_starts
-          - description_ends
-          - description_contains
-          - description_is
-          - transaction_type
-          - category_is
-          - budget_is
-          - tag_is
-          - currency_is
-          - has_attachments
-          - has_no_category
-          - has_any_category
-          - has_no_budget
-          - has_any_budget
-          - has_no_tag
-          - has_any_tag
-          - notes_contain
-          - notes_start
-          - notes_end
-          - notes_are
-          - no_notes
-          - any_notes
-          - source_account_is
-          - destination_account_is
-          - source_account_starts
+          $ref: '#/components/schemas/RuleTriggerKeyword'
         value:
           type: string
           format: string
@@ -11893,27 +11772,9 @@ components:
           example: true
           description: "If omitted, defaults to true."
         account_role:
-          type: string
-          format: string
-          example: "defaultAsset"
-          description: "Is only mandatory when the type is asset."
-          nullable: true
-          enum:
-          - defaultAsset
-          - sharedAsset
-          - savingAsset
-          - ccAsset
-          - cashWalletAsset
-          - null
+          $ref: '#/components/schemas/AccountRoleProperty'
         credit_card_type:
-          type: string
-          format: string
-          example: monthlyFull
-          description: "Mandatory when the account_role is ccAsset. Can only be monthlyFull or null."
-          nullable: true
-          enum:
-          - monthlyFull
-          - null
+          $ref: '#/components/schemas/CreditCardType'
         monthly_payment_date:
           nullable: true
           type: string
@@ -11921,16 +11782,7 @@ components:
           example: "2018-09-17"
           description: "Mandatory when the account_role is ccAsset. Moment at which CC payment installments are asked for by the bank."
         liability_type:
-          type: string
-          format: string
-          example: loan
-          description: "Mandatory when type is liability. Specifies the exact type."
-          nullable: true
-          enum:
-          - loan
-          - debt
-          - mortgage
-          - null
+          $ref: '#/components/schemas/LiabilityType'
         interest:
           type: string
           format: string
@@ -11938,16 +11790,7 @@ components:
           description: "Mandatory when type is liability. Interest percentage."
           nullable: true
         interest_period:
-          type: string
-          format: string
-          example: monthly
-          description: "Mandatory when type is liability. Period over which the interest is calculated."
-          nullable: true
-          enum:
-            - daily
-            - monthly
-            - yearly
-            - null
+          $ref: '#/components/schemas/InterestPeriod'
         notes:
           type: string
           format: string
@@ -11982,20 +11825,7 @@ components:
           format: string
           example: "My checking account"
         type:
-          type: string
-          format: string
-          example: asset
-          description: "Can only be one one these account types. import, initial-balance and reconciliation cannot be set manually."
-          enum:
-            - asset
-            - expense
-            - import
-            - revenue
-            - cash
-            - liability
-            - liabilities
-            - "initial-balance"
-            - reconciliation
+          $ref: '#/components/schemas/ShortAccountTypeProperty'
         iban:
           type: string
           format: iban
@@ -12052,27 +11882,9 @@ components:
           example: true
           description: "If omitted, defaults to true."
         account_role:
-          type: string
-          format: string
-          example: "defaultAsset"
-          description: "Is only mandatory when the type is asset."
-          nullable: true
-          enum:
-          - defaultAsset
-          - sharedAsset
-          - savingAsset
-          - ccAsset
-          - cashWalletAsset
-          - null
+          $ref: '#/components/schemas/AccountRoleProperty'
         credit_card_type:
-          type: string
-          format: string
-          example: monthlyFull
-          description: "Mandatory when the account_role is ccAsset. Can only be monthlyFull or null."
-          nullable: true
-          enum:
-          - monthlyFull
-          - null
+          $ref: '#/components/schemas/CreditCardType'
         monthly_payment_date:
           nullable: true
           type: string
@@ -12080,27 +11892,9 @@ components:
           example: "2018-09-17"
           description: "Mandatory when the account_role is ccAsset. Moment at which CC payment installments are asked for by the bank."
         liability_type:
-          type: string
-          format: string
-          example: loan
-          description: "Mandatory when type is liability. Specifies the exact type."
-          nullable: true
-          enum:
-          - loan
-          - debt
-          - mortgage
-          - null
+          $ref: '#/components/schemas/LiabilityType'
         liability_direction:
-          type: string
-          format: string
-          example: credit
-          description: "'credit' indicates somebody owes you the liability. 'debit' Indicates you owe this debt yourself. Works only for liabiltiies."
-          nullable: true
-          default: debit
-          enum:
-            - credit
-            - debit
-            - null
+          $ref: '#/components/schemas/LiabilityDirection'
         interest:
           type: string
           format: string
@@ -12109,17 +11903,7 @@ components:
           description: "Mandatory when type is liability. Interest percentage."
           nullable: true
         interest_period:
-          type: string
-          format: string
-          example: monthly
-          default: monthly
-          description: "Mandatory when type is liability. Period over which the interest is calculated."
-          nullable: true
-          enum:
-            - daily
-            - monthly
-            - yearly
-            - null
+          $ref: '#/components/schemas/InterestPeriod'
         notes:
           type: string
           format: string
@@ -12175,33 +11959,9 @@ components:
           format: string
           example: "My checking account"
         type:
-          type: string
-          format: string
-          example: asset
-          description: "Can only be one one these account types. import, initial-balance and reconciliation cannot be set manually."
-          enum:
-            - asset
-            - expense
-            - import
-            - revenue
-            - cash
-            - liability
-            - liabilities
-            - "initial-balance"
-            - reconciliation
+          $ref: '#/components/schemas/ShortAccountTypeProperty'
         account_role:
-          type: string
-          format: string
-          example: "defaultAsset"
-          description: "Is only mandatory when the type is asset."
-          nullable: true
-          enum:
-            - defaultAsset
-            - sharedAsset
-            - savingAsset
-            - ccAsset
-            - cashWalletAsset
-            - null
+          $ref: '#/components/schemas/AccountRoleProperty'
         currency_id:
           type: string
           format: string
@@ -12273,14 +12033,7 @@ components:
           example: true
           description: "If omitted, defaults to true."
         credit_card_type:
-          type: string
-          format: string
-          example: monthlyFull
-          description: "Mandatory when the account_role is ccAsset. Can only be monthlyFull or null."
-          nullable: true
-          enum:
-          - monthlyFull
-          - null
+          $ref: '#/components/schemas/CreditCardType'
         monthly_payment_date:
           nullable: true
           type: string
@@ -12288,25 +12041,9 @@ components:
           example: "2018-09-17T12:46:47+01:00"
           description: "Mandatory when the account_role is ccAsset. Moment at which CC payment installments are asked for by the bank."
         liability_type:
-          type: string
-          format: string
-          example: loan
-          description: "Mandatory when type is liability. Specifies the exact type."
-          nullable: true
-          enum:
-          - loan
-          - debt
-          - mortgage
-          - null
+          $ref: '#/components/schemas/LiabilityType'
         liability_direction:
-          type: string
-          format: string
-          example: credit
-          description: "'credit' indicates somebody owes you the liability. 'debit' Indicates you owe this debt yourself. Works only for liabiltiies."
-          nullable: false
-          enum:
-            - credit
-            - debit
+          $ref: '#/components/schemas/LiabilityDirection'
         interest:
           type: string
           format: string
@@ -12314,18 +12051,7 @@ components:
           description: "Mandatory when type is liability. Interest percentage."
           nullable: true
         interest_period:
-          type: string
-          format: string
-          example: monthly
-          description: "Mandatory when type is liability. Period over which the interest is calculated."
-          nullable: true
-          enum:
-            - weekly
-            - monthly
-            - quarterly
-            - half-year
-            - yearly
-            - null
+          $ref: '#/components/schemas/LiabilityDirection'
         notes:
           type: string
           format: string
@@ -13010,23 +12736,12 @@ components:
       type: object
       required:
         - amount
-        - source_id
-        - destination_id
         - date
         - description
         - type
       properties:
         type:
-          type: string
-          format: string
-          example:  "withdrawal"
-          description: Type of transaction.
-          enum:
-            - withdrawal
-            - deposit
-            - transfer
-            - reconciliation
-            - opening balance
+          $ref: '#/components/schemas/TransactionTypeProperty'
         date:
           type: string
           format: date-time
@@ -13273,16 +12988,7 @@ components:
             making up the splits of the transaction.
           readOnly: true
         type:
-          type: string
-          format: string
-          example:  "withdrawal"
-          description: Type of transaction.
-          enum:
-            - withdrawal
-            - deposit
-            - transfer
-            - reconciliation
-            - opening balance
+          $ref: '#/components/schemas/TransactionTypeProperty'
         date:
           type: string
           format: date-time
@@ -13662,16 +13368,7 @@ components:
           example: 5
           readOnly: true
         auto_budget_type:
-          type: string
-          format: string
-          example: reset
-          nullable: true
-          description: "The type of auto-budget that Firefly III must create."
-          enum:
-            - reset
-            - rollover
-            - none
-            - null
+          $ref: '#/components/schemas/AutoBudgetType'
         auto_budget_currency_id:
           type: string
           format: string
@@ -13690,19 +13387,7 @@ components:
           example: "-1012.12"
           nullable: true
         auto_budget_period:
-          type: string
-          format: string
-          example: "monthly"
-          nullable: true
-          description: "Period for the auto budget"
-          enum:
-            - daily
-            - weekly
-            - monthly
-            - quarterly
-            - half_year
-            - yearly
-            - null
+          $ref: '#/components/schemas/AutoBudgetPeriod'
         spent:
           description: "Information on how much was spent in this budget. Is only filled in when the start and end date are submitted."
           type: array
@@ -13728,16 +13413,7 @@ components:
           example: 5
           readOnly: true
         auto_budget_type:
-          type: string
-          format: string
-          example: reset
-          nullable: true
-          description: "The type of auto-budget that Firefly III must create."
-          enum:
-            - reset
-            - rollover
-            - none
-            - null
+          $ref: '#/components/schemas/AutoBudgetType'
         auto_budget_currency_id:
           type: string
           format: string
@@ -13756,19 +13432,7 @@ components:
           example: "-1012.12"
           nullable: true
         auto_budget_period:
-          type: string
-          format: string
-          example: "monthly"
-          nullable: true
-          description: "Period for the auto budget"
-          enum:
-            - daily
-            - weekly
-            - monthly
-            - quarterly
-            - half_year
-            - yearly
-            - null
+          $ref: '#/components/schemas/AutoBudgetPeriod'
     BudgetUpdate:
       type: object
       properties:
@@ -13785,16 +13449,7 @@ components:
           format: int32
           example: 5
         auto_budget_type:
-          type: string
-          format: string
-          example: reset
-          nullable: true
-          description: "The type of auto-budget that Firefly III must create."
-          enum:
-            - reset
-            - rollover
-            - none
-            - null
+          $ref: '#/components/schemas/AutoBudgetType'
         auto_budget_currency_id:
           type: string
           format: string
@@ -13813,19 +13468,7 @@ components:
           example: "-1012.12"
           nullable: true
         auto_budget_period:
-          type: string
-          format: string
-          example: "monthly"
-          nullable: true
-          description: "Period for the auto budget"
-          enum:
-            - daily
-            - weekly
-            - monthly
-            - quarterly
-            - half_year
-            - yearly
-            - null
+          $ref: '#/components/schemas/AutoBudgetPeriod'
   securitySchemes:
     firefly_iii_auth:
       type: oauth2
