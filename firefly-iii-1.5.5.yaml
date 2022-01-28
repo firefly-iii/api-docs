@@ -5,7 +5,7 @@ servers:
 info:
   title: Firefly III API v1.5.5
   description: |
-    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2022-01-24T06:58:36+00:00
+    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2022-01-28T15:44:33+00:00
   version: "1.5.5"
   contact:
     name: James Cole
@@ -8069,6 +8069,10 @@ components:
         - "half-year"
         - yearly
         - null
+    StringArray:
+      type: array
+      items:
+        $ref: '#/components/schemas/StringArrayItem'
     AttachableType:
       type: string
       format: string
@@ -8166,6 +8170,9 @@ components:
         - debt
         - mortgage
         - null
+    StringArrayItem:
+      type: string
+      format: string
     WebhookTrigger:
       type: string
       format: string
@@ -8333,6 +8340,14 @@ components:
         - transfer
         - reconciliation
         - opening balance
+    PolymorphicProperty:
+      oneOf:
+        - type: boolean
+        - type: string
+        - type: object
+        - type: array
+          items:
+            $ref: '#/components/schemas/StringArrayItem'
     RecurrenceRepetitionType:
       type: string
       format: string
@@ -9094,14 +9109,7 @@ components:
           description: "Title of the configuration value."
           $ref: '#/components/schemas/ConfigValueFilter'
         value:
-          oneOf:
-            - type: boolean
-            - type: string
-            - type: object
-            - type: array
-              items:
-                type: string
-                format: string
+          $ref: '#/components/schemas/PolymorphicProperty'
           example: "some-variable"
           description: "Content of the configuration variable. Is very dynamic and can be anything from booleans to arrays."
         editable:
@@ -9125,14 +9133,7 @@ components:
         - value
       properties:
         value:
-          oneOf:
-            - type: boolean
-            - type: string
-            - type: object
-            - type: array
-              items:
-                type: string
-                format: string
+          $ref: '#/components/schemas/PolymorphicProperty'
           example: "Some-new-config var"
           description: Can be a number, a string, boolean or object. This depends on the actual configuration value.
     SystemInfo:
@@ -11013,14 +11014,7 @@ components:
         - data
       properties:
         data:
-          oneOf:
-            - type: boolean
-            - type: string
-            - type: object
-            - type: array
-              items:
-                type: string
-                format: string
+          $ref: '#/components/schemas/PolymorphicProperty'
           example: "EUR"
           description: "The actual preference content."
     Preference:
@@ -11044,14 +11038,7 @@ components:
           format: string
           example: currencyPreference
         data:
-          oneOf:
-            - type: boolean
-            - type: string
-            - type: object
-            - type: array
-              items:
-                type: string
-                format: string
+          $ref: '#/components/schemas/PolymorphicProperty'
           example: "EUR"
           description: "The actual preference content."
     PiggyBank:
