@@ -5,7 +5,7 @@ servers:
 info:
   title: Firefly III API v1.5.5
   description: |
-    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2022-01-30T05:47:28+00:00
+    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2022-02-04T17:00:55+00:00
   version: "1.5.5"
   contact:
     name: James Cole
@@ -8239,6 +8239,7 @@ components:
       type: string
       format: string
       example: "owner"
+      nullable: true
       description: Role for the user. Can be empty or omitted.
       enum:
         - owner
@@ -8297,6 +8298,7 @@ components:
     UserBlockedCodeProperty:
       type: string
       format: string
+      nullable: true
       example: "email_changed"
       description: If you say the user must be blocked, this will be the reason code.
       enum:
@@ -12023,6 +12025,7 @@ components:
         current_debt:
           type: string
           format: amount
+          nullable: true
           example: "1012.12"
           description: Represents the current debt for liabilities.
         opening_balance_date:
