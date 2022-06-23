@@ -1,0 +1,279 @@
+openapi: 3.0.0
+servers:
+  - description: Firefly III demo site
+    url: https://demo.firefly-iii.org/api/v2
+info:
+  title: Firefly III API v2.0.0 (v2)
+  description: |
+    This is the documentation of the Firefly III API (v2). You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2022-06-22T09:54:01+02:00
+  version: "2.0.0"
+  contact:
+    name: James Cole
+    email: james@firefly-iii.org
+    url: https://firefly-iii.org
+  license:
+    name: AGPLv3
+    url: 'https://www.gnu.org/licenses/agpl-3.0.en.html'
+tags:
+- name: transactions-sum
+  description: Endpoints to sum transactions based on various properties.
+
+paths:
+  /bills/sum/paid:
+    get:
+      tags:
+        - transactions-sum
+      operationId: getBillsPaidTrSum
+      summary: Returns the sum of the bills already paid in the period indicated.
+      parameters:
+        - name: X-Trace-Id
+          in: header
+          description: Unique identifier associated with this request.
+          required: false
+          schema:
+            type: string
+            format: uuid
+        - in: query
+          name: start
+          description: |
+            A date formatted YYYY-MM-DD.
+          required: true
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: end
+          description: |
+            A date formatted YYYY-MM-DD.
+          required: true
+          schema:
+            type: string
+            format: date
+      description: |
+        This endpoint sums up (by currency) the transactions linked to bills paid in the given period.
+      responses:
+        401:
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthenticated'
+        404:
+          description: Page not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFound'
+        400:
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+        500:
+          description: Internal exception
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalException'
+        422:
+          description: 'Validation error. The body will have the exact details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationError'
+        200:
+          description: An array of sums.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionSumArray'
+components:
+  schemas:
+    TransactionSum:
+      type: object
+      properties:
+        id:
+          type: string
+          format: string
+          example: "12"
+          description: "ID of the currency of this sum."
+        name:
+          type: string
+          format: string
+          example: "Euro"
+          description: "Currency name associated with this sum."
+        symbol:
+          type: string
+          format: string
+          example: "$"
+          description: "Currency symbol associated with this sum."
+        code:
+          type: string
+          format: string
+          example: "EUR"
+          description: "Currency code associated with this sum."
+        decimal_places:
+          type: integer
+          format: int32
+          example: 2
+          description: "Number of decimal places for the currency associated with this sum."
+        sum:
+          type: string
+          format: string
+          example: "12.34"
+          description: "Sum as a string. Can also be negative"
+        converted:
+          type: boolean
+          format: boolean
+          example: false
+          description: "Indicates if this sum was converted to the user's native (default) currency. When false, the native_* fields will still be present and filled."
+        native_sum:
+          type: string
+          format: string
+          example: "12.34"
+          description: "Sum as a string, expressed in the user's native (default) currency. Can also be negative"
+        native_id:
+          type: string
+          format: string
+          example: "1"
+          description: "The ID of the user's native (default) currency."
+        native_name:
+          type: string
+          format: string
+          example: "US Dollar"
+          description: "The name of the user's native (default) currency"
+        native_symbol:
+          type: string
+          format: string
+          example: "$"
+          description: "Currency symbol associated with this amount."
+        native_code:
+          type: string
+          format: string
+          example: "EUR"
+          description: "The currency code of the user's native (default) currency."
+        native_decimal_places:
+          type: integer
+          format: int32
+          example: 2
+          description: "Number of decimal places for this currency."
+    TransactionSumArray:
+      type: array
+      items:
+        $ref: '#/components/schemas/TransactionSum'
+    InternalException:
+      type: object
+      properties:
+        message:
+          type: string
+          format: string
+          example: "Internal Exception"
+        exception:
+          type: string
+          format: string
+          example: "InternalException"
+    NotFound:
+      type: object
+      properties:
+        message:
+          type: string
+          format: string
+          example: "Resource not found"
+        exception:
+          type: string
+          format: string
+          example: "NotFoundHttpException"
+    ValidationError:
+      type: object
+      properties:
+        message:
+          type: string
+          format: string
+          example: "The given data was invalid."
+        errors:
+          type: object
+          properties:
+            email:
+              type: array
+              items:
+                type: string
+                format: string
+            blocked:
+              type: array
+              items:
+                type: string
+                format: string
+            role:
+              type: array
+              items:
+                type: string
+                format: string
+            blocked_code:
+              type: array
+              items:
+                type: string
+                format: string
+            name:
+              type: array
+              items:
+                type: string
+                format: string
+            type:
+              type: array
+              items:
+                type: string
+                format: string
+            iban:
+              type: array
+              items:
+                type: string
+                format: string
+            start:
+              type: array
+              items:
+                type: string
+                format: string
+            end:
+              type: array
+              items:
+                  type: string
+                  format: string
+    Unauthenticated:
+      type: object
+      properties:
+        message:
+          type: string
+          format: string
+          example: "Unauthenticated"
+        exception:
+          type: string
+          format: string
+          example: "AuthenticationException"
+    BadRequest:
+      type: object
+      properties:
+        message:
+          type: string
+          format: string
+          example: "Bad Request"
+        exception:
+          type: string
+          format: string
+          example: "BadRequestHttpException"
+  securitySchemes:
+    firefly_iii_auth:
+      type: oauth2
+      description: Default OAuth2 flow
+      flows:
+        authorizationCode:
+          authorizationUrl: https://demo.firefly-iii.org/oauth/authorize
+          tokenUrl: https://demo.firefly-iii.org/oauth/token
+          refreshUrl: https://demo.firefly-iii.org/oauth/token
+          scopes: {}
+    local_bearer_auth:
+      description: Optional Bearer token flow
+      type: http
+      scheme: bearer
+security:
+  - firefly_iii_auth: []
