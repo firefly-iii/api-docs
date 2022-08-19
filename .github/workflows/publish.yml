@@ -13,6 +13,8 @@ jobs:
         env:
           AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.connectionString }}
         run: |
+          rm -rf .github
+          rm -rf .git
           az storage blob upload-batch \
                             -s ./ \
                             -d 'https://fireflyiiiapidocs.blob.core.windows.net/$web' \
