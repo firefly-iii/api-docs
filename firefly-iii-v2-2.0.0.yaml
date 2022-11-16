@@ -5,7 +5,7 @@ servers:
 info:
   title: Firefly III API v2.0.0 (v2)
   description: |
-    This is the documentation of the Firefly III API (v2). You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2022-06-22T09:54:01+02:00
+    This is the documentation of the Firefly III API (v2). You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2022-06-26T08:57:16+00:00
   version: "2.0.0"
   contact:
     name: James Cole
@@ -15,10 +15,143 @@ info:
     name: AGPLv3
     url: 'https://www.gnu.org/licenses/agpl-3.0.en.html'
 tags:
+- name: charts
+  description: The &quot;charts&quot; endpoints deliver optimised data for charts and graphs.
+- name: net-worth
+  description: Shows you the net worth of the current user.
+- name: accounts
+  description: Endpoints that deliver all of the user&#039;s asset, expense and other accounts
+    (and the metadata) together with related transactions, piggy banks and other objects.
+    Also delivers endpoints for CRUD operations for accounts.
 - name: transactions-sum
   description: Endpoints to sum transactions based on various properties.
 
 paths:
+  /net-worth:
+    get:
+      tags:
+        - net-worth
+      summary: Shows the net worth
+      description: |
+        Shows a multi-currency overview of the user's net worth.
+      operationId: getNetWorth
+      parameters:
+        - name: X-Trace-Id
+          in: header
+          description: Unique identifier associated with this request.
+          required: false
+          schema:
+            type: string
+            format: uuid
+        - in: query
+          name: date
+          description: |
+            A date formatted YYYY-MM-DD.
+          required: true
+          schema:
+            type: string
+            format: date
+  
+      responses:
+        401:
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthenticated'
+        404:
+          description: Page not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFound'
+        400:
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+        500:
+          description: Internal exception
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalException'
+        422:
+          description: 'Validation error. The body will have the exact details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationError'
+        200:
+          description: An array of net worths.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionSumArray'
+  /chart/account/dashboard:
+    get:
+      tags:
+        - charts
+      summary: Dashboard chart with asset account balance information.
+      description: |
+        This endpoint returns the data required to generate a chart with basic asset account balance information.
+      operationId: getChartAccountOverview
+      parameters:
+        - name: X-Trace-Id
+          in: header
+          description: Unique identifier associated with this request.
+          required: false
+          schema:
+            type: string
+            format: uuid
+        - in: query
+          name: start
+          description: |
+            A date formatted YYYY-MM-DD.
+          required: true
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: end
+          description: |
+            A date formatted YYYY-MM-DD.
+          required: true
+          schema:
+            type: string
+            format: date
+      responses:
+        401:
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthenticated'
+        404:
+          description: Page not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFound'
+        400:
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+        500:
+          description: Internal exception
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalException'
+        200:
+          description: Line chart oriented chart information. Check out the model for more details. Each entry is a line (or bar) in the chart.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChartLine'
   /bills/sum/paid:
     get:
       tags:
@@ -88,6 +221,106 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/TransactionSumArray'
+  /accounts/{id}/transactions:
+    get:
+      tags:
+        - accounts
+      summary: List all transactions related to the account.
+      description: |
+        This endpoint returns a list of all the transactions connected to the account.
+      operationId: listTransactionByAccount
+      parameters:
+        - name: X-Trace-Id
+          in: header
+          description: Unique identifier associated with this request.
+          required: false
+          schema:
+            type: string
+            format: uuid
+        - in: query
+          name: page
+          description: Page number. The default pagination is per 50 items.
+          required: false
+          schema:
+            type: integer
+            format: int32
+            example: 1
+  
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+            example: "123"
+          description: The ID of the account.
+        - in: query
+          name: limit
+          description: Limits the number of results on one page.
+          required: false
+          schema:
+            type: integer
+            example: 5
+        - in: query
+          name: start
+          description: |
+            A date formatted YYYY-MM-DD.
+          required: false
+          schema:
+            type: string
+            format: date
+            example: "2018-09-17"
+        - in: query
+          name: end
+          description: |
+            A date formatted YYYY-MM-DD.
+          required: false
+          schema:
+            type: string
+            format: date
+            example: "2018-09-17"
+        - in: query
+          name: type
+          description: Optional filter on the transaction type(s) returned.
+          required: false
+          schema:
+            $ref: '#/components/schemas/TransactionTypeFilter'
+      responses:
+        401:
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthenticated'
+        404:
+          description: Page not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFound'
+        400:
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+        500:
+          description: Internal exception
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalException'
+        422:
+          description: 'Validation error. The body will have the exact details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationError'
+        200:
+          description: A list of transactions
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/TransactionArray'
 components:
   schemas:
     TransactionSum:
@@ -158,32 +391,765 @@ components:
           format: int32
           example: 2
           description: "Number of decimal places for this currency."
+    Transaction:
+      type: object
+      required:
+        - transactions
+      properties:
+        created_at:
+          type: string
+          format: date-time
+          example: "2018-09-17T12:46:47+01:00"
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          example: "2018-09-17T12:46:47+01:00"
+          readOnly: true
+        user:
+          type: string
+          format: string
+          example: "3"
+          description: "User ID"
+          readOnly: true
+        group_title:
+          type: string
+          format: string
+          description: "Title of the transaction if it has been split in more than one piece. Empty otherwise."
+          example: "Split transaction title."
+          readOnly: false
+          nullable: true
+        transactions:
+          type: array
+          items:
+            $ref: '#/components/schemas/TransactionSplit'
+    TransactionRead:
+      type: object
+      required:
+        - type
+        - id
+        - attributes
+        - links
+      properties:
+        type:
+          type: string
+          format: string
+          example: "transactions"
+          description: "Immutable value"
+        id:
+          type: string
+          format: string
+          example: "2"
+        attributes:
+          $ref: '#/components/schemas/Transaction'
+        links:
+          $ref: '#/components/schemas/ObjectLink'
+    TransactionArray:
+      type: object
+      required:
+        - data
+        - meta
+        - links
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/TransactionRead'
+        meta:
+          $ref: '#/components/schemas/Meta'
+        links:
+          $ref: '#/components/schemas/PageLink'
+    TransactionSplit:
+      type: object
+      required:
+        - amount
+        - source_id
+        - destination_id
+        - date
+        - description
+        - type
+      properties:
+        user:
+          type: string
+          format: string
+          example: "3"
+          description: "User ID"
+          readOnly: true
+        transaction_journal_id:
+          type: string
+          format: string
+          example: "10421"
+          description: |
+            ID of the underlying transaction journal. Each transaction consists of a transaction group (see the top ID) and one or more journals
+            making up the splits of the transaction.
+          readOnly: true
+        type:
+          $ref: '#/components/schemas/TransactionTypeProperty'
+        date:
+          type: string
+          format: date-time
+          example: "2018-09-17T12:46:47+01:00"
+          description: "Date of the transaction"
+        order:
+          type: integer
+          format: int32
+          example: 0
+          nullable: true
+          description: "Order of this entry in the list of transactions."
+        currency_id:
+          type: string
+          format: string
+          example: "12"
+          nullable: true
+          description: Currency ID. Default is the source account's currency, or the user's default currency. Can be used instead of currency_code.
+        currency_code:
+          type: string
+          format: string
+          example: EUR
+          nullable: true
+          description: Currency code. Default is the source account's currency, or the user's default currency. Can be used instead of currency_id.
+        currency_symbol:
+          type: string
+          format: string
+          example: "$"
+          readOnly: true
+        currency_name:
+          type: string
+          format: string
+          example: "Euro"
+          readOnly: true
+        currency_decimal_places:
+          type: integer
+          format: int32
+          example: 2
+          description: Number of decimals used in this currency.
+          readOnly: true
+        foreign_currency_id:
+          type: string
+          format: string
+          example: "17"
+          nullable: true
+          description: Currency ID of the foreign currency. Default is null. Is required when you submit a foreign amount.
+        foreign_currency_code:
+          type: string
+          format: string
+          example: USD
+          description: Currency code of the foreign currency. Default is NULL. Can be used instead of the foreign_currency_id, but this or the ID is required when submitting a foreign amount.
+          nullable: true
+        foreign_currency_symbol:
+          type: string
+          format: string
+          example: "$"
+          nullable: true
+          readOnly: true
+        foreign_currency_decimal_places:
+          type: integer
+          format: int32
+          example: 2
+          description: Number of decimals in the currency
+          nullable: true
+          readOnly: true
+        amount:
+          type: string
+          format: amount
+          example: "123.45"
+          description: "Amount of the transaction."
+        foreign_amount:
+          type: string
+          format: amount
+          example: "123.45"
+          nullable: true
+          description: The amount in a foreign currency.
+        description:
+          type: string
+          format: string
+          example: "Vegetables"
+          description: "Description of the transaction."
+        source_id:
+          type: string
+          format: string
+          example: "2"
+          nullable: true
+          description: "ID of the source account. For a withdrawal or a transfer, this must always be an asset account. For deposits, this must be a revenue account."
+        source_name:
+          type: string
+          format: string
+          example: "Checking account"
+          nullable: true
+          description: "Name of the source account. For a withdrawal or a transfer, this must always be an asset account. For deposits, this must be a revenue account. Can be used instead of the source_id. If the transaction is a deposit, the source_name can be filled in freely: the account will be created based on the name."
+        source_iban:
+          type: string
+          format: string
+          example: "NL02ABNA0123456789"
+          nullable: true
+          readOnly: true
+        source_type:
+          $ref: '#/components/schemas/AccountTypeProperty'
+        destination_id:
+          type: string
+          format: string
+          example: "2"
+          nullable: true
+          description: "ID of the destination account. For a deposit or a transfer, this must always be an asset account. For withdrawals this must be an expense account."
+        destination_name:
+          type: string
+          format: string
+          example: "Buy and Large"
+          nullable: true
+          description: "Name of the destination account. You can submit the name instead of the ID. For everything except transfers, the account will be auto-generated if unknown, so submitting a name is enough."
+        destination_iban:
+          type: string
+          format: string
+          example: "NL02ABNA0123456789"
+          nullable: true
+          readOnly: true
+        destination_type:
+          $ref: '#/components/schemas/AccountTypeProperty'
+        budget_id:
+          type: string
+          format: string
+          nullable: true
+          example: "4"
+          description: The budget ID for this transaction.
+        budget_name:
+          type: string
+          format: string
+          example: Groceries
+          description: The name of the budget to be used. If the budget name is unknown, the ID will be used or the value will be ignored.
+          nullable: true
+          readOnly: true
+        category_id:
+          type: string
+          format: string
+          nullable: true
+          example: "43"
+          description: The category ID for this transaction.
+        category_name:
+          type: string
+          format: string
+          example: Groceries
+          nullable: true
+          description: "The name of the category to be used. If the category is unknown, it will be created. If the ID and the name point to different categories, the ID overrules the name."
+        bill_id:
+          type: string
+          format: string
+          nullable: true
+          example: "111"
+          description: Optional. Use either this or the bill_name
+        bill_name:
+          type: string
+          format: string
+          example: "Monthly rent"
+          nullable: true
+          description: Optional. Use either this or the bill_id
+        reconciled:
+          type: boolean
+          format: boolean
+          example: false
+          description: "If the transaction has been reconciled already. When you set this, the amount can no longer be edited by the user."
+        notes:
+          type: string
+          format: string
+          example: "Some example notes"
+          nullable: true
+        tags:
+          type: array
+          nullable: true
+          example:
+          description: Array of tags.
+          items:
+            type: string
+            format: string
+            description: Tag.
+            example: Barbecue preparation
+        internal_reference:
+          type: string
+          format: string
+          nullable: true
+          description: Reference to internal reference of other systems.
+        external_id:
+          type: string
+          nullable: true
+          format: string
+          description: Reference to external ID in other systems.
+        external_url:
+          type: string
+          format: string
+          nullable: true
+          description: External, custom URL for this transaction.
+        original_source:
+          type: string
+          nullable: true
+          format: string
+          description: System generated identifier for original creator of transaction.
+          readOnly: true
+        recurrence_id:
+          type: integer
+          nullable: true
+          format: int32
+          description: Reference to recurrence that made the transaction.
+          readOnly: true
+        recurrence_total:
+          type: integer
+          format: int32
+          example: 0
+          description: "Total number of transactions expected to be created by this recurrence repetition. Will be 0 if infinite."
+          readOnly: true
+          nullable: true
+        recurrence_count:
+          type: integer
+          format: int32
+          example: 12
+          description: "The # of the current transaction created under this recurrence."
+          readOnly: true
+          nullable: true
+        bunq_payment_id:
+          type: string
+          nullable: true
+          format: string
+          description: Internal ID of bunq transaction. DEPRECATED
+        import_hash_v2:
+          type: string
+          nullable: true
+          format: string
+          description: Hash value of original import transaction (for duplicate detection).
+          readOnly: true
+        sepa_cc:
+          type: string
+          format: string
+          nullable: true
+          description: SEPA Clearing Code
+        sepa_ct_op:
+          type: string
+          format: string
+          description: SEPA Opposing Account Identifier
+          nullable: true
+        sepa_ct_id:
+          type: string
+          format: string
+          nullable: true
+          description: SEPA end-to-end Identifier
+        sepa_db:
+          type: string
+          format: string
+          nullable: true
+          description: SEPA mandate identifier
+        sepa_country:
+          type: string
+          nullable: true
+          format: string
+          description: SEPA Country
+        sepa_ep:
+          type: string
+          nullable: true
+          format: string
+          description: SEPA External Purpose indicator
+        sepa_ci:
+          type: string
+          format: string
+          nullable: true
+          description: SEPA Creditor Identifier
+        sepa_batch_id:
+          type: string
+          format: string
+          nullable: true
+          description: SEPA Batch ID
+        interest_date:
+          type: string
+          format: date-time
+          nullable: true
+        book_date:
+          type: string
+          format: date-time
+          nullable: true
+        process_date:
+          type: string
+          format: date-time
+          nullable: true
+        due_date:
+          type: string
+          format: date-time
+          nullable: true
+        payment_date:
+          type: string
+          format: date-time
+          nullable: true
+        invoice_date:
+          type: string
+          format: date-time
+          nullable: true
+        latitude:
+          type: number
+          format: double
+          example: 51.983333
+          nullable: true
+          description: Latitude of the transaction's location, if applicable. Can be used to draw a map.
+        longitude:
+          type: number
+          format: double
+          example: 5.916667
+          nullable: true
+          description: Latitude of the transaction's location, if applicable. Can be used to draw a map.
+        zoom_level:
+          type: integer
+          format: int32
+          example: 6
+          nullable: true
+          description: "Zoom level for the map, if drawn. This to set the box right. Unfortunately this is a proprietary value because each map provider has different zoom levels."
+        has_attachments:
+          type: boolean
+          format: boolean
+          example: false
+          description: "If the transaction has attachments."
+    ChartLine:
+      type: array
+      items:
+        $ref: '#/components/schemas/ChartDataSet'
+    ChartDataSet:
+      type: object
+      properties:
+        label:
+          type: string
+          format: string
+          example: "Checking account"
+          description: "This is the title of the current set. It can refer to an account, a budget or another object (by name)."
+        currency_id:
+          type: string
+          format: string
+          example: "5"
+          description: "The currency ID of the currency associated to the data in the entries."
+        currency_code:
+          type: string
+          format: string
+          example: "EUR"
+        currency_symbol:
+          type: string
+          format: string
+          example: "$"
+        currency_decimal_places:
+          type: integer
+          format: int32
+          example: 2
+          description: "Number of decimals for the currency associated to the data in the entries."
+        native_id:
+          type: string
+          format: string
+          example: "5"
+          description: "The currency ID of the user's native currency."
+        native_code:
+          type: string
+          format: string
+          example: "EUR"
+          description: "The currency code of the user's native currency."
+        native_symbol:
+          type: string
+          format: string
+          example: "$"
+          description: "The currency symbol of the user's native currency."
+        native_decimal_places:
+          type: integer
+          format: int32
+          example: 2
+          description: "Number of decimals for the native currency of the user."
+        converted:
+          type: boolean
+          format: boolean
+          example: true
+          description: "This variable holds whether or not the values in the 'entries'-array are converted to the user's native currency."
+        start_date:
+          type: string
+          format: date-time
+          example: "2018-09-17T12:46:47+01:00"
+        end_date:
+          type: string
+          format: date-time
+          example: "2018-09-17T12:46:47+01:00"
+        type:
+          type: string
+          format: string
+          example: "line"
+          description: "Indicated the type of chart that is expected to be rendered. You can safely ignore this if you want."
+        yAxisID:
+          type: integer
+          format: int32
+          example: 0
+          description: "Used to indicate the Y axis for this data set. Is usually between 0 and 1 (left and right side of the chart)."
+        entries:
+          type: object
+          description: "The actual entries for this data set. They 'key' value is the label for the data point. The value is the actual (numerical) value."
+          items:
+            $ref: '#/components/schemas/ChartDataPoint'
+    ChartDataPoint:
+      type: object
+      properties:
+        key:
+          type: string
+          format: string
+          example: "value"
+          description: "The key is the label of the value, so for example: '2018-01-01' => 13 or 'Groceries' => -123."
+    AccountRead:
+      type: object
+      required:
+        - type
+        - id
+        - attributes
+      properties:
+        type:
+          type: string
+          format: string
+          example: "accounts"
+          description: "Immutable value"
+        id:
+          type: string
+          format: string
+          example: "2"
+        attributes:
+          $ref: '#/components/schemas/Account'
+    Account:
+      type: object
+      required:
+        - name
+        - type
+      properties:
+        created_at:
+          type: string
+          format: date-time
+          example: "2018-09-17T12:46:47+01:00"
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          example: "2018-09-17T12:46:47+01:00"
+          readOnly: true
+        active:
+          type: boolean
+          format: boolean
+          example: false
+          default: true
+          description: "If omitted, defaults to true."
+        order:
+          type: integer
+          format: int32
+          example: 1
+          nullable: true
+          description: "Order of the account. Is NULL if account is not asset or liability."
+        name:
+          type: string
+          format: string
+          example: "My checking account"
+        type:
+          $ref: '#/components/schemas/ShortAccountTypeProperty'
+        account_role:
+          $ref: '#/components/schemas/AccountRoleProperty'
+        currency_id:
+          type: string
+          format: string
+          example: "12"
+          description: "Use either currency_id or currency_code. Defaults to the user's default currency."
+        currency_code:
+          type: string
+          format: string
+          example: "EUR"
+          description: "Use either currency_id or currency_code. Defaults to the user's default currency."
+        currency_symbol:
+          type: string
+          format: string
+          example: "$"
+          readOnly: true
+        currency_decimal_places:
+          type: integer
+          format: int32
+          example: 2
+          readOnly: true
+        current_balance:
+          type: string
+          format: amount
+          example: "123.45"
+          readOnly: true
+        current_balance_date:
+          type: string
+          format: date-time
+          example: "2018-09-17T12:46:47+01:00"
+          readOnly: true
+        iban:
+          type: string
+          format: iban
+          example: "GB98MIDL07009312345678"
+          nullable: true
+        bic:
+          type: string
+          format: string
+          example: "BOFAUS3N"
+          nullable: true
+        account_number:
+          type: string
+          format: string
+          nullable: true
+          example: "7009312345678"
+        opening_balance:
+          type: string
+          format: amount
+          example: "-1012.12"
+          description: Represents the opening balance, the initial amount this account holds.
+        current_debt:
+          type: string
+          format: amount
+          nullable: true
+          example: "1012.12"
+          description: Represents the current debt for liabilities.
+        opening_balance_date:
+          type: string
+          format: date-time
+          example: "2018-09-17T12:46:47+01:00"
+          nullable: true
+          description: Represents the date of the opening balance.
+        virtual_balance:
+          type: string
+          format: amount
+          example: "123.45"
+        include_net_worth:
+          type: boolean
+          format: boolean
+          example: true
+          default: true
+          description: "If omitted, defaults to true."
+        credit_card_type:
+          $ref: '#/components/schemas/CreditCardType'
+        monthly_payment_date:
+          nullable: true
+          type: string
+          format: date-time
+          example: "2018-09-17T12:46:47+01:00"
+          description: "Mandatory when the account_role is ccAsset. Moment at which CC payment installments are asked for by the bank."
+        liability_type:
+          $ref: '#/components/schemas/LiabilityType'
+        liability_direction:
+          $ref: '#/components/schemas/LiabilityDirection'
+        interest:
+          type: string
+          format: string
+          example: "5.3"
+          description: "Mandatory when type is liability. Interest percentage."
+          nullable: true
+        interest_period:
+          $ref: '#/components/schemas/InterestPeriod'
+        notes:
+          type: string
+          format: string
+          nullable: true
+          example: "Some example notes"
+        latitude:
+          type: number
+          format: double
+          example: 51.983333
+          nullable: true
+          description: Latitude of the accounts's location, if applicable. Can be used to draw a map.
+        longitude:
+          type: number
+          format: double
+          example: 5.916667
+          nullable: true
+          description: Latitude of the accounts's location, if applicable. Can be used to draw a map.
+        zoom_level:
+          type: integer
+          format: int32
+          example: 6
+          nullable: true
+          description: "Zoom level for the map, if drawn. This to set the box right. Unfortunately this is a proprietary value because each map provider has different zoom levels."
+    AccountArray:
+      type: object
+      required:
+        - data
+        - meta
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountRead'
+        meta:
+          $ref: '#/components/schemas/Meta'
     TransactionSumArray:
       type: array
       items:
         $ref: '#/components/schemas/TransactionSum'
-    InternalException:
+    ObjectLink:
       type: object
       properties:
-        message:
+        0:
+          type: object
+          properties:
+            rel:
+              type: string
+              format: string
+              example: "self"
+            uri:
+              type: string
+              format: string
+              example: "/OBJECTS/1"
+        self:
           type: string
-          format: string
-          example: "Internal Exception"
-        exception:
-          type: string
-          format: string
-          example: "InternalException"
-    NotFound:
+          format: uri
+          example: "https://demo.firefly-iii.org/api/v1/OBJECTS/1"
+    PageLink:
       type: object
       properties:
-        message:
+        self:
           type: string
-          format: string
-          example: "Resource not found"
-        exception:
+          format: uri
+          example: "https://demo.firefly-iii.org/api/v1/OBJECT?&page=4"
+        first:
           type: string
-          format: string
-          example: "NotFoundHttpException"
+          format: uri
+          example: "https://demo.firefly-iii.org/api/v1/OBJECT?&page=1"
+        last:
+          type: string
+          format: uri
+          example: "https://demo.firefly-iii.org/api/v1/OBJECT?&page=12"
+    Meta:
+      type: object
+      properties:
+        pagination:
+          type: object
+          properties:
+            total:
+              type: integer
+              example: 3
+            count:
+              type: integer
+              example: 20
+            per_page:
+              type: integer
+              example: 100
+            current_page:
+              type: integer
+              example: 1
+            total_pages:
+              type: integer
+              example: 1
+    LiabilityType:
+      type: string
+      format: string
+      example: "loan"
+      description: "Mandatory when type is liability. Specifies the exact type."
+      nullable: true
+      enum:
+        - loan
+        - debt
+        - mortgage
+        - null
+    InterestPeriod:
+      type: string
+      format: string
+      example: monthly
+      description: "Mandatory when type is liability. Period over which the interest is calculated."
+      nullable: true
+      enum:
+        - weekly
+        - monthly
+        - quarterly
+        - half-year
+        - yearly
+        - null
     ValidationError:
       type: object
       properties:
@@ -239,6 +1205,11 @@ components:
               items:
                   type: string
                   format: string
+            date:
+              type: array
+              items:
+                type: string
+                format: string
     Unauthenticated:
       type: object
       properties:
@@ -250,6 +1221,47 @@ components:
           type: string
           format: string
           example: "AuthenticationException"
+    InternalException:
+      type: object
+      properties:
+        message:
+          type: string
+          format: string
+          example: "Internal Exception"
+        exception:
+          type: string
+          format: string
+          example: "InternalException"
+    LiabilityDirection:
+      type: string
+      format: string
+      example: credit
+      description: "'credit' indicates somebody owes you the liability. 'debit' Indicates you owe this debt yourself. Works only for liabiltiies."
+      nullable: true
+      enum:
+        - credit
+        - debit
+        - null
+    CreditCardType:
+      type: string
+      format: string
+      example: monthlyFull
+      description: "Mandatory when the account_role is ccAsset. Can only be monthlyFull or null."
+      nullable: true
+      enum:
+        - monthlyFull
+        - null
+    NotFound:
+      type: object
+      properties:
+        message:
+          type: string
+          format: string
+          example: "Resource not found"
+        exception:
+          type: string
+          format: string
+          example: "NotFoundHttpException"
     BadRequest:
       type: object
       properties:
@@ -261,6 +1273,103 @@ components:
           type: string
           format: string
           example: "BadRequestHttpException"
+    AccountRoleProperty:
+      type: string
+      format: string
+      example: "defaultAsset"
+      description: "Is only mandatory when the type is asset."
+      nullable: true
+      enum:
+        - defaultAsset
+        - sharedAsset
+        - savingAsset
+        - ccAsset
+        - cashWalletAsset
+        - null
+    ShortAccountTypeProperty:
+      type: string
+      format: string
+      example: "asset"
+      description: "Can only be one one these account types. import, initial-balance and reconciliation cannot be set manually."
+      enum:
+        - asset
+        - expense
+        - import
+        - revenue
+        - cash
+        - liability
+        - liabilities
+        - "initial-balance"
+        - reconciliation
+    AccountTypeProperty:
+      type: string
+      format: string
+      example: "Asset account"
+      readOnly: true
+      enum:
+        - Default account
+        - Cash account
+        - Asset account
+        - Expense account
+        - Revenue account
+        - Initial balance account
+        - Beneficiary account
+        - Import account
+        - Reconciliation account
+        - Loan
+        - Debt
+        - Mortgage
+    TransactionTypeProperty:
+      type: string
+      format: string
+      example: "withdrawal"
+      enum:
+        - withdrawal
+        - deposit
+        - transfer
+        - reconciliation
+        - opening balance
+    TransactionTypeFilter:
+      type: string
+      enum:
+        - all
+        - withdrawal
+        - withdrawals
+        - expense
+        - deposit
+        - deposits
+        - income
+        - transfer
+        - transfers
+        - opening_balance
+        - reconciliation
+        - special
+        - specials
+        - default
+    AccountTypeFilter:
+      type: string
+      enum:
+        - all
+        - asset
+        - cash
+        - expense
+        - revenue
+        - special
+        - hidden
+        - liability
+        - liabilities
+        - Default account
+        - Cash account
+        - Asset account
+        - Expense account
+        - Revenue account
+        - Initial balance account
+        - Beneficiary account
+        - Import account
+        - Reconciliation account
+        - Loan
+        - Debt
+        - Mortgage
   securitySchemes:
     firefly_iii_auth:
       type: oauth2
