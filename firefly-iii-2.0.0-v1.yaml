@@ -5,7 +5,7 @@ servers:
 info:
   title: Firefly III API v2.0.0
   description: |
-    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2023-02-11T19:36:09+00:00
+    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2023-02-11T19:52:57+00:00
   version: "2.0.0"
   contact:
     name: James Cole
@@ -12954,7 +12954,7 @@ paths:
       operationId: destroyData
       summary: Endpoint to destroy user data
       description: |
-        A call to this endpoint permanently destroys the requested data type. Use it with care and always with user permission.
+        A call to this endpoint deletes the requested data type. Use it with care and always with user permission.
         The demo user is incapable of using this endpoint.
       responses:
         401:
@@ -12997,6 +12997,44 @@ paths:
           required: true
           schema:
             $ref: '#/components/schemas/DataDestroyObject'
+  /v1/data/purge:
+    delete:
+      tags:
+        - data
+      operationId: purgeData
+      summary: Endpoint to purge user data
+      description: |
+        A call to this endpoint purges all previously deleted data. Use it with care and always with user permission.
+        The demo user is incapable of using this endpoint.
+      responses:
+        401:
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthenticated'
+        400:
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+        500:
+          description: Internal exception
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalException'
+        204:
+          description: Empty response when data has been purged.
+      parameters:
+        - name: X-Trace-Id
+          in: header
+          description: Unique identifier associated with this request.
+          required: false
+          schema:
+            type: string
+            format: uuid
   /v1/data/bulk/transactions:
     post:
       summary: Bulk update transaction properties. For more information, see https://docs.firefly-iii.org/firefly-iii/api/specials
@@ -13270,18 +13308,6 @@ components:
           format: string
           example: "New couch ($ 12.34)"
           description: Name of the piggy bank found by an auto-complete search with the current balance formatted nicely.
-        object_group_id:
-          type: string
-          format: string
-          example: "5"
-          nullable: true
-          description: The group ID of the group this object is part of. NULL if no group.
-        object_group_title:
-          type: string
-          format: string
-          example: "Example Group"
-          nullable: true
-          description: The name of the group. NULL if no group.
         currency_id:
           type: string
           format: string
@@ -13300,6 +13326,18 @@ components:
           type: integer
           format: int32
           example: 2
+        object_group_id:
+          type: string
+          format: string
+          example: "5"
+          nullable: true
+          description: The group ID of the group this object is part of. NULL if no group.
+        object_group_title:
+          type: string
+          format: string
+          example: "Example Group"
+          nullable: true
+          description: The name of the group. NULL if no group.
     AutocompleteObjectGroup:
       type: object
       required:
@@ -13534,6 +13572,11 @@ components:
           format: string
           example: "Yearly bill"
           description: Name of the bill found by an auto-complete search.
+        active:
+          type: boolean
+          format: boolean
+          example: true
+          description: Is the bill active or not?
     AutocompleteRuleGroup:
       type: object
       required:
