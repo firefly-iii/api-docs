@@ -1,11 +1,11 @@
 openapi: 3.0.0
 servers:
   - description: Firefly III demo site
-    url: https://demo.firefly-iii.org/api/v1
+    url: https://demo.firefly-iii.org/api
 info:
-  title: Firefly III API v2.0.0 (v1)
+  title: Firefly III API v2.0.0
   description: |
-    This is the documentation of the Firefly III API (v1). You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2022-06-26T08:54:42+00:00
+    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2023-02-11T19:36:09+00:00
   version: "2.0.0"
   contact:
     name: James Cole
@@ -96,7 +96,7 @@ tags:
     of links available.
 
 paths:
-  /autocomplete/rule-groups:
+  /v1/autocomplete/rule-groups:
     get:
       tags:
         - autocomplete
@@ -157,7 +157,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AutocompleteRuleGroupArray'
-  /autocomplete/categories:
+  /v1/autocomplete/categories:
     get:
       tags:
         - autocomplete
@@ -218,7 +218,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AutocompleteCategoryArray'
-  /autocomplete/transaction-types:
+  /v1/autocomplete/transaction-types:
     get:
       tags:
         - autocomplete
@@ -279,7 +279,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AutocompleteTransactionTypeArray'
-  /autocomplete/object-groups:
+  /v1/autocomplete/object-groups:
     get:
       tags:
         - autocomplete
@@ -340,7 +340,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AutocompleteObjectGroupArray'
-  /autocomplete/rules:
+  /v1/autocomplete/rules:
     get:
       tags:
         - autocomplete
@@ -401,7 +401,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AutocompleteRuleArray'
-  /autocomplete/transactions:
+  /v1/autocomplete/transactions:
     get:
       tags:
         - autocomplete
@@ -462,7 +462,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AutocompleteTransactionArray'
-  /autocomplete/transactions-with-id:
+  /v1/autocomplete/transactions-with-id:
     get:
       tags:
         - autocomplete
@@ -523,7 +523,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AutocompleteTransactionIDArray'
-  /autocomplete/budgets:
+  /v1/autocomplete/budgets:
     get:
       tags:
         - autocomplete
@@ -584,7 +584,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AutocompleteBudgetArray'
-  /autocomplete/piggy-banks:
+  /v1/autocomplete/piggy-banks:
     get:
       tags:
         - autocomplete
@@ -645,7 +645,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AutocompletePiggyArray'
-  /autocomplete/piggy-banks-with-balance:
+  /v1/autocomplete/piggy-banks-with-balance:
     get:
       tags:
         - autocomplete
@@ -706,7 +706,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AutocompletePiggyBalanceArray'
-  /autocomplete/currencies:
+  /v1/autocomplete/currencies:
     get:
       tags:
         - autocomplete
@@ -767,7 +767,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AutocompleteCurrencyArray'
-  /autocomplete/currencies-with-code:
+  /v1/autocomplete/currencies-with-code:
     get:
       tags:
         - autocomplete
@@ -828,7 +828,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AutocompleteCurrencyCodeArray'
-  /autocomplete/accounts:
+  /v1/autocomplete/accounts:
     get:
       tags:
         - autocomplete
@@ -903,7 +903,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AutocompleteAccountArray'
-  /autocomplete/tags:
+  /v1/autocomplete/tags:
     get:
       tags:
         - autocomplete
@@ -964,7 +964,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AutocompleteTagArray'
-  /autocomplete/bills:
+  /v1/autocomplete/bills:
     get:
       tags:
         - autocomplete
@@ -1025,7 +1025,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AutocompleteBillArray'
-  /autocomplete/recurring:
+  /v1/autocomplete/recurring:
     get:
       tags:
         - autocomplete
@@ -1086,7 +1086,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AutocompleteRecurrenceArray'
-  /chart/account/overview:
+  /v1/chart/account/overview:
     get:
       tags:
         - charts
@@ -1149,7 +1149,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ChartLine'
-  /insight/expense/bill:
+  /v1/insight/expense/bill:
     get:
       summary: Insight into expenses, grouped by bill.
       description: |
@@ -1237,7 +1237,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InsightGroup'
-  /insight/expense/no-bill:
+  /v1/insight/expense/no-bill:
     get:
       summary: Insight into expenses, without bill.
       description: |
@@ -1313,7 +1313,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InsightTotal'
-  /insight/expense/total:
+  /v1/insight/expense/total:
     get:
       summary: Insight into total expenses.
       description: |
@@ -1389,7 +1389,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InsightTotal'
-  /insight/income/total:
+  /v1/insight/income/total:
     get:
       summary: Insight into total income.
       description: |
@@ -1465,7 +1465,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InsightTotal'
-  /insight/transfer/total:
+  /v1/insight/transfer/total:
     get:
       summary: Insight into total transfers.
       description: |
@@ -1541,7 +1541,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InsightTotal'
-  /insight/expense/category:
+  /v1/insight/expense/category:
     get:
       summary: Insight into expenses, grouped by category.
       description: |
@@ -1629,7 +1629,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InsightGroup'
-  /insight/expense/no-category:
+  /v1/insight/expense/no-category:
     get:
       summary: Insight into expenses, without category.
       description: |
@@ -1705,7 +1705,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InsightTotal'
-  /insight/income/category:
+  /v1/insight/income/category:
     get:
       summary: Insight into income, grouped by category.
       description: |
@@ -1793,7 +1793,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InsightGroup'
-  /insight/income/no-category:
+  /v1/insight/income/no-category:
     get:
       summary: Insight into income, without category.
       description: |
@@ -1869,7 +1869,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InsightTotal'
-  /insight/transfer/category:
+  /v1/insight/transfer/category:
     get:
       summary: Insight into transfers, grouped by category.
       description: |
@@ -1957,7 +1957,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InsightGroup'
-  /insight/transfer/no-category:
+  /v1/insight/transfer/no-category:
     get:
       summary: Insight into transfers, without category.
       description: |
@@ -2033,7 +2033,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InsightTotal'
-  /insight/expense/expense:
+  /v1/insight/expense/expense:
     get:
       summary: Insight into expenses, grouped by expense account.
       description: |
@@ -2111,7 +2111,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InsightGroup'
-  /insight/expense/asset:
+  /v1/insight/expense/asset:
     get:
       summary: Insight into expenses, grouped by asset account.
       description: |
@@ -2187,7 +2187,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InsightGroup'
-  /insight/income/revenue:
+  /v1/insight/income/revenue:
     get:
       summary: Insight into income, grouped by revenue account.
       description: |
@@ -2265,7 +2265,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InsightGroup'
-  /insight/income/asset:
+  /v1/insight/income/asset:
     get:
       summary: Insight into income, grouped by asset account.
       description: |
@@ -2341,7 +2341,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InsightGroup'
-  /insight/transfer/asset:
+  /v1/insight/transfer/asset:
     get:
       summary: Insight into transfers, grouped by account.
       description: |
@@ -2417,7 +2417,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InsightTransfer'
-  /insight/expense/budget:
+  /v1/insight/expense/budget:
     get:
       summary: Insight into expenses, grouped by budget.
       description: |
@@ -2505,7 +2505,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InsightGroup'
-  /insight/expense/no-budget:
+  /v1/insight/expense/no-budget:
     get:
       summary: Insight into expenses, without budget.
       description: |
@@ -2581,7 +2581,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InsightTotal'
-  /insight/expense/tag:
+  /v1/insight/expense/tag:
     get:
       summary: Insight into expenses, grouped by tag.
       description: |
@@ -2669,7 +2669,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InsightGroup'
-  /insight/expense/no-tag:
+  /v1/insight/expense/no-tag:
     get:
       summary: Insight into expenses, without tag.
       description: |
@@ -2745,7 +2745,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InsightTotal'
-  /insight/income/tag:
+  /v1/insight/income/tag:
     get:
       summary: Insight into income, grouped by tag.
       description: |
@@ -2833,7 +2833,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InsightGroup'
-  /insight/income/no-tag:
+  /v1/insight/income/no-tag:
     get:
       summary: Insight into income, without tag.
       description: |
@@ -2909,7 +2909,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InsightTotal'
-  /insight/transfer/tag:
+  /v1/insight/transfer/tag:
     get:
       summary: Insight into transfers, grouped by tag.
       description: |
@@ -2997,7 +2997,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InsightGroup'
-  /insight/transfer/no-tag:
+  /v1/insight/transfer/no-tag:
     get:
       summary: Insight into expenses, without tag.
       description: |
@@ -3073,7 +3073,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InsightTotal'
-  /webhooks:
+  /v1/webhooks:
     get:
       summary: List all webhooks.
       description: List all the user's webhooks.
@@ -3188,7 +3188,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /webhooks/{id}:
+  /v1/webhooks/{id}:
     get:
       summary: Get a single webhook.
       description: Gets all info of a single webhook.
@@ -3357,7 +3357,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /webhooks/{id}/submit:
+  /v1/webhooks/{id}/submit:
     post:
       summary: Submit messages for a webhook.
       description: This endpoint will submit any open messages for this webhook. This is an asynchronous operation, so you can't see the result. Refresh the webhook message and/or the webhook message attempts to see the results. This may take some time if the webhook receiver is slow.
@@ -3388,7 +3388,7 @@ paths:
           description: Webhook not found.
         500:
           description: Error while sending.
-  /webhooks/{id}/messages:
+  /v1/webhooks/{id}/messages:
     get:
       summary: Get all the messages of a single webhook.
       description: When a webhook is triggered the actual message that will be send is stored in a "message". You can view and analyse these messages.
@@ -3441,7 +3441,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /webhooks/{id}/messages/{messageId}:
+  /v1/webhooks/{id}/messages/{messageId}:
     get:
       summary: Get a single message from a webhook.
       description: When a webhook is triggered it will store the actual content of the webhook in a webhook message. You can view and analyse a single one using this endpoint.
@@ -3556,7 +3556,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /webhooks/{id}/messages/{messageId}/attempts:
+  /v1/webhooks/{id}/messages/{messageId}/attempts:
     get:
       summary: Get all the failed attempts of a single webhook message.
       description: When a webhook message fails to send it will store the failure in an "attempt". You can view and analyse these. Webhook messages that receive too many attempts (failures) will not be sent again. You must first clear out old attempts before the message can go out again.
@@ -3624,7 +3624,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /webhooks/{id}/messages/{messageId}/attempts/{attemptId}:
+  /v1/webhooks/{id}/messages/{messageId}/attempts/{attemptId}:
     get:
       summary: Get a single failed attempt from a single webhook message.
       description: When a webhook message fails to send it will store the failure in an "attempt". You can view and analyse these. Webhooks messages that receive too many attempts (failures) will not be fired. You must first clear out old attempts and try again. This endpoint shows you the details of a single attempt. The ID of the attempt must match the corresponding webhook and webhook message.
@@ -3753,7 +3753,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /preferences:
+  /v1/preferences:
     get:
       summary: List all users preferences.
       description: List all of the preferences of the user.
@@ -3867,7 +3867,7 @@ paths:
               $ref: '#/components/schemas/Preference'
         description: JSON array with the necessary preference information or key=value pairs. See the model for the exact specifications.
         required: true
-  /preferences/{name}:
+  /v1/preferences/{name}:
     get:
       summary: Return a single preference.
       description: Return a single preference and the value.
@@ -3990,7 +3990,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /attachments:
+  /v1/attachments:
     get:
       summary: List all attachments.
       description: |
@@ -4106,7 +4106,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ValidationError'
-  /attachments/{id}:
+  /v1/attachments/{id}:
     get:
       summary: Get a single attachment.
       description: |
@@ -4278,7 +4278,7 @@ paths:
                 $ref: '#/components/schemas/InternalException'
         204:
           description: Attachment deleted.
-  /attachments/{id}/download:
+  /v1/attachments/{id}/download:
     get:
       summary: Download a single attachment.
       description: |
@@ -4333,7 +4333,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /attachments/{id}/upload:
+  /v1/attachments/{id}/upload:
     post:
       summary: Upload an attachment.
       description: |
@@ -4395,7 +4395,7 @@ paths:
             schema:
               type: string
               format: binary
-  /rules/{id}/test:
+  /v1/rules/{id}/test:
     get:
       summary: Test which transactions would be hit by the rule. No changes will be made.
       description: Test which transactions would be hit by the rule. No changes will be made. Limit the result if you want to.
@@ -4478,7 +4478,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /rules/{id}/trigger:
+  /v1/rules/{id}/trigger:
     post:
       summary: Fire the rule on your transactions.
       description: Fire the rule group on your transactions. Changes will be made by the rules in the group! Limit the result if you want to.
@@ -4557,7 +4557,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /bills/{id}/attachments:
+  /v1/bills/{id}/attachments:
     get:
       summary: List all attachments uploaded to the bill.
       description: This endpoint will list all attachments linked to the bill.
@@ -4617,7 +4617,7 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: '#/components/schemas/AttachmentArray'
-  /bills/{id}/rules:
+  /v1/bills/{id}/rules:
     get:
       summary: List all rules associated with the bill.
       description: This endpoint will list all rules that have an action to set the bill to this bill.
@@ -4670,7 +4670,7 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: '#/components/schemas/RuleArray'
-  /bills/{id}/transactions:
+  /v1/bills/{id}/transactions:
     get:
       summary: List all transactions associated with the  bill.
       description: This endpoint will list all transactions linked to this bill.
@@ -4747,7 +4747,7 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: '#/components/schemas/TransactionArray'
-  /bills:
+  /v1/bills:
     get:
       summary: List all bills.
       description: This endpoint will list all the user's bills.
@@ -4879,7 +4879,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ValidationError'
-  /bills/{id}:
+  /v1/bills/{id}:
     get:
       summary: Get a single bill.
       description: Get a single bill.
@@ -5066,7 +5066,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /rules:
+  /v1/rules:
     get:
       summary: List all rules.
       description: List all rules.
@@ -5180,7 +5180,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /rules/{id}:
+  /v1/rules/{id}:
     get:
       summary: Get a single rule.
       description: Get a single rule.
@@ -5349,7 +5349,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /transactions:
+  /v1/transactions:
     get:
       summary: |
         List all the user's transactions.
@@ -5488,7 +5488,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /transactions/{id}:
+  /v1/transactions/{id}:
     get:
       summary: Get a single transaction.
       description: Get a single transaction.
@@ -5657,7 +5657,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /object_groups:
+  /v1/object_groups:
     get:
       summary: List all oject groups.
       description: List all oject groups.
@@ -5710,7 +5710,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /object_groups/{id}:
+  /v1/object_groups/{id}:
     get:
       summary: Get a single object group.
       description: Get a single object group.
@@ -5879,7 +5879,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /categories/{id}/transactions:
+  /v1/categories/{id}/transactions:
     get:
       summary: List all transactions in a category.
       description: List all transactions in a category, optionally limited to the date ranges specified.
@@ -5963,7 +5963,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /categories/{id}/attachments:
+  /v1/categories/{id}/attachments:
     get:
       summary: Lists all attachments.
       description: Lists all attachments.
@@ -6023,7 +6023,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /recurrences:
+  /v1/recurrences:
     get:
       summary: List all recurring transactions.
       description: List all recurring transactions.
@@ -6137,7 +6137,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /recurrences/{id}:
+  /v1/recurrences/{id}:
     get:
       summary: Get a single recurring transaction.
       description: Get a single recurring transaction.
@@ -6306,7 +6306,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /transactions/{id}/attachments:
+  /v1/transactions/{id}/attachments:
     get:
       summary: Lists all attachments.
       description: Lists all attachments.
@@ -6366,7 +6366,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /transactions/{id}/piggy_bank_events:
+  /v1/transactions/{id}/piggy_bank_events:
     get:
       summary: Lists all piggy bank events.
       description: Lists all piggy bank events.
@@ -6426,7 +6426,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /recurrences/{id}/transactions:
+  /v1/recurrences/{id}/transactions:
     get:
       summary: List all transactions created by a recurring transaction.
       description: List all transactions created by a recurring transaction, optionally limited to the date ranges specified.
@@ -6510,7 +6510,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /piggy_banks:
+  /v1/piggy_banks:
     get:
       summary: List all piggy banks.
       description: List all piggy banks.
@@ -6624,7 +6624,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /piggy_banks/{id}:
+  /v1/piggy_banks/{id}:
     get:
       summary: Get a single piggy bank.
       description: Get a single piggy bank.
@@ -6793,7 +6793,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /currencies:
+  /v1/currencies:
     get:
       summary: List all currencies.
       description: List all currencies.
@@ -6907,7 +6907,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /currencies/{code}/enable:
+  /v1/currencies/{code}/enable:
     post:
       summary: Enable a single currency.
       description: Enable a single currency.
@@ -6961,7 +6961,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /currencies/{code}/disable:
+  /v1/currencies/{code}/disable:
     post:
       summary: Disable a currency.
       description: Disable a currency.
@@ -7016,7 +7016,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /currencies/{code}/default:
+  /v1/currencies/{code}/default:
     post:
       summary: Make currency default currency.
       description: Make this currency the default currency for the user. If the currency is not enabled, it will be enabled as well.
@@ -7070,7 +7070,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /currencies/{code}:
+  /v1/currencies/{code}:
     get:
       summary: Get a single currency.
       description: Get a single currency.
@@ -7242,7 +7242,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /currencies/default:
+  /v1/currencies/default:
     get:
       summary: Get the user's default currency.
       description: Get the user's default currency.
@@ -7288,7 +7288,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /categories:
+  /v1/categories:
     get:
       summary: List all categories.
       description: List all categories.
@@ -7402,7 +7402,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /categories/{id}:
+  /v1/categories/{id}:
     get:
       summary: Get a single category.
       description: Get a single category.
@@ -7589,7 +7589,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /tags:
+  /v1/tags:
     get:
       summary: List all tags.
       description: List all of the user's tags.
@@ -7702,7 +7702,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /tags/{tag}:
+  /v1/tags/{tag}:
     get:
       summary: Get a single tag.
       description: Get a single tag.
@@ -7880,7 +7880,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /transaction-journals/{id}/links:
+  /v1/transaction-journals/{id}/links:
     get:
       summary: Lists all the transaction links for an individual journal (individual split).
       description: Lists all the transaction links for an individual journal (a split). Don't use the group ID, you need the actual underlying journal (the split).
@@ -7940,7 +7940,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /transaction-journals/{id}:
+  /v1/transaction-journals/{id}:
     get:
       summary: Get a single transaction, based on one of the underlying transaction journals (transaction splits).
       description: Get a single transaction by underlying journal (split).
@@ -8041,7 +8041,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /accounts:
+  /v1/accounts:
     get:
       tags:
         - accounts
@@ -8171,7 +8171,7 @@ paths:
               $ref: '#/components/schemas/AccountStore'
         description: JSON array with the necessary account information or key=value pairs. See the model for the exact specifications.
         required: true
-  /accounts/{id}:
+  /v1/accounts/{id}:
     get:
       tags:
       - accounts
@@ -8351,7 +8351,7 @@ paths:
                 $ref: '#/components/schemas/InternalException'
         204:
           description: Account deleted
-  /currencies/{code}/accounts:
+  /v1/currencies/{code}/accounts:
     get:
       summary: List all accounts with this currency.
       description: List all accounts with this currency.
@@ -8426,7 +8426,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /currencies/{code}/available_budgets:
+  /v1/currencies/{code}/available_budgets:
     get:
       summary: List all available budgets with this currency.
       description: List all available budgets with this currency.
@@ -8487,7 +8487,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /currencies/{code}/bills:
+  /v1/currencies/{code}/bills:
     get:
       summary: List all bills with this currency.
       description: List all bills with this currency.
@@ -8548,7 +8548,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /currencies/{code}/budget_limits:
+  /v1/currencies/{code}/budget_limits:
     get:
       summary: List all budget limits with this currency
       description: List all budget limits with this currency
@@ -8625,7 +8625,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /currencies/{code}/recurrences:
+  /v1/currencies/{code}/recurrences:
     get:
       summary: List all recurring transactions with this currency.
       description: List all recurring transactions with this currency.
@@ -8686,7 +8686,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /currencies/{code}/rules:
+  /v1/currencies/{code}/rules:
     get:
       summary: List all rules with this currency.
       description: List all rules with this currency.
@@ -8747,7 +8747,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /currencies/{code}/transactions:
+  /v1/currencies/{code}/transactions:
     get:
       summary: List all transactions with this currency.
       description: List all transactions with this currency.
@@ -8832,7 +8832,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /budgets/{id}/limits:
+  /v1/budgets/{id}/limits:
     get:
       operationId: listBudgetLimitByBudget
       description: |
@@ -8972,7 +8972,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /budgets/{id}/limits/{limitId}:
+  /v1/budgets/{id}/limits/{limitId}:
     get:
       summary: Get single budget limit.
       operationId: getBudgetLimit
@@ -9162,7 +9162,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /budget-limits:
+  /v1/budget-limits:
     get:
       operationId: listBudgetLimit
       summary: Get list of budget limits by date
@@ -9227,7 +9227,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /budgets:
+  /v1/budgets:
     get:
       summary: List all budgets.
       description: List all the budgets the user has made. If the start date and end date are submitted as well, the "spent" array will be updated accordingly.
@@ -9359,7 +9359,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /budgets/{id}:
+  /v1/budgets/{id}:
     get:
       summary: Get a single budget.
       description: Get a single budget. If the start date and end date are submitted as well, the "spent" array will be updated accordingly.
@@ -9546,7 +9546,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /piggy_banks/{id}/events:
+  /v1/piggy_banks/{id}/events:
     get:
       summary: List all events linked to a piggy bank.
       description: List all events linked to a piggy bank (adding and removing money).
@@ -9606,7 +9606,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /piggy_banks/{id}/attachments:
+  /v1/piggy_banks/{id}/attachments:
     get:
       summary: Lists all attachments.
       description: Lists all attachments.
@@ -9666,7 +9666,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /rule_groups/{id}/rules:
+  /v1/rule_groups/{id}/rules:
     get:
       summary: List rules in this rule group.
       description: List rules in this rule group.
@@ -9726,7 +9726,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /rule_groups:
+  /v1/rule_groups:
     get:
       summary: List all rule groups.
       description: List all rule groups.
@@ -9840,7 +9840,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /rule_groups/{id}:
+  /v1/rule_groups/{id}:
     get:
       summary: Get a single rule group.
       description: Get a single rule group. This does not include the rules. For that, see below.
@@ -10009,7 +10009,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /link_types/{id}/transactions:
+  /v1/link_types/{id}/transactions:
     get:
       tags:
         - links
@@ -10094,7 +10094,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /available_budgets:
+  /v1/available_budgets:
     get:
       summary: List all available budget amounts.
       description: |
@@ -10166,69 +10166,7 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: '#/components/schemas/AvailableBudgetArray'
-    post:
-      summary: Store a new available budget
-      description: |
-        Creates a new available budget for a specified period. The data required can be submitted as a JSON body or as a list of parameters.
-      operationId: storeAvailableBudget
-      parameters:
-        - name: X-Trace-Id
-          in: header
-          description: Unique identifier associated with this request.
-          required: false
-          schema:
-            type: string
-            format: uuid
-      tags:
-        - available_budgets
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/AvailableBudgetStore'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/AvailableBudgetStore'
-        description: "JSON array or key=value pairs with the necessary available budget information. See the model for the exact specifications."
-        required: true
-      responses:
-        401:
-          description: Unauthenticated
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Unauthenticated'
-        404:
-          description: Page not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/NotFound'
-        400:
-          description: Bad request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/BadRequest'
-        500:
-          description: Internal exception
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/InternalException'
-        200:
-          description: 'New available budget stored, result in response.'
-          content:
-            application/vnd.api+json:
-              schema:
-                $ref: '#/components/schemas/AvailableBudgetSingle'
-        422:
-          description: 'Validation error. The body will have the exact details.'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ValidationError'
-  /available_budgets/{id}:
+  /v1/available_budgets/{id}:
     get:
       summary: Get a single available budget.
       description: Get a single available budget, by ID.
@@ -10281,123 +10219,7 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: '#/components/schemas/AvailableBudgetSingle'
-    put:
-      operationId: updateAvailableBudget
-      tags:
-        - available_budgets
-      description: Update existing available budget.
-      summary: Update existing available budget, to change for example the date range of the amount or the amount itself.
-      parameters:
-        - name: X-Trace-Id
-          in: header
-          description: Unique identifier associated with this request.
-          required: false
-          schema:
-            type: string
-            format: uuid
-        - in: path
-          name: id
-          required: true
-          schema:
-            type: string
-            example: "123"
-          description: The ID of the object.
-      requestBody:
-        content:
-          application/vnd.api+json:
-            schema:
-              $ref: '#/components/schemas/AvailableBudgetUpdate'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/AvailableBudgetUpdate'
-        description: JSON array or form value with updated available budget information. See the model for the exact specifications.
-        required: true
-      responses:
-        401:
-          description: Unauthenticated
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Unauthenticated'
-        404:
-          description: Page not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/NotFound'
-        400:
-          description: Bad request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/BadRequest'
-        500:
-          description: Internal exception
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/InternalException'
-        200:
-          description: 'Updated available budget stored, result in response'
-          content:
-            application/vnd.api+json:
-              schema:
-                $ref: '#/components/schemas/AvailableBudgetSingle'
-        422:
-          description: 'Validation error. The body will have the exact details.'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ValidationError'
-    delete:
-      operationId: deleteAvailableBudget
-      description: Delete an available budget. Not much more to say.
-      summary: Delete an available budget.
-      tags:
-        - available_budgets
-      parameters:
-        - name: X-Trace-Id
-          in: header
-          description: Unique identifier associated with this request.
-          required: false
-          schema:
-            type: string
-            format: uuid
-        - in: path
-          name: id
-          required: true
-          schema:
-            type: string
-            example: "123"
-          description: The ID of the available budget.
-      responses:
-        204:
-          description: Available budget deleted.
-        401:
-          description: Unauthenticated
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Unauthenticated'
-        404:
-          description: Page not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/NotFound'
-        400:
-          description: Bad request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/BadRequest'
-        500:
-          description: Internal exception
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/InternalException'
-  /budgets/{id}/limits/{limitId}/transactions:
+  /v1/budgets/{id}/limits/{limitId}/transactions:
     get:
       summary: List all transactions by a budget limit ID.
       description: List all the transactions within one budget limit. The start and end date are dictated by the budget limit.
@@ -10470,7 +10292,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /tags/{tag}/attachments:
+  /v1/tags/{tag}/attachments:
     get:
       summary: Lists all attachments.
       description: Lists all attachments.
@@ -10531,7 +10353,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /tags/{tag}/transactions:
+  /v1/tags/{tag}/transactions:
     get:
       summary: "List all transactions with this tag."
       description: "List all transactions with this tag."
@@ -10616,7 +10438,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /budgets/{id}/transactions:
+  /v1/budgets/{id}/transactions:
     get:
       summary: All transactions to a budget.
       description: Get all transactions linked to a budget, possibly limited by start and end
@@ -10707,7 +10529,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /budgets/{id}/attachments:
+  /v1/budgets/{id}/attachments:
     get:
       summary: Lists all attachments of a budget.
       description: Lists all attachments.
@@ -10767,7 +10589,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /object_groups/{id}/piggy_banks:
+  /v1/object_groups/{id}/piggy_banks:
     get:
       tags:
         - object_groups
@@ -10827,7 +10649,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /object_groups/{id}/bills:
+  /v1/object_groups/{id}/bills:
     get:
       summary: List all bills with this object group.
       description: List all bills with this object group.
@@ -10886,7 +10708,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /transaction_links:
+  /v1/transaction_links:
     get:
       tags:
         - links
@@ -11001,7 +10823,7 @@ paths:
               $ref: '#/components/schemas/TransactionLinkStore'
         description: JSON array with the necessary link type information or key=value pairs. See the model for the exact specifications.
         required: true
-  /transaction_links/{id}:
+  /v1/transaction_links/{id}:
     get:
       tags:
         - links
@@ -11173,7 +10995,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /link_types:
+  /v1/link_types:
     get:
       tags:
         - links
@@ -11288,7 +11110,7 @@ paths:
               $ref: '#/components/schemas/LinkType'
         description: JSON array with the necessary link type information or key=value pairs. See the model for the exact specifications.
         required: true
-  /link_types/{id}:
+  /v1/link_types/{id}:
     get:
       tags:
         - links
@@ -11460,7 +11282,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /rule_groups/{id}/test:
+  /v1/rule_groups/{id}/test:
     get:
       summary: Test which transactions would be hit by the rule group. No changes will be made.
       description: Test which transactions would be hit by the rule group. No changes will be made. Limit the result if you want to.
@@ -11564,7 +11386,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /rule_groups/{id}/trigger:
+  /v1/rule_groups/{id}/trigger:
     post:
       summary: Fire the rule group on your transactions.
       description: Fire the rule group on your transactions. Changes will be made by the rules in the rule group! Limit the result if you want to.
@@ -11643,7 +11465,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /accounts/{id}/transactions:
+  /v1/accounts/{id}/transactions:
     get:
       tags:
         - accounts
@@ -11735,7 +11557,7 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: '#/components/schemas/TransactionArray'
-  /accounts/{id}/attachments:
+  /v1/accounts/{id}/attachments:
     get:
       summary: Lists all attachments.
       description: Lists all attachments.
@@ -11795,7 +11617,7 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: '#/components/schemas/AttachmentArray'
-  /accounts/{id}/piggy_banks:
+  /v1/accounts/{id}/piggy_banks:
     get:
       tags:
         - accounts
@@ -11855,7 +11677,7 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: '#/components/schemas/PiggyBankArray'
-  /search/accounts:
+  /v1/search/accounts:
     get:
       summary: Search for accounts
       description: Search for accounts
@@ -11927,7 +11749,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /search/transactions:
+  /v1/search/transactions:
     get:
       summary: Search for transactions
       description: Searches through the users transactions.
@@ -11990,7 +11812,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /cron/{cliToken}:
+  /v1/cron/{cliToken}:
     get:
       tags:
         - about
@@ -12067,7 +11889,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /configuration:
+  /v1/configuration:
     get:
       summary: Get Firefly III system configuration values.
       description: Returns all editable and not-editable configuration values for this Firefly III installation
@@ -12110,10 +11932,13 @@ paths:
         200:
           description: System configuration values
           content:
+            application/x-www-form-urlencoded:
+              schema:
+                $ref: '#/components/schemas/ConfigurationArray'
             application/json:
               schema:
                 $ref: '#/components/schemas/ConfigurationArray'
-  /configuration/{name}:
+  /v1/configuration/{name}:
     get:
       summary: Get a single Firefly III system configuration value
       description: Returns one configuration variable for this Firefly III installation
@@ -12232,7 +12057,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ConfigurationUpdate'
         required: true
-  /users:
+  /v1/users:
     get:
       summary: List all users.
       description: List all the users in this instance of Firefly III.
@@ -12347,7 +12172,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ValidationError'
-  /users/{id}:
+  /v1/users/{id}:
     get:
       summary: Get a single user.
       description: Gets all info of a single user.
@@ -12516,7 +12341,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /about:
+  /v1/about:
     get:
       tags:
         - about
@@ -12563,7 +12388,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SystemInfo'
-  /about/user:
+  /v1/about/user:
     get:
       tags:
         - about
@@ -12610,7 +12435,7 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: '#/components/schemas/UserSingle'
-  /data/export/accounts:
+  /v1/data/export/accounts:
     get:
       summary: Export account data from Firefly III
       description: |
@@ -12664,7 +12489,7 @@ paths:
               schema:
                 type: string
                 format: binary
-  /data/export/bills:
+  /v1/data/export/bills:
     get:
       summary: Export bills from Firefly III
       description: |
@@ -12718,7 +12543,7 @@ paths:
               schema:
                 type: string
                 format: binary
-  /data/export/budgets:
+  /v1/data/export/budgets:
     get:
       summary: Export budgets and budget amount data from Firefly III
       description: |
@@ -12772,7 +12597,7 @@ paths:
               schema:
                 type: string
                 format: binary
-  /data/export/categories:
+  /v1/data/export/categories:
     get:
       summary: Export category data from Firefly III
       description: |
@@ -12826,7 +12651,7 @@ paths:
               schema:
                 type: string
                 format: binary
-  /data/export/piggy-banks:
+  /v1/data/export/piggy-banks:
     get:
       summary: Export piggy banks from Firefly III
       description: |
@@ -12880,7 +12705,7 @@ paths:
               schema:
                 type: string
                 format: binary
-  /data/export/recurring:
+  /v1/data/export/recurring:
     get:
       summary: Export recurring transaction data from Firefly III
       description: |
@@ -12934,7 +12759,7 @@ paths:
               schema:
                 type: string
                 format: binary
-  /data/export/rules:
+  /v1/data/export/rules:
     get:
       summary: Export rule groups and rule data from Firefly III
       description: |
@@ -12988,7 +12813,7 @@ paths:
               schema:
                 type: string
                 format: binary
-  /data/export/tags:
+  /v1/data/export/tags:
     get:
       summary: Export tag data from Firefly III
       description: |
@@ -13042,7 +12867,7 @@ paths:
               schema:
                 type: string
                 format: binary
-  /data/export/transactions:
+  /v1/data/export/transactions:
     get:
       summary: Export transaction data from Firefly III
       description: |
@@ -13122,7 +12947,7 @@ paths:
               schema:
                 type: string
                 format: binary
-  /data/destroy:
+  /v1/data/destroy:
     delete:
       tags:
         - data
@@ -13172,7 +12997,7 @@ paths:
           required: true
           schema:
             $ref: '#/components/schemas/DataDestroyObject'
-  /data/bulk/transactions:
+  /v1/data/bulk/transactions:
     post:
       summary: Bulk update transaction properties. For more information, see https://docs.firefly-iii.org/firefly-iii/api/specials
       description: |
@@ -13215,7 +13040,7 @@ paths:
                 $ref: '#/components/schemas/InternalException'
         204:
           description: Empty response when the update was successful. A future improvement is to include the changed transactions.
-  /summary/basic:
+  /v1/summary/basic:
     get:
       tags:
         - summary
@@ -13313,6 +13138,10 @@ components:
         - firefly.enable_external_map
         - firefly.expected_source_types
         - app.timezone
+        - firefly.bill_periods
+        - firefly.credit_card_types
+        - firefly.languages
+        - firefly.valid_view_ranges
     AccountSearchFieldFilter:
       type: string
       enum:
@@ -13957,27 +13786,6 @@ components:
           example: "2"
         attributes:
           $ref: '#/components/schemas/WebhookMessage'
-    TransactionRead:
-      type: object
-      required:
-        - type
-        - id
-        - attributes
-        - links
-      properties:
-        type:
-          type: string
-          format: string
-          example: "transactions"
-          description: "Immutable value"
-        id:
-          type: string
-          format: string
-          example: "2"
-        attributes:
-          $ref: '#/components/schemas/Transaction'
-        links:
-          $ref: '#/components/schemas/ObjectLink'
     TransactionLinkRead:
       type: object
       required:
@@ -16453,10 +16261,12 @@ components:
         target_amount:
           type: string
           format: amount
+          nullable: true
           example: "123.45"
         percentage:
           type: number
           format: float
+          nullable: true
           example: 12.5
           readOnly: true
         current_amount:
@@ -16465,11 +16275,13 @@ components:
           example: "123.45"
         left_to_save:
           type: string
+          nullable: true
           format: string
           example: "700.00"
           readOnly: true
         save_per_month:
           type: string
+          nullable: true
           format: string
           example: "12.45"
           readOnly: true
@@ -16537,6 +16349,7 @@ components:
           type: string
           format: amount
           example: "123.45"
+          nullable: true
         current_amount:
           type: string
           format: amount
@@ -16602,6 +16415,7 @@ components:
           readOnly: true
         target_amount:
           type: string
+          nullable: true
           format: amount
           example: "123.45"
         current_amount:
@@ -16676,38 +16490,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TransactionSplitStore'
-    Transaction:
-      type: object
-      required:
-        - transactions
-      properties:
-        created_at:
-          type: string
-          format: date-time
-          example: "2018-09-17T12:46:47+01:00"
-          readOnly: true
-        updated_at:
-          type: string
-          format: date-time
-          example: "2018-09-17T12:46:47+01:00"
-          readOnly: true
-        user:
-          type: string
-          format: string
-          example: "3"
-          description: "User ID"
-          readOnly: true
-        group_title:
-          type: string
-          format: string
-          description: "Title of the transaction if it has been split in more than one piece. Empty otherwise."
-          example: "Split transaction title."
-          readOnly: false
-          nullable: true
-        transactions:
-          type: array
-          items:
-            $ref: '#/components/schemas/TransactionSplit'
     TransactionUpdate:
       type: object
       properties:
@@ -17390,7 +17172,7 @@ components:
           description: "Mandatory when type is liability. Interest percentage."
           nullable: true
         interest_period:
-          $ref: '#/components/schemas/LiabilityDirection'
+          $ref: '#/components/schemas/InterestPeriod'
         notes:
           type: string
           format: string
@@ -18291,6 +18073,1067 @@ components:
           type: string
           format: date-time
           nullable: true
+    WebhookMessage:
+      type: object
+      properties:
+        created_at:
+          type: string
+          format: date-time
+          example: "2018-09-17T12:46:47+01:00"
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          example: "2018-09-17T12:46:47+01:00"
+          readOnly: true
+        sent:
+          type: boolean
+          format: boolean
+          example: false
+          description: If this message is sent yet.
+        errored:
+          type: boolean
+          format: boolean
+          example: false
+          description: If this message has errored out.
+        webhook_id:
+          type: string
+          format: string
+          example: "5"
+          description: "The ID of the webhook this message belongs to."
+        uuid:
+          type: string
+          format: string
+          example: "7a344c02-5b52-46b1-90e6-a437431dcf07"
+          description: "Long UUID string for identification of this webhook message."
+        string:
+          type: string
+          format: string
+          example: "{some:message}"
+          nullable: true
+          description: "The actual message that is sent or will be sent as JSON string."
+    Budget:
+      type: object
+      required:
+        - name
+      properties:
+        created_at:
+          type: string
+          format: date-time
+          example: "2018-09-17T12:46:47+01:00"
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          example: "2018-09-17T12:46:47+01:00"
+          readOnly: true
+        name:
+          type: string
+          format: string
+          example: "Bills"
+        active:
+          type: boolean
+          format: boolean
+          example: false
+        notes:
+          type: string
+          format: string
+          example: "Some notes"
+          nullable: true
+        order:
+          type: integer
+          format: int32
+          example: 5
+          readOnly: true
+        auto_budget_type:
+          $ref: '#/components/schemas/AutoBudgetType'
+        auto_budget_currency_id:
+          type: string
+          format: string
+          example: "12"
+          nullable: true
+          description: "Use either currency_id or currency_code. Defaults to the user's default currency."
+        auto_budget_currency_code:
+          type: string
+          format: string
+          example: "EUR"
+          nullable: true
+          description: "Use either currency_id or currency_code. Defaults to the user's default currency."
+        auto_budget_amount:
+          type: string
+          format: amount
+          example: "-1012.12"
+          nullable: true
+        auto_budget_period:
+          $ref: '#/components/schemas/AutoBudgetPeriod'
+        spent:
+          description: "Information on how much was spent in this budget. Is only filled in when the start and end date are submitted."
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/BudgetSpent'
+    BudgetStore:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+          format: string
+          example: "Bills"
+        active:
+          type: boolean
+          format: boolean
+          example: false
+        order:
+          type: integer
+          format: int32
+          example: 5
+          readOnly: true
+        notes:
+          type: string
+          format: string
+          example: "Some notes"
+          nullable: true
+        auto_budget_type:
+          $ref: '#/components/schemas/AutoBudgetType'
+        auto_budget_currency_id:
+          type: string
+          format: string
+          example: "12"
+          nullable: true
+          description: "Use either currency_id or currency_code. Defaults to the user's default currency."
+        auto_budget_currency_code:
+          type: string
+          format: string
+          example: "EUR"
+          nullable: true
+          description: "Use either currency_id or currency_code. Defaults to the user's default currency."
+        auto_budget_amount:
+          type: string
+          format: amount
+          example: "-1012.12"
+          nullable: true
+        auto_budget_period:
+          $ref: '#/components/schemas/AutoBudgetPeriod'
+    BudgetUpdate:
+      type: object
+      properties:
+        name:
+          type: string
+          format: string
+          example: "Bills"
+        active:
+          type: boolean
+          format: boolean
+          example: false
+        order:
+          type: integer
+          format: int32
+          example: 5
+        notes:
+          type: string
+          format: string
+          example: "Some notes"
+          nullable: true
+        auto_budget_type:
+          $ref: '#/components/schemas/AutoBudgetType'
+        auto_budget_currency_id:
+          type: string
+          format: string
+          example: "12"
+          nullable: true
+          description: "Use either currency_id or currency_code. Defaults to the user's default currency."
+        auto_budget_currency_code:
+          type: string
+          format: string
+          example: "EUR"
+          nullable: true
+          description: "Use either currency_id or currency_code. Defaults to the user's default currency."
+        auto_budget_amount:
+          type: string
+          format: amount
+          example: "-1012.12"
+          nullable: true
+        auto_budget_period:
+          $ref: '#/components/schemas/AutoBudgetPeriod'
+    CronResultRow:
+      type: object
+      properties:
+        job_fired:
+          type: boolean
+          format: boolean
+          example: true
+          nullable: true
+          description: |
+            This value tells you if this specific cron job actually fired. It may not fire. Some cron jobs
+            only fire every 24 hours, for example.
+        job_succeeded:
+          type: boolean
+          format: boolean
+          example: true
+          nullable: true
+          description: |
+            This value tells you if this specific cron job actually did something. The job may fire but not
+            change anything.
+        job_errored:
+          type: boolean
+          format: boolean
+          example: false
+          nullable: true
+          description: If the cron job ran into some kind of an error, this value will be true.
+        message:
+          type: string
+          format: string
+          example: "Cron result message"
+          nullable: true
+          description: |
+            If the cron job ran into some kind of an error, this value will be the error message. The success message
+            if the job actually ran OK.
+    UserSingle:
+      type: object
+      required:
+        - data
+      properties:
+        data:
+            $ref: '#/components/schemas/UserRead'
+    Configuration:
+      type: object
+      required:
+        - title
+        - value
+        - editable
+      properties:
+        title:
+          example: "configuration.is_demo_site"
+          description: "Title of the configuration value."
+          $ref: '#/components/schemas/ConfigValueFilter'
+        value:
+          $ref: '#/components/schemas/PolymorphicProperty'
+          example: "some-variable"
+          description: "Content of the configuration variable. Is very dynamic and can be anything from booleans to arrays."
+        editable:
+          type: boolean
+          format: boolean
+          example: true
+          readOnly: false
+          description: "If this config variable can be edited by the user"
+    CronResult:
+      type: object
+      properties:
+        recurring_transactions:
+          $ref: '#/components/schemas/CronResultRow'
+        auto_budgets:
+          $ref: '#/components/schemas/CronResultRow'
+        telemetry:
+          $ref: '#/components/schemas/CronResultRow'
+    ConfigurationUpdate:
+      type: object
+      required:
+        - value
+      properties:
+        value:
+          $ref: '#/components/schemas/PolymorphicProperty'
+          example: "Some-new-config var"
+          description: Can be a number, a string, boolean or object. This depends on the actual configuration value.
+    SystemInfo:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            version:
+              type: string
+              format: string
+              example: "5.8.0-alpha.1"
+            api_version:
+              type: string
+              format: string
+              example: "2.0.0-alpha.1"
+            php_version:
+              type: string
+              format: string
+              example: "8.1.5"
+            os:
+              type: string
+              format: string
+              example: "Linux"
+            driver:
+              type: string
+              format: string
+              example: "mysql"
+    AutoBudgetPeriod:
+      type: string
+      format: string
+      example: "monthly"
+      nullable: true
+      description: "Period for the auto budget"
+      enum:
+        - daily
+        - weekly
+        - monthly
+        - quarterly
+        - "half-year"
+        - yearly
+        - null
+    StringArray:
+      type: array
+      items:
+        $ref: '#/components/schemas/StringArrayItem'
+    AttachableType:
+      type: string
+      format: string
+      example: "Bill"
+      description: The object class to which the attachment must be linked.
+      enum:
+        - Account
+        - Budget
+        - Bill
+        - TransactionJournal
+        - PiggyBank
+        - Tag
+    RuleTriggerKeyword:
+      type: string
+      format: string
+      example: "user_action"
+      description: The type of thing this trigger responds to. A limited set is possible
+      enum:
+        - from_account_starts
+        - from_account_ends
+        - from_account_is
+        - from_account_contains
+        - to_account_starts
+        - to_account_ends
+        - to_account_is
+        - to_account_contains
+        - amount_less
+        - amount_exactly
+        - amount_more
+        - description_starts
+        - description_ends
+        - description_contains
+        - description_is
+        - transaction_type
+        - category_is
+        - budget_is
+        - tag_is
+        - currency_is
+        - has_attachments
+        - has_no_category
+        - has_any_category
+        - has_no_budget
+        - has_any_budget
+        - has_no_tag
+        - has_any_tag
+        - notes_contains
+        - notes_start
+        - notes_end
+        - notes_are
+        - no_notes
+        - any_notes
+        - source_account_is
+        - destination_account_is
+        - source_account_starts
+    RecurrenceTransactionType:
+      type: string
+      format: string
+      example: "withdrawal"
+      enum:
+        - withdrawal
+        - transfer
+        - deposit
+    AutoBudgetType:
+      type: string
+      format: string
+      example: reset
+      nullable: true
+      description: "The type of auto-budget that Firefly III must create."
+      enum:
+        - reset
+        - rollover
+        - none
+        - null
+    StringArrayItem:
+      type: string
+      format: string
+    WebhookTrigger:
+      type: string
+      format: string
+      nullable: false
+      example: "DESTROY_TRANSACTION"
+      description: The trigger for the webhook.
+      enum:
+        - STORE_TRANSACTION
+        - UPDATE_TRANSACTION
+        - DESTROY_TRANSACTION
+    WebhookResponse:
+      type: string
+      format: string
+      nullable: false
+      example: "RESPONSE_TRANSACTIONS"
+      description: Indicator for what Firefly III will deliver to the webhook URL.
+      enum:
+        - TRANSACTIONS
+        - ACCOUNTS
+        - NONE
+    BillRepeatFrequency:
+      type: string
+      format: string
+      example: "monthly"
+      description: How often the bill must be paid.
+      enum:
+        - weekly
+        - monthly
+        - quarterly
+        - "half-year"
+        - yearly
+    RuleTriggerType:
+      type: string
+      format: string
+      example: store-journal
+      description: Which action is necessary for the rule to fire? Use either store-journal or update-journal.
+      enum:
+        - "store-journal"
+        - "update-journal"
+    UserRoleProperty:
+      type: string
+      format: string
+      example: "owner"
+      nullable: true
+      description: Role for the user. Can be empty or omitted.
+      enum:
+        - owner
+        - demo
+        - null
+    WebhookDelivery:
+      type: string
+      format: string
+      nullable: false
+      example: "JSON"
+      description: Format of the delivered response.
+      enum:
+        - JSON
+    UserBlockedCodeProperty:
+      type: string
+      format: string
+      nullable: true
+      example: "email_changed"
+      description: If you say the user must be blocked, this will be the reason code.
+      enum:
+        - email_changed
+        - null
+    RuleActionKeyword:
+      type: string
+      format: string
+      example: "set_category"
+      description: The type of thing this action will do. A limited set is possible.
+      enum:
+        - user_action
+        - set_category
+        - clear_category
+        - set_budget
+        - clear_budget
+        - add_tag
+        - remove_tag
+        - remove_all_tags
+        - set_description
+        - append_description
+        - prepend_description
+        - set_source_account
+        - set_destination_account
+        - set_notes
+        - append_notes
+        - prepend_notes
+        - clear_notes
+        - link_to_bill
+        - convert_withdrawal
+        - convert_deposit
+        - convert_transfer
+        - delete_transaction
+    PolymorphicProperty:
+      oneOf:
+        - type: boolean
+        - type: string
+        - type: object
+        - type: array
+          items:
+            $ref: '#/components/schemas/StringArrayItem'
+    RecurrenceRepetitionType:
+      type: string
+      format: string
+      example: "weekly"
+      description: "The type of the repetition. ndom means: the n-th weekday of the month, where you can also specify which day of the week."
+      enum:
+        - daily
+        - weekly
+        - ndom
+        - monthly
+        - yearly
+    TransactionLinkArray:
+      type: object
+      required:
+        - data
+        - meta
+        - links
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/TransactionLinkRead'
+        meta:
+          $ref: '#/components/schemas/Meta'
+        links:
+          $ref: '#/components/schemas/PageLink'
+    AutocompleteCategoryArray:
+      type: array
+      items:
+        $ref: '#/components/schemas/AutocompleteCategory'
+    PreferenceArray:
+      type: object
+      required:
+        - data
+        - meta
+        - links
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/PreferenceRead'
+        meta:
+          $ref: '#/components/schemas/Meta'
+        links:
+          $ref: '#/components/schemas/PageLink'
+    AutocompleteObjectGroupArray:
+      type: array
+      items:
+        $ref: '#/components/schemas/AutocompleteObjectGroup'
+    AutocompleteTransactionTypeArray:
+      type: array
+      items:
+        $ref: '#/components/schemas/AutocompleteTransactionType'
+    PiggyBankEventArray:
+      type: object
+      required:
+        - data
+        - meta
+        - links
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/PiggyBankEventRead'
+        meta:
+          $ref: '#/components/schemas/Meta'
+        links:
+          $ref: '#/components/schemas/PageLink'
+    AutocompleteRuleArray:
+      type: array
+      items:
+        $ref: '#/components/schemas/AutocompleteRule'
+    AutocompletePiggyBalanceArray:
+      type: array
+      items:
+        $ref: '#/components/schemas/AutocompletePiggyBalance'
+    AttachmentArray:
+      type: object
+      required:
+        - data
+        - meta
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/AttachmentRead'
+        meta:
+          $ref: '#/components/schemas/Meta'
+    UserArray:
+      type: object
+      required:
+        - data
+        - meta
+        - links
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserRead'
+        meta:
+          $ref: '#/components/schemas/Meta'
+        links:
+          $ref: '#/components/schemas/PageLink'
+    BillArray:
+      type: object
+      required:
+        - data
+        - meta
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/BillRead'
+        meta:
+          $ref: '#/components/schemas/Meta'
+    WebhookAttemptArray:
+      type: object
+      required:
+        - data
+        - meta
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/WebhookAttemptRead'
+        meta:
+          $ref: '#/components/schemas/Meta'
+    RecurrenceArray:
+      type: object
+      required:
+        - data
+        - meta
+        - links
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/RecurrenceRead'
+        meta:
+          $ref: '#/components/schemas/Meta'
+        links:
+          $ref: '#/components/schemas/PageLink'
+    WebhookArray:
+      type: object
+      required:
+        - data
+        - meta
+        - links
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/WebhookRead'
+        meta:
+          $ref: '#/components/schemas/Meta'
+        links:
+          $ref: '#/components/schemas/PageLink'
+    AutocompleteBillArray:
+      type: array
+      items:
+        $ref: '#/components/schemas/AutocompleteBill'
+    CategoryArray:
+      type: object
+      required:
+        - data
+        - meta
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/CategoryRead'
+        meta:
+          $ref: '#/components/schemas/Meta'
+    LinkTypeArray:
+      type: object
+      required:
+        - data
+        - meta
+        - links
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/LinkTypeRead'
+        meta:
+          $ref: '#/components/schemas/Meta'
+        links:
+          $ref: '#/components/schemas/PageLink'
+    AutocompleteTransactionIDArray:
+      type: array
+      items:
+        $ref: '#/components/schemas/AutocompleteTransactionID'
+    AvailableBudgetArray:
+      type: object
+      required:
+        - data
+        - meta
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/AvailableBudgetRead'
+        meta:
+          $ref: '#/components/schemas/Meta'
+    RuleArray:
+      type: object
+      required:
+        - data
+        - meta
+        - links
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/RuleRead'
+        meta:
+          $ref: '#/components/schemas/Meta'
+        links:
+          $ref: '#/components/schemas/PageLink'
+    AutocompleteCurrencyArray:
+      type: array
+      items:
+        $ref: '#/components/schemas/AutocompleteCurrency'
+    WebhookMessageArray:
+      type: object
+      required:
+        - data
+        - meta
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/WebhookMessageRead'
+        meta:
+          $ref: '#/components/schemas/Meta'
+    PiggyBankArray:
+      type: object
+      required:
+        - data
+        - meta
+        - links
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/PiggyBankRead'
+        meta:
+          $ref: '#/components/schemas/Meta'
+        links:
+          $ref: '#/components/schemas/PageLink'
+    AutocompleteCurrencyCodeArray:
+      type: array
+      items:
+        $ref: '#/components/schemas/AutocompleteCurrencyCode'
+    BudgetLimitArray:
+      type: object
+      required:
+        - data
+        - meta
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/BudgetLimitRead'
+        meta:
+          $ref: '#/components/schemas/Meta'
+    AutocompletePiggyArray:
+      type: array
+      items:
+        $ref: '#/components/schemas/AutocompletePiggy'
+    AutocompleteTransactionArray:
+      type: array
+      items:
+        $ref: '#/components/schemas/AutocompleteTransaction'
+    ConfigurationArray:
+      type: array
+      items:
+        $ref: '#/components/schemas/Configuration'
+    AutocompleteBudgetArray:
+      type: array
+      items:
+        $ref: '#/components/schemas/AutocompleteBudget'
+    AccountArray:
+      type: object
+      required:
+        - data
+        - meta
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountRead'
+        meta:
+          $ref: '#/components/schemas/Meta'
+    AutocompleteAccountArray:
+      type: array
+      items:
+        $ref: '#/components/schemas/AutocompleteAccount'
+    AutocompleteRecurrenceArray:
+      type: array
+      items:
+        $ref: '#/components/schemas/AutocompleteRecurrence'
+    BudgetArray:
+      type: object
+      required:
+        - data
+        - meta
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/BudgetRead'
+        meta:
+          $ref: '#/components/schemas/Meta'
+    RuleGroupArray:
+      type: object
+      required:
+        - data
+        - meta
+        - links
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/RuleGroupRead'
+        meta:
+          $ref: '#/components/schemas/Meta'
+        links:
+          $ref: '#/components/schemas/PageLink'
+    TagArray:
+      type: object
+      required:
+        - data
+        - meta
+        - links
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/TagRead'
+        meta:
+          $ref: '#/components/schemas/Meta'
+        links:
+          $ref: '#/components/schemas/PageLink'
+    AutocompleteRuleGroupArray:
+      type: array
+      items:
+        $ref: '#/components/schemas/AutocompleteRuleGroup'
+    ObjectGroupArray:
+      type: object
+      required:
+        - data
+        - meta
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ObjectGroupRead'
+        meta:
+          $ref: '#/components/schemas/Meta'
+    CurrencyArray:
+      type: object
+      required:
+        - data
+        - meta
+        - links
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/CurrencyRead'
+        meta:
+          $ref: '#/components/schemas/Meta'
+        links:
+          $ref: '#/components/schemas/PageLink'
+    AutocompleteTagArray:
+      type: array
+      items:
+        $ref: '#/components/schemas/AutocompleteTag'
+    DataDestroyObject:
+      type: string
+      enum:
+        - budgets
+        - bills
+        - piggy_banks
+        - rules
+        - recurring
+        - categories
+        - tags
+        - object_groups
+        - accounts
+        - asset_accounts
+        - expense_accounts
+        - revenue_accounts
+        - liabilities
+        - transactions
+        - withdrawals
+        - deposits
+        - transfers
+    BasicSummaryEntry:
+      type: object
+      properties:
+        key:
+          type: string
+          format: string
+          example: "balance-in-EUR"
+          description: "This is a reference to the type of info shared, not influenced by translations or user preferences. The EUR value is a reference to the currency code. Possibilities are: balance-in-ABC, spent-in-ABC, earned-in-ABC, bills-paid-in-ABC, bills-unpaid-in-ABC, left-to-spend-in-ABC and net-worth-in-ABC."
+        title:
+          type: string
+          format: string
+          example: "Balance ($)"
+          description: "A translated title for the information shared."
+        monetary_value:
+          type: number
+          format: double
+          example: 123.45
+          description: "The amount as a float."
+        currency_id:
+          type: string
+          format: string
+          example: "5"
+          description: "The currency ID of the associated currency."
+        currency_code:
+          type: string
+          format: string
+          example: "EUR"
+        currency_symbol:
+          type: string
+          format: string
+          example: "$"
+        currency_decimal_places:
+          type: integer
+          format: int32
+          example: 2
+          description: "Number of decimals for the associated currency."
+        value_parsed:
+          type: string
+          format: string
+          example: "$ 12.45"
+          description: "The amount formatted according to the users locale"
+        local_icon:
+          type: string
+          format: string
+          example: "balance-scale"
+          description: "Reference to a font-awesome icon without the fa- part."
+        sub_title:
+          type: string
+          format: string
+          example: "$20 + $-40"
+          description: "A short explanation of the amounts origin. Already formatted according to the locale of the user or translated, if relevant."
+    BasicSummary:
+      type: object
+      items:
+        $ref: '#/components/schemas/BasicSummaryEntry'
+    TransactionArray:
+      type: object
+      required:
+        - data
+        - meta
+        - links
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/TransactionRead'
+        meta:
+          $ref: '#/components/schemas/Meta'
+        links:
+          $ref: '#/components/schemas/PageLink'
+    TransactionRead:
+      type: object
+      required:
+        - type
+        - id
+        - attributes
+        - links
+      properties:
+        type:
+          type: string
+          format: string
+          example: "transactions"
+          description: "Immutable value"
+        id:
+          type: string
+          format: string
+          example: "2"
+        attributes:
+          $ref: '#/components/schemas/Transaction'
+        links:
+          $ref: '#/components/schemas/ObjectLink'
+    ObjectLink:
+      type: object
+      properties:
+        0:
+          type: object
+          properties:
+            rel:
+              type: string
+              format: string
+              example: "self"
+            uri:
+              type: string
+              format: string
+              example: "/OBJECTS/1"
+        self:
+          type: string
+          format: uri
+          example: "https://demo.firefly-iii.org/api/v1/OBJECTS/1"
+    Transaction:
+      type: object
+      required:
+        - transactions
+      properties:
+        created_at:
+          type: string
+          format: date-time
+          example: "2018-09-17T12:46:47+01:00"
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          example: "2018-09-17T12:46:47+01:00"
+          readOnly: true
+        user:
+          type: string
+          format: string
+          example: "3"
+          description: "User ID"
+          readOnly: true
+        group_title:
+          type: string
+          format: string
+          description: "Title of the transaction if it has been split in more than one piece. Empty otherwise."
+          example: "Split transaction title."
+          readOnly: false
+          nullable: true
+        transactions:
+          type: array
+          items:
+            $ref: '#/components/schemas/TransactionSplit'
+    PageLink:
+      type: object
+      properties:
+        self:
+          type: string
+          format: uri
+          example: "https://demo.firefly-iii.org/api/v1/OBJECT?&page=4"
+        first:
+          type: string
+          format: uri
+          example: "https://demo.firefly-iii.org/api/v1/OBJECT?&page=1"
+        last:
+          type: string
+          format: uri
+          example: "https://demo.firefly-iii.org/api/v1/OBJECT?&page=12"
+    Meta:
+      type: object
+      properties:
+        pagination:
+          type: object
+          properties:
+            total:
+              type: integer
+              example: 3
+            count:
+              type: integer
+              example: 20
+            per_page:
+              type: integer
+              example: 100
+            current_page:
+              type: integer
+              example: 1
+            total_pages:
+              type: integer
+              example: 1
     TransactionSplit:
       type: object
       required:
@@ -18633,999 +19476,6 @@ components:
           format: boolean
           example: false
           description: "If the transaction has attachments."
-    WebhookMessage:
-      type: object
-      properties:
-        created_at:
-          type: string
-          format: date-time
-          example: "2018-09-17T12:46:47+01:00"
-          readOnly: true
-        updated_at:
-          type: string
-          format: date-time
-          example: "2018-09-17T12:46:47+01:00"
-          readOnly: true
-        sent:
-          type: boolean
-          format: boolean
-          example: false
-          description: If this message is sent yet.
-        errored:
-          type: boolean
-          format: boolean
-          example: false
-          description: If this message has errored out.
-        webhook_id:
-          type: string
-          format: string
-          example: "5"
-          description: "The ID of the webhook this message belongs to."
-        uuid:
-          type: string
-          format: string
-          example: "7a344c02-5b52-46b1-90e6-a437431dcf07"
-          description: "Long UUID string for identification of this webhook message."
-        string:
-          type: string
-          format: string
-          example: "{some:message}"
-          nullable: true
-          description: "The actual message that is sent or will be sent as JSON string."
-    Budget:
-      type: object
-      required:
-        - name
-      properties:
-        created_at:
-          type: string
-          format: date-time
-          example: "2018-09-17T12:46:47+01:00"
-          readOnly: true
-        updated_at:
-          type: string
-          format: date-time
-          example: "2018-09-17T12:46:47+01:00"
-          readOnly: true
-        name:
-          type: string
-          format: string
-          example: "Bills"
-        active:
-          type: boolean
-          format: boolean
-          example: false
-        order:
-          type: integer
-          format: int32
-          example: 5
-          readOnly: true
-        auto_budget_type:
-          $ref: '#/components/schemas/AutoBudgetType'
-        auto_budget_currency_id:
-          type: string
-          format: string
-          example: "12"
-          nullable: true
-          description: "Use either currency_id or currency_code. Defaults to the user's default currency."
-        auto_budget_currency_code:
-          type: string
-          format: string
-          example: "EUR"
-          nullable: true
-          description: "Use either currency_id or currency_code. Defaults to the user's default currency."
-        auto_budget_amount:
-          type: string
-          format: amount
-          example: "-1012.12"
-          nullable: true
-        auto_budget_period:
-          $ref: '#/components/schemas/AutoBudgetPeriod'
-        spent:
-          description: "Information on how much was spent in this budget. Is only filled in when the start and end date are submitted."
-          type: array
-          readOnly: true
-          items:
-            $ref: '#/components/schemas/BudgetSpent'
-    BudgetStore:
-      type: object
-      required:
-        - name
-      properties:
-        name:
-          type: string
-          format: string
-          example: "Bills"
-        active:
-          type: boolean
-          format: boolean
-          example: false
-        order:
-          type: integer
-          format: int32
-          example: 5
-          readOnly: true
-        auto_budget_type:
-          $ref: '#/components/schemas/AutoBudgetType'
-        auto_budget_currency_id:
-          type: string
-          format: string
-          example: "12"
-          nullable: true
-          description: "Use either currency_id or currency_code. Defaults to the user's default currency."
-        auto_budget_currency_code:
-          type: string
-          format: string
-          example: "EUR"
-          nullable: true
-          description: "Use either currency_id or currency_code. Defaults to the user's default currency."
-        auto_budget_amount:
-          type: string
-          format: amount
-          example: "-1012.12"
-          nullable: true
-        auto_budget_period:
-          $ref: '#/components/schemas/AutoBudgetPeriod'
-    BudgetUpdate:
-      type: object
-      properties:
-        name:
-          type: string
-          format: string
-          example: "Bills"
-        active:
-          type: boolean
-          format: boolean
-          example: false
-        order:
-          type: integer
-          format: int32
-          example: 5
-        auto_budget_type:
-          $ref: '#/components/schemas/AutoBudgetType'
-        auto_budget_currency_id:
-          type: string
-          format: string
-          example: "12"
-          nullable: true
-          description: "Use either currency_id or currency_code. Defaults to the user's default currency."
-        auto_budget_currency_code:
-          type: string
-          format: string
-          example: "EUR"
-          nullable: true
-          description: "Use either currency_id or currency_code. Defaults to the user's default currency."
-        auto_budget_amount:
-          type: string
-          format: amount
-          example: "-1012.12"
-          nullable: true
-        auto_budget_period:
-          $ref: '#/components/schemas/AutoBudgetPeriod'
-    CronResultRow:
-      type: object
-      properties:
-        job_fired:
-          type: boolean
-          format: boolean
-          example: true
-          nullable: true
-          description: |
-            This value tells you if this specific cron job actually fired. It may not fire. Some cron jobs
-            only fire every 24 hours, for example.
-        job_succeeded:
-          type: boolean
-          format: boolean
-          example: true
-          nullable: true
-          description: |
-            This value tells you if this specific cron job actually did something. The job may fire but not
-            change anything.
-        job_errored:
-          type: boolean
-          format: boolean
-          example: false
-          nullable: true
-          description: If the cron job ran into some kind of an error, this value will be true.
-        message:
-          type: string
-          format: string
-          example: "Cron result message"
-          nullable: true
-          description: |
-            If the cron job ran into some kind of an error, this value will be the error message. The success message
-            if the job actually ran OK.
-    UserSingle:
-      type: object
-      required:
-        - data
-      properties:
-        data:
-            $ref: '#/components/schemas/UserRead'
-    Configuration:
-      type: object
-      required:
-        - title
-        - value
-        - editable
-      properties:
-        title:
-          example: "configuration.is_demo_site"
-          description: "Title of the configuration value."
-          $ref: '#/components/schemas/ConfigValueFilter'
-        value:
-          $ref: '#/components/schemas/PolymorphicProperty'
-          example: "some-variable"
-          description: "Content of the configuration variable. Is very dynamic and can be anything from booleans to arrays."
-        editable:
-          type: boolean
-          format: boolean
-          example: true
-          readOnly: false
-          description: "If this config variable can be edited by the user"
-    CronResult:
-      type: object
-      properties:
-        recurring_transactions:
-          $ref: '#/components/schemas/CronResultRow'
-        auto_budgets:
-          $ref: '#/components/schemas/CronResultRow'
-        telemetry:
-          $ref: '#/components/schemas/CronResultRow'
-    ConfigurationUpdate:
-      type: object
-      required:
-        - value
-      properties:
-        value:
-          $ref: '#/components/schemas/PolymorphicProperty'
-          example: "Some-new-config var"
-          description: Can be a number, a string, boolean or object. This depends on the actual configuration value.
-    SystemInfo:
-      type: object
-      properties:
-        data:
-          type: object
-          properties:
-            version:
-              type: string
-              format: string
-              example: "5.8.0-alpha.1"
-            api_version:
-              type: string
-              format: string
-              example: "2.0.0-alpha.1"
-            php_version:
-              type: string
-              format: string
-              example: "8.1.5"
-            os:
-              type: string
-              format: string
-              example: "Linux"
-            driver:
-              type: string
-              format: string
-              example: "mysql"
-    AutoBudgetPeriod:
-      type: string
-      format: string
-      example: "monthly"
-      nullable: true
-      description: "Period for the auto budget"
-      enum:
-        - daily
-        - weekly
-        - monthly
-        - quarterly
-        - "half-year"
-        - yearly
-        - null
-    StringArray:
-      type: array
-      items:
-        $ref: '#/components/schemas/StringArrayItem'
-    AttachableType:
-      type: string
-      format: string
-      example: "Bill"
-      description: The object class to which the attachment must be linked.
-      enum:
-        - Account
-        - Budget
-        - Bill
-        - TransactionJournal
-        - PiggyBank
-        - Tag
-    RuleTriggerKeyword:
-      type: string
-      format: string
-      example: "user_action"
-      description: The type of thing this trigger responds to. A limited set is possible
-      enum:
-        - from_account_starts
-        - from_account_ends
-        - from_account_is
-        - from_account_contains
-        - to_account_starts
-        - to_account_ends
-        - to_account_is
-        - to_account_contains
-        - amount_less
-        - amount_exactly
-        - amount_more
-        - description_starts
-        - description_ends
-        - description_contains
-        - description_is
-        - transaction_type
-        - category_is
-        - budget_is
-        - tag_is
-        - currency_is
-        - has_attachments
-        - has_no_category
-        - has_any_category
-        - has_no_budget
-        - has_any_budget
-        - has_no_tag
-        - has_any_tag
-        - notes_contain
-        - notes_start
-        - notes_end
-        - notes_are
-        - no_notes
-        - any_notes
-        - source_account_is
-        - destination_account_is
-        - source_account_starts
-    RecurrenceTransactionType:
-      type: string
-      format: string
-      example: "withdrawal"
-      enum:
-        - withdrawal
-        - transfer
-        - deposit
-    AutoBudgetType:
-      type: string
-      format: string
-      example: reset
-      nullable: true
-      description: "The type of auto-budget that Firefly III must create."
-      enum:
-        - reset
-        - rollover
-        - none
-        - null
-    StringArrayItem:
-      type: string
-      format: string
-    WebhookTrigger:
-      type: string
-      format: string
-      nullable: false
-      example: "TRIGGER_DESTROY_TRANSACTION"
-      description: The trigger for the webhook.
-      enum:
-        - TRIGGER_STORE_TRANSACTION
-        - TRIGGER_UPDATE_TRANSACTION
-        - TRIGGER_DESTROY_TRANSACTION
-    WebhookResponse:
-      type: string
-      format: string
-      nullable: false
-      example: "RESPONSE_TRANSACTIONS"
-      description: Indicator for what Firefly III will deliver to the webhook URL.
-      enum:
-        - RESPONSE_TRANSACTIONS
-        - RESPONSE_ACCOUNTS
-        - RESPONSE_NONE
-    BillRepeatFrequency:
-      type: string
-      format: string
-      example: "monthly"
-      description: How often the bill must be paid.
-      enum:
-        - weekly
-        - monthly
-        - quarterly
-        - "half-year"
-        - yearly
-    RuleTriggerType:
-      type: string
-      format: string
-      example: store-journal
-      description: Which action is necessary for the rule to fire? Use either store-journal or update-journal.
-      enum:
-        - "store-journal"
-        - "update-journal"
-    UserRoleProperty:
-      type: string
-      format: string
-      example: "owner"
-      nullable: true
-      description: Role for the user. Can be empty or omitted.
-      enum:
-        - owner
-        - demo
-        - null
-    WebhookDelivery:
-      type: string
-      format: string
-      nullable: false
-      example: "DELIVERY_JSON"
-      description: Format of the delivered response.
-      enum:
-        - DELIVERY_JSON
-    UserBlockedCodeProperty:
-      type: string
-      format: string
-      nullable: true
-      example: "email_changed"
-      description: If you say the user must be blocked, this will be the reason code.
-      enum:
-        - email_changed
-        - null
-    RuleActionKeyword:
-      type: string
-      format: string
-      example: "set_category"
-      description: The type of thing this action will do. A limited set is possible.
-      enum:
-        - user_action
-        - set_category
-        - clear_category
-        - set_budget
-        - clear_budget
-        - add_tag
-        - remove_tag
-        - remove_all_tags
-        - set_description
-        - append_description
-        - prepend_description
-        - set_source_account
-        - set_destination_account
-        - set_notes
-        - append_notes
-        - prepend_notes
-        - clear_notes
-        - link_to_bill
-        - convert_withdrawal
-        - convert_deposit
-        - convert_transfer
-        - delete_transaction
-    PolymorphicProperty:
-      oneOf:
-        - type: boolean
-        - type: string
-        - type: object
-        - type: array
-          items:
-            $ref: '#/components/schemas/StringArrayItem'
-    RecurrenceRepetitionType:
-      type: string
-      format: string
-      example: "weekly"
-      description: "The type of the repetition. ndom means: the n-th weekday of the month, where you can also specify which day of the week."
-      enum:
-        - daily
-        - weekly
-        - ndom
-        - monthly
-        - yearly
-    TransactionLinkArray:
-      type: object
-      required:
-        - data
-        - meta
-        - links
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/TransactionLinkRead'
-        meta:
-          $ref: '#/components/schemas/Meta'
-        links:
-          $ref: '#/components/schemas/PageLink'
-    AutocompleteCategoryArray:
-      type: array
-      items:
-        $ref: '#/components/schemas/AutocompleteCategory'
-    PreferenceArray:
-      type: object
-      required:
-        - data
-        - meta
-        - links
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/PreferenceRead'
-        meta:
-          $ref: '#/components/schemas/Meta'
-        links:
-          $ref: '#/components/schemas/PageLink'
-    AutocompleteObjectGroupArray:
-      type: array
-      items:
-        $ref: '#/components/schemas/AutocompleteObjectGroup'
-    AutocompleteTransactionTypeArray:
-      type: array
-      items:
-        $ref: '#/components/schemas/AutocompleteTransactionType'
-    PiggyBankEventArray:
-      type: object
-      required:
-        - data
-        - meta
-        - links
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/PiggyBankEventRead'
-        meta:
-          $ref: '#/components/schemas/Meta'
-        links:
-          $ref: '#/components/schemas/PageLink'
-    AutocompleteRuleArray:
-      type: array
-      items:
-        $ref: '#/components/schemas/AutocompleteRule'
-    AutocompletePiggyBalanceArray:
-      type: array
-      items:
-        $ref: '#/components/schemas/AutocompletePiggyBalance'
-    AttachmentArray:
-      type: object
-      required:
-        - data
-        - meta
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/AttachmentRead'
-        meta:
-          $ref: '#/components/schemas/Meta'
-    UserArray:
-      type: object
-      required:
-        - data
-        - meta
-        - links
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/UserRead'
-        meta:
-          $ref: '#/components/schemas/Meta'
-        links:
-          $ref: '#/components/schemas/PageLink'
-    BillArray:
-      type: object
-      required:
-        - data
-        - meta
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/BillRead'
-        meta:
-          $ref: '#/components/schemas/Meta'
-    WebhookAttemptArray:
-      type: object
-      required:
-        - data
-        - meta
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/WebhookAttemptRead'
-        meta:
-          $ref: '#/components/schemas/Meta'
-    RecurrenceArray:
-      type: object
-      required:
-        - data
-        - meta
-        - links
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/RecurrenceRead'
-        meta:
-          $ref: '#/components/schemas/Meta'
-        links:
-          $ref: '#/components/schemas/PageLink'
-    WebhookArray:
-      type: object
-      required:
-        - data
-        - meta
-        - links
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/WebhookRead'
-        meta:
-          $ref: '#/components/schemas/Meta'
-        links:
-          $ref: '#/components/schemas/PageLink'
-    AutocompleteBillArray:
-      type: array
-      items:
-        $ref: '#/components/schemas/AutocompleteBill'
-    CategoryArray:
-      type: object
-      required:
-        - data
-        - meta
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/CategoryRead'
-        meta:
-          $ref: '#/components/schemas/Meta'
-    LinkTypeArray:
-      type: object
-      required:
-        - data
-        - meta
-        - links
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/LinkTypeRead'
-        meta:
-          $ref: '#/components/schemas/Meta'
-        links:
-          $ref: '#/components/schemas/PageLink'
-    TransactionArray:
-      type: object
-      required:
-        - data
-        - meta
-        - links
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/TransactionRead'
-        meta:
-          $ref: '#/components/schemas/Meta'
-        links:
-          $ref: '#/components/schemas/PageLink'
-    AutocompleteTransactionIDArray:
-      type: array
-      items:
-        $ref: '#/components/schemas/AutocompleteTransactionID'
-    AvailableBudgetArray:
-      type: object
-      required:
-        - data
-        - meta
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/AvailableBudgetRead'
-        meta:
-          $ref: '#/components/schemas/Meta'
-    RuleArray:
-      type: object
-      required:
-        - data
-        - meta
-        - links
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/RuleRead'
-        meta:
-          $ref: '#/components/schemas/Meta'
-        links:
-          $ref: '#/components/schemas/PageLink'
-    AutocompleteCurrencyArray:
-      type: array
-      items:
-        $ref: '#/components/schemas/AutocompleteCurrency'
-    WebhookMessageArray:
-      type: object
-      required:
-        - data
-        - meta
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/WebhookMessageRead'
-        meta:
-          $ref: '#/components/schemas/Meta'
-    PiggyBankArray:
-      type: object
-      required:
-        - data
-        - meta
-        - links
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/PiggyBankRead'
-        meta:
-          $ref: '#/components/schemas/Meta'
-        links:
-          $ref: '#/components/schemas/PageLink'
-    AutocompleteCurrencyCodeArray:
-      type: array
-      items:
-        $ref: '#/components/schemas/AutocompleteCurrencyCode'
-    BudgetLimitArray:
-      type: object
-      required:
-        - data
-        - meta
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/BudgetLimitRead'
-        meta:
-          $ref: '#/components/schemas/Meta'
-    AutocompletePiggyArray:
-      type: array
-      items:
-        $ref: '#/components/schemas/AutocompletePiggy'
-    AutocompleteTransactionArray:
-      type: array
-      items:
-        $ref: '#/components/schemas/AutocompleteTransaction'
-    ConfigurationArray:
-      type: array
-      items:
-        $ref: '#/components/schemas/Configuration'
-    AutocompleteBudgetArray:
-      type: array
-      items:
-        $ref: '#/components/schemas/AutocompleteBudget'
-    AccountArray:
-      type: object
-      required:
-        - data
-        - meta
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/AccountRead'
-        meta:
-          $ref: '#/components/schemas/Meta'
-    AutocompleteAccountArray:
-      type: array
-      items:
-        $ref: '#/components/schemas/AutocompleteAccount'
-    AutocompleteRecurrenceArray:
-      type: array
-      items:
-        $ref: '#/components/schemas/AutocompleteRecurrence'
-    BudgetArray:
-      type: object
-      required:
-        - data
-        - meta
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/BudgetRead'
-        meta:
-          $ref: '#/components/schemas/Meta'
-    RuleGroupArray:
-      type: object
-      required:
-        - data
-        - meta
-        - links
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/RuleGroupRead'
-        meta:
-          $ref: '#/components/schemas/Meta'
-        links:
-          $ref: '#/components/schemas/PageLink'
-    TagArray:
-      type: object
-      required:
-        - data
-        - meta
-        - links
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/TagRead'
-        meta:
-          $ref: '#/components/schemas/Meta'
-        links:
-          $ref: '#/components/schemas/PageLink'
-    AutocompleteRuleGroupArray:
-      type: array
-      items:
-        $ref: '#/components/schemas/AutocompleteRuleGroup'
-    ObjectGroupArray:
-      type: object
-      required:
-        - data
-        - meta
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/ObjectGroupRead'
-        meta:
-          $ref: '#/components/schemas/Meta'
-    CurrencyArray:
-      type: object
-      required:
-        - data
-        - meta
-        - links
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/CurrencyRead'
-        meta:
-          $ref: '#/components/schemas/Meta'
-        links:
-          $ref: '#/components/schemas/PageLink'
-    AutocompleteTagArray:
-      type: array
-      items:
-        $ref: '#/components/schemas/AutocompleteTag'
-    DataDestroyObject:
-      type: string
-      enum:
-        - budgets
-        - bills
-        - piggy_banks
-        - rules
-        - recurring
-        - categories
-        - tags
-        - object_groups
-        - accounts
-        - asset_accounts
-        - expense_accounts
-        - revenue_accounts
-        - liabilities
-        - transactions
-        - withdrawals
-        - deposits
-        - transfers
-    BasicSummaryEntry:
-      type: object
-      properties:
-        key:
-          type: string
-          format: string
-          example: "balance-in-EUR"
-          description: "This is a reference to the type of info shared, not influenced by translations or user preferences. The EUR value is a reference to the currency code. Possibilities are: balance-in-ABC, spent-in-ABC, earned-in-ABC, bills-paid-in-ABC, bills-unpaid-in-ABC, left-to-spend-in-ABC and net-worth-in-ABC."
-        title:
-          type: string
-          format: string
-          example: "Balance ($)"
-          description: "A translated title for the information shared."
-        monetary_value:
-          type: number
-          format: double
-          example: 123.45
-          description: "The amount as a float."
-        currency_id:
-          type: string
-          format: string
-          example: "5"
-          description: "The currency ID of the associated currency."
-        currency_code:
-          type: string
-          format: string
-          example: "EUR"
-        currency_symbol:
-          type: string
-          format: string
-          example: "$"
-        currency_decimal_places:
-          type: integer
-          format: int32
-          example: 2
-          description: "Number of decimals for the associated currency."
-        value_parsed:
-          type: string
-          format: string
-          example: "$ 12.45"
-          description: "The amount formatted according to the users locale"
-        local_icon:
-          type: string
-          format: string
-          example: "balance-scale"
-          description: "Reference to a font-awesome icon without the fa- part."
-        sub_title:
-          type: string
-          format: string
-          example: "$20 + $-40"
-          description: "A short explanation of the amounts origin. Already formatted according to the locale of the user or translated, if relevant."
-    BasicSummary:
-      type: object
-      items:
-        $ref: '#/components/schemas/BasicSummaryEntry'
-    ObjectLink:
-      type: object
-      properties:
-        0:
-          type: object
-          properties:
-            rel:
-              type: string
-              format: string
-              example: "self"
-            uri:
-              type: string
-              format: string
-              example: "/OBJECTS/1"
-        self:
-          type: string
-          format: uri
-          example: "https://demo.firefly-iii.org/api/v1/OBJECTS/1"
-    PageLink:
-      type: object
-      properties:
-        self:
-          type: string
-          format: uri
-          example: "https://demo.firefly-iii.org/api/v1/OBJECT?&page=4"
-        first:
-          type: string
-          format: uri
-          example: "https://demo.firefly-iii.org/api/v1/OBJECT?&page=1"
-        last:
-          type: string
-          format: uri
-          example: "https://demo.firefly-iii.org/api/v1/OBJECT?&page=12"
-    Meta:
-      type: object
-      properties:
-        pagination:
-          type: object
-          properties:
-            total:
-              type: integer
-              example: 3
-            count:
-              type: integer
-              example: 20
-            per_page:
-              type: integer
-              example: 100
-            current_page:
-              type: integer
-              example: 1
-            total_pages:
-              type: integer
-              example: 1
     LiabilityType:
       type: string
       format: string
@@ -19705,6 +19555,11 @@ components:
               items:
                   type: string
                   format: string
+            date:
+              type: array
+              items:
+                type: string
+                format: string
     Unauthenticated:
       type: object
       properties:
