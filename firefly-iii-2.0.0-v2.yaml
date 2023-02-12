@@ -5,7 +5,7 @@ servers:
 info:
   title: Firefly III API v2.0.0
   description: |
-    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2023-02-12T05:41:10+00:00
+    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2023-02-12T05:48:02+00:00
   version: "2.0.0"
   contact:
     name: James Cole
@@ -15,8 +15,20 @@ info:
     name: AGPLv3
     url: 'https://www.gnu.org/licenses/agpl-3.0.en.html'
 tags:
+- name: accounts
+  description: Endpoints that deliver all of the user&#039;s asset, expense and other accounts
+    (and the metadata) together with related transactions, piggy banks and other objects.
+    Also delivers endpoints for CRUD operations for accounts.
+- name: budgets
+  description: Endpoints to manage a user&#039;s budgets and get info on the related objects,
+    like limits.
+- name: charts
+  description: The &quot;charts&quot; endpoints deliver optimised data for charts and graphs.
 - name: net-worth
   description: Shows you the net worth of the current user.
+- name: preferences
+  description: These endpoints can be used to manage the user&#039;s preferences, including
+    some hidden ones.
 - name: transactions-sum
   description: Endpoints to sum transactions based on various properties.
 
@@ -322,6 +334,59 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/TransactionSumArray'
+  /v2/budgets:
+    get:
+      summary: List all budgets.
+      description: List all the budgets the user has made.
+      operationId: listBudgets
+      tags:
+        - budgets
+      parameters:
+        - name: X-Trace-Id
+          in: header
+          description: Unique identifier associated with this request.
+          required: false
+          schema:
+            type: string
+            format: uuid
+        - in: query
+          name: page
+          description: Page number. The default pagination is 50.
+          required: false
+          schema:
+            type: integer
+            example: 1
+      responses:
+        200:
+          description: A list of budgets.
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/BudgetV2Array'
+        401:
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthenticated'
+        404:
+          description: Page not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFound'
+        400:
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+        500:
+          description: Internal exception
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalException'
   /v2/budgets/{id}/limits:
     get:
       operationId: listBudgetLimitByBudget
@@ -368,59 +433,6 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: '#/components/schemas/BudgetLimitV2Array'
-        401:
-          description: Unauthenticated
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Unauthenticated'
-        404:
-          description: Page not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/NotFound'
-        400:
-          description: Bad request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/BadRequest'
-        500:
-          description: Internal exception
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/InternalException'
-  /v2/budgets:
-    get:
-      summary: List all budgets.
-      description: List all the budgets the user has made.
-      operationId: listBudgets
-      tags:
-        - budgets
-      parameters:
-        - name: X-Trace-Id
-          in: header
-          description: Unique identifier associated with this request.
-          required: false
-          schema:
-            type: string
-            format: uuid
-        - in: query
-          name: page
-          description: Page number. The default pagination is 50.
-          required: false
-          schema:
-            type: integer
-            example: 1
-      responses:
-        200:
-          description: A list of budgets.
-          content:
-            application/vnd.api+json:
-              schema:
-                $ref: '#/components/schemas/BudgetV2Array'
         401:
           description: Unauthenticated
           content:
@@ -583,6 +595,60 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/TransactionSumArray'
+  /v2/preferences/{name}:
+    get:
+      summary: Return a single preference.
+      description: Return a single preference and the value.
+      operationId: getPreference
+      parameters:
+        - name: X-Trace-Id
+          in: header
+          description: Unique identifier associated with this request.
+          required: false
+          schema:
+            type: string
+            format: uuid
+        - in: path
+        name: name
+        required: true
+        schema:
+          type: string
+          format: string
+          example: currencyPreference
+        description: The name of the preference.
+      tags:
+        - preferences
+      responses:
+        200:
+          description: A single preference.
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/PreferenceSingle'
+        401:
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthenticated'
+        404:
+          description: Page not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFound'
+        400:
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+        500:
+          description: Internal exception
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalException'
   /v2/net-worth:
     get:
       tags:
