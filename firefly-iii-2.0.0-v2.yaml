@@ -5,7 +5,7 @@ servers:
 info:
   title: Firefly III API v2.0.0
   description: |
-    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2023-02-11T19:52:57+00:00
+    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2023-02-12T05:24:23+00:00
   version: "2.0.0"
   contact:
     name: James Cole
@@ -215,6 +215,75 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/TransactionSumArray'
+  /v2/bills/sum/unpaid:
+    get:
+      tags:
+        - transactions-sum
+      operationId: getBillsUnpaidTrSum
+      summary: Returns the sum of the bills not yet paid in the period indicated.
+      parameters:
+        - name: X-Trace-Id
+          in: header
+          description: Unique identifier associated with this request.
+          required: false
+          schema:
+            type: string
+            format: uuid
+        - in: query
+          name: start
+          description: |
+            A date formatted YYYY-MM-DD.
+          required: true
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: end
+          description: |
+            A date formatted YYYY-MM-DD.
+          required: true
+          schema:
+            type: string
+            format: date
+      description: |
+        This endpoint sums up (by currency) the transactions linked to bills unpaid in the given period.
+      responses:
+        401:
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthenticated'
+        404:
+          description: Page not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFound'
+        400:
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+        500:
+          description: Internal exception
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalException'
+        422:
+          description: 'Validation error. The body will have the exact details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationError'
+        200:
+          description: An array of sums.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionSumArray'
   /v2/accounts/{id}/transactions:
     get:
       tags:
@@ -315,6 +384,59 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: '#/components/schemas/TransactionArray'
+  /v2/budgets:
+    get:
+      summary: List all budgets.
+      description: List all the budgets the user has made.
+      operationId: listBudget
+      tags:
+        - budgets
+      parameters:
+        - name: X-Trace-Id
+          in: header
+          description: Unique identifier associated with this request.
+          required: false
+          schema:
+            type: string
+            format: uuid
+        - in: query
+          name: page
+          description: Page number. The default pagination is 50.
+          required: false
+          schema:
+            type: integer
+            example: 1
+      responses:
+        200:
+          description: A list of budgets.
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/BudgetV2Array'
+        401:
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthenticated'
+        404:
+          description: Page not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFound'
+        400:
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+        500:
+          description: Internal exception
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalException'
 components:
   schemas:
     TransactionSum:
@@ -471,6 +593,64 @@ components:
           format: string
           example: "value"
           description: "The key is the label of the value, so for example: '2018-01-01' => 13 or 'Groceries' => -123."
+    BudgetV2Read:
+      type: object
+      required:
+        - type
+        - id
+        - attributes
+      properties:
+        type:
+          type: string
+          format: string
+          example: "budgets"
+          description: "Immutable value"
+        id:
+          type: string
+          format: string
+          example: "2"
+        attributes:
+          $ref: '#/components/schemas/BudgetV2'
+    BudgetV2Array:
+      type: object
+      required:
+        - data
+        - meta
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/BudgetV2Read'
+        meta:
+          $ref: '#/components/schemas/Meta'
+    BudgetV2:
+      type: object
+      required:
+        - name
+      properties:
+        created_at:
+          type: string
+          format: date-time
+          example: "2018-09-17T12:46:47+01:00"
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          example: "2018-09-17T12:46:47+01:00"
+          readOnly: true
+        name:
+          type: string
+          format: string
+          example: "Bills"
+        active:
+          type: boolean
+          format: boolean
+          example: false
+        order:
+          type: integer
+          format: int32
+          example: 5
+          readOnly: true
     TransactionSumArray:
       type: array
       items:
