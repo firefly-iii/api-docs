@@ -5,7 +5,7 @@ servers:
 info:
   title: Firefly III API v2.0.0
   description: |
-    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2023-02-12T05:50:17+00:00
+    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2023-02-18T10:13:15+00:00
   version: "2.0.0"
   contact:
     name: James Cole
@@ -474,6 +474,22 @@ paths:
             type: string
             format: uuid
         - in: query
+          name: start
+          description: |
+            A date formatted YYYY-MM-DD.
+          required: true
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: end
+          description: |
+            A date formatted YYYY-MM-DD.
+          required: true
+          schema:
+            type: string
+            format: date
+        - in: query
           name: page
           description: Page number. The default pagination is per 50 items.
           required: false
@@ -542,6 +558,192 @@ paths:
           schema:
             type: string
             format: uuid
+        - in: query
+          name: start
+          description: |
+            A date formatted YYYY-MM-DD.
+          required: true
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: end
+          description: |
+            A date formatted YYYY-MM-DD.
+          required: true
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: page
+          description: Page number. The default pagination is per 50 items.
+          required: false
+          schema:
+            type: integer
+            format: int32
+            example: 1
+  
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+            example: "123"
+          description: The ID of the budget.
+      responses:
+        401:
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthenticated'
+        404:
+          description: Page not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFound'
+        400:
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+        500:
+          description: Internal exception
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalException'
+        422:
+          description: 'Validation error. The body will have the exact details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationError'
+        200:
+          description: An array of sums.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionSumArray'
+  /v2/budgets/sum/budgeted:
+    get:
+      tags:
+        - budgets
+      operationId: getBudgetedForBudgets
+      summary: Returns the budgeted amount for all budgets in the given period.
+      description: |
+        Returns the budgeted amount for all budgets in the given period.
+      parameters:
+        - name: X-Trace-Id
+          in: header
+          description: Unique identifier associated with this request.
+          required: false
+          schema:
+            type: string
+            format: uuid
+        - in: query
+          name: start
+          description: |
+            A date formatted YYYY-MM-DD.
+          required: true
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: end
+          description: |
+            A date formatted YYYY-MM-DD.
+          required: true
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: page
+          description: Page number. The default pagination is per 50 items.
+          required: false
+          schema:
+            type: integer
+            format: int32
+            example: 1
+  
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+            example: "123"
+          description: The ID of the budget.
+      responses:
+        401:
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthenticated'
+        404:
+          description: Page not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFound'
+        400:
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+        500:
+          description: Internal exception
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalException'
+        422:
+          description: 'Validation error. The body will have the exact details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationError'
+        200:
+          description: An array of sums.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionSumArray'
+  /v2/budgets/{id}/spent:
+    get:
+      tags:
+        - budgets
+      operationId: getSpentForBudgets
+      summary: Returns the spent amount for all budgets in the given period.
+      description: |
+        Returns the spent amount for all budgets in the given period.
+      parameters:
+        - name: X-Trace-Id
+          in: header
+          description: Unique identifier associated with this request.
+          required: false
+          schema:
+            type: string
+            format: uuid
+        - in: query
+          name: start
+          description: |
+            A date formatted YYYY-MM-DD.
+          required: true
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: end
+          description: |
+            A date formatted YYYY-MM-DD.
+          required: true
+          schema:
+            type: string
+            format: date
         - in: query
           name: page
           description: Page number. The default pagination is per 50 items.
