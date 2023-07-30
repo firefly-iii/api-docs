@@ -5,7 +5,7 @@ servers:
 info:
   title: Firefly III API v2.0.4
   description: |
-    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2023-07-30T09:56:04+00:00
+    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2023-07-30T13:08:11+00:00
   version: "2.0.4"
   contact:
     name: James Cole
@@ -1066,7 +1066,7 @@ components:
         data:
           type: array
           items:
-            $ref: '#/components/schemas/BudgetLimitV2Read'
+            $ref: '#/components/schemas/BudgetLimitReadV2'
         meta:
           $ref: '#/components/schemas/Meta'
     BudgetLimitReadV2:
@@ -1231,6 +1231,66 @@ components:
       type: array
       items:
         $ref: '#/components/schemas/ChartDataSetV2'
+    Preference:
+      type: object
+      required:
+        - name
+        - data
+      properties:
+        created_at:
+          type: string
+          format: date-time
+          example: "2018-09-17T12:46:47+01:00"
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          example: "2018-09-17T12:46:47+01:00"
+          readOnly: true
+        name:
+          type: string
+          format: string
+          example: currencyPreference
+        data:
+          $ref: '#/components/schemas/PolymorphicProperty'
+          example: "EUR"
+          description: "The actual preference content."
+    PreferenceRead:
+      type: object
+      required:
+        - type
+        - id
+        - attributes
+      properties:
+        type:
+          type: string
+          format: string
+          example: "preferences"
+          description: "Immutable value"
+        id:
+          type: string
+          format: string
+          example: "2"
+        attributes:
+          $ref: '#/components/schemas/Preference'
+    PreferenceSingle:
+      type: object
+      required:
+        - data
+      properties:
+        data:
+          $ref: '#/components/schemas/PreferenceRead'
+    PolymorphicProperty:
+      oneOf:
+        - type: boolean
+        - type: string
+        - type: object
+        - type: array
+          items:
+            $ref: '#/components/schemas/StringArrayItem'
+    StringArrayItem:
+      type: string
+      format: string
     TransactionArray:
       type: object
       required:
