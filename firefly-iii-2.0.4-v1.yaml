@@ -5,7 +5,7 @@ servers:
 info:
   title: Firefly III API v2.0.4
   description: |
-    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2023-06-11T09:14:35+00:00
+    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2023-07-30T09:56:04+00:00
   version: "2.0.4"
   contact:
     name: James Cole
@@ -15259,6 +15259,7 @@ components:
           nullable: true
     AttachmentUpdate:
       type: object
+      required: []
       properties:
         filename:
           type: string
@@ -15367,6 +15368,10 @@ components:
           description: End date of the available budget.
     AvailableBudgetUpdate:
       type: object
+      required:
+        - amount
+        - start
+        - end
       properties:
         currency_id:
           type: string
@@ -15623,6 +15628,8 @@ components:
           description: The name of the group. NULL if no group.
     BillUpdate:
       type: object
+      required:
+        - name
       properties:
         currency_id:
           type: string
@@ -15795,6 +15802,8 @@ components:
           $ref: '#/components/schemas/AutoBudgetPeriod'
     BudgetUpdate:
       type: object
+      required:
+        - name
       properties:
         name:
           type: string
@@ -16030,6 +16039,8 @@ components:
           example: "Some example notes"
     CategoryUpdate:
       type: object
+      required:
+        - name
       properties:
         name:
           type: string
@@ -16117,6 +16128,8 @@ components:
           description: "Order of the object group"
     ObjectGroupUpdate:
       type: object
+      required:
+        - title
       properties:
         title:
           type: string
@@ -16315,6 +16328,8 @@ components:
           description: The name of the group. NULL if no group.
     PiggyBankUpdate:
       type: object
+      required:
+        - name
       properties:
         name:
           type: string
@@ -16589,6 +16604,7 @@ components:
             $ref: '#/components/schemas/RecurrenceTransactionStore'
     RecurrenceUpdate:
       type: object
+      required: []
       properties:
         title:
           type: string
@@ -16738,6 +16754,7 @@ components:
             4. Skip to the next Monday.
     RecurrenceRepetitionUpdate:
       type: object
+      required: []
       properties:
         type:
           $ref: '#/components/schemas/RecurrenceRepetitionType'
@@ -17017,6 +17034,7 @@ components:
           description: Optional.
     RecurrenceTransactionUpdate:
       type: object
+      required: []
       properties:
         id:
           type: string
@@ -17224,6 +17242,7 @@ components:
             $ref: '#/components/schemas/RuleActionStore'
     RuleUpdate:
       type: object
+      required: []
       properties:
         title:
           type: string
@@ -17348,6 +17367,7 @@ components:
           description: When true, other actions will not be fired after this action has fired. Defaults to false.
     RuleActionUpdate:
       type: object
+      required: []
       properties:
         type:
           $ref: '#/components/schemas/RuleActionKeyword'
@@ -17429,6 +17449,7 @@ components:
           example: true
     RuleGroupUpdate:
       type: object
+      required: []
       properties:
         title:
           type: string
@@ -17525,6 +17546,7 @@ components:
           description: When true, other triggers will not be checked if this trigger was triggered. Defaults to false.
     RuleTriggerUpdate:
       type: object
+      required: []
       properties:
         type:
           $ref: '#/components/schemas/RuleTriggerKeyword'
@@ -17641,6 +17663,7 @@ components:
     TagModelUpdate:
       title: A single tag
       type: object
+      required: []
       properties:
         tag:
           type: string
@@ -17758,6 +17781,7 @@ components:
           description: Supports 0-16 decimals.
     CurrencyUpdate:
       type: object
+      required: []
       properties:
         enabled:
           type: boolean
@@ -17824,6 +17848,7 @@ components:
             $ref: '#/components/schemas/TransactionSplitStore'
     TransactionUpdate:
       type: object
+      required: []
       properties:
         apply_rules:
           type: boolean
@@ -17928,6 +17953,7 @@ components:
           description: Optional. Some notes.
     TransactionLinkUpdate:
       type: object
+      required: []
       properties:
         link_type_id:
           type: string
@@ -18001,6 +18027,7 @@ components:
           format: string
           example: "(partially) pays for"
     LinkTypeUpdate:
+      required: []
       type: object
       properties:
         name:
@@ -18253,6 +18280,7 @@ components:
           nullable: true
     TransactionSplitUpdate:
       type: object
+      required: []
       properties:
         transaction_journal_id:
           type: string
@@ -18629,6 +18657,7 @@ components:
     WebhookUpdate:
       title: A single webhook
       type: object
+      required: []
       properties:
         active:
           type: boolean
