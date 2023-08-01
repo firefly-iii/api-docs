@@ -5,7 +5,7 @@ servers:
 info:
   title: Firefly III API v2.0.5
   description: |
-    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2023-08-01T09:07:19+00:00
+    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2023-08-01T09:10:47+00:00
   version: "2.0.5"
   contact:
     name: James Cole
@@ -129,7 +129,7 @@ paths:
             type: string
             format: date
         - in: query
-          name: accounts
+          name: accounts[]
           description: |
             An array of accounts that should be included. Example: accounts[]=1&accounts[]=2
           required: true
