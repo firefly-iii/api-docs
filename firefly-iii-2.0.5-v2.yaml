@@ -5,7 +5,7 @@ servers:
 info:
   title: Firefly III API v2.0.5
   description: |
-    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2023-08-01T09:00:38+00:00
+    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2023-08-01T09:07:19+00:00
   version: "2.0.5"
   contact:
     name: James Cole
@@ -103,7 +103,7 @@ paths:
       summary: A chart that contains spent/earned amounts
       description: |
         The chart contains spent/earned amounts for the given date range, grouped by the given period, and collected for the given accounts.
-      operationId: getChartAccountOverview
+      operationId: getBalanceChart
       parameters:
         - name: X-Trace-Id
           in: header
@@ -135,7 +135,6 @@ paths:
           required: true
           style: form
           explode: true
-          useBrackets: true   # new attribute, default false
           schema:
             type: array
             items:
@@ -1296,6 +1295,11 @@ components:
         entries:
           type: object
           description: "The actual entries for this data set. They 'key' value is the label for the data point. The value is the actual (numerical) value."
+          items:
+            $ref: '#/components/schemas/ChartDataPointV2'
+        native_entries:
+          type: object
+          description: "The entries for this data set converted to the user's native (default) currency. They 'key' value is the label for the data point. The value is the actual (numerical) value."
           items:
             $ref: '#/components/schemas/ChartDataPointV2'
     ChartLineV2:
