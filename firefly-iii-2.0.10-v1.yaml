@@ -5,7 +5,7 @@ servers:
 info:
   title: Firefly III API v2.0.10
   description: |
-    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2023-10-15T11:32:46+00:00
+    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2023-10-15T12:13:25+00:00
 
     Please keep in mind that the demo site does not accept requests from curl, colly, wget, etc. You must use a browser or a tool like Postman to make requests. Too many script kiddies out there, sorry about that.
   version: "2.0.10"
@@ -6008,8 +6008,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalException'
-  /v1/Users/sander/Sites/FF3/api/api-docs-generator/yaml/v1/paths/models/budget-limit-list:
-    yaml:
   /v1/budgets:
     get:
       summary: List all budgets.
@@ -14641,6 +14639,8 @@ components:
         - id
     ConfigValueFilter:
       type: string
+      example: "configuration.is_demo_site"
+      description: "Title of the configuration value."
       enum:
         - configuration.is_demo_site
         - configuration.permission_update_check
@@ -15840,7 +15840,6 @@ components:
           nullable: true
     AttachmentUpdate:
       type: object
-      required: []
       properties:
         filename:
           type: string
@@ -15916,68 +15915,6 @@ components:
           items:
             $ref: '#/components/schemas/BudgetSpent'
           readOnly: true
-    AvailableBudgetStore:
-      type: object
-      required:
-        - amount
-        - start
-        - end
-      properties:
-        currency_id:
-          type: string
-          format: string
-          example: "5"
-          description: Use either currency_id or currency_code.
-        currency_code:
-          type: string
-          format: string
-          example: EUR
-          description: Use either currency_id or currency_code.
-        amount:
-          type: string
-          format: amount
-          example: "123.45"
-        start:
-          type: string
-          format: date
-          example: "2017-09-17"
-          description: Start date of the available budget.
-        end:
-          type: string
-          format: date
-          example: "2017-09-17"
-          description: End date of the available budget.
-    AvailableBudgetUpdate:
-      type: object
-      required:
-        - amount
-        - start
-        - end
-      properties:
-        currency_id:
-          type: string
-          format: string
-          example: "5"
-          description: Use either currency_id or currency_code.
-        currency_code:
-          type: string
-          format: string
-          example: EUR
-          description: Use either currency_id or currency_code.
-        amount:
-          type: string
-          format: amount
-          example: "123.45"
-        start:
-          type: string
-          format: date
-          example: "2017-09-17"
-          description: Start date of the available budget.
-        end:
-          type: string
-          format: date
-          example: "2017-09-17"
-          description: End date of the available budget.
     Bill:
       type: object
       required:
@@ -16604,20 +16541,6 @@ components:
           readOnly: true
           items:
             $ref: '#/components/schemas/CategoryEarned'
-    CategoryStore:
-      type: object
-      required:
-        - name
-      properties:
-        name:
-          type: string
-          format: string
-          example: "Lunch"
-        notes:
-          type: string
-          format: string
-          nullable: true
-          example: "Some example notes"
     CategoryUpdate:
       type: object
       required:
@@ -16909,7 +16832,6 @@ components:
           description: The name of the group. NULL if no group.
     PiggyBankUpdate:
       type: object
-      required: []
       properties:
         name:
           type: string
@@ -17039,8 +16961,6 @@ components:
           example: currencyPreference
         data:
           $ref: '#/components/schemas/PolymorphicProperty'
-          example: "EUR"
-          description: "The actual preference content."
     PreferenceUpdate:
       type: object
       required:
@@ -17048,8 +16968,6 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/PolymorphicProperty'
-          example: "EUR"
-          description: "The actual preference content."
     Recurrence:
       type: object
       properties:
@@ -17184,7 +17102,6 @@ components:
             $ref: '#/components/schemas/RecurrenceTransactionStore'
     RecurrenceUpdate:
       type: object
-      required: []
       properties:
         title:
           type: string
@@ -17334,7 +17251,6 @@ components:
             4. Skip to the next Monday.
     RecurrenceRepetitionUpdate:
       type: object
-      required: []
       properties:
         type:
           $ref: '#/components/schemas/RecurrenceRepetitionType'
@@ -17620,7 +17536,6 @@ components:
         id:
           type: string
           format: string
-          required: true
           example: "ID of the recurring transaction. Not to be confused with the ID of the recurrence itself. Is marked as REQUIRED but can be skipped when there is only ONE transaction."
         description:
           type: string
@@ -17823,7 +17738,6 @@ components:
             $ref: '#/components/schemas/RuleActionStore'
     RuleUpdate:
       type: object
-      required: []
       properties:
         title:
           type: string
@@ -17948,7 +17862,6 @@ components:
           description: When true, other actions will not be fired after this action has fired. Defaults to false.
     RuleActionUpdate:
       type: object
-      required: []
       properties:
         type:
           $ref: '#/components/schemas/RuleActionKeyword'
@@ -18030,7 +17943,6 @@ components:
           example: true
     RuleGroupUpdate:
       type: object
-      required: []
       properties:
         title:
           type: string
@@ -18127,7 +18039,6 @@ components:
           description: When true, other triggers will not be checked if this trigger was triggered. Defaults to false.
     RuleTriggerUpdate:
       type: object
-      required: []
       properties:
         type:
           $ref: '#/components/schemas/RuleTriggerKeyword'
@@ -18244,7 +18155,6 @@ components:
     TagModelUpdate:
       title: A single tag
       type: object
-      required: []
       properties:
         tag:
           type: string
@@ -18362,7 +18272,6 @@ components:
           description: Supports 0-16 decimals.
     CurrencyUpdate:
       type: object
-      required: []
       properties:
         enabled:
           type: boolean
@@ -18429,7 +18338,6 @@ components:
             $ref: '#/components/schemas/TransactionSplitStore'
     TransactionUpdate:
       type: object
-      required: []
       properties:
         apply_rules:
           type: boolean
@@ -18534,7 +18442,6 @@ components:
           description: Optional. Some notes.
     TransactionLinkUpdate:
       type: object
-      required: []
       properties:
         link_type_id:
           type: string
@@ -18588,27 +18495,7 @@ components:
           format: boolean
           example: false
           readOnly: true
-    LinkTypeStore:
-      type: object
-      required:
-        - name
-        - inward
-        - outward
-      properties:
-        name:
-          type: string
-          format: string
-          example: "Paid"
-        inward:
-          type: string
-          format: string
-          example: "is (partially) paid for by"
-        outward:
-          type: string
-          format: string
-          example: "(partially) pays for"
     LinkTypeUpdate:
-      required: []
       type: object
       properties:
         name:
@@ -18861,7 +18748,6 @@ components:
           nullable: true
     TransactionSplitUpdate:
       type: object
-      required: []
       properties:
         transaction_journal_id:
           type: string
@@ -19238,7 +19124,6 @@ components:
     WebhookUpdate:
       title: A single webhook
       type: object
-      required: []
       properties:
         active:
           type: boolean
@@ -19495,13 +19380,11 @@ components:
       enum:
         - "store-journal"
         - "update-journal"
-    StringArray:
-      type: array
-      items:
-        $ref: '#/components/schemas/StringArrayItem'
     StringArrayItem:
       type: string
       format: string
+      example: "EUR"
+      description: "The actual preference content."
     UserBlockedCodeProperty:
       type: string
       format: string
@@ -19612,13 +19495,9 @@ components:
         - editable
       properties:
         title:
-          example: "configuration.is_demo_site"
-          description: "Title of the configuration value."
           $ref: '#/components/schemas/ConfigValueFilter'
         value:
           $ref: '#/components/schemas/PolymorphicProperty'
-          example: "some-variable"
-          description: "Content of the configuration variable. Is very dynamic and can be anything from booleans to arrays."
         editable:
           type: boolean
           format: boolean
@@ -19632,8 +19511,6 @@ components:
       properties:
         value:
           $ref: '#/components/schemas/PolymorphicProperty'
-          example: "Some-new-config var"
-          description: Can be a number, a string, boolean or object. This depends on the actual configuration value.
     CronResult:
       type: object
       properties:
@@ -20441,3 +20318,5 @@ components:
       scheme: bearer
 security:
   - firefly_iii_auth: []
+  - local_bearer_auth: []
+    
