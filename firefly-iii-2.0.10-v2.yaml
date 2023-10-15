@@ -5,7 +5,7 @@ servers:
 info:
   title: Firefly III API v2.0.10
   description: |
-    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2023-10-15T11:32:46+00:00
+    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2023-10-15T12:13:25+00:00
 
     Please keep in mind that the demo site does not accept requests from curl, colly, wget, etc. You must use a browser or a tool like Postman to make requests. Too many script kiddies out there, sorry about that.
   version: "2.0.10"
@@ -1320,8 +1320,6 @@ components:
           example: currencyPreference
         data:
           $ref: '#/components/schemas/PolymorphicProperty'
-          example: "EUR"
-          description: "The actual preference content."
     PreferenceRead:
       type: object
       required:
@@ -2099,3 +2097,5 @@ components:
       scheme: bearer
 security:
   - firefly_iii_auth: []
+  - local_bearer_auth: []
+    
