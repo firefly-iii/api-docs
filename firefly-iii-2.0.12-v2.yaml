@@ -5,7 +5,7 @@ servers:
 info:
   title: Firefly III API v2.0.12
   description: |
-    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2024-01-03T07:10:56+00:00
+    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2024-03-16T05:34:43+00:00
 
     Please keep in mind that the demo site does not accept requests from curl, colly, wget, etc. You must use a browser or a tool like Postman to make requests. Too many script kiddies out there, sorry about that.
   version: "2.0.12"
@@ -807,14 +807,14 @@ paths:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
   
-  /v2/budgets/{id}/budgeted:
+  /v2/budgets/{id}:
     get:
+      operationId: getBudget
+      description: |
+        Get a single budget.
+      summary: Get all limits for a budget.
       tags:
         - budgets
-      operationId: getBudgetedForBudget
-      summary: Returns the budgeted amount for the given budget in the given period.
-      description: |
-        Returns the budgeted amount for the given budget in the given period.
       parameters:
         - name: X-Trace-Id
           in: header
@@ -846,8 +846,14 @@ paths:
           schema:
             type: string
             example: "123"
-          description: The ID of the budget.
+          description: The ID of the requested budget.
       responses:
+        200:
+          description: A list of budget limits applicable to this budget.
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/BudgetV2Single'
         401:
           description: Unauthenticated
           content:
@@ -876,19 +882,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
   
-        422:
-          description: 'Validation error. The body will have the exact details.'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ValidationErrorResponse'
-  
-        200:
-          description: An array of sums.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/TransactionSumArray'
   /v2/budgets/{id}/spent:
     get:
       tags:
@@ -1004,6 +997,88 @@ paths:
             type: string
             format: date
   
+      responses:
+        401:
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthenticatedResponse'
+  
+        404:
+          description: Page not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+  
+        400:
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponse'
+  
+        500:
+          description: Internal exception
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalExceptionResponse'
+  
+        422:
+          description: 'Validation error. The body will have the exact details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorResponse'
+  
+        200:
+          description: An array of sums.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionSumArray'
+  /v2/budgets/{id}/budgeted:
+    get:
+      tags:
+        - budgets
+      operationId: getBudgetedForBudget
+      summary: Returns the budgeted amount for the given budget in the given period.
+      description: |
+        Returns the budgeted amount for the given budget in the given period.
+      parameters:
+        - name: X-Trace-Id
+          in: header
+          description: Unique identifier associated with this request.
+          required: false
+          schema:
+            type: string
+            format: uuid
+        - in: query
+          name: start
+          description: |
+            A date formatted YYYY-MM-DD.
+          required: true
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: end
+          description: |
+            A date formatted YYYY-MM-DD.
+          required: true
+          schema:
+            type: string
+            format: date
+  
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+            example: "123"
+          description: The ID of the budget.
       responses:
         401:
           description: Unauthenticated
@@ -2299,10 +2374,10 @@ components:
         data:
           type: array
           items:
-            $ref: '#/components/schemas/BudgetLimitReadV2'
+            $ref: '#/components/schemas/BudgetLimitV2Read'
         meta:
           $ref: '#/components/schemas/Meta'
-    BudgetLimitReadV2:
+    BudgetLimitV2Read:
       type: object
       required:
         - type
@@ -2312,7 +2387,7 @@ components:
         type:
           type: string
           format: string
-          example: "budget_limits"
+          example: "budget-limits"
           description: "Immutable value"
         id:
           type: string
@@ -2378,6 +2453,13 @@ components:
           example: "2"
         attributes:
           $ref: '#/components/schemas/BudgetV2'
+    BudgetV2Single:
+      type: object
+      required:
+        - data
+      properties:
+        data:
+          $ref: '#/components/schemas/BudgetV2Read'
     ChartDataPointV2:
       type: object
       properties:
