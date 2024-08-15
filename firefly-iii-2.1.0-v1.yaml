@@ -5,7 +5,7 @@ servers:
 info:
   title: Firefly III API v2.1.0
   description: |
-    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2024-08-15T08:05:33+00:00
+    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2024-08-15T08:20:18+00:00
 
     Please keep in mind that the demo site does not accept requests from curl, colly, wget, etc. You must use a browser or a tool like Postman to make requests. Too many script kiddies out there, sorry about that.
   version: "2.1.0"
@@ -17627,7 +17627,7 @@ components:
     ObjectLink:
       type: object
       properties:
-        0:
+        "0":
           type: object
           properties:
             rel:
@@ -19100,7 +19100,7 @@ components:
           example: false
           description: When true, other triggers will not be checked if this trigger was triggered.
     TagModel:
-      title: A single tag
+      title: "A single tag (C)"
       type: object
       required:
         - tag
@@ -19150,7 +19150,7 @@ components:
           nullable: true
           description: "Zoom level for the map, if drawn. This to set the box right. Unfortunately this is a proprietary value because each map provider has different zoom levels."
     TagModelStore:
-      title: A single tag
+      title: "A single tag (A)"
       type: object
       required:
         - tag
@@ -19190,7 +19190,7 @@ components:
           nullable: true
           description: "Zoom level for the map, if drawn. This to set the box right. Unfortunately this is a proprietary value because each map provider has different zoom levels."
     TagModelUpdate:
-      title: A single tag
+      title: "A single tag (B)"
       type: object
       properties:
         tag:
@@ -20455,7 +20455,7 @@ components:
         role:
           $ref: '#/components/schemas/UserRoleProperty'
     Webhook:
-      title: A single webhook
+      title: "A single webhook (read)"
       type: object
       required:
         - title
@@ -20503,7 +20503,7 @@ components:
           readOnly: false
           description: The URL of the webhook. Has to start with `https`.
     WebhookStore:
-      title: A single webhook
+      title: "A single webhook (store)"
       type: object
       required:
         - title
@@ -20535,7 +20535,7 @@ components:
           readOnly: false
           description: The URL of the webhook. Has to start with `https`.
     WebhookUpdate:
-      title: A single webhook
+      title: "A single webhook (update)"
       type: object
       properties:
         active:
