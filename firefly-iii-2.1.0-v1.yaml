@@ -5,7 +5,7 @@ servers:
 info:
   title: Firefly III API v2.1.0
   description: |
-    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2024-08-15T04:30:14+00:00
+    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2024-08-15T08:05:33+00:00
 
     Please keep in mind that the demo site does not accept requests from curl, colly, wget, etc. You must use a browser or a tool like Postman to make requests. Too many script kiddies out there, sorry about that.
   version: "2.1.0"
@@ -4334,7 +4334,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
   
-        422:
+        "422":
           description: 'Validation error. The body will have the exact details.'
           content:
             application/json:
@@ -4484,7 +4484,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
   
-        422:
+        "422":
           description: 'Validation error. The body will have the exact details.'
           content:
             application/json:
@@ -4679,7 +4679,7 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: '#/components/schemas/AttachmentSingle'
-        422:
+        "422":
           description: 'Validation error. The body will have the exact details.'
           content:
             application/json:
@@ -4811,7 +4811,7 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: '#/components/schemas/AttachmentSingle'
-        422:
+        "422":
           description: 'Validation error. The body will have the exact details.'
           content:
             application/json:
@@ -4984,7 +4984,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
   
-        422:
+        "422":
           description: 'Validation error. The body will have the exact details.'
           content:
             application/json:
@@ -5517,7 +5517,7 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: '#/components/schemas/BillSingle'
-        422:
+        "422":
           description: 'Validation error. The body will have the exact details.'
           content:
             application/json:
@@ -5665,7 +5665,7 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: '#/components/schemas/BillSingle'
-        422:
+        "422":
           description: 'Validation error. The body will have the exact details.'
           content:
             application/json:
@@ -5926,7 +5926,7 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: '#/components/schemas/BudgetLimitSingle'
-        422:
+        "422":
           description: 'Validation error. The body will have the exact details.'
           content:
             application/json:
@@ -6070,7 +6070,7 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: '#/components/schemas/BudgetLimitSingle'
-        422:
+        "422":
           description: 'Validation error. The body will have the exact details.'
           content:
             application/json:
@@ -6524,7 +6524,7 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: '#/components/schemas/BudgetSingle'
-        422:
+        "422":
           description: 'Validation error. The body will have the exact details.'
           content:
             application/json:
@@ -6672,7 +6672,7 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: '#/components/schemas/BudgetSingle'
-        422:
+        "422":
           description: 'Validation error. The body will have the exact details.'
           content:
             application/json:
@@ -7033,7 +7033,7 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: '#/components/schemas/CategorySingle'
-        422:
+        "422":
           description: 'Validation error. The body will have the exact details.'
           content:
             application/json:
@@ -7181,7 +7181,7 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: '#/components/schemas/CategorySingle'
-        422:
+        "422":
           description: 'Validation error. The body will have the exact details.'
           content:
             application/json:
@@ -7458,7 +7458,7 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: '#/components/schemas/LinkTypeSingle'
-        422:
+        "422":
           description: 'Validation error. The body will have the exact details.'
           content:
             application/json:
@@ -7600,7 +7600,7 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: '#/components/schemas/LinkTypeSingle'
-        422:
+        "422":
           description: 'Validation error. The body will have the exact details.'
           content:
             application/json:
@@ -7778,7 +7778,7 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: '#/components/schemas/TransactionLinkSingle'
-        422:
+        "422":
           description: 'Validation error. The body will have the exact details.'
           content:
             application/json:
@@ -7973,7 +7973,7 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: '#/components/schemas/TransactionLinkSingle'
-        422:
+        "422":
           description: 'Validation error. The body will have the exact details.'
           content:
             application/json:
@@ -8323,7 +8323,7 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: '#/components/schemas/ObjectGroupSingle'
-        422:
+        "422":
           description: 'Validation error. The body will have the exact details.'
           content:
             application/json:
@@ -8662,7 +8662,7 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: '#/components/schemas/PiggyBankSingle'
-        422:
+        "422":
           description: 'Validation error. The body will have the exact details.'
           content:
             application/json:
@@ -8792,7 +8792,7 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: '#/components/schemas/PiggyBankSingle'
-        422:
+        "422":
           description: 'Validation error. The body will have the exact details.'
           content:
             application/json:
@@ -9078,7 +9078,7 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: '#/components/schemas/RecurrenceSingle'
-        422:
+        "422":
           description: 'Validation error. The body will have the exact details.'
           content:
             application/json:
@@ -9208,7 +9208,7 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: '#/components/schemas/RecurrenceSingle'
-        422:
+        "422":
           description: 'Validation error. The body will have the exact details.'
           content:
             application/json:
@@ -9672,7 +9672,7 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: '#/components/schemas/RuleGroupSingle'
-        422:
+        "422":
           description: 'Validation error. The body will have the exact details.'
           content:
             application/json:
@@ -9802,7 +9802,7 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: '#/components/schemas/RuleGroupSingle'
-        422:
+        "422":
           description: 'Validation error. The body will have the exact details.'
           content:
             application/json:
@@ -10158,7 +10158,7 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: '#/components/schemas/RuleSingle'
-        422:
+        "422":
           description: 'Validation error. The body will have the exact details.'
           content:
             application/json:
@@ -10288,7 +10288,7 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: '#/components/schemas/RuleSingle'
-        422:
+        "422":
           description: 'Validation error. The body will have the exact details.'
           content:
             application/json:
@@ -10652,7 +10652,7 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: '#/components/schemas/TagSingle'
-        422:
+        "422":
           description: 'Validation error. The body will have the exact details.'
           content:
             application/json:
@@ -10802,7 +10802,7 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: '#/components/schemas/TagSingle'
-        422:
+        "422":
           description: 'Validation error. The body will have the exact details.'
           content:
             application/json:
@@ -11577,7 +11577,7 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: '#/components/schemas/CurrencySingle'
-        422:
+        "422":
           description: 'Validation error. The body will have the exact details.'
           content:
             application/json:
@@ -11884,7 +11884,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CurrencySingle'
-        422:
+        "422":
           description: 'Validation error. The body will have the exact details.'
           content:
             application/json:
@@ -12483,7 +12483,7 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: '#/components/schemas/TransactionSingle'
-        422:
+        "422":
           description: 'Validation error. The body will have the exact details.'
           content:
             application/json:
@@ -12613,7 +12613,7 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: '#/components/schemas/TransactionSingle'
-        422:
+        "422":
           description: 'Validation error. The body will have the exact details.'
           content:
             application/json:
@@ -13179,7 +13179,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ConfigurationSingle'
-        422:
+        "422":
           description: 'Validation error. The body will have the exact details.'
           content:
             application/json:
@@ -13433,7 +13433,7 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: '#/components/schemas/UserSingle'
-        422:
+        "422":
           description: 'Validation error. The body will have the exact details.'
           content:
             application/json:
@@ -13535,7 +13535,7 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: '#/components/schemas/UserSingle'
-        422:
+        "422":
           description: 'Validation error. The body will have the exact details.'
           content:
             application/json:
@@ -13711,7 +13711,7 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: '#/components/schemas/PreferenceSingle'
-        422:
+        "422":
           description: 'Validation error. The body will have the exact details.'
           content:
             application/json:
@@ -13853,7 +13853,7 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: '#/components/schemas/PreferenceSingle'
-        422:
+        "422":
           description: 'Validation error. The body will have the exact details.'
           content:
             application/json:
@@ -14455,7 +14455,7 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: '#/components/schemas/WebhookSingle'
-        422:
+        "422":
           description: 'Validation error. The body will have the exact details.'
           content:
             application/json:
@@ -14585,7 +14585,7 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: '#/components/schemas/WebhookSingle'
-        422:
+        "422":
           description: 'Validation error. The body will have the exact details.'
           content:
             application/json:
