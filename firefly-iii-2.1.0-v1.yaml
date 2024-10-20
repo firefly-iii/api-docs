@@ -5,9 +5,11 @@ servers:
 info:
   title: Firefly III API v2.1.0
   description: |
-    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2024-10-20T08:48:39+00:00
+    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2024-10-20T15:47:33+00:00
 
     Please keep in mind that the demo site does not accept requests from curl, colly, wget, etc. You must use a browser or a tool like Postman to make requests. Too many script kiddies out there, sorry about that.
+
+    
   version: "2.1.0"
   contact:
     name: James Cole
@@ -21281,4 +21283,3 @@ components:
 security:
   - firefly_iii_auth: []
   - local_bearer_auth: []
-
