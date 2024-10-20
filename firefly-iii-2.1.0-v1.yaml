@@ -5,7 +5,7 @@ servers:
 info:
   title: Firefly III API v2.1.0
   description: |
-    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2024-09-10T05:07:57+00:00
+    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2024-10-20T08:48:39+00:00
 
     Please keep in mind that the demo site does not accept requests from curl, colly, wget, etc. You must use a browser or a tool like Postman to make requests. Too many script kiddies out there, sorry about that.
   version: "2.1.0"
@@ -20999,6 +20999,47 @@ components:
       properties:
         data:
             $ref: '#/components/schemas/UserRead'
+    AccountTypeFilter:
+      type: string
+      enum:
+        - all
+        - asset
+        - cash
+        - expense
+        - revenue
+        - special
+        - hidden
+        - liability
+        - liabilities
+        - Default account
+        - Cash account
+        - Asset account
+        - Expense account
+        - Revenue account
+        - Initial balance account
+        - Beneficiary account
+        - Import account
+        - Reconciliation account
+        - Loan
+        - Debt
+        - Mortgage
+    TransactionTypeFilter:
+      type: string
+      enum:
+        - all
+        - withdrawal
+        - withdrawals
+        - expense
+        - deposit
+        - deposits
+        - income
+        - transfer
+        - transfers
+        - opening_balance
+        - reconciliation
+        - special
+        - specials
+        - default
     Meta:
       type: object
       properties:
@@ -21020,6 +21061,105 @@ components:
             total_pages:
               type: integer
               example: 1
+    AccountRoleProperty:
+      type: string
+      format: string
+      example: "defaultAsset"
+      description: "Is only mandatory when the type is asset."
+      nullable: true
+      enum:
+        - defaultAsset
+        - sharedAsset
+        - savingAsset
+        - ccAsset
+        - cashWalletAsset
+        - null
+    AccountTypeProperty:
+      type: string
+      format: string
+      example: "Asset account"
+      readOnly: true
+      enum:
+        - Default account
+        - Cash account
+        - Asset account
+        - Expense account
+        - Revenue account
+        - Initial balance account
+        - Beneficiary account
+        - Import account
+        - Reconciliation account
+        - Loan
+        - Debt
+        - Mortgage
+    CreditCardTypeProperty:
+      type: string
+      format: string
+      example: monthlyFull
+      description: "Mandatory when the account_role is ccAsset. Can only be monthlyFull or null."
+      nullable: true
+      enum:
+        - monthlyFull
+        - null
+    InterestPeriodProperty:
+      type: string
+      format: string
+      example: monthly
+      description: "Mandatory when type is liability. Period over which the interest is calculated."
+      nullable: true
+      enum:
+        - weekly
+        - monthly
+        - quarterly
+        - half-year
+        - yearly
+        - null
+    LiabilityDirectionProperty:
+      type: string
+      format: string
+      example: credit
+      description: "'credit' indicates somebody owes you the liability. 'debit' Indicates you owe this debt yourself. Works only for liabiltiies."
+      nullable: true
+      enum:
+        - credit
+        - debit
+        - null
+    LiabilityTypeProperty:
+      type: string
+      format: string
+      example: "loan"
+      description: "Mandatory when type is liability. Specifies the exact type."
+      nullable: true
+      enum:
+        - loan
+        - debt
+        - mortgage
+        - null
+    ShortAccountTypeProperty:
+      type: string
+      format: string
+      example: "asset"
+      description: "Can only be one one these account types. import, initial-balance and reconciliation cannot be set manually."
+      enum:
+        - asset
+        - expense
+        - import
+        - revenue
+        - cash
+        - liability
+        - liabilities
+        - "initial-balance"
+        - reconciliation
+    TransactionTypeProperty:
+      type: string
+      format: string
+      example: "withdrawal"
+      enum:
+        - withdrawal
+        - deposit
+        - transfer
+        - reconciliation
+        - opening balance
     BadRequestResponse:
       type: object
       properties:
@@ -21124,146 +21264,6 @@ components:
               items:
                 type: string
                 format: string
-    AccountRoleProperty:
-      type: string
-      format: string
-      example: "defaultAsset"
-      description: "Is only mandatory when the type is asset."
-      nullable: true
-      enum:
-        - defaultAsset
-        - sharedAsset
-        - savingAsset
-        - ccAsset
-        - cashWalletAsset
-        - null
-    AccountTypeProperty:
-      type: string
-      format: string
-      example: "Asset account"
-      readOnly: true
-      enum:
-        - Default account
-        - Cash account
-        - Asset account
-        - Expense account
-        - Revenue account
-        - Initial balance account
-        - Beneficiary account
-        - Import account
-        - Reconciliation account
-        - Loan
-        - Debt
-        - Mortgage
-    CreditCardTypeProperty:
-      type: string
-      format: string
-      example: monthlyFull
-      description: "Mandatory when the account_role is ccAsset. Can only be monthlyFull or null."
-      nullable: true
-      enum:
-        - monthlyFull
-        - null
-    InterestPeriodProperty:
-      type: string
-      format: string
-      example: monthly
-      description: "Mandatory when type is liability. Period over which the interest is calculated."
-      nullable: true
-      enum:
-        - weekly
-        - monthly
-        - quarterly
-        - half-year
-        - yearly
-        - null
-    LiabilityDirectionProperty:
-      type: string
-      format: string
-      example: credit
-      description: "'credit' indicates somebody owes you the liability. 'debit' Indicates you owe this debt yourself. Works only for liabiltiies."
-      nullable: true
-      enum:
-        - credit
-        - debit
-        - null
-    LiabilityTypeProperty:
-      type: string
-      format: string
-      example: "loan"
-      description: "Mandatory when type is liability. Specifies the exact type."
-      nullable: true
-      enum:
-        - loan
-        - debt
-        - mortgage
-        - null
-    ShortAccountTypeProperty:
-      type: string
-      format: string
-      example: "asset"
-      description: "Can only be one one these account types. import, initial-balance and reconciliation cannot be set manually."
-      enum:
-        - asset
-        - expense
-        - import
-        - revenue
-        - cash
-        - liability
-        - liabilities
-        - "initial-balance"
-        - reconciliation
-    TransactionTypeProperty:
-      type: string
-      format: string
-      example: "withdrawal"
-      enum:
-        - withdrawal
-        - deposit
-        - transfer
-        - reconciliation
-        - opening balance
-    AccountTypeFilter:
-      type: string
-      enum:
-        - all
-        - asset
-        - cash
-        - expense
-        - revenue
-        - special
-        - hidden
-        - liability
-        - liabilities
-        - Default account
-        - Cash account
-        - Asset account
-        - Expense account
-        - Revenue account
-        - Initial balance account
-        - Beneficiary account
-        - Import account
-        - Reconciliation account
-        - Loan
-        - Debt
-        - Mortgage
-    TransactionTypeFilter:
-      type: string
-      enum:
-        - all
-        - withdrawal
-        - withdrawals
-        - expense
-        - deposit
-        - deposits
-        - income
-        - transfer
-        - transfers
-        - opening_balance
-        - reconciliation
-        - special
-        - specials
-        - default
   securitySchemes:
     firefly_iii_auth:
       type: oauth2

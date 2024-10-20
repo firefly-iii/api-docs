@@ -5,7 +5,7 @@ servers:
 info:
   title: Firefly III API v2.1.0
   description: |
-    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2024-10-20T08:17:36+00:00
+    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2024-10-20T08:48:39+00:00
 
     Please keep in mind that the demo site does not accept requests from curl, colly, wget, etc. You must use a browser or a tool like Postman to make requests. Too many script kiddies out there, sorry about that.
   version: "2.1.0"
@@ -48,14 +48,47 @@ paths:
           schema:
             type: string
             format: uuid
-        - name: filter
-          in: query
-          description: Filter the autocomplete object for accounts.
+        - in: query
+          name: user_group_id
+          description: Optional value of the financial administration you want to perform this operation on. The user must have access to this particular administration. Which access rights exactly are necessary, is different per endpoint.
           required: false
           schema:
-            $ref: '#/components/schemas/AutocompleteFilter'
-          style: deepObject
-          explode: true
+            type: integer
+            format: int32
+            example: 1
+  
+        - in: query
+          name: query
+          description: The autocomplete search query. Will be exploded on spaces, and each word will be searched for in the autocomplete results. Will also accept comma separated values for the same effect.
+          required: false
+          schema:
+            type: string
+            format: string
+          example: "search query"
+        - in: query
+          name: date
+          description: Todays date or any other date. If you supply this value, the accounts autocomplete array will include the account balances for the found accounts.
+          required: false
+          schema:
+            type: string
+            format: date
+          example: "2018-09-17"
+        - in: query
+          name: size
+          description: The size of the autocomplete result list. This is the number of items returned.
+          required: false
+          schema:
+            type: integer
+            format: int32
+          example: 15
+        - in: query
+          name: page
+          description: The page number of the autocomplete result list.
+          required: false
+          schema:
+              type: integer
+              format: int32
+          example: 1
   
       summary: Returns all accounts of the user returned in a basic auto-complete array.
       responses:
@@ -92,9 +125,227 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AutocompleteObject'
+                $ref: '#/components/schemas/AutocompleteObjectArray'
 components:
   schemas:
+    AutocompleteFilter:
+      type: object
+      properties:
+        query:
+          type: string
+          items:
+            type: string
+            format: string
+            example: "autocomplete query here"
+            description: The search query to filter the autocomplete on. Multiple words can be submitted, but this is not required. An autocomplete box generally only submits one query.
+        account_types:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountTypeFilter'
+            type: string
+            example: "Asset account"
+            description: Used only in the 'accounts' autocomplete endpoint, this filters the results by account type.
+    AutocompleteObject:
+      type: object
+      required:
+        - id
+        - title
+        - meta
+      properties:
+        id:
+          type: string
+          format: string
+          example: "2"
+          readOnly: true
+          description: The ID of the object as a string.
+        title:
+          type: string
+          format: string
+          example: "Some object"
+          description: The autocomplete value that your dropdown can use. This could be an account or category name.
+          readOnly: true
+        value:
+          type: string
+          format: string
+          nullable: true
+          example: "2"
+          readOnly: true
+          description: Optional. The ID of the object as a string. This is only used in the tags autocomplete endpoint because the JS library I use doesn't support "id" as the value field.
+        label:
+          type: string
+          format: string
+          example: "Some object"
+          description: The autocomplete value that your dropdown can use. This is only used in the tags autocomplete endpoint because the JS library I use doesn't support "title" as the value field.
+          readOnly: true
+        meta:
+          type: object
+          description: Array with optional meta-information. Fields will be different for each autocomplete entry.
+          properties:
+            type:
+              type: string
+              format: string
+              example: "Asset account"
+              readOnly: true
+              description: Account type of the account found by the auto-complete search for accounts.
+            transaction_group_id:
+              type: string
+              format: string
+              nullable: true
+              example: "2"
+              readOnly: true
+              description: The ID of the associated transaction. Only used in the transaction description autocomplete endpoint.
+            currency_id:
+              type: string
+              format: string
+              example: "12"
+              readOnly: true
+              description: ID for the currency used by this account. Only used in the account autocomplete endpoint.
+            currency_name:
+              type: string
+              format: string
+              example: "Euro"
+              readOnly: true
+              description: Currency name for the currency used by this account. Only used in the account autocomplete endpoint.
+            currency_code:
+              type: string
+              format: string
+              example: "EUR"
+              readOnly: true
+              description: Currency code for the currency used by this account. Only used in the account autocomplete endpoint.
+            currency_symbol:
+              type: string
+              format: string
+              example: "$"
+              readOnly: true
+              description: Currency symbol for the currency used by this account. Only used in the account autocomplete endpoint.
+            currency_decimal_places:
+              type: integer
+              format: int32
+              example: 2
+              readOnly: true
+              description: Number of decimal places for the currency used by this account. Only used in the account autocomplete endpoint.
+            account_balances:
+                type: array
+                readOnly: true
+                description: The latest account balance(s) of the account. Only used in the account autocomplete endpoint.
+                items:
+                    type: object
+                    properties:
+                      native_amount:
+                        type: string
+                        format: amount
+                        example: "123.45"
+                        description: The account balance in the user's default currency.
+                      amount:
+                        type: string
+                        format: amount
+                        example: "123.45"
+                        description: The account balance.
+                      currency_id:
+                        type: string
+                        format: string
+                        example: "12"
+                        readOnly: true
+                        description: ID for the currency of the amount.
+                      currency_name:
+                        type: string
+                        format: string
+                        example: "Euro"
+                        readOnly: true
+                        description: Currency name for the currency of the amount.
+                      currency_code:
+                        type: string
+                        format: string
+                        example: "EUR"
+                        readOnly: true
+                        description: Currency code for the currency of the amount.
+                      currency_symbol:
+                        type: string
+                        format: string
+                        example: "$"
+                        readOnly: true
+                        description: Currency symbol for the currency of the amount.
+                      currency_decimal_places:
+                        type: integer
+                        format: int32
+                        example: 2
+                        readOnly: true
+                        description: Number of decimal places for the currency of the amount.
+                      native_currency_id:
+                        type: string
+                        format: string
+                        example: "12"
+                        readOnly: true
+                        description: ID for the native currency of the user, so the currency of the native amount field.
+                      native_currency_name:
+                        type: string
+                        format: string
+                        example: "Euro"
+                        readOnly: true
+                        description: Currency name for the native currency of the user, so the currency of the native amount field.
+                      native_currency_code:
+                        type: string
+                        format: string
+                        example: "EUR"
+                        readOnly: true
+                        description: Currency code for the native currency of the user, so the currency of the native amount field.
+                      native_currency_symbol:
+                        type: string
+                        format: string
+                        example: "$"
+                        readOnly: true
+                        description: Currency symbol for the native currency of the user, so the currency of the native amount field.
+                      native_currency_decimal_places:
+                        type: integer
+                        format: int32
+                        example: 2
+                        readOnly: true
+                        description: Number of decimal places for for the native currency of the user, so the currency of the native amount field.
+    AutocompleteObjectArray:
+      type: array
+      items:
+          $ref: '#/components/schemas/AutocompleteObject'
+    AccountTypeFilter:
+      type: string
+      enum:
+        - all
+        - asset
+        - cash
+        - expense
+        - revenue
+        - special
+        - hidden
+        - liability
+        - liabilities
+        - Default account
+        - Cash account
+        - Asset account
+        - Expense account
+        - Revenue account
+        - Initial balance account
+        - Beneficiary account
+        - Import account
+        - Reconciliation account
+        - Loan
+        - Debt
+        - Mortgage
+    TransactionTypeFilter:
+      type: string
+      enum:
+        - all
+        - withdrawal
+        - withdrawals
+        - expense
+        - deposit
+        - deposits
+        - income
+        - transfer
+        - transfers
+        - opening_balance
+        - reconciliation
+        - special
+        - specials
+        - default
     Meta:
       type: object
       properties:
@@ -116,6 +367,105 @@ components:
             total_pages:
               type: integer
               example: 1
+    AccountRoleProperty:
+      type: string
+      format: string
+      example: "defaultAsset"
+      description: "Is only mandatory when the type is asset."
+      nullable: true
+      enum:
+        - defaultAsset
+        - sharedAsset
+        - savingAsset
+        - ccAsset
+        - cashWalletAsset
+        - null
+    AccountTypeProperty:
+      type: string
+      format: string
+      example: "Asset account"
+      readOnly: true
+      enum:
+        - Default account
+        - Cash account
+        - Asset account
+        - Expense account
+        - Revenue account
+        - Initial balance account
+        - Beneficiary account
+        - Import account
+        - Reconciliation account
+        - Loan
+        - Debt
+        - Mortgage
+    CreditCardTypeProperty:
+      type: string
+      format: string
+      example: monthlyFull
+      description: "Mandatory when the account_role is ccAsset. Can only be monthlyFull or null."
+      nullable: true
+      enum:
+        - monthlyFull
+        - null
+    InterestPeriodProperty:
+      type: string
+      format: string
+      example: monthly
+      description: "Mandatory when type is liability. Period over which the interest is calculated."
+      nullable: true
+      enum:
+        - weekly
+        - monthly
+        - quarterly
+        - half-year
+        - yearly
+        - null
+    LiabilityDirectionProperty:
+      type: string
+      format: string
+      example: credit
+      description: "'credit' indicates somebody owes you the liability. 'debit' Indicates you owe this debt yourself. Works only for liabiltiies."
+      nullable: true
+      enum:
+        - credit
+        - debit
+        - null
+    LiabilityTypeProperty:
+      type: string
+      format: string
+      example: "loan"
+      description: "Mandatory when type is liability. Specifies the exact type."
+      nullable: true
+      enum:
+        - loan
+        - debt
+        - mortgage
+        - null
+    ShortAccountTypeProperty:
+      type: string
+      format: string
+      example: "asset"
+      description: "Can only be one one these account types. import, initial-balance and reconciliation cannot be set manually."
+      enum:
+        - asset
+        - expense
+        - import
+        - revenue
+        - cash
+        - liability
+        - liabilities
+        - "initial-balance"
+        - reconciliation
+    TransactionTypeProperty:
+      type: string
+      format: string
+      example: "withdrawal"
+      enum:
+        - withdrawal
+        - deposit
+        - transfer
+        - reconciliation
+        - opening balance
     BadRequestResponse:
       type: object
       properties:
@@ -220,146 +570,6 @@ components:
               items:
                 type: string
                 format: string
-    AccountRoleProperty:
-      type: string
-      format: string
-      example: "defaultAsset"
-      description: "Is only mandatory when the type is asset."
-      nullable: true
-      enum:
-        - defaultAsset
-        - sharedAsset
-        - savingAsset
-        - ccAsset
-        - cashWalletAsset
-        - null
-    AccountTypeProperty:
-      type: string
-      format: string
-      example: "Asset account"
-      readOnly: true
-      enum:
-        - Default account
-        - Cash account
-        - Asset account
-        - Expense account
-        - Revenue account
-        - Initial balance account
-        - Beneficiary account
-        - Import account
-        - Reconciliation account
-        - Loan
-        - Debt
-        - Mortgage
-    CreditCardTypeProperty:
-      type: string
-      format: string
-      example: monthlyFull
-      description: "Mandatory when the account_role is ccAsset. Can only be monthlyFull or null."
-      nullable: true
-      enum:
-        - monthlyFull
-        - null
-    InterestPeriodProperty:
-      type: string
-      format: string
-      example: monthly
-      description: "Mandatory when type is liability. Period over which the interest is calculated."
-      nullable: true
-      enum:
-        - weekly
-        - monthly
-        - quarterly
-        - half-year
-        - yearly
-        - null
-    LiabilityDirectionProperty:
-      type: string
-      format: string
-      example: credit
-      description: "'credit' indicates somebody owes you the liability. 'debit' Indicates you owe this debt yourself. Works only for liabiltiies."
-      nullable: true
-      enum:
-        - credit
-        - debit
-        - null
-    LiabilityTypeProperty:
-      type: string
-      format: string
-      example: "loan"
-      description: "Mandatory when type is liability. Specifies the exact type."
-      nullable: true
-      enum:
-        - loan
-        - debt
-        - mortgage
-        - null
-    ShortAccountTypeProperty:
-      type: string
-      format: string
-      example: "asset"
-      description: "Can only be one one these account types. import, initial-balance and reconciliation cannot be set manually."
-      enum:
-        - asset
-        - expense
-        - import
-        - revenue
-        - cash
-        - liability
-        - liabilities
-        - "initial-balance"
-        - reconciliation
-    TransactionTypeProperty:
-      type: string
-      format: string
-      example: "withdrawal"
-      enum:
-        - withdrawal
-        - deposit
-        - transfer
-        - reconciliation
-        - opening balance
-    AccountTypeFilter:
-      type: string
-      enum:
-        - all
-        - asset
-        - cash
-        - expense
-        - revenue
-        - special
-        - hidden
-        - liability
-        - liabilities
-        - Default account
-        - Cash account
-        - Asset account
-        - Expense account
-        - Revenue account
-        - Initial balance account
-        - Beneficiary account
-        - Import account
-        - Reconciliation account
-        - Loan
-        - Debt
-        - Mortgage
-    TransactionTypeFilter:
-      type: string
-      enum:
-        - all
-        - withdrawal
-        - withdrawals
-        - expense
-        - deposit
-        - deposits
-        - income
-        - transfer
-        - transfers
-        - opening_balance
-        - reconciliation
-        - special
-        - specials
-        - default
   securitySchemes:
     firefly_iii_auth:
       type: oauth2
