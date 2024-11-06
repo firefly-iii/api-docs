@@ -1,0 +1,97 @@
+<!-- HTML for static distribution bundle build -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Firefly III API documentation</title>
+    <link rel="stylesheet" type="text/css" href="./swagger-ui.css" >
+    <link rel="icon" type="image/png" href="./favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="./favicon-16x16.png" sizes="16x16" />
+
+    <style>
+      html
+      {
+        box-sizing: border-box;
+        overflow: -moz-scrollbars-vertical;
+        overflow-y: scroll;
+      }
+
+      *,
+      *:before,
+      *:after
+      {
+        box-sizing: inherit;
+      }
+
+      body
+      {
+        margin:0;
+        background: #fafafa;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="swagger-ui"></div>
+
+    <script src="./swagger-ui-bundle.js"> </script>
+    <script src="./swagger-ui-standalone-preset.js"> </script>
+    <script>
+    window.onload = function() {
+      // Begin Swagger UI call region
+      const ui = SwaggerUIBundle({
+        urls: %%URLS%%,
+        dom_id: '#swagger-ui',
+        deepLinking: true,
+        presets: [
+          SwaggerUIBundle.presets.apis,
+          SwaggerUIStandalonePreset,
+        ],
+        plugins: [
+          SwaggerUIBundle.plugins.DownloadUrl,
+          SwaggerUIBundle.plugins.TopBar,
+        ],
+        layout: "StandaloneLayout",
+        displayOperationId: false,
+        validatorUrl: "https://validator.swagger.io/validator",
+        defaultModelsExpandDepth: -1,
+        oauth2RedirectUrl: 'https://api-docs.firefly-iii.org/oauth2-redirect.html'
+      })
+      // End Swagger UI call region
+
+      // pre set oauth stuff
+      ui.initOAuth({
+        clientId: "2",
+        clientSecret: "tfWoJQbmV88Fxej1ysAPIxFireflyIIIApiToken"
+        //realm: "your-realms",
+        //appName: "your-app-name",
+        //scopeSeparator: " ",
+        //additionalQueryStringParams: {test: "hello"}
+  })
+
+      window.ui = ui
+    }
+  </script>
+
+
+<!-- Matomo -->
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//analytics.firefly-iii.org/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '4']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.firefly-iii.org/matomo.php?idsite=4&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+<!-- End Matomo Code -->
+
+
+
+  </body>
+</html>

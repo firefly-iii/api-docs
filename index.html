@@ -41,54 +41,257 @@
       // Begin Swagger UI call region
       const ui = SwaggerUIBundle({
         urls: [
-          {url: "./firefly-iii-2.1.0-v1.yaml", name: "2.1.0 (v1)"},
-          {url: "./firefly-iii-2.1.0-v2.yaml", name: "2.1.0 (v2)"},
-          {url: "./firefly-iii-2.0.14-v1.yaml", name: "2.0.14 (v1)"},
-          {url: "./firefly-iii-2.0.14-v2.yaml", name: "2.0.14 (v2)"},
-          {url: "./firefly-iii-2.0.12-v1.yaml", name: "2.0.12 (v1)"},
-          {url: "./firefly-iii-2.0.12-v2.yaml", name: "2.0.12 (v2)"},
-          {url: "./firefly-iii-2.0.10-v1.yaml", name: "2.0.10 (v1)"},
-          {url: "./firefly-iii-2.0.10-v2.yaml", name: "2.0.10 (v2)"},
-          {url: "./firefly-iii-2.0.9-v1.yaml", name: "2.0.9 (v1)"},
-          {url: "./firefly-iii-2.0.9-v2.yaml", name: "2.0.9 (v2)"},
-          {url: "./firefly-iii-2.0.8-v1.yaml", name: "2.0.8 (v1)"},
-          {url: "./firefly-iii-2.0.8-v2.yaml", name: "2.0.8 (v2)"},
-          {url: "./firefly-iii-2.0.7-v1.yaml", name: "2.0.7 (v1)"},
-          {url: "./firefly-iii-2.0.7-v2.yaml", name: "2.0.7 (v2)"},
-          {url: "./firefly-iii-2.0.6-v1.yaml", name: "2.0.6 (v1)"},
-          {url: "./firefly-iii-2.0.6-v2.yaml", name: "2.0.6 (v2)"},
-          {url: "./firefly-iii-2.0.5-v1.yaml", name: "2.0.5 (v1)"},
-          {url: "./firefly-iii-2.0.5-v2.yaml", name: "2.0.5 (v2)"},
-          {url: "./firefly-iii-2.0.4-v1.yaml", name: "2.0.4 (v1)"},
-          {url: "./firefly-iii-2.0.4-v2.yaml", name: "2.0.4 (v2)"},
-          {url: "./firefly-iii-2.0.3-v1.yaml", name: "2.0.3 (v1)"},
-          {url: "./firefly-iii-2.0.3-v2.yaml", name: "2.0.3 (v2)"},
-          {url: "./firefly-iii-2.0.2-v1.yaml", name: "2.0.2 (v1)"},
-          {url: "./firefly-iii-2.0.2-v2.yaml", name: "2.0.2 (v2)"},
-          {url: "./firefly-iii-2.0.0-v1.yaml", name: "2.0.0 (v1)"},
-          {url: "./firefly-iii-2.0.0-v2.yaml", name: "2.0.0 (v2)"},
-
-          {url: "./firefly-iii-1.5.6.yaml", name: "1.5.6"},
-          {url: "firefly-iii-1.5.5.yaml", name: "1.5.5"},
-          {url: "firefly-iii-1.5.4.yaml", name: "1.5.4"},
-          {url: "firefly-iii-1.5.3.yaml", name: "1.5.3"},
-          {url: "firefly-iii-1.5.2.yaml", name: "1.5.2"},
-          {url: "firefly-iii-1.5.1.yaml", name: "1.5.1"},
-          {url: "firefly-iii-1.5.0.yaml", name: "1.5.0"},
-          {url: "firefly-iii-1.4.0.yaml", name: "1.4.0"},
-          {url: "firefly-iii-1.3.0.yaml", name: "1.3.0"},
-          {url: "firefly-iii-1.2.0.yaml", name: "1.2.0"},
-          {url: "firefly-iii-1.1.0.yaml", name: "1.1.0"},
-          {url: "firefly-iii-1.0.2.yaml", name: "1.0.2"},
-          {url: "firefly-iii-1.0.1.yaml", name: "1.0.1"},
-          {url: "firefly-iii-1.0.0.yaml", name: "1.0.0"},
-          {url: "firefly-iii-0.10.4.yaml", name: "0.10.4"},
-          {url: "firefly-iii-0.10.2.yaml", name: "0.10.2"},
-          {url: "firefly-iii-0.10.0.yaml", name: "0.10.0"},
-          {url: "firefly-iii-0.9.2.yaml", name: "0.9.2"},
-          {url: "firefly-iii-0.9.1.yaml", name: "0.9.1"},
-          {url: "firefly-iii-0.9.0.yaml", name: "0.9.0"}
-          ],
+    {
+        "url": ".\/firefly-iii-6.1.21-v2.yaml",
+        "name": "6.1.21 (v2)",
+        "version": "6.1.21.beta"
+    },
+    {
+        "url": ".\/firefly-iii-6.1.21-v1.yaml",
+        "name": "6.1.21 (v1)",
+        "version": "6.1.21.alpha"
+    },
+    {
+        "url": ".\/firefly-iii-develop-v2.yaml",
+        "name": "develop (v2)",
+        "version": "develop.beta"
+    },
+    {
+        "url": ".\/firefly-iii-develop-v1.yaml",
+        "name": "develop (v1)",
+        "version": "develop.alpha"
+    },
+    {
+        "url": ".\/firefly-iii-2.1.0-v2.yaml",
+        "name": "2.1.0 (v2)",
+        "version": "2.1.0.beta"
+    },
+    {
+        "url": ".\/firefly-iii-2.1.0-v1.yaml",
+        "name": "2.1.0 (v1)",
+        "version": "2.1.0.alpha"
+    },
+    {
+        "url": ".\/firefly-iii-2.0.14-v2.yaml",
+        "name": "2.0.14 (v2)",
+        "version": "2.0.14.beta"
+    },
+    {
+        "url": ".\/firefly-iii-2.0.14-v1.yaml",
+        "name": "2.0.14 (v1)",
+        "version": "2.0.14.alpha"
+    },
+    {
+        "url": ".\/firefly-iii-2.0.12-v2.yaml",
+        "name": "2.0.12 (v2)",
+        "version": "2.0.12.beta"
+    },
+    {
+        "url": ".\/firefly-iii-2.0.12-v1.yaml",
+        "name": "2.0.12 (v1)",
+        "version": "2.0.12.alpha"
+    },
+    {
+        "url": ".\/firefly-iii-2.0.10-v2.yaml",
+        "name": "2.0.10 (v2)",
+        "version": "2.0.10.beta"
+    },
+    {
+        "url": ".\/firefly-iii-2.0.10-v1.yaml",
+        "name": "2.0.10 (v1)",
+        "version": "2.0.10.alpha"
+    },
+    {
+        "url": ".\/firefly-iii-2.0.9-v2.yaml",
+        "name": "2.0.9 (v2)",
+        "version": "2.0.9.beta"
+    },
+    {
+        "url": ".\/firefly-iii-2.0.9-v1.yaml",
+        "name": "2.0.9 (v1)",
+        "version": "2.0.9.alpha"
+    },
+    {
+        "url": ".\/firefly-iii-2.0.8-v2.yaml",
+        "name": "2.0.8 (v2)",
+        "version": "2.0.8.beta"
+    },
+    {
+        "url": ".\/firefly-iii-2.0.8-v1.yaml",
+        "name": "2.0.8 (v1)",
+        "version": "2.0.8.alpha"
+    },
+    {
+        "url": ".\/firefly-iii-2.0.7-v2.yaml",
+        "name": "2.0.7 (v2)",
+        "version": "2.0.7.beta"
+    },
+    {
+        "url": ".\/firefly-iii-2.0.7-v1.yaml",
+        "name": "2.0.7 (v1)",
+        "version": "2.0.7.alpha"
+    },
+    {
+        "url": ".\/firefly-iii-2.0.6-v2.yaml",
+        "name": "2.0.6 (v2)",
+        "version": "2.0.6.beta"
+    },
+    {
+        "url": ".\/firefly-iii-2.0.6-v1.yaml",
+        "name": "2.0.6 (v1)",
+        "version": "2.0.6.alpha"
+    },
+    {
+        "url": ".\/firefly-iii-2.0.5-v2.yaml",
+        "name": "2.0.5 (v2)",
+        "version": "2.0.5.beta"
+    },
+    {
+        "url": ".\/firefly-iii-2.0.5-v1.yaml",
+        "name": "2.0.5 (v1)",
+        "version": "2.0.5.alpha"
+    },
+    {
+        "url": ".\/firefly-iii-2.0.4-v2.yaml",
+        "name": "2.0.4 (v2)",
+        "version": "2.0.4.beta"
+    },
+    {
+        "url": ".\/firefly-iii-2.0.4-v1.yaml",
+        "name": "2.0.4 (v1)",
+        "version": "2.0.4.alpha"
+    },
+    {
+        "url": ".\/firefly-iii-2.0.3-v2.yaml",
+        "name": "2.0.3 (v2)",
+        "version": "2.0.3.beta"
+    },
+    {
+        "url": ".\/firefly-iii-2.0.3-v1.yaml",
+        "name": "2.0.3 (v1)",
+        "version": "2.0.3.alpha"
+    },
+    {
+        "url": ".\/firefly-iii-2.0.2-v2.yaml",
+        "name": "2.0.2 (v2)",
+        "version": "2.0.2.beta"
+    },
+    {
+        "url": ".\/firefly-iii-2.0.2-v1.yaml",
+        "name": "2.0.2 (v1)",
+        "version": "2.0.2.alpha"
+    },
+    {
+        "url": ".\/firefly-iii-2.0.0-v2.yaml",
+        "name": "2.0.0 (v2)",
+        "version": "2.0.0.beta"
+    },
+    {
+        "url": ".\/firefly-iii-2.0.0-v1.yaml",
+        "name": "2.0.0 (v1)",
+        "version": "2.0.0.alpha"
+    },
+    {
+        "url": ".\/firefly-iii-1.5.6.yaml",
+        "name": "1.5.6",
+        "version": "1.5.6"
+    },
+    {
+        "url": ".\/firefly-iii-1.5.5.yaml",
+        "name": "1.5.5",
+        "version": "1.5.5"
+    },
+    {
+        "url": ".\/firefly-iii-1.5.4.yaml",
+        "name": "1.5.4",
+        "version": "1.5.4"
+    },
+    {
+        "url": ".\/firefly-iii-1.5.3.yaml",
+        "name": "1.5.3",
+        "version": "1.5.3"
+    },
+    {
+        "url": ".\/firefly-iii-1.5.2.yaml",
+        "name": "1.5.2",
+        "version": "1.5.2"
+    },
+    {
+        "url": ".\/firefly-iii-1.5.1.yaml",
+        "name": "1.5.1",
+        "version": "1.5.1"
+    },
+    {
+        "url": ".\/firefly-iii-1.5.0.yaml",
+        "name": "1.5.0",
+        "version": "1.5.0"
+    },
+    {
+        "url": ".\/firefly-iii-1.4.0.yaml",
+        "name": "1.4.0",
+        "version": "1.4.0"
+    },
+    {
+        "url": ".\/firefly-iii-1.3.0.yaml",
+        "name": "1.3.0",
+        "version": "1.3.0"
+    },
+    {
+        "url": ".\/firefly-iii-1.2.0.yaml",
+        "name": "1.2.0",
+        "version": "1.2.0"
+    },
+    {
+        "url": ".\/firefly-iii-1.1.0.yaml",
+        "name": "1.1.0",
+        "version": "1.1.0"
+    },
+    {
+        "url": ".\/firefly-iii-1.0.2.yaml",
+        "name": "1.0.2",
+        "version": "1.0.2"
+    },
+    {
+        "url": ".\/firefly-iii-1.0.1.yaml",
+        "name": "1.0.1",
+        "version": "1.0.1"
+    },
+    {
+        "url": ".\/firefly-iii-1.0.0.yaml",
+        "name": "1.0.0",
+        "version": "1.0.0"
+    },
+    {
+        "url": ".\/firefly-iii-0.10.4.yaml",
+        "name": "0.10.4",
+        "version": "0.10.4"
+    },
+    {
+        "url": ".\/firefly-iii-0.10.2.yaml",
+        "name": "0.10.2",
+        "version": "0.10.2"
+    },
+    {
+        "url": ".\/firefly-iii-0.10.0.yaml",
+        "name": "0.10.0",
+        "version": "0.10.0"
+    },
+    {
+        "url": ".\/firefly-iii-0.9.2.yaml",
+        "name": "0.9.2",
+        "version": "0.9.2"
+    },
+    {
+        "url": ".\/firefly-iii-0.9.1.yaml",
+        "name": "0.9.1",
+        "version": "0.9.1"
+    },
+    {
+        "url": ".\/firefly-iii-0.9.0.yaml",
+        "name": "0.9.0",
+        "version": "0.9.0"
+    }
+],
         dom_id: '#swagger-ui',
         deepLinking: true,
         presets: [
