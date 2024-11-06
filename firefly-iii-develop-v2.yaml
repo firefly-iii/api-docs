@@ -5,7 +5,7 @@ servers:
 info:
   title: Firefly III API vdevelop
   description: |
-    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2024-11-02T06:43:45+00:00
+    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2024-11-06T12:44:57+00:00
 
     Please keep in mind that the demo site does not accept requests from curl, colly, wget, etc. You must use a browser or a tool like Postman to make requests. Too many script kiddies out there, sorry about that.
 
@@ -407,14 +407,14 @@ components:
           type: string
           format: string
           example: "value"
-          description: "The key is the label of the value, so for example: '2018-01-01' => 13 or 'Groceries' => -123. For date-related charts, this is always a Atom date."
+          description: "The key is the label of the value, so for example: '2024-10-01T00:00:00+02:00' => 13 or 'Groceries' => -123. For date-related charts, this is always a Atom date."
     ChartDataSet:
       type: object
       properties:
         label:
           type: string
           format: string
-          example: "earned-EUR"
+          example: "earned"
           description: "This is the label of the current data-set. It can refer to an object by name, or a collected set of data."
         currency_id:
           type: string
