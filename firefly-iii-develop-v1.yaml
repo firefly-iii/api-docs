@@ -5,7 +5,7 @@ servers:
 info:
   title: Firefly III API vdevelop
   description: |
-    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2024-11-07T02:01:43+00:00
+    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2024-11-30T04:45:53+00:00
 
     Please keep in mind that the demo site does not accept requests from curl, colly, wget, etc. You must use a browser or a tool like Postman to make requests. Too many script kiddies out there, sorry about that.
 
@@ -17418,6 +17418,12 @@ components:
           example: "-1012.12"
           nullable: true
           readOnly: true
+        notes:
+          type: string
+          format: string
+          example: "Some example notes"
+          nullable: true
+          description: Some notes for this specific budget limit.
     BudgetLimitStore:
       type: object
       required:
@@ -17463,6 +17469,12 @@ components:
           type: string
           format: amount
           example: "123.45"
+        notes:
+          type: string
+          format: string
+          example: "Some example notes"
+          nullable: true
+          description: Some notes for this specific budget limit.
     BudgetSpent:
       type: object
       properties:
