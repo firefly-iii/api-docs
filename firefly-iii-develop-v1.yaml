@@ -5,7 +5,7 @@ servers:
 info:
   title: Firefly III API vdevelop
   description: |
-    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2024-11-30T04:45:53+00:00
+    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2024-12-28T17:39:06+00:00
 
     Please keep in mind that the demo site does not accept requests from curl, colly, wget, etc. You must use a browser or a tool like Postman to make requests. Too many script kiddies out there, sorry about that.
 
@@ -666,7 +666,7 @@ paths:
             type: integer
             format: int32
           example: 10
-      summary: Returns all piggy banks of the user returned in a basic auto-complete array complemented with balance information.
+      summary: Returns all piggy banks of the user returned in a basic auto-complete array.
       responses:
         "401":
           description: Unauthenticated
@@ -15095,7 +15095,7 @@ components:
           type: string
           format: string
           example: "12"
-          description: ID for the currency used by this account.
+          description: ID for the currency used by this account. If the prefers amounts converted to their native currency, this currency is used.
         currency_name:
           type: string
           format: string
@@ -15314,11 +15314,6 @@ components:
           format: string
           example: "New couch"
           description: Name of the piggy bank found by an auto-complete search.
-        name_with_balance:
-          type: string
-          format: string
-          example: "New couch ($ 12.34)"
-          description: Name of the piggy bank found by an auto-complete search with the current balance formatted nicely.
         currency_id:
           type: string
           format: string
