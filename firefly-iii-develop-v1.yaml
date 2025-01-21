@@ -5,7 +5,7 @@ servers:
 info:
   title: Firefly III API vdevelop
   description: |
-    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2024-12-28T17:39:06+00:00
+    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2025-01-21T18:26:28+00:00
 
     Please keep in mind that the demo site does not accept requests from curl, colly, wget, etc. You must use a browser or a tool like Postman to make requests. Too many script kiddies out there, sorry about that.
 
@@ -15085,7 +15085,7 @@ components:
           type: string
           format: string
           example: "Checking Account ($123.45)"
-          description: Asset accounts and liabilities have a second field with the given date's account balance.
+          description: Asset accounts and liabilities have a second field with the given date's account balance in the account currency or native currency.
         type:
           type: string
           format: string
@@ -15095,27 +15095,27 @@ components:
           type: string
           format: string
           example: "12"
-          description: ID for the currency used by this account. If the prefers amounts converted to their native currency, this currency is used.
+          description: ID for the currency used by this account. If the user prefers amounts converted to their native currency, this native currency is used instead.
         currency_name:
           type: string
           format: string
           example: "Euro"
-          description: Currency name for the currency used by this account.
+          description: Currency name for the currency used by this account. If the user prefers amounts converted to their native currency, this native currency is used instead.
         currency_code:
           type: string
           format: string
           example: "EUR"
-          description: Currency code for the currency used by this account.
+          description: Currency code for the currency used by this account. If the user prefers amounts converted to their native currency, this native currency is used instead.
         currency_symbol:
           type: string
           format: string
           example: "$"
-          description: Currency symbol for the currency used by this account.
+          description: Currency symbol for the currency used by this account. If the user prefers amounts converted to their native currency, this native currency is used instead.
         currency_decimal_places:
           type: integer
           format: int32
           example: 2
-          description: Number of decimal places for the currency used by this account.
+          description: Number of decimal places for the currency used by this account. If the user prefers amounts converted to their native currency, this native currency is used instead.
     AutocompleteBill:
       type: object
       required:
@@ -15268,12 +15268,12 @@ components:
           type: string
           format: string
           example: "12"
-          description: Currency ID for this piggy bank.
+          description: Currency ID for this piggy bank. This will always be the currency of the piggy bank, never the user's native currency.
         currency_code:
           type: string
           format: string
           example: "EUR"
-          description: Currency code for this piggy bank.
+          description: Currency code for this piggy bank. This will always be the currency of the piggy bank, never the user's native currency.
         currency_symbol:
           type: string
           format: string
@@ -15282,11 +15282,12 @@ components:
           type: string
           format: string
           example: "Euro"
-          description: Currency name for the currency used by this account.
+          description: Currency name for the currency used by this piggy bank. This will always be the currency of the piggy bank, never the user's native currency.
         currency_decimal_places:
           type: integer
           format: int32
           example: 2
+          description: Number of decimal places for the currency used by this piggy bank. This will always be the currency of the piggy bank, never the user's native currency.
         object_group_id:
           type: string
           format: string
@@ -15314,24 +15315,31 @@ components:
           format: string
           example: "New couch"
           description: Name of the piggy bank found by an auto-complete search.
+        name_with_balance:
+          type: string
+          format: string
+          example: "New couch ($234.56 / $600)"
+          description: Name of the piggy bank found by an auto-complete search, including the currently saved amount and the target amount.
         currency_id:
           type: string
           format: string
           example: "12"
-          description: Currency ID for this piggy bank.
+          description: Currency ID for the currency used by this piggy bank. This will always be the piggy bank's currency, never the native currency.
         currency_code:
           type: string
           format: string
           example: "EUR"
-          description: Currency code for this piggy bank.
+          description: Currency code for the currency used by this piggy bank. This will always be the piggy bank's currency, never the native currency.
         currency_symbol:
           type: string
           format: string
           example: "$"
+          description: Currency symbol for the currency used by this piggy bank. This will always be the piggy bank's currency, never the native currency.
         currency_decimal_places:
           type: integer
           format: int32
           example: 2
+          description: Currency decimal places for the currency used by this piggy bank. This will always be the piggy bank's currency, never the native currency.
         object_group_id:
           type: string
           format: string
@@ -15520,7 +15528,7 @@ components:
           type: string
           format: string
           example: "5"
-          description: "The currency ID of the currency associated to the data in the entries."
+          description: "The currency ID of the currency associated to the data in the entries. This may be the native currency of administration."
         currency_code:
           type: string
           format: string
@@ -16405,11 +16413,41 @@ components:
           format: int32
           example: 2
           readOnly: true
+        native_currency_id:
+          type: string
+          format: string
+          example: "12"
+          readOnly: true
+          description: "Returns the native currency ID of the administration."
+        native_currency_code:
+          type: string
+          format: string
+          example: "EUR"
+          description: "Returns the native currency code of the administration."
+        native_currency_symbol:
+          type: string
+          format: string
+          example: "$"
+          readOnly: true
+          description: "Returns the native currency symbol of the administration."
+        native_currency_decimal_places:
+          type: integer
+          format: int32
+          example: 2
+          readOnly: true
+          description: "Returns the native currency decimal places of the administration."
         current_balance:
           type: string
           format: amount
           example: "123.45"
           readOnly: true
+          description: "The current balance of the account in the account's currency OR the native currency if the account has no currency."
+        native_current_balance:
+          type: string
+          format: amount
+          example: "123.45"
+          readOnly: true
+          description: "The current balance of the account in the administration's native currency."
         current_balance_date:
           type: string
           format: date-time
@@ -16426,6 +16464,16 @@ components:
           format: string
           example: "BOFAUS3N"
           nullable: true
+        virtual_balance:
+          type: string
+          format: amount
+          example: "123.45"
+          description: "The virtual balance of the account in the account's currency or the administration's native currency if the account has no currency."
+        native_virtual_balance:
+          type: string
+          format: amount
+          example: "123.45"
+          description: "The virtual balance of the account in administration's native currency."
         account_number:
           type: string
           format: string
@@ -16435,7 +16483,12 @@ components:
           type: string
           format: amount
           example: "-1012.12"
-          description: Represents the opening balance, the initial amount this account holds.
+          description: "Represents the opening balance, the initial amount this account holds in the currency of the account or the administration's native currency if the account has no currency."
+        native_opening_balance:
+          type: string
+          format: amount
+          example: "-1012.12"
+          description: "Represents the opening balance, in the administration's native currency."
         current_debt:
           type: string
           format: amount
@@ -16448,10 +16501,6 @@ components:
           example: "2018-09-17T12:46:47+01:00"
           nullable: true
           description: Represents the date of the opening balance.
-        virtual_balance:
-          type: string
-          format: amount
-          example: "123.45"
         include_net_worth:
           type: boolean
           format: boolean
@@ -16752,7 +16801,12 @@ components:
           type: string
           format: string
           example: "0c3f95f34370baa88f9fd9a671fea305"
-          description: MD5 hash of the file for basic duplicate detection.
+          description: MD5 hash of the file for basic duplicate detection. This field is deprecated.
+        hash:
+          type: string
+          format: string
+          example: "0c3f95f34370baa88f9fd9a671fea305"
+          description: Hash of the file for basic duplicate detection. It's still md5 lol.
         filename:
           type: string
           format: string
@@ -16865,10 +16919,39 @@ components:
           format: int32
           example: 2
           readOnly: true
+        native_currency_id:
+          type: string
+          format: string
+          example: "5"
+          description: "The currency ID of the administration's native currency."
+          readOnly: true
+        native_currency_code:
+          type: string
+          format: string
+          example: EUR
+          readOnly: true
+          description: "The currency code of the administration's native currency."
+        native_currency_symbol:
+          type: string
+          format: string
+          example: "$"
+          readOnly: true
+          description: "The currency symbol of the administration's native currency."
+        native_currency_decimal_places:
+          type: integer
+          format: int32
+          example: 2
+          readOnly: true
+          description: "The currency decimal places of the administration's native currency."
         amount:
           type: string
           format: amount
           example: "123.45"
+        native_amount:
+          type: string
+          format: amount
+          example: "123.45"
+          description: "The amount of this available budget in the native currency of this administration."
         start:
           type: string
           format: date-time
@@ -16928,6 +17011,30 @@ components:
           format: int32
           example: 2
           readOnly: true
+        native_currency_id:
+          type: string
+          format: string
+          example: "5"
+          readOnly: true
+          description: "The administration's native currency ID."
+        native_currency_code:
+          type: string
+          format: string
+          example: EUR
+          readOnly: true
+          description: "The administration's native currency code."
+        native_currency_symbol:
+          type: string
+          format: string
+          example: "$"
+          readOnly: true
+          description: "The administration's native currency symbol."
+        native_currency_decimal_places:
+          type: integer
+          format: int32
+          example: 2
+          readOnly: true
+          description: "The administration's native currency decimal places."
         name:
           type: string
           format: string
@@ -16940,6 +17047,20 @@ components:
           type: string
           format: amount
           example: "123.45"
+        native_amount_min:
+          type: string
+          format: amount
+          example: "123.45"
+          nullable: true
+          readOnly: true
+          description: "The max amount of this bill in the user's native currency, if the original amount is in a different currency."
+        native_amount_max:
+          type: string
+          format: amount
+          example: "123.45"
+          nullable: true
+          readOnly: true
+          description: "The min amount of this bill in the user's native currency, if the original amount is in a different currency."
         date:
           type: string
           format: date-time
@@ -17225,23 +17346,68 @@ components:
           readOnly: true
         auto_budget_type:
           $ref: '#/components/schemas/AutoBudgetType'
-        auto_budget_currency_id:
+        currency_id:
           type: string
           format: string
           example: "12"
           nullable: true
-          description: "Use either currency_id or currency_code. Defaults to the user's default currency."
-        auto_budget_currency_code:
+          description: "The currency ID that is part of the budget's auto-budget settings, if any."
+        currency_code:
           type: string
           format: string
           example: "EUR"
           nullable: true
-          description: "Use either currency_id or currency_code. Defaults to the user's default currency."
+          description: "The currency code that is part of the budget's auto-budget settings, if any."
+        currency_symbol:
+          type: string
+          format: string
+          example: "$"
+          readOnly: true
+          nullable: true
+          description: "The currency symbol that is part of the budget's auto-budget settings, if any."
+        currency_decimal_places:
+          type: integer
+          format: int32
+          example: 2
+          readOnly: true
+          nullable: true
+          description: "The currency decimal places that is part of the budget's auto-budget settings, if any."
+        native_currency_id:
+          type: string
+          format: string
+          example: "5"
+          readOnly: true
+          description: "The administration's native currency ID."
+        native_currency_code:
+          type: string
+          format: string
+          example: EUR
+          readOnly: true
+          description: "The administration's native currency code."
+        native_currency_symbol:
+          type: string
+          format: string
+          example: "$"
+          readOnly: true
+          description: "The administration's native currency symbol."
+        native_currency_decimal_places:
+          type: integer
+          format: int32
+          example: 2
+          readOnly: true
+          description: "The administration's native currency decimal places."
         auto_budget_amount:
           type: string
           format: amount
           example: "-1012.12"
           nullable: true
+          description: "The amount for the auto-budget, if set."
+        native_auto_budget_amount:
+          type: string
+          format: amount
+          example: "-1012.12"
+          nullable: true
+          description: "The native amount for the auto-budget, if set."
         auto_budget_period:
           $ref: '#/components/schemas/AutoBudgetPeriod'
         spent:
@@ -17390,6 +17556,30 @@ components:
           format: int32
           example: 2
           readOnly: true
+        native_currency_id:
+          type: string
+          format: string
+          example: "5"
+          readOnly: true
+          description: "The administration's native currency ID."
+        native_currency_code:
+          type: string
+          format: string
+          example: EUR
+          readOnly: true
+          description: "The administration's native currency code."
+        native_currency_symbol:
+          type: string
+          format: string
+          example: "$"
+          readOnly: true
+          description: "The administration's native currency symbol."
+        native_currency_decimal_places:
+          type: integer
+          format: int32
+          example: 2
+          readOnly: true
+          description: "The administration's native currency decimal places."
         budget_id:
           type: string
           format: string
@@ -17407,12 +17597,20 @@ components:
           type: string
           format: amount
           example: "123.45"
+        native_amount:
+          type: string
+          format: amount
+          example: "123.45"
+          nullable: true
+          readOnly: true
+          description: "The amount of this budget limit in the user's native currency, if the original amount is in a different currency."
         spent:
           type: string
           format: amount
           example: "-1012.12"
           nullable: true
           readOnly: true
+          description: "Will be in the native currency if this is turned on by the user."
         notes:
           type: string
           format: string
@@ -17477,7 +17675,7 @@ components:
           type: string
           format: amount
           example: "123.45"
-          description: The amount spent.
+          description: "The amount spent. This is in the administration's native currency, if the conversion is turned on."
         currency_id:
           type: string
           format: string
@@ -17519,6 +17717,30 @@ components:
           format: string
           nullable: true
           example: "Some example notes"
+        native_currency_id:
+          type: string
+          format: string
+          example: "5"
+          readOnly: true
+          description: "The administration's native currency ID."
+        native_currency_code:
+          type: string
+          format: string
+          example: EUR
+          readOnly: true
+          description: "The administration's native currency code."
+        native_currency_symbol:
+          type: string
+          format: string
+          example: "$"
+          readOnly: true
+          description: "The administration's native currency symbol."
+        native_currency_decimal_places:
+          type: integer
+          format: int32
+          example: 2
+          readOnly: true
+          description: "The administration's native currency decimal places."
         spent:
           type: array
           readOnly: true
@@ -19262,7 +19484,12 @@ components:
           type: boolean
           format: boolean
           example: false
-          description: Make this currency the default currency.
+          description: Make this currency the native currency.
+        native:
+          type: boolean
+          format: boolean
+          example: false
+          description: Make this currency the native currency.
         code:
           type: string
           format: string
