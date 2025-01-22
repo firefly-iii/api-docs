@@ -3,12 +3,9 @@ servers:
   - description: Firefly III demo site
     url: https://demo.firefly-iii.org/api
 info:
-  title: Firefly III API vdevelop
-  description: |
-    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2025-01-21T18:26:28+00:00
-
+  title: Firefly III API develop  description: |
+    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2025-01-22T04:46:05+00:00
     Please keep in mind that the demo site does not accept requests from curl, colly, wget, etc. You must use a browser or a tool like Postman to make requests. Too many script kiddies out there, sorry about that.
-
     
   version: "develop"
   contact:
@@ -98,7 +95,6 @@ tags:
 - name: webhooks
   description: These endpoints can be used to manage the user&#039;s webhooks and triggers
     them if necessary.
-
 paths:
   /v1/autocomplete/accounts:
     get:
@@ -110,9 +106,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: query
           description: The autocomplete search query.
@@ -192,9 +190,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: query
           description: The autocomplete search query.
@@ -257,9 +257,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: query
           description: The autocomplete search query.
@@ -322,9 +324,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: query
           description: The autocomplete search query.
@@ -387,9 +391,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: query
           description: The autocomplete search query.
@@ -452,9 +458,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: query
           description: The autocomplete search query.
@@ -517,9 +525,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: query
           description: The autocomplete search query.
@@ -582,9 +592,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: query
           description: The autocomplete search query.
@@ -647,9 +659,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: query
           description: The autocomplete search query.
@@ -712,9 +726,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: query
           description: The autocomplete search query.
@@ -777,9 +793,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: query
           description: The autocomplete search query.
@@ -842,9 +860,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: query
           description: The autocomplete search query.
@@ -907,9 +927,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: query
           description: The autocomplete search query.
@@ -972,9 +994,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: query
           description: The autocomplete search query.
@@ -1037,9 +1061,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: query
           description: The autocomplete search query.
@@ -1102,9 +1128,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: query
           description: The autocomplete search query.
@@ -1170,9 +1198,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: start
           description: |
@@ -1317,9 +1347,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: objects
           description: The type of data that you wish to destroy. You can only use one at a time.
@@ -1339,9 +1371,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: type
           description: The file type the export file (CSV is currently the only option).
@@ -1397,9 +1431,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: type
           description: The file type the export file (CSV is currently the only option).
@@ -1455,9 +1491,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: type
           description: The file type the export file (CSV is currently the only option).
@@ -1513,9 +1551,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: type
           description: The file type the export file (CSV is currently the only option).
@@ -1571,9 +1611,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: type
           description: The file type the export file (CSV is currently the only option).
@@ -1629,9 +1671,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: type
           description: The file type the export file (CSV is currently the only option).
@@ -1687,9 +1731,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: type
           description: The file type the export file (CSV is currently the only option).
@@ -1745,9 +1791,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: type
           description: The file type the export file (CSV is currently the only option).
@@ -1803,9 +1851,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: start
           description: |
@@ -1912,9 +1962,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
   /v1/insight/expense/expense:
     get:
       summary: Insight into expenses, grouped by expense account.
@@ -1928,9 +1980,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: start
           description: |
@@ -2011,9 +2065,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: start
           description: |
@@ -2092,9 +2148,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: start
           description: |
@@ -2175,9 +2233,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: start
           description: |
@@ -2256,9 +2316,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: start
           description: |
@@ -2337,9 +2399,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: start
           description: |
@@ -2430,9 +2494,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: start
           description: |
@@ -2511,9 +2577,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: start
           description: |
@@ -2604,9 +2672,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: start
           description: |
@@ -2685,9 +2755,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: start
           description: |
@@ -2778,9 +2850,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: start
           description: |
@@ -2859,9 +2933,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: start
           description: |
@@ -2952,9 +3028,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: start
           description: |
@@ -3033,9 +3111,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: start
           description: |
@@ -3126,9 +3206,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: start
           description: |
@@ -3207,9 +3289,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: start
           description: |
@@ -3300,9 +3384,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: start
           description: |
@@ -3381,9 +3467,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: start
           description: |
@@ -3474,9 +3562,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: start
           description: |
@@ -3555,9 +3645,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: start
           description: |
@@ -3648,9 +3740,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: start
           description: |
@@ -3729,9 +3823,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: start
           description: |
@@ -3810,9 +3906,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: start
           description: |
@@ -3891,9 +3989,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: start
           description: |
@@ -3972,9 +4072,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: limit
           description: Number of items per page. The default pagination is per 50 items.
@@ -4071,9 +4173,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: limit
           description: Number of items per page. The default pagination is per 50 items.
@@ -4147,9 +4251,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: limit
           description: Number of items per page. The default pagination is per 50 items.
@@ -4223,9 +4329,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: limit
           description: Number of items per page. The default pagination is per 50 items.
@@ -4303,9 +4411,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
       description: Creates a new account. The data required can be submitted as a JSON body or as a list of parameters (in key=value pairs, like a webform).
       responses:
         "401":
@@ -4372,9 +4482,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -4435,9 +4547,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -4509,9 +4623,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -4565,9 +4681,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: limit
           description: Number of items per page. The default pagination is per 50 items.
@@ -4631,9 +4749,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
       tags:
         - attachments
       requestBody:
@@ -4699,9 +4819,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -4758,9 +4880,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -4832,9 +4956,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -4884,9 +5010,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -4943,9 +5071,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -5012,9 +5142,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: limit
           description: Number of items per page. The default pagination is per 50 items.
@@ -5096,9 +5228,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -5155,9 +5289,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: limit
           description: Number of items per page. The default pagination is per 50 items.
@@ -5230,9 +5366,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -5287,9 +5425,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: limit
           description: Number of items per page. The default pagination is per 50 items.
@@ -5386,9 +5526,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: limit
           description: Number of items per page. The default pagination is per 50 items.
@@ -5469,9 +5611,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
       tags:
         - bills
       requestBody:
@@ -5536,9 +5680,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -5612,9 +5758,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -5685,9 +5833,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -5738,9 +5888,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: limit
           description: Number of items per page. The default pagination is per 50 items.
@@ -5827,9 +5979,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -5901,9 +6055,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -5974,9 +6130,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -6038,9 +6196,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -6118,9 +6278,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -6179,9 +6341,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: start
           description: |
@@ -6247,9 +6411,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: limit
           description: Number of items per page. The default pagination is per 50 items.
@@ -6346,9 +6512,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: limit
           description: Number of items per page. The default pagination is per 50 items.
@@ -6421,9 +6589,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: limit
           description: Number of items per page. The default pagination is per 50 items.
@@ -6504,9 +6674,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
       tags:
         - budgets
       requestBody:
@@ -6571,9 +6743,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -6647,9 +6821,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -6720,9 +6896,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -6773,9 +6951,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: limit
           description: Number of items per page. The default pagination is per 50 items.
@@ -6872,9 +7052,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: limit
           description: Number of items per page. The default pagination is per 50 items.
@@ -6948,9 +7130,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: limit
           description: Number of items per page. The default pagination is per 50 items.
@@ -7013,9 +7197,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
       tags:
         - categories
       requestBody:
@@ -7080,9 +7266,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -7156,9 +7344,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -7229,9 +7419,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -7283,9 +7475,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: limit
           description: Number of items per page. The default pagination is per 50 items.
@@ -7383,9 +7577,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: limit
           description: Number of items per page. The default pagination is per 50 items.
@@ -7449,9 +7645,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
       description: Creates a new link type. The data required can be submitted as a JSON body or as a list of parameters (in key=value pairs, like a webform).
       responses:
         "200":
@@ -7518,9 +7716,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -7573,9 +7773,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -7647,9 +7849,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -7703,9 +7907,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: limit
           description: Number of items per page. The default pagination is per 50 items.
@@ -7770,9 +7976,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
       responses:
         "200":
           description: 'New transaction link stored, result in response.'
@@ -7838,9 +8046,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -7893,9 +8103,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -7946,9 +8158,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -8023,9 +8237,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: limit
           description: Number of items per page. The default pagination is per 50 items.
@@ -8099,9 +8315,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: limit
           description: Number of items per page. The default pagination is per 50 items.
@@ -8174,9 +8392,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: limit
           description: Number of items per page. The default pagination is per 50 items.
@@ -8240,9 +8460,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -8298,9 +8520,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -8371,9 +8595,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -8424,9 +8650,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: limit
           description: Number of items per page. The default pagination is per 50 items.
@@ -8500,9 +8728,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: limit
           description: Number of items per page. The default pagination is per 50 items.
@@ -8576,9 +8806,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: limit
           description: Number of items per page. The default pagination is per 50 items.
@@ -8642,9 +8874,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
       tags:
         - piggy_banks
       requestBody:
@@ -8709,9 +8943,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -8767,9 +9003,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -8840,9 +9078,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -8893,9 +9133,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: limit
           description: Number of items per page. The default pagination is per 50 items.
@@ -8993,9 +9235,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: limit
           description: Number of items per page. The default pagination is per 50 items.
@@ -9060,9 +9304,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
       requestBody:
         content:
           application/json:
@@ -9125,9 +9371,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -9183,9 +9431,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -9256,9 +9506,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -9309,9 +9561,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: limit
           description: Number of items per page. The default pagination is per 50 items.
@@ -9385,9 +9639,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: limit
           description: Number of items per page. The default pagination is per 50 items.
@@ -9504,9 +9760,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -9587,9 +9845,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: limit
           description: Number of items per page. The default pagination is per 50 items.
@@ -9652,9 +9912,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
       tags:
         - rule_groups
       requestBody:
@@ -9719,9 +9981,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -9777,9 +10041,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -9850,9 +10116,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -9903,9 +10171,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -9990,9 +10260,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -10073,9 +10345,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: limit
           description: Number of items per page. The default pagination is per 50 items.
@@ -10138,9 +10412,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
       tags:
         - rules
       requestBody:
@@ -10205,9 +10481,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -10263,9 +10541,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -10336,9 +10616,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -10389,9 +10671,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: limit
           description: Number of items per page. The default pagination is per 50 items.
@@ -10466,9 +10750,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: limit
           description: Number of items per page. The default pagination is per 50 items.
@@ -10566,9 +10852,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: limit
           description: Number of items per page. The default pagination is per 50 items.
@@ -10632,9 +10920,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
       tags:
         - tags
       requestBody:
@@ -10699,9 +10989,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: limit
           description: Number of items per page. The default pagination is per 50 items.
@@ -10776,9 +11068,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: tag
           description: Either the tag itself or the tag ID. If you use the tag itself, and it contains international (non-ASCII) characters, your milage may vary.
@@ -10850,9 +11144,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: tag
           description: Either the tag itself or the tag ID. If you use the tag itself, and it contains international (non-ASCII) characters, your milage may vary.
@@ -10904,9 +11200,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: limit
           description: Number of items per page. The default pagination is per 50 items.
@@ -10994,9 +11292,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: limit
           description: Number of items per page. The default pagination is per 50 items.
@@ -11071,9 +11371,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: limit
           description: Number of items per page. The default pagination is per 50 items.
@@ -11148,9 +11450,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: limit
           description: Number of items per page. The default pagination is per 50 items.
@@ -11240,9 +11544,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: limit
           description: Number of items per page. The default pagination is per 50 items.
@@ -11316,9 +11622,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: limit
           description: Number of items per page. The default pagination is per 50 items.
@@ -11392,9 +11700,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: limit
           description: Number of items per page. The default pagination is per 50 items.
@@ -11492,9 +11802,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: limit
           description: Number of items per page. The default pagination is per 50 items.
@@ -11557,9 +11869,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
       tags:
         - currencies
       requestBody:
@@ -11626,9 +11940,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: code
           required: true
@@ -11684,9 +12000,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: code
           required: true
@@ -11743,9 +12061,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: code
           required: true
@@ -11799,9 +12119,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: code
           required: true
@@ -11858,9 +12180,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: code
           required: true
@@ -11932,9 +12256,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: code
           required: true
@@ -11984,9 +12310,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
       tags:
         - currencies
       responses:
@@ -12036,9 +12364,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: limit
           description: Number of items per page. The default pagination is per 50 items.
@@ -12110,9 +12440,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -12168,9 +12500,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -12221,9 +12555,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: limit
           description: Number of items per page. The default pagination is per 50 items.
@@ -12297,9 +12633,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: limit
           description: Number of items per page. The default pagination is per 50 items.
@@ -12374,9 +12712,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: limit
           description: Number of items per page. The default pagination is per 50 items.
@@ -12463,9 +12803,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
       tags:
         - transactions
       requestBody:
@@ -12530,9 +12872,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -12588,9 +12932,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -12661,9 +13007,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -12714,9 +13062,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: limit
           description: Number of items per page. The default pagination is per 50 items.
@@ -12804,9 +13154,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: limit
           description: Number of items per page. The default pagination is per 50 items.
@@ -12879,9 +13231,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: start
           description: |
@@ -12953,9 +13307,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
       summary: System information end point.
       description: |
         Returns general system information and versions of the (supporting) software.
@@ -13005,9 +13361,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
       description: |
         Returns the currently authenticated user.
       responses:
@@ -13055,9 +13413,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
       tags:
         - configuration
       responses:
@@ -13110,9 +13470,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: name
           required: true
@@ -13165,9 +13527,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: name
           required: true
@@ -13235,9 +13599,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: cliToken
           required: true
@@ -13319,9 +13685,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: limit
           description: Number of items per page. The default pagination is per 50 items.
@@ -13385,9 +13753,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
       tags:
         - users
       requestBody:
@@ -13452,9 +13822,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -13510,9 +13882,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -13583,9 +13957,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -13636,9 +14012,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: limit
           description: Number of items per page. The default pagination is per 50 items.
@@ -13703,9 +14081,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
       responses:
         "200":
           description: 'New account stored, result in response.'
@@ -13768,9 +14148,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: name
           required: true
@@ -13825,9 +14207,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: name
           required: true
@@ -13900,9 +14284,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -13957,9 +14343,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -14022,9 +14410,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -14080,9 +14470,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: limit
           description: Number of items per page. The default pagination is per 50 items.
@@ -14163,9 +14555,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -14235,9 +14629,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -14300,9 +14696,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -14331,9 +14729,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
@@ -14369,9 +14769,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: query
           name: limit
           description: Number of items per page. The default pagination is per 50 items.
@@ -14435,9 +14837,11 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
       tags:
         - webhooks
       requestBody:
@@ -14502,11 +14906,14 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
+          example: "123"
           required: true
           schema:
             type: string
@@ -14560,12 +14967,15 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
+          example: "123"
           schema:
             type: string
             example: "123"
@@ -14633,12 +15043,15 @@ paths:
           in: header
           description: Unique identifier associated with this request.
           required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
           schema:
             type: string
             format: uuid
+  
         - in: path
           name: id
           required: true
+          example: "123"
           schema:
             type: string
             example: "123"
@@ -18093,7 +18506,7 @@ components:
         account_id:
           type: string
           format: string
-          example: 13
+          example: "13"
           description: The ID of the asset account this piggy bank is connected to.
         currency_id:
           type: string
