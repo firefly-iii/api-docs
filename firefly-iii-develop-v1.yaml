@@ -7,7 +7,7 @@ servers:
 info:
   title: Firefly III API develop
   description: |
-    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2025-01-22T06:33:31+00:00
+    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2025-01-25T04:07:45+00:00
     Please keep in mind that the demo site does not accept requests from curl, colly, wget, etc. You must use a browser or a tool like Postman to make requests. Too many script kiddies out there, sorry about that.
     
   version: "develop"
@@ -2337,6 +2337,15 @@ paths:
       tags:
         - data
       parameters:
+        - name: X-Trace-Id
+          in: header
+          description: Unique identifier associated with this request.
+          required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
+          schema:
+            type: string
+            format: uuid
+            example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
         - in: query
           name: query
           description: The JSON query.
@@ -3578,6 +3587,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/BadRequestResponse'
+        "404":
+          description: Page not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
         "500":
           description: Internal exception
           content:
@@ -8881,7 +8896,7 @@ paths:
               schema:
                 type: string
               description: Security header to prevent feature policy.
-          description: 'The requested attachment'
+          description: "The requested attachment"
           content:
             application/octet-stream:
               schema:
@@ -19666,7 +19681,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
-  /v1/currencies/{code}/budget_limits:
+  /v1/currencies/{code}/budget-limits:
     get:
       summary: List all budget limits with this currency
       description: List all budget limits with this currency
@@ -20612,6 +20627,10 @@ paths:
                 $ref: '#/components/schemas/CurrencySingle'
         "409":
           description: Currency cannot be disabled, because it is still in use.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalExceptionResponse'
         "401":
           description: Unauthenticated
           content:
@@ -23405,6 +23424,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotFoundResponse'
+        "422":
+          description: 'Validation error. The body will have the exact details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorResponse'
         "400":
           description: Bad request
           content:
@@ -25188,6 +25213,12 @@ paths:
       tags:
         - webhooks
       responses:
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponse'
         "200":
           headers:
             Server:
@@ -25260,9 +25291,17 @@ paths:
         "204":
           description: No messages to send, so did nothing.
         "404":
-          description: Webhook not found.
+          description: Page not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
         "500":
-          description: Error while sending.
+          description: Internal exception
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalExceptionResponse'
   /v1/webhooks/{id}/trigger-transaction/{transactionId}:
     post:
       summary: Trigger webhook for a given transaction.
@@ -25295,12 +25334,26 @@ paths:
       tags:
         - webhooks
       responses:
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponse'
         "204":
           description: Webhook triggered successfully.
         "404":
-          description: Webhook or transaction not found.
+          description: Page not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
         "500":
-          description: Error while sending.
+          description: Internal exception
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalExceptionResponse'
   /v1/webhooks:
     get:
       summary: List all webhooks.
@@ -32652,6 +32705,11 @@ components:
           type: object
           properties:
             email:
+              type: array
+              items:
+                type: string
+                format: string
+            force:
               type: array
               items:
                 type: string
