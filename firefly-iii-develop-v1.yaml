@@ -7,7 +7,7 @@ servers:
 info:
   title: Firefly III API develop
   description: |
-    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2025-01-25T04:10:54+00:00
+    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2025-01-25T07:58:47+00:00
     Please keep in mind that the demo site does not accept requests from curl, colly, wget, etc. You must use a browser or a tool like Postman to make requests. Too many script kiddies out there, sorry about that.
     
   version: "develop"
@@ -161,6 +161,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotFoundResponse'
+        "422":
+          description: 'Validation error. The body will have the exact details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorResponse'
         "400":
           description: Bad request
           content:
@@ -230,6 +236,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/BadRequestResponse'
+        "422":
+          description: 'Validation error. The body will have the exact details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorResponse'
         "500":
           description: Internal exception
           content:
@@ -299,6 +311,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
+        "422":
+          description: 'Validation error. The body will have the exact details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorResponse'
         "200":
           description: A list of budgets with very basic information.
           content:
@@ -356,6 +374,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/BadRequestResponse'
+        "422":
+          description: 'Validation error. The body will have the exact details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorResponse'
         "500":
           description: Internal exception
           content:
@@ -425,6 +449,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
+        "422":
+          description: 'Validation error. The body will have the exact details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorResponse'
         "200":
           description: A list of currencies with very basic information.
           content:
@@ -551,6 +581,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
+        "422":
+          description: 'Validation error. The body will have the exact details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorResponse'
         "200":
           description: A list of object groups with very basic information.
           content:
@@ -614,6 +650,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
+        "422":
+          description: 'Validation error. The body will have the exact details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorResponse'
         "200":
           description: A list of piggy banks with very basic information.
           content:
@@ -740,6 +782,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
+        "422":
+          description: 'Validation error. The body will have the exact details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorResponse'
         "200":
           description: A list of recurring transactions with very basic information.
           content:
@@ -803,6 +851,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
+        "422":
+          description: 'Validation error. The body will have the exact details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorResponse'
         "200":
           description: A list of rule groups with very basic information.
           content:
@@ -866,6 +920,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
+        "422":
+          description: 'Validation error. The body will have the exact details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorResponse'
         "200":
           description: A list of rules with very basic information.
           content:
@@ -917,6 +977,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotFoundResponse'
+        "422":
+          description: 'Validation error. The body will have the exact details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorResponse'
         "400":
           description: Bad request
           content:
@@ -974,6 +1040,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/UnauthenticatedResponse'
+        "422":
+          description: 'Validation error. The body will have the exact details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorResponse'
         "404":
           description: Page not found
           content:
@@ -1043,6 +1115,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotFoundResponse'
+        "422":
+          description: 'Validation error. The body will have the exact details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorResponse'
         "400":
           description: Bad request
           content:
@@ -1106,6 +1184,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotFoundResponse'
+        "422":
+          description: 'Validation error. The body will have the exact details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorResponse'
         "400":
           description: Bad request
           content:
@@ -1177,6 +1261,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/BadRequestResponse'
+        "422":
+          description: 'Validation error. The body will have the exact details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorResponse'
         "500":
           description: Internal exception
           content:
@@ -1342,6 +1432,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
+        "422":
+          description: 'Validation error. The body will have the exact details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorResponse'
         "200":
           description: 'The exported transaction in a file.'
           content:
@@ -1943,6 +2039,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
+        "422":
+          description: 'Validation error. The body will have the exact details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorResponse'
         "200":
           description: 'A list of expense accounts and expense details. Each expense acccount has one row per currency.'
           content:
@@ -2021,6 +2123,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
+        "422":
+          description: 'Validation error. The body will have the exact details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorResponse'
         "200":
           description: 'A list of asset accounts and expense details. Each asset account has one row per currency.'
           content:
@@ -2101,6 +2209,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
+        "422":
+          description: 'Validation error. The body will have the exact details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorResponse'
         "200":
           description: 'A list of revenue accounts and income details. Each revenue acccount has one row per currency.'
           content:
@@ -2179,6 +2293,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
+        "422":
+          description: 'Validation error. The body will have the exact details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorResponse'
         "200":
           description: 'A list of asset accounts and income details. Each asset account has one row per currency.'
           content:
@@ -2257,6 +2377,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
+        "422":
+          description: 'Validation error. The body will have the exact details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorResponse'
         "200":
           description: 'A list of asset accounts and transfer details. Each asset account has one row per currency.'
           content:
@@ -2347,6 +2473,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
+        "422":
+          description: 'Validation error. The body will have the exact details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorResponse'
         "200":
           description: 'A list of budget and expense details. Each budget has one row per currency.'
           content:
@@ -2425,6 +2557,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
+        "422":
+          description: 'Validation error. The body will have the exact details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorResponse'
         "200":
           description: 'A list of expense details. One row per currency.'
           content:
@@ -2515,6 +2653,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
+        "422":
+          description: 'Validation error. The body will have the exact details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorResponse'
         "200":
           description: 'A list of budget and expense details. Each budget has one row per currency.'
           content:
@@ -2593,6 +2737,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
+        "422":
+          description: 'Validation error. The body will have the exact details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorResponse'
         "200":
           description: 'A list of expense details. One row per currency.'
           content:
@@ -2683,6 +2833,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
+        "422":
+          description: 'Validation error. The body will have the exact details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorResponse'
         "200":
           description: 'A list of category and expense details. Each category has one row per currency.'
           content:
@@ -2761,6 +2917,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
+        "422":
+          description: 'Validation error. The body will have the exact details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorResponse'
         "200":
           description: 'A list of expense details. One row per currency.'
           content:
@@ -2851,6 +3013,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
+        "422":
+          description: 'Validation error. The body will have the exact details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorResponse'
         "200":
           description: 'A list of category and income details. Each category has one row per currency.'
           content:
@@ -2929,6 +3097,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
+        "422":
+          description: 'Validation error. The body will have the exact details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorResponse'
         "200":
           description: 'A list of income details. One row per currency.'
           content:
@@ -3019,6 +3193,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
+        "422":
+          description: 'Validation error. The body will have the exact details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorResponse'
         "200":
           description: 'A list of category and transfer details. Each category has one row per currency.'
           content:
@@ -3097,6 +3277,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
+        "422":
+          description: 'Validation error. The body will have the exact details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorResponse'
         "200":
           description: 'A list of transfer details. One row per currency.'
           content:
@@ -3187,6 +3373,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
+        "422":
+          description: 'Validation error. The body will have the exact details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorResponse'
         "200":
           description: 'A list of tag and expense details. Each tag has one row per currency.'
           content:
@@ -3265,6 +3457,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
+        "422":
+          description: 'Validation error. The body will have the exact details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorResponse'
         "200":
           description: 'A list of expense details. One row per currency.'
           content:
@@ -3355,6 +3553,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
+        "422":
+          description: 'Validation error. The body will have the exact details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorResponse'
         "200":
           description: 'A list of tag and income details. Each tag has one row per currency.'
           content:
@@ -3433,6 +3637,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
+        "422":
+          description: 'Validation error. The body will have the exact details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorResponse'
         "200":
           description: 'A list of income details. One row per currency.'
           content:
@@ -3523,6 +3733,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
+        "422":
+          description: 'Validation error. The body will have the exact details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorResponse'
         "200":
           description: 'A list of tag and transfer details. Each tag has one row per currency.'
           content:
@@ -3601,6 +3817,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
+        "422":
+          description: 'Validation error. The body will have the exact details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorResponse'
         "200":
           description: 'A list of transfer details. One row per currency.'
           content:
@@ -3673,6 +3895,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/BadRequestResponse'
+        "422":
+          description: 'Validation error. The body will have the exact details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorResponse'
         "500":
           description: Internal exception
           content:
@@ -3757,6 +3985,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
+        "422":
+          description: 'Validation error. The body will have the exact details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorResponse'
         "200":
           description: 'A list of sums in different currencies.'
           content:
@@ -3835,6 +4069,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
+        "422":
+          description: 'Validation error. The body will have the exact details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorResponse'
         "200":
           description: 'A list of sums in different currencies.'
           content:
