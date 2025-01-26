@@ -7,7 +7,7 @@ servers:
 info:
   title: Firefly III API develop
   description: |
-    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2025-01-26T06:37:35+00:00
+    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2025-01-26T09:09:41+00:00
     Please keep in mind that the demo site does not accept requests from curl, colly, wget, etc. You must use a browser or a tool like Postman to make requests. Too many script kiddies out there, sorry about that.
     
   version: "develop"
@@ -53,6 +53,8 @@ tags:
 - name: currencies
   description: Endpoints to manage the currencies in Firefly III. Depending on the
     user&#039;s role you can also disable and enable them, or add new ones.
+- name: currency_exchange_rates
+  description: All currency exchange rates.
 - name: data
   description: The &quot;data&quot;-endpoints manage generic Firefly III and user-specific data.
 - name: insight
@@ -7327,6 +7329,401 @@ paths:
       responses:
         "204":
           description: Category deleted.
+        "401":
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthenticatedResponse'
+        "404":
+          description: Page not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponse'
+        "500":
+          description: Internal exception
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalExceptionResponse'
+  /v1/exchange-rates:
+    get:
+      summary: List all exchange rates.
+      description: List exchange rates.
+      operationId: listCurrencyExchangeRates
+      tags:
+        - currency_exchange_rates
+      parameters:
+        - name: X-Trace-Id
+          in: header
+          description: Unique identifier associated with this request.
+          required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
+          schema:
+            type: string
+            format: uuid
+            example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
+        - in: query
+          name: limit
+          description: Number of items per page. The default pagination is per 50 items.
+          required: false
+          schema:
+            type: integer
+            format: int32
+            example: 10
+        - in: query
+          name: page
+          description: Page number. The default pagination is per 50 items.
+          required: false
+          schema:
+            type: integer
+            format: int32
+            example: 1
+      responses:
+        "200":
+          description: A list of all available currency exchange rates.
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/CurrencyExchangeRateArray'
+        "401":
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthenticatedResponse'
+        "404":
+          description: Page not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponse'
+        "500":
+          description: Internal exception
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalExceptionResponse'
+  /v1/exchange-rates/{id}:
+    get:
+      summary: List a single specific exchange rate.
+      description: List a single specific exchange rate
+      operationId: listSpecificCurrencyExchangeRate
+      tags:
+        - currency_exchange_rates
+      parameters:
+        - name: X-Trace-Id
+          in: header
+          description: Unique identifier associated with this request.
+          required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
+          schema:
+            type: string
+            format: uuid
+            example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
+        - in: query
+          name: limit
+          description: Number of items per page. The default pagination is per 50 items.
+          required: false
+          schema:
+            type: integer
+            format: int32
+            example: 10
+        - in: query
+          name: page
+          description: Page number. The default pagination is per 50 items.
+          required: false
+          schema:
+            type: integer
+            format: int32
+            example: 1
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+            example: "123"
+          description: The ID of the requested currency exchange rate.
+      responses:
+        "200":
+          description: A list of currency exchange rates.
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/CurrencyExchangeRateSingle'
+        "401":
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthenticatedResponse'
+        "404":
+          description: Page not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponse'
+        "500":
+          description: Internal exception
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalExceptionResponse'
+    delete:
+      operationId: deleteSpecificCurrencyExchangeRate
+      description: "Delete a specific currency exchange rate."
+      summary: "Delete a specific currency exchange rate."
+      tags:
+        - currency_exchange_rates
+      parameters:
+        - name: X-Trace-Id
+          in: header
+          description: Unique identifier associated with this request.
+          required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
+          schema:
+            type: string
+            format: uuid
+            example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
+          - in: path
+            name: id
+            required: true
+            schema:
+              type: string
+              example: "123"
+            description: The ID of the requested currency exchange rate.
+      responses:
+        "204":
+          description: "Currency exchange rate deleted."
+        "401":
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthenticatedResponse'
+        "404":
+          description: Page not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponse'
+        "500":
+          description: Internal exception
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalExceptionResponse'
+    put:
+      summary: Update existing currency exchange rate.
+      description: |
+        Used to update a single currency exchange rate
+      operationId: updateCurrencyExchangeRate
+      parameters:
+        - name: X-Trace-Id
+          in: header
+          description: Unique identifier associated with this request.
+          required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
+          schema:
+            type: string
+            format: uuid
+            example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+            example: "123"
+          description: The ID of the currency exchange rate.
+      tags:
+        - links
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CurrencyExchangeRateUpdate'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CurrencyExchangeRateUpdate'
+        description: JSON array or formdata with updated exchange rate information. See the model for the exact specifications.
+        required: true
+      responses:
+        "200":
+          description: 'Updated exchange rate stored, result in response'
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/CurrencyExchangeRateSingle'
+        "422":
+          description: 'Validation error. The body will have the exact details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorResponse'
+        "401":
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthenticatedResponse'
+        "404":
+          description: Page not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponse'
+  
+  /v1/exchange-rates/rates/{from}/{to}:
+    get:
+      summary: List all exchange rate from/to the mentioned currencies.
+      description: List all exchange rate from/to the mentioned currencies.
+      operationId: listSpecificCurrencyExchangeRates
+      tags:
+        - currency_exchange_rates
+      parameters:
+        - name: X-Trace-Id
+          in: header
+          description: Unique identifier associated with this request.
+          required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
+          schema:
+            type: string
+            format: uuid
+            example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
+        - in: query
+          name: limit
+          description: Number of items per page. The default pagination is per 50 items.
+          required: false
+          schema:
+            type: integer
+            format: int32
+            example: 10
+        - in: query
+          name: page
+          description: Page number. The default pagination is per 50 items.
+          required: false
+          schema:
+            type: integer
+            format: int32
+            example: 1
+        - in: path
+          name: from
+          required: true
+          schema:
+            type: string
+            example: "EUR"
+          description: "The currency code of the 'from' currency."
+        - in: path
+          name: from
+          required: true
+          schema:
+            type: string
+            example: "USD"
+          description: "The currency code of the 'to' currency."
+      responses:
+        "200":
+          description: A list of currency exchange rates.
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/CurrencyExchangeRateArray'
+        "401":
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthenticatedResponse'
+        "404":
+          description: Page not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponse'
+        "500":
+          description: Internal exception
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalExceptionResponse'
+    delete:
+      operationId: deleteSpecificCurrencyExchangeRates
+      description: "Delete all currency exchange rates from 'from' to 'to' on a specific date or today."
+      summary: "Delete all currency exchange rates from 'from' to 'to'."
+      tags:
+        - currency_exchange_rates
+      parameters:
+        - name: X-Trace-Id
+          in: header
+          description: Unique identifier associated with this request.
+          required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
+          schema:
+            type: string
+            format: uuid
+            example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
+        - in: path
+          name: from
+          required: true
+          schema:
+            type: string
+            example: "EUR"
+          description: "The currency code of the 'from' currency."
+        - in: path
+          name: from
+          required: true
+          schema:
+            type: string
+            example: "USD"
+          description: "The currency code of the 'to' currency."
+        - in: query
+          name: date
+          description: |
+            A date formatted YYYY-MM-DD. Defaults to today.
+          required: false
+          schema:
+            type: string
+            format: date
+            example: "2018-09-17"
+      responses:
+        "204":
+          description: "Currency exchange rate(s) deleted."
         "401":
           description: Unauthenticated
           content:
@@ -14834,6 +15231,21 @@ components:
           $ref: '#/components/schemas/Meta'
         links:
           $ref: '#/components/schemas/PageLink'
+    CurrencyExchangeRateArray:
+      type: object
+      required:
+        - data
+        - meta
+        - links
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/CurrencyExchangeRateRead'
+        meta:
+          $ref: '#/components/schemas/Meta'
+        links:
+          $ref: '#/components/schemas/PageLink'
     LinkTypeArray:
       type: object
       required:
@@ -17825,6 +18237,125 @@ components:
           format: amount
           example: "-12423.45"
           description: The amount spent.
+    CurrencyExchangeRateRead:
+      type: object
+      required:
+        - type
+        - id
+        - attributes
+        - links
+      properties:
+        type:
+          type: string
+          format: string
+          example: "currency_exchange_rates"
+          description: "Immutable value"
+        id:
+          type: string
+          format: string
+          example: "2"
+        attributes:
+          $ref: '#/components/schemas/CurrencyExchangeRateReadAttributes'
+        links:
+          $ref: '#/components/schemas/ObjectLink'
+    CurrencyExchangeRateReadAttributes:
+      type: object
+      properties:
+        created_at:
+          type: string
+          format: date-time
+          example: "2018-09-17T12:46:47+01:00"
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          example: "2018-09-17T12:46:47+01:00"
+          readOnly: true
+        from_currency_id:
+          type: string
+          format: string
+          example: "12"
+          readOnly: true
+          description: "Base currency ID for this exchange rate entry."
+        from_currency_code:
+          type: string
+          format: string
+          example: "EUR"
+          readOnly: true
+          description: "Base currency code for this exchange rate entry."
+        from_currency_symbol:
+          type: string
+          format: string
+          example: "$"
+          readOnly: true
+          description: "Base currency symbol for this exchange rate entry."
+        from_currency_decimal_places:
+          type: integer
+          format: int32
+          example: 2
+          readOnly: true
+          description: "Base currency decimal places for this exchange rate entry."
+        to_currency_id:
+          type: string
+          format: string
+          example: "12"
+          readOnly: true
+          description: "Destination currency ID for this exchange rate entry."
+        to_currency_code:
+          type: string
+          format: string
+          example: "EUR"
+          readOnly: true
+          description: "Destination currency code for this exchange rate entry."
+        to_currency_symbol:
+          type: string
+          format: string
+          example: "$"
+          readOnly: true
+          description: "Destination currency symbol for this exchange rate entry."
+        to_currency_decimal_places:
+          type: integer
+          format: int32
+          example: 2
+          readOnly: true
+          description: "Destination currency decimal places for this exchange rate entry."
+        rate:
+          type: string
+          format: string
+          example: "1.10340"
+          readOnly: true
+          description: "The actual exchange rate. How many 'to' currency will you get for 1 'from' currency?"
+        date:
+          type: string
+          format: date-time
+          readOnly: true
+          example: "2018-09-17T12:46:47+01:00"
+          description: "Date and time of the exchange rate."
+    CurrencyExchangeRateSingle:
+      type: object
+      required:
+        - data
+      properties:
+        data:
+          $ref: '#/components/schemas/CurrencyExchangeRateRead'
+    CurrencyExchangeRateUpdate:
+      type: object
+      required:
+        - date
+        - rate
+      properties:
+        date:
+          type: string
+          format: date
+          example: "2018-09-17"
+          description: The date to which the exchange rate is applicable.
+          nullable: false
+        rate:
+          type: string
+          format: string
+          nullable: false
+          example: "2.3456"
+          description: "The exchange rate from the base currency to the destination currency."
     ObjectGroup:
       type: object
       required:
@@ -20742,7 +21273,7 @@ components:
         can_see_members:
           type: boolean
           format: boolean
-          example: false
+          example: true
           readOnly: true
           description: "Can the current user see the members of this user group?"
         title:
