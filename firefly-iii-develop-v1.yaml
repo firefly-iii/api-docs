@@ -7,7 +7,7 @@ servers:
 info:
   title: Firefly III API develop
   description: |
-    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2025-01-26T06:06:49+00:00
+    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2025-01-26T06:37:35+00:00
     Please keep in mind that the demo site does not accept requests from curl, colly, wget, etc. You must use a browser or a tool like Postman to make requests. Too many script kiddies out there, sorry about that.
     
   version: "develop"
@@ -92,6 +92,9 @@ tags:
 - name: transactions
   description: The most-used endpoints in Firefly III, these endpoints are used to
     manage the user&#039;s transactions.
+- name: user_groups
+  description: User groups are the objects around which &quot;financial administrations&quot;
+    are built.
 - name: users
   description: Use these endpoints to manage the users registered within Firefly III.
     You need to have the &quot;owner&quot; role to access these endpoints.
@@ -11843,11 +11846,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
-  /v1/currencies/default:
+  /v1/currencies/native:
     get:
-      summary: Get the user's default currency.
-      description: Get the user's default currency.
-      operationId: getDefaultCurrency
+      summary: Get the native currency of the current administration.
+      description: Get the native currency of the current administration. This replaces what was called "the user's default currency" although they are essentially the same.
+      operationId: getNativeCurrency
       parameters:
         - name: X-Trace-Id
           in: header
@@ -11862,7 +11865,7 @@ paths:
         - currencies
       responses:
         "200":
-          description: 'The default currency'
+          description: 'The native currency'
           content:
             application/json:
               schema:
@@ -12536,6 +12539,198 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
+  /v1/user-groups:
+    get:
+      summary: |
+        List all the user groups available to this user.
+      description: "List all the user groups available to this user. These are essentially the 'financial administrations' that Firefly III supports."
+      operationId: listUserGroups
+      tags:
+        - user_groups
+      parameters:
+        - name: X-Trace-Id
+          in: header
+          description: Unique identifier associated with this request.
+          required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
+          schema:
+            type: string
+            format: uuid
+            example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
+        - in: query
+          name: limit
+          description: Number of items per page. The default pagination is per 50 items.
+          required: false
+          schema:
+            type: integer
+            format: int32
+            example: 10
+        - in: query
+          name: page
+          description: Page number. The default pagination is per 50 items.
+          required: false
+          schema:
+            type: integer
+            format: int32
+            example: 1
+      responses:
+        "200":
+          description: A list of user groups.
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/UserGroupArray'
+        "401":
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthenticatedResponse'
+        "404":
+          description: Page not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponse'
+        "500":
+          description: Internal exception
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalExceptionResponse'
+  /v1/user-groups/{id}:
+    get:
+      tags:
+        - user_groups
+      summary: Get a single user group.
+      description: |
+        Returns a single user group by its ID.
+      operationId: getUserGroup
+      parameters:
+        - name: X-Trace-Id
+          in: header
+          description: Unique identifier associated with this request.
+          required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
+          schema:
+            type: string
+            format: uuid
+            example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+            example: "123"
+          description: The ID of the user group.
+      responses:
+        "401":
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthenticatedResponse'
+        "404":
+          description: Page not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponse'
+        "500":
+          description: Internal exception
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalExceptionResponse'
+        "200":
+          description: 'The requested user group'
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/UserGroupSingle'
+    put:
+      summary: Update an existing user group.
+      description: |
+        Used to update a single user group. The available fields are still limited.
+      operationId: updateAccount
+      parameters:
+        - name: X-Trace-Id
+          in: header
+          description: Unique identifier associated with this request.
+          required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
+          schema:
+            type: string
+            format: uuid
+            example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+            example: "1"
+          description: The ID of the account.
+      tags:
+        - user_groups
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserGroupUpdate'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UserGroupUpdate'
+        description: JSON array or formdata with new user group information. See the model for the exact specifications.
+        required: true
+      responses:
+        "401":
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthenticatedResponse'
+        "404":
+          description: Page not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponse'
+        "500":
+          description: Internal exception
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalExceptionResponse'
+        "422":
+          description: 'Validation error. The body will have the exact details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorResponse'
+        "200":
+          description: 'Updated user group is stored, result is in the response'
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/UserGroupSingle'
   /v1/search/accounts:
     get:
       summary: Search for accounts
@@ -14812,6 +15007,21 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/UserRead'
+        meta:
+          $ref: '#/components/schemas/Meta'
+        links:
+          $ref: '#/components/schemas/PageLink'
+    UserGroupArray:
+      type: object
+      required:
+        - data
+        - meta
+        - links
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserGroupRead'
         meta:
           $ref: '#/components/schemas/Meta'
         links:
@@ -20489,6 +20699,165 @@ components:
           $ref: '#/components/schemas/UserBlockedCodeProperty'
         role:
           $ref: '#/components/schemas/UserRoleProperty'
+    UserGroupRead:
+      type: object
+      required:
+        - type
+        - id
+        - attributes
+        - links
+      properties:
+        type:
+          type: string
+          format: string
+          example: "user_groups"
+          description: "Immutable value"
+        id:
+          type: string
+          format: string
+          example: "2"
+        attributes:
+          $ref: '#/components/schemas/UserGroupReadAttributes'
+        links:
+          $ref: '#/components/schemas/ObjectLink'
+    UserGroupReadAttributes:
+      type: object
+      properties:
+        created_at:
+          type: string
+          format: date-time
+          example: "2018-09-17T12:46:47+01:00"
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          example: "2018-09-17T12:46:47+01:00"
+          readOnly: true
+        in_use:
+          type: boolean
+          format: boolean
+          example: false
+          readOnly: true
+          description: "Is this user group ('financial administration') currently the active administration?"
+        can_see_members:
+          type: boolean
+          format: boolean
+          example: false
+          readOnly: true
+          description: "Can the current user see the members of this user group?"
+        title:
+          type: string
+          format: string
+          description: "Title of the user group. By default, it is the same as the user's email address."
+          example: "demo@firefly"
+          readOnly: false
+        native_currency_id:
+          type: string
+          format: string
+          example: "12"
+          readOnly: true
+          description: "Returns the native currency ID of the user group."
+        native_currency_code:
+          type: string
+          format: string
+          example: "EUR"
+          description: "Returns the native currency code of the user group."
+        native_currency_symbol:
+          type: string
+          format: string
+          example: "$"
+          readOnly: true
+          description: "Returns the native currency symbol of the user group."
+        native_currency_decimal_places:
+          type: integer
+          format: int32
+          example: 2
+          readOnly: true
+          description: "Returns the native currency decimal places of the user group."
+        members:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserGroupReadMembers'
+    UserGroupReadMembers:
+      type: object
+      properties:
+        user_id:
+          type: string
+          format: string
+          example: "5"
+          readOnly: true
+          description: "The ID of the member."
+        user_email:
+          type: string
+          format: email
+          example: "james@firefly-iii.org"
+          readOnly: true
+          description: "The email address of the member"
+        you:
+          type: boolean
+          format: boolean
+          example: false
+          readOnly: true
+          description: "Is this you? (the current user)"
+        roles:
+          type: array
+          uniqueItems: true
+          items:
+            $ref: '#/components/schemas/UserGroupReadRole'
+    UserGroupReadRole:
+      type: string
+      enum:
+        - owner
+        - ro
+        - mng_trx
+        - mng_meta
+        - read_budgets
+        - read_piggies
+        - read_subscriptions
+        - read_rules
+        - read_recurring
+        - read_webhooks
+        - read_currencies
+        - mng_budgets
+        - mng_piggies
+        - mng_subscriptions
+        - mng_rules
+        - mng_recurring
+        - mng_webhooks
+        - mng_currencies
+        - view_reports
+        - view_memberships
+        - full
+        - owner
+      description: >
+          The possible roles of the user in this user group are documented here: https://docs.firefly-iii.org/references/firefly-iii/api/
+    UserGroupSingle:
+      type: object
+      required:
+        - data
+      properties:
+        data:
+          $ref: '#/components/schemas/UserGroupRead'
+    UserGroupUpdate:
+      type: object
+      required:
+        - title
+      properties:
+        title:
+          type: string
+          format: string
+          example: "New user group title"
+          description: "A descriptive title for the user group."
+        native_currency_id:
+          type: string
+          format: string
+          example: "1"
+          description: "Use either native_currency_id or native_currency_code. This will set the native currency for the user group ('financial administration')."
+        native_currency_code:
+          type: string
+          format: string
+          example: "EUR"
+          description: "Use either native_currency_id or native_currency_code. This will set the native currency for the user group ('financial administration')."
     Webhook:
       title: "A single webhook (read)"
       type: object
