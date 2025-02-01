@@ -7,7 +7,7 @@ servers:
 info:
   title: Firefly III API develop
   description: |
-    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2025-01-26T09:09:41+00:00
+    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2025-02-01T10:31:21+00:00
     Please keep in mind that the demo site does not accept requests from curl, colly, wget, etc. You must use a browser or a tool like Postman to make requests. Too many script kiddies out there, sorry about that.
     
   version: "develop"
@@ -7504,13 +7504,13 @@ paths:
             type: string
             format: uuid
             example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
-          - in: path
-            name: id
-            required: true
-            schema:
-              type: string
-              example: "123"
-            description: The ID of the requested currency exchange rate.
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+            example: "123"
+          description: The ID of the requested currency exchange rate.
       responses:
         "204":
           description: "Currency exchange rate deleted."
