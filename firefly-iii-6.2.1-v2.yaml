@@ -1,0 +1,785 @@
+openapi: 3.0.0
+servers:
+  - description: Firefly III demo site
+    url: https://demo.firefly-iii.org/api
+  - description: "Local development server (do not use)"
+    url: http://firefly.sd.internal/api
+info:
+  title: Firefly III API v6.2.1
+  description: |
+    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2025-02-01T19:42:09+00:00
+    Please keep in mind that the demo site does not accept requests from curl, colly, wget, etc. You must use a browser or a tool like Postman to make requests. Too many script kiddies out there, sorry about that.
+    The v2 version of the API is not yet complete. My apologies for any laps or inconsistencies. Please report any issues you find.
+  version: "v6.2.1"
+  contact:
+    name: James Cole
+    email: james@firefly-iii.org
+    url: https://firefly-iii.org
+  license:
+    name: AGPLv3
+    url: 'https://www.gnu.org/licenses/agpl-3.0.en.html'
+tags:
+- name: accounts
+  description: Endpoints that deliver all of the user&#039;s asset, expense and other accounts
+    (and the metadata) together with related transactions, piggy banks and other objects.
+    Also delivers endpoints for CRUD operations for accounts.
+- name: budgets
+  description: Endpoints to manage a user&#039;s budgets and get info on the related objects,
+    like limits.
+- name: charts
+  description: The &quot;charts&quot; endpoints deliver optimised data for charts and graphs.
+- name: net-worth
+  description: Shows you the net worth of the current user.
+- name: preferences
+  description: These endpoints can be used to manage the user&#039;s preferences, including
+    some hidden ones.
+- name: transactions-sum
+  description: Endpoints to sum transactions based on various properties.
+paths:
+  /v2/autocomplete/accounts:
+    get:
+      tags:
+        - autocomplete
+      operationId: getAccountsAC
+      parameters:
+        - name: X-Trace-Id
+          in: header
+          description: Unique identifier associated with this request.
+          required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
+          schema:
+            type: string
+            format: uuid
+            example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
+        - in: query
+          name: user_group_id
+          description: Optional value of the financial administration you want to perform this operation on. The user must have access to this particular administration. Which access rights exactly are necessary, is different per endpoint.
+          required: false
+          schema:
+            type: integer
+            format: int32
+            example: 1
+        - in: query
+          name: query
+          description: The autocomplete search query. Will be exploded on spaces, and each word will be searched for in the autocomplete results. Will also accept comma separated values for the same effect.
+          required: false
+          schema:
+            type: string
+            format: string
+          example: "search query"
+        - in: query
+          name: date
+          description: Todays date or any other date. If you supply this value, the accounts autocomplete array will include the account balances for the found accounts.
+          required: false
+          schema:
+            type: string
+            format: date
+          example: "2018-09-17"
+        - in: query
+          name: size
+          description: The size of the autocomplete result list. This is the number of items returned.
+          required: false
+          schema:
+            type: integer
+            format: int32
+          example: 15
+        - in: query
+          name: page
+          description: The page number of the autocomplete result list.
+          required: false
+          schema:
+              type: integer
+              format: int32
+          example: 1
+      summary: Returns all accounts of the user returned in a basic auto-complete array.
+      responses:
+        "401":
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthenticatedResponse'
+        "404":
+          description: Page not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponse'
+        "500":
+          description: Internal exception
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalExceptionResponse'
+        "200":
+          description: A list of accounts with basic account information.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AutocompleteObjectArray'
+  /v2/chart/balance/balance:
+    get:
+      tags:
+        - charts
+      summary: A chart that contains spent/earned amounts
+      description: |
+        The chart contains spent/earned amounts for the given date range, grouped by the given period, and collected for the given accounts.
+      operationId: getBalanceChart
+      parameters:
+        - name: X-Trace-Id
+          in: header
+          description: Unique identifier associated with this request.
+          required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
+          schema:
+            type: string
+            format: uuid
+            example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
+        - in: query
+          name: start
+          description: |
+            A date formatted YYYY-MM-DD.
+          required: true
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: end
+          description: |
+            A date formatted YYYY-MM-DD.
+          required: true
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: accounts[]
+          allowReserved: true
+          description: |
+            An array of accounts that should be included. Example: accounts[]=1&accounts[]=2.
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: array
+            items:
+              type: integer
+              format: int32
+        - in: query
+          name: period
+          description: The period by which the results must be grouped.
+          required: true
+          schema:
+            $ref: '#/components/schemas/PeriodProperty'
+        - in: query
+          name: preselected
+          description: The accounts Firefly III must include in this chart. If you do not select any accounts in the accounts[] parameter, this parameter is used. This parameter overrules the accounts[] parameter.
+          required: false
+          schema:
+            $ref: '#/components/schemas/PreselectedAccountProperty'
+      responses:
+        "401":
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthenticatedResponse'
+        "404":
+          description: Page not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponse'
+        "500":
+          description: Internal exception
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalExceptionResponse'
+        200:
+          description: Chart information. Check out the model for more details. Each main entry is a set of data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChartLine'
+components:
+  schemas:
+    AutocompleteFilter:
+      type: object
+      properties:
+        query:
+          type: string
+          items:
+            type: string
+            format: string
+            example: "autocomplete query here"
+            description: The search query to filter the autocomplete on. Multiple words can be submitted, but this is not required. An autocomplete box generally only submits one query.
+        account_types:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountTypeFilter'
+            type: string
+            example: "Asset account"
+            description: Used only in the 'accounts' autocomplete endpoint, this filters the results by account type.
+    AutocompleteObject:
+      type: object
+      required:
+        - id
+        - title
+        - meta
+      properties:
+        id:
+          type: string
+          format: string
+          example: "2"
+          readOnly: true
+          description: The ID of the object as a string.
+        title:
+          type: string
+          format: string
+          example: "Some object"
+          description: The autocomplete value that your dropdown can use. This could be an account or category name.
+          readOnly: true
+        value:
+          type: string
+          format: string
+          nullable: true
+          example: "2"
+          readOnly: true
+          description: Optional. The ID of the object as a string. This is only used in the tags autocomplete endpoint because the JS library I use doesn't support "id" as the value field.
+        label:
+          type: string
+          format: string
+          example: "Some object"
+          description: The autocomplete value that your dropdown can use. This is only used in the tags autocomplete endpoint because the JS library I use doesn't support "title" as the value field.
+          readOnly: true
+        meta:
+          type: object
+          description: Array with optional meta-information. Fields will be different for each autocomplete entry.
+          properties:
+            type:
+              type: string
+              format: string
+              example: "Asset account"
+              readOnly: true
+              description: Account type of the account found by the auto-complete search for accounts.
+            transaction_group_id:
+              type: string
+              format: string
+              nullable: true
+              example: "2"
+              readOnly: true
+              description: The ID of the associated transaction. Only used in the transaction description autocomplete endpoint.
+            currency_id:
+              type: string
+              format: string
+              example: "12"
+              readOnly: true
+              description: ID for the currency used by this account. Only used in the account autocomplete endpoint.
+            currency_name:
+              type: string
+              format: string
+              example: "Euro"
+              readOnly: true
+              description: Currency name for the currency used by this account. Only used in the account autocomplete endpoint.
+            currency_code:
+              type: string
+              format: string
+              example: "EUR"
+              readOnly: true
+              description: Currency code for the currency used by this account. Only used in the account autocomplete endpoint.
+            currency_symbol:
+              type: string
+              format: string
+              example: "$"
+              readOnly: true
+              description: Currency symbol for the currency used by this account. Only used in the account autocomplete endpoint.
+            currency_decimal_places:
+              type: integer
+              format: int32
+              example: 2
+              readOnly: true
+              description: Number of decimal places for the currency used by this account. Only used in the account autocomplete endpoint.
+            account_balances:
+                type: array
+                readOnly: true
+                description: The latest account balance(s) of the account. Only used in the account autocomplete endpoint.
+                items:
+                    type: object
+                    properties:
+                      native_amount:
+                        type: string
+                        format: amount
+                        example: "123.45"
+                        description: The account balance in the user's default currency.
+                      amount:
+                        type: string
+                        format: amount
+                        example: "123.45"
+                        description: The account balance.
+                      currency_id:
+                        type: string
+                        format: string
+                        example: "12"
+                        readOnly: true
+                        description: ID for the currency of the amount.
+                      currency_name:
+                        type: string
+                        format: string
+                        example: "Euro"
+                        readOnly: true
+                        description: Currency name for the currency of the amount.
+                      currency_code:
+                        type: string
+                        format: string
+                        example: "EUR"
+                        readOnly: true
+                        description: Currency code for the currency of the amount.
+                      currency_symbol:
+                        type: string
+                        format: string
+                        example: "$"
+                        readOnly: true
+                        description: Currency symbol for the currency of the amount.
+                      currency_decimal_places:
+                        type: integer
+                        format: int32
+                        example: 2
+                        readOnly: true
+                        description: Number of decimal places for the currency of the amount.
+                      native_currency_id:
+                        type: string
+                        format: string
+                        example: "12"
+                        readOnly: true
+                        description: ID for the native currency of the user, so the currency of the native amount field.
+                      native_currency_name:
+                        type: string
+                        format: string
+                        example: "Euro"
+                        readOnly: true
+                        description: Currency name for the native currency of the user, so the currency of the native amount field.
+                      native_currency_code:
+                        type: string
+                        format: string
+                        example: "EUR"
+                        readOnly: true
+                        description: Currency code for the native currency of the user, so the currency of the native amount field.
+                      native_currency_symbol:
+                        type: string
+                        format: string
+                        example: "$"
+                        readOnly: true
+                        description: Currency symbol for the native currency of the user, so the currency of the native amount field.
+                      native_currency_decimal_places:
+                        type: integer
+                        format: int32
+                        example: 2
+                        readOnly: true
+                        description: Number of decimal places for for the native currency of the user, so the currency of the native amount field.
+    AutocompleteObjectArray:
+      type: array
+      items:
+          $ref: '#/components/schemas/AutocompleteObject'
+    ChartDataPoint:
+      type: object
+      properties:
+        key:
+          type: string
+          format: string
+          example: "value"
+          description: "The key is the label of the value, so for example: '2024-10-01T00:00:00+02:00' => 13 or 'Groceries' => -123. For date-related charts, this is always a Atom date."
+    ChartDataSet:
+      type: object
+      properties:
+        label:
+          type: string
+          format: string
+          example: "earned"
+          description: "This is the label of the current data-set. It can refer to an object by name, or a collected set of data."
+        currency_id:
+          type: string
+          format: string
+          example: "5"
+          description: "The currency ID of the currency associated to the data in the entries."
+        currency_code:
+          type: string
+          format: string
+          example: "EUR"
+        currency_symbol:
+          type: string
+          format: string
+          example: "$"
+        currency_decimal_places:
+          type: integer
+          format: int32
+          example: 2
+          description: "Number of decimals for the currency associated to the data in the entries."
+        native_currency_id:
+          type: string
+          format: string
+          example: "5"
+          description: "The currency ID of the user's native (default) currency."
+        native_currency_code:
+          type: string
+          format: string
+          example: "EUR"
+          description: "The currency code of the user's native (default) currency."
+        native_currency_symbol:
+          type: string
+          format: string
+          example: "$"
+          description: "The currency symbol of the user's native (default) currency."
+        native_currency_decimal_places:
+          type: integer
+          format: int32
+          example: 2
+          description: "Number of decimals for the native (default) currency of the user."
+        start:
+          type: string
+          format: date-time
+          example: "2018-09-17T12:46:47+01:00"
+          description: "Holds the date and time of start of the range of data collected. It could be there was no data for this point in time, but this is the start of the requested range."
+        end:
+          type: string
+          format: date-time
+          example: "2018-09-17T12:46:47+01:00"
+          description: "Holds the date and time of END of the range of data collected. It could be there was no data for this point in time, but this is the end of the requested range."
+        period:
+          $ref: '#/components/schemas/PeriodProperty'
+        entries:
+          type: object
+          description: "The actual entries for this data set. They 'key' value is the label for the data point. The value is the actual (numerical) value."
+          items:
+            $ref: '#/components/schemas/ChartDataPoint'
+        native_entries:
+          type: object
+          description: "The entries for this data set converted to the user's native (default) currency. They 'key' value is the label for the data point. The value is the actual (numerical) value."
+          items:
+            $ref: '#/components/schemas/ChartDataPoint'
+    ChartLine:
+      type: array
+      items:
+        $ref: '#/components/schemas/ChartDataSet'
+    PeriodProperty:
+      type: string
+      format: string
+      example: "1M"
+      description: "This field denotes the period in which the chart data is split up. If the period is not relevant, because the chart is not time-based, it will be NULL."
+      nullable: true
+      enum:
+        - 1D
+        - 1W
+        - 1M
+        - 3M
+        - 6M
+        - 1Y
+    PreselectedAccountProperty:
+      type: string
+      enum:
+        - all
+        - assets
+        - liabilities
+    AccountTypeFilter:
+      type: string
+      enum:
+        - all
+        - asset
+        - cash
+        - expense
+        - revenue
+        - special
+        - hidden
+        - liability
+        - liabilities
+        - Default account
+        - Cash account
+        - Asset account
+        - Expense account
+        - Revenue account
+        - Initial balance account
+        - Beneficiary account
+        - Import account
+        - Reconciliation account
+        - Loan
+        - Debt
+        - Mortgage
+    TransactionTypeFilter:
+      type: string
+      enum:
+        - all
+        - withdrawal
+        - withdrawals
+        - expense
+        - deposit
+        - deposits
+        - income
+        - transfer
+        - transfers
+        - opening_balance
+        - reconciliation
+        - special
+        - specials
+        - default
+    Meta:
+      type: object
+      properties:
+        pagination:
+          type: object
+          properties:
+            total:
+              type: integer
+              example: 3
+            count:
+              type: integer
+              example: 20
+            per_page:
+              type: integer
+              example: 100
+            current_page:
+              type: integer
+              example: 1
+            total_pages:
+              type: integer
+              example: 1
+    AccountRoleProperty:
+      type: string
+      format: string
+      example: "defaultAsset"
+      description: "Is only mandatory when the type is asset."
+      nullable: true
+      enum:
+        - defaultAsset
+        - sharedAsset
+        - savingAsset
+        - ccAsset
+        - cashWalletAsset
+        - null
+    AccountTypeProperty:
+      type: string
+      format: string
+      example: "Asset account"
+      readOnly: true
+      enum:
+        - Default account
+        - Cash account
+        - Asset account
+        - Expense account
+        - Revenue account
+        - Initial balance account
+        - Beneficiary account
+        - Import account
+        - Reconciliation account
+        - Loan
+        - Debt
+        - Mortgage
+    CreditCardTypeProperty:
+      type: string
+      format: string
+      example: monthlyFull
+      description: "Mandatory when the account_role is ccAsset. Can only be monthlyFull or null."
+      nullable: true
+      enum:
+        - monthlyFull
+        - null
+    InterestPeriodProperty:
+      type: string
+      format: string
+      example: monthly
+      description: "Mandatory when type is liability. Period over which the interest is calculated."
+      nullable: true
+      enum:
+        - weekly
+        - monthly
+        - quarterly
+        - half-year
+        - yearly
+        - null
+    LiabilityDirectionProperty:
+      type: string
+      format: string
+      example: credit
+      description: "'credit' indicates somebody owes you the liability. 'debit' Indicates you owe this debt yourself. Works only for liabiltiies."
+      nullable: true
+      enum:
+        - credit
+        - debit
+        - null
+    LiabilityTypeProperty:
+      type: string
+      format: string
+      example: "loan"
+      description: "Mandatory when type is liability. Specifies the exact type."
+      nullable: true
+      enum:
+        - loan
+        - debt
+        - mortgage
+        - null
+    ShortAccountTypeProperty:
+      type: string
+      format: string
+      example: "asset"
+      description: "Can only be one one these account types. import, initial-balance and reconciliation cannot be set manually."
+      enum:
+        - asset
+        - expense
+        - import
+        - revenue
+        - cash
+        - liability
+        - liabilities
+        - "initial-balance"
+        - reconciliation
+    TransactionTypeProperty:
+      type: string
+      format: string
+      example: "withdrawal"
+      enum:
+        - withdrawal
+        - deposit
+        - transfer
+        - reconciliation
+        - opening balance
+    BadRequestResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          format: string
+          example: "Bad Request"
+        exception:
+          type: string
+          format: string
+          example: "BadRequestHttpException"
+    InternalExceptionResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          format: string
+          example: "Internal Exception"
+        exception:
+          type: string
+          format: string
+          example: "InternalException"
+    NotFoundResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          format: string
+          example: "Resource not found"
+        exception:
+          type: string
+          format: string
+          example: "NotFoundHttpException"
+    UnauthenticatedResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          format: string
+          example: "Unauthenticated"
+        exception:
+          type: string
+          format: string
+          example: "AuthenticationException"
+    ValidationErrorResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          format: string
+          example: "The given data was invalid."
+        errors:
+          type: object
+          properties:
+            email:
+              type: array
+              items:
+                type: string
+                format: string
+            force:
+              type: array
+              items:
+                type: string
+                format: string
+            blocked:
+              type: array
+              items:
+                type: string
+                format: string
+            field:
+              type: array
+              items:
+                type: string
+                format: string
+            role:
+              type: array
+              items:
+                type: string
+                format: string
+            blocked_code:
+              type: array
+              items:
+                type: string
+                format: string
+            name:
+              type: array
+              items:
+                type: string
+                format: string
+            type:
+              type: array
+              items:
+                type: string
+                format: string
+            iban:
+              type: array
+              items:
+                type: string
+                format: string
+            start:
+              type: array
+              items:
+                type: string
+                format: string
+            end:
+              type: array
+              items:
+                  type: string
+                  format: string
+            date:
+              type: array
+              items:
+                type: string
+                format: string
+  securitySchemes:
+    firefly_iii_auth:
+      type: oauth2
+      description: Default OAuth2 flow
+      flows:
+        authorizationCode:
+          authorizationUrl: https://demo.firefly-iii.org/oauth/authorize
+          tokenUrl: https://demo.firefly-iii.org/oauth/token
+          refreshUrl: https://demo.firefly-iii.org/oauth/token
+          scopes: {}
+    local_bearer_auth:
+      description: Optional Bearer token flow
+      type: http
+      scheme: bearer
+security:
+  - firefly_iii_auth: []
+  - local_bearer_auth: []
