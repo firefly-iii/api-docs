@@ -7,7 +7,7 @@ servers:
 info:
   title: Firefly III API develop
   description: |
-    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2025-02-01T19:41:03+00:00
+    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2025-02-02T08:37:38+00:00
     Please keep in mind that the demo site does not accept requests from curl, colly, wget, etc. You must use a browser or a tool like Postman to make requests. Too many script kiddies out there, sorry about that.
     
   version: "develop"
@@ -7393,6 +7393,69 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: '#/components/schemas/CurrencyExchangeRateArray'
+        "401":
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthenticatedResponse'
+        "404":
+          description: Page not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponse'
+        "500":
+          description: Internal exception
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalExceptionResponse'
+    post:
+      summary: Store a new currency exchange rate.
+      description: Stores a new exchange rate. The data required can be submitted as a JSON body or as a list of parameters.
+      operationId: storeCurrencyExchangeRate
+      parameters:
+        - name: X-Trace-Id
+          in: header
+          description: Unique identifier associated with this request.
+          required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
+          schema:
+            type: string
+            format: uuid
+            example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
+      tags:
+        - currency_exchange_rates
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CurrencyExchangeRateStore'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CurrencyExchangeRateStore'
+        description: "JSON array or key=value pairs with the necessary category information. See the model for the exact specifications."
+        required: true
+      responses:
+        "200":
+          description: 'New category stored, result in response.'
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/CurrencyExchangeRateSingle'
+        "422":
+          description: 'Validation error. The body will have the exact details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorResponse'
         "401":
           description: Unauthenticated
           content:
@@ -18338,6 +18401,38 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/CurrencyExchangeRateRead'
+    CurrencyExchangeRateUpdate:
+      type: object
+      required:
+        - date
+        - from
+        - to
+        - rate
+      properties:
+        date:
+          type: string
+          format: date
+          example: "2018-09-17"
+          description: The date to which the exchange rate is applicable.
+          nullable: false
+        rate:
+          type: string
+          format: string
+          nullable: false
+          example: "2.3456"
+          description: "The exchange rate from the base currency to the destination currency."
+        from:
+          type: string
+          format: string
+          example: "USD"
+          description: "The base currency code."
+          nullable: false
+        to:
+          type: string
+          format: string
+          example: "EUR"
+          description: "The destination currency code."
+          nullable: false
     CurrencyExchangeRateUpdate:
       type: object
       required:
