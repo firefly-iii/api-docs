@@ -7,7 +7,7 @@ servers:
 info:
   title: Firefly III API develop
   description: |
-    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2025-02-21T08:20:41+00:00
+    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2025-03-05T18:57:45+00:00
     Please keep in mind that the demo site does not accept requests from curl, colly, wget, etc. You must use a browser or a tool like Postman to make requests. Too many script kiddies out there, sorry about that.
     
   version: "develop"
@@ -15597,6 +15597,31 @@ components:
           format: int32
           example: 2
           description: Number of decimal places for the currency used by this account. If the user prefers amounts converted to their native currency, this native currency is used instead.
+        account_currency_id:
+          type: string
+          format: string
+          example: "2"
+          description: ID for the currency used by this account. Even if "convertToNative" is on, the account currency ID is displayed here.
+        account_currency_name:
+          type: string
+          format: string
+          example: "US Dollar"
+          description: Name for the currency used by this account. Even if "convertToNative" is on, the account currency name is displayed here.
+        account_currency_code:
+          type: string
+          format: string
+          example: "USD"
+          description: Code for the currency used by this account. Even if "convertToNative" is on, the account currency code is displayed here.
+        account_currency_symbol:
+          type: string
+          format: string
+          example: "$"
+          description: Code for the currency used by this account. Even if "convertToNative" is on, the account currency code is displayed here.
+        account_currency_decimal_places:
+          type: integer
+          format: int32
+          example: 2
+          description: Number of decimal places for the currency used by this account. Even if "convertToNative" is on, the account currency code is displayed here.
     AutocompleteBill:
       type: object
       required:
@@ -18719,11 +18744,6 @@ components:
           nullable: true
           example: "Checking account"
           description: "The name of the account."
-        current_amount:
-          type: string
-          format: amount
-          example: "123.45"
-          description: "The amount saved currently."
     PiggyBankStore:
       type: object
       required:
