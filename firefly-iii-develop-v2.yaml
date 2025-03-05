@@ -7,7 +7,7 @@ servers:
 info:
   title: Firefly III API develop
   description: |
-    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2025-03-05T18:59:11+00:00
+    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2025-03-05T19:11:54+00:00
     Please keep in mind that the demo site does not accept requests from curl, colly, wget, etc. You must use a browser or a tool like Postman to make requests. Too many script kiddies out there, sorry about that.
     The v2 version of the API is not yet complete. My apologies for any laps or inconsistencies. Please report any issues you find.
   version: "develop"
