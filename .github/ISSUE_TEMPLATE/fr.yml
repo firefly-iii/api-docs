@@ -1,0 +1,17 @@
+name: Feature request
+description: Request enhancements or clarifications in the API documentation
+body:
+  - type: textarea
+    attributes:
+      label: Description
+      description: Please describe your feature request
+      placeholder: |
+        - I am missing information on (thing).
+        - Firefly III doesn't do (thing).
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Additional context
+      description: Add any other context or screenshots about the feature request here.
