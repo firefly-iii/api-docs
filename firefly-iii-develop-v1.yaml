@@ -7,9 +7,13 @@ servers:
 info:
   title: Firefly III API develop
   description: |
-    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on 2025-07-31T17:40:18+00:00
-    Please keep in mind that the demo site does not accept requests from curl, colly, wget, etc. You must use a browser or a tool like Postman to make requests. Too many script kiddies out there, sorry about that.
-    
+    This is the documentation of the Firefly III API. Please report any bugs or issues. You may use the "Authorize" button to try the API below.
+    <br><br>
+    Please keep in mind that the demo site does **not** accept requests from `curl`, `colly`, `wget`, etc. You must use a browser or a tool like Insomnia to make your test requests.
+    <br><br>
+    To learn more about the idiosyncrasies of this API, please read about the API in the [Firefly III API documentation](https://docs.firefly-iii.org/references/firefly-iii/api/).
+    <br><br>
+    <small>This file was last generated on 2025-08-02 @ 08:32:19 (UTC)</small>
   version: "develop"
   contact:
     name: James Cole
