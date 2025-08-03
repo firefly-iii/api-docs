@@ -13,7 +13,7 @@ info:
     <br><br>
     To learn more about the idiosyncrasies of this API, please read about the API in the [Firefly III API documentation](https://docs.firefly-iii.org/references/firefly-iii/api/).
     <br><br>
-    <small>This file was last generated on 2025-08-02 @ 12:21:23 (UTC)</small>
+    <small>This file was last generated on 2025-08-03 @ 05:58:21 (UTC)</small>
   version: "develop"
   contact:
     name: James Cole
@@ -5089,8 +5089,8 @@ paths:
     get:
       summary: List all available budget amounts.
       description: |
-        Firefly III allows users to set the amount that is available to be budgeted in so-called "available budgets". For example, the user could have 1200,- available to be divided during the coming month. This amount is used on the /budgets page. This endpoint returns all of these amounts and the periods for which they are set.
-      operationId: listAvailableBudget
+        Firefly III calculates the total amount of money budgeted in so-called "available budgets". This endpoint returns all of these amounts and the periods for which they are calculated.
+      operationId: listAvailableBudgets
       tags:
         - available_budgets
       parameters:
@@ -16308,7 +16308,7 @@ components:
           format: string
           example: "2"
         attributes:
-          $ref: '#/components/schemas/AvailableBudget'
+          $ref: '#/components/schemas/AvailableBudgetProperties'
     AvailableBudgetSingle:
       type: object
       required:
@@ -17412,7 +17412,7 @@ components:
           format: string
           example: "Some notes"
           nullable: true
-    AvailableBudget:
+    AvailableBudgetProperties:
       type: object
       required:
         - amount
@@ -17433,12 +17433,12 @@ components:
           type: string
           format: string
           example: "5"
-          description: Use either currency_id or currency_code.
+          description: The currency ID of this available budget.
         currency_code:
           type: string
           format: string
           example: EUR
-          description: Use either currency_id or currency_code.
+          description: Currency code of this available budget.
         currency_symbol:
           type: string
           format: string
@@ -17449,39 +17449,40 @@ components:
           format: int32
           example: 2
           readOnly: true
-        native_currency_id:
+        primary_currency_id:
           type: string
           format: string
           example: "5"
-          description: "The currency ID of the administration's native currency."
+          description: "The currency ID of the administration's primary currency."
           readOnly: true
-        native_currency_code:
+        primary_currency_code:
           type: string
           format: string
           example: EUR
           readOnly: true
-          description: "The currency code of the administration's native currency."
-        native_currency_symbol:
+          description: "The currency code of the administration's primary currency."
+        primary_currency_symbol:
           type: string
           format: string
           example: "$"
           readOnly: true
-          description: "The currency symbol of the administration's native currency."
-        native_currency_decimal_places:
+          description: "The currency symbol of the administration's primary currency."
+        primary_currency_decimal_places:
           type: integer
           format: int32
           example: 2
           readOnly: true
-          description: "The currency decimal places of the administration's native currency."
+          description: "The currency decimal places of the administration's primary currency."
         amount:
           type: string
           format: amount
           example: "123.45"
-        native_amount:
+          description: "The amount of this available budget in the currency of this available budget."
+        pc_amount:
           type: string
           format: amount
           example: "123.45"
-          description: "The amount of this available budget in the native currency of this administration."
+          description: "The amount of this available budget in the primary currency (pc) of this administration."
         start:
           type: string
           format: date-time
@@ -17497,11 +17498,25 @@ components:
           items:
             $ref: '#/components/schemas/BudgetSpent'
           readOnly: true
-        spent_outside_budget:
+        pc_spent_in_budgets:
           type: array
           items:
             $ref: '#/components/schemas/BudgetSpent'
           readOnly: true
+          description: |
+            The amount spent in budgets in the primary currency (pc) of this administration.
+        spent_outside_budgets:
+          type: array
+          items:
+            $ref: '#/components/schemas/BudgetSpent'
+          readOnly: true
+        pc_spent_outside_budgets:
+          type: array
+          items:
+            $ref: '#/components/schemas/BudgetSpent'
+          readOnly: true
+          description: |
+            The amount spent outside of budgets in the primary currency (pc) of this administration.
     Bill:
       type: object
       required:
@@ -17541,25 +17556,25 @@ components:
           format: int32
           example: 2
           readOnly: true
-        native_currency_id:
+        primary_currency_id:
           type: string
           format: string
           example: "5"
           readOnly: true
           description: "The administration's native currency ID."
-        native_currency_code:
+        primary_currency_code:
           type: string
           format: string
           example: EUR
           readOnly: true
           description: "The administration's native currency code."
-        native_currency_symbol:
+        primary_currency_symbol:
           type: string
           format: string
           example: "$"
           readOnly: true
           description: "The administration's native currency symbol."
-        native_currency_decimal_places:
+        primary_currency_decimal_places:
           type: integer
           format: int32
           example: 2
@@ -17902,25 +17917,25 @@ components:
           readOnly: true
           nullable: true
           description: "The currency decimal places that is part of the budget's auto-budget settings, if any."
-        native_currency_id:
+        primary_currency_id:
           type: string
           format: string
           example: "5"
           readOnly: true
           description: "The administration's native currency ID."
-        native_currency_code:
+        primary_currency_code:
           type: string
           format: string
           example: EUR
           readOnly: true
           description: "The administration's native currency code."
-        native_currency_symbol:
+        primary_currency_symbol:
           type: string
           format: string
           example: "$"
           readOnly: true
           description: "The administration's native currency symbol."
-        native_currency_decimal_places:
+        primary_currency_decimal_places:
           type: integer
           format: int32
           example: 2
@@ -18086,25 +18101,25 @@ components:
           format: int32
           example: 2
           readOnly: true
-        native_currency_id:
+        primary_currency_id:
           type: string
           format: string
           example: "5"
           readOnly: true
           description: "The administration's native currency ID."
-        native_currency_code:
+        primary_currency_code:
           type: string
           format: string
           example: EUR
           readOnly: true
           description: "The administration's native currency code."
-        native_currency_symbol:
+        primary_currency_symbol:
           type: string
           format: string
           example: "$"
           readOnly: true
           description: "The administration's native currency symbol."
-        native_currency_decimal_places:
+        primary_currency_decimal_places:
           type: integer
           format: int32
           example: 2
@@ -18247,25 +18262,25 @@ components:
           format: string
           nullable: true
           example: "Some example notes"
-        native_currency_id:
+        primary_currency_id:
           type: string
           format: string
           example: "5"
           readOnly: true
           description: "The administration's native currency ID."
-        native_currency_code:
+        primary_currency_code:
           type: string
           format: string
           example: EUR
           readOnly: true
           description: "The administration's native currency code."
-        native_currency_symbol:
+        primary_currency_symbol:
           type: string
           format: string
           example: "$"
           readOnly: true
           description: "The administration's native currency symbol."
-        native_currency_decimal_places:
+        primary_currency_decimal_places:
           type: integer
           format: int32
           example: 2
@@ -21652,16 +21667,16 @@ components:
           format: string
           example: "New user group title"
           description: "A descriptive title for the user group."
-        native_currency_id:
+        primary_currency_id:
           type: string
           format: string
           example: "1"
-          description: "Use either native_currency_id or native_currency_code. This will set the native currency for the user group ('financial administration')."
-        native_currency_code:
+          description: "Use either primary_currency_id or primary_currency_code. This will set the native currency for the user group ('financial administration')."
+        primary_currency_code:
           type: string
           format: string
           example: "EUR"
-          description: "Use either native_currency_id or native_currency_code. This will set the native currency for the user group ('financial administration')."
+          description: "Use either primary_currency_id or primary_currency_code. This will set the native currency for the user group ('financial administration')."
     Webhook:
       title: "A single webhook (read)"
       type: object
