@@ -13,7 +13,7 @@ info:
     <br><br>
     To learn more about the idiosyncrasies of this API, please read about the API in the [Firefly III API documentation](https://docs.firefly-iii.org/references/firefly-iii/api/).
     <br><br>
-    <small>This file was last generated on 2025-08-03 @ 06:34:41 (UTC)</small>
+    <small>This file was last generated on 2025-08-03 @ 16:09:38 (UTC)</small>
   version: "develop"
   contact:
     name: James Cole
@@ -6106,10 +6106,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/BudgetLimit'
+              $ref: '#/components/schemas/BudgetLimitUpdate'
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/BudgetLimit'
+              $ref: '#/components/schemas/BudgetLimitUpdate'
         description: JSON array with updated budget limit information. See the model for the exact specifications.
         required: true
       responses:
@@ -16358,7 +16358,7 @@ components:
           format: string
           example: "2"
         attributes:
-          $ref: '#/components/schemas/BudgetLimit'
+          $ref: '#/components/schemas/BudgetLimitProperties'
     BudgetLimitSingle:
       type: object
       required:
@@ -16887,53 +16887,58 @@ components:
         currency_id:
           type: string
           format: string
-          example: "12"
-          readOnly: true
-          description: "This is the account's currency ID (if set, see `object_has_currency_setting`). If the account's currency is not set, it will be the same as the primary currency. This field is the currency of all amount/balance fields of this account."
+          example: "5"
+          description: "The currency ID of the currency associated with this object."
+        currency_name:
+          type: string
+          format: string
+          example: EUR
+          description: "The currency name of the currency associated with this object."
         currency_code:
           type: string
           format: string
-          example: "EUR"
-          description: "This is the account's currency code (if set, see `object_has_currency_setting`). If the account's currency is not set, it will be the same as the primary currency."
+          example: EUR
+          description: "The currency code of the currency associated with this object."
         currency_symbol:
           type: string
           format: string
           example: "$"
           readOnly: true
-          description: "This is the account's currency symbol (if set, see `object_has_currency_setting`). If the account's currency is not set, it will be the same as the primary currency."
         currency_decimal_places:
           type: integer
           format: int32
           example: 2
           readOnly: true
-          description: "This is the account's currency number of decimal places (if set, see `object_has_currency_setting`). If the account's currency is not set, it will be the same as the primary currency."
         primary_currency_id:
           type: string
           format: string
-          example: "12"
+          example: "5"
+          description: "The currency ID of the administration's primary currency."
           readOnly: true
-          nullable: true
-          description: "Returns the primary currency ID of the administration. This currency is used as the currency for all `pc_*` amount and balance fields of this account."
+        primary_currency_name:
+          type: string
+          format: string
+          example: EUR
+          readOnly: true
+          description: "The currency name of the administration's primary currency."
         primary_currency_code:
           type: string
           format: string
-          example: "EUR"
-          nullable: true
-          description: "Returns the primary currency code of the administration. This currency is used as the currency for all `pc_*` amount and balance fields of this account."
+          example: EUR
+          readOnly: true
+          description: "The currency code of the administration's primary currency."
         primary_currency_symbol:
           type: string
           format: string
           example: "$"
           readOnly: true
-          nullable: true
-          description: "See the other `primary_*` fields."
+          description: "The currency symbol of the administration's primary currency."
         primary_currency_decimal_places:
           type: integer
           format: int32
           example: 2
           readOnly: true
-          nullable: true
-          description: "See the other `primary_*` fields."
+          description: "The currency decimal places of the administration's primary currency."
         current_balance:
           type: string
           format: amount
@@ -17429,16 +17434,27 @@ components:
           format: date-time
           example: "2018-09-17T12:46:47+01:00"
           readOnly: true
+        object_has_currency_setting:
+          type: boolean
+          format: boolean
+          example: true
+          readOnly: true
+          description: "Indicates whether the object has a currency setting. If false, the object uses the administration's primary currency."
         currency_id:
           type: string
           format: string
           example: "5"
-          description: The currency ID of this available budget.
+          description: "The currency ID of the currency associated with this object."
+        currency_name:
+          type: string
+          format: string
+          example: EUR
+          description: "The currency name of the currency associated with this object."
         currency_code:
           type: string
           format: string
           example: EUR
-          description: Currency code of this available budget.
+          description: "The currency code of the currency associated with this object."
         currency_symbol:
           type: string
           format: string
@@ -17455,6 +17471,12 @@ components:
           example: "5"
           description: "The currency ID of the administration's primary currency."
           readOnly: true
+        primary_currency_name:
+          type: string
+          format: string
+          example: EUR
+          readOnly: true
+          description: "The currency name of the administration's primary currency."
         primary_currency_code:
           type: string
           format: string
@@ -17541,15 +17563,27 @@ components:
           format: string
           example: "Rent"
           description: "The name of the subscription."
+        object_has_currency_setting:
+          type: boolean
+          format: boolean
+          example: true
+          readOnly: true
+          description: "Indicates whether the object has a currency setting. If false, the object uses the administration's primary currency."
         currency_id:
           type: string
           format: string
           example: "5"
-          description: The ID of the currency used in this subscription.
+          description: "The currency ID of the currency associated with this object."
+        currency_name:
+          type: string
+          format: string
+          example: EUR
+          description: "The currency name of the currency associated with this object."
         currency_code:
           type: string
           format: string
           example: EUR
+          description: "The currency code of the currency associated with this object."
         currency_symbol:
           type: string
           format: string
@@ -17564,26 +17598,32 @@ components:
           type: string
           format: string
           example: "5"
+          description: "The currency ID of the administration's primary currency."
           readOnly: true
-          description: "The administration's primary currency ID."
+        primary_currency_name:
+          type: string
+          format: string
+          example: EUR
+          readOnly: true
+          description: "The currency name of the administration's primary currency."
         primary_currency_code:
           type: string
           format: string
           example: EUR
           readOnly: true
-          description: "The administration's primary currency code."
+          description: "The currency code of the administration's primary currency."
         primary_currency_symbol:
           type: string
           format: string
           example: "$"
           readOnly: true
-          description: "The administration's primary currency symbol."
+          description: "The currency symbol of the administration's primary currency."
         primary_currency_decimal_places:
           type: integer
           format: int32
           example: 2
           readOnly: true
-          description: "The administration's primary currency decimal places."
+          description: "The currency decimal places of the administration's primary currency."
         amount_min:
           type: string
           format: amount
@@ -18126,13 +18166,8 @@ components:
           nullable: true
         auto_budget_period:
           $ref: '#/components/schemas/AutoBudgetPeriod'
-    BudgetLimit:
+    BudgetLimitProperties:
       type: object
-      required:
-        - amount
-        - start
-        - end
-        - budget_id
       properties:
         created_at:
           type: string
@@ -18154,21 +18189,33 @@ components:
           format: date-time
           example: "2018-09-17T12:46:47+01:00"
           description: End date of the budget limit.
+        budget_id:
+          type: string
+          format: string
+          example: "23"
+          description: The budget ID of the associated budget.
+          readOnly: true
+        object_has_currency_setting:
+          type: boolean
+          format: boolean
+          example: true
+          readOnly: true
+          description: "Indicates whether the object has a currency setting. If false, the object uses the administration's primary currency."
         currency_id:
           type: string
           format: string
           example: "5"
-          description: Use either currency_id or currency_code. Defaults to the user's default currency.
+          description: "The currency ID of the currency associated with this object."
+        currency_name:
+          type: string
+          format: string
+          example: EUR
+          description: "The currency name of the currency associated with this object."
         currency_code:
           type: string
           format: string
           example: EUR
-          description: Use either currency_id or currency_code. Defaults to the user's default currency.
-        currency_name:
-          type: string
-          format: string
-          example: "Euro"
-          readOnly: true
+          description: "The currency code of the currency associated with this object."
         currency_symbol:
           type: string
           format: string
@@ -18183,32 +18230,32 @@ components:
           type: string
           format: string
           example: "5"
+          description: "The currency ID of the administration's primary currency."
           readOnly: true
-          description: "The administration's primary currency ID."
+        primary_currency_name:
+          type: string
+          format: string
+          example: EUR
+          readOnly: true
+          description: "The currency name of the administration's primary currency."
         primary_currency_code:
           type: string
           format: string
           example: EUR
           readOnly: true
-          description: "The administration's primary currency code."
+          description: "The currency code of the administration's primary currency."
         primary_currency_symbol:
           type: string
           format: string
           example: "$"
           readOnly: true
-          description: "The administration's primary currency symbol."
+          description: "The currency symbol of the administration's primary currency."
         primary_currency_decimal_places:
           type: integer
           format: int32
           example: 2
           readOnly: true
-          description: "The administration's primary currency decimal places."
-        budget_id:
-          type: string
-          format: string
-          example: "23"
-          description: The budget ID of the associated budget.
-          readOnly: true
+          description: "The currency decimal places of the administration's primary currency."
         period:
           type: string
           format: string
@@ -18285,6 +18332,127 @@ components:
           type: string
           format: amount
           example: "123.45"
+        notes:
+          type: string
+          format: string
+          example: "Some example notes"
+          nullable: true
+          description: Some notes for this specific budget limit.
+    BudgetLimitUpdate:
+      type: object
+      properties:
+        created_at:
+          type: string
+          format: date-time
+          example: "2018-09-17T12:46:47+01:00"
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          example: "2018-09-17T12:46:47+01:00"
+          readOnly: true
+        start:
+          type: string
+          format: date-time
+          example: "2018-09-17T12:46:47+01:00"
+          description: Start date of the budget limit.
+        end:
+          type: string
+          format: date-time
+          example: "2018-09-17T12:46:47+01:00"
+          description: End date of the budget limit.
+        budget_id:
+          type: string
+          format: string
+          example: "23"
+          description: The budget ID of the associated budget.
+          readOnly: true
+        object_has_currency_setting:
+          type: boolean
+          format: boolean
+          example: true
+          readOnly: true
+          description: "Indicates whether the object has a currency setting. If false, the object uses the administration's primary currency."
+        currency_id:
+          type: string
+          format: string
+          example: "5"
+          description: "The currency ID of the currency associated with this object."
+        currency_name:
+          type: string
+          format: string
+          example: EUR
+          description: "The currency name of the currency associated with this object."
+        currency_code:
+          type: string
+          format: string
+          example: EUR
+          description: "The currency code of the currency associated with this object."
+        currency_symbol:
+          type: string
+          format: string
+          example: "$"
+          readOnly: true
+        currency_decimal_places:
+          type: integer
+          format: int32
+          example: 2
+          readOnly: true
+        primary_currency_id:
+          type: string
+          format: string
+          example: "5"
+          description: "The currency ID of the administration's primary currency."
+          readOnly: true
+        primary_currency_name:
+          type: string
+          format: string
+          example: EUR
+          readOnly: true
+          description: "The currency name of the administration's primary currency."
+        primary_currency_code:
+          type: string
+          format: string
+          example: EUR
+          readOnly: true
+          description: "The currency code of the administration's primary currency."
+        primary_currency_symbol:
+          type: string
+          format: string
+          example: "$"
+          readOnly: true
+          description: "The currency symbol of the administration's primary currency."
+        primary_currency_decimal_places:
+          type: integer
+          format: int32
+          example: 2
+          readOnly: true
+          description: "The currency decimal places of the administration's primary currency."
+        period:
+          type: string
+          format: string
+          example: "monthly"
+          nullable: true
+          readOnly: true
+          description: Period of the budget limit. Only used when auto-generated by auto-budget.
+        amount:
+          type: string
+          format: amount
+          example: "123.45"
+        native_amount:
+          type: string
+          format: amount
+          example: "123.45"
+          nullable: true
+          readOnly: true
+          description: "The amount of this budget limit in the user's primary currency, if the original amount is in a different currency."
+        spent:
+          type: string
+          format: amount
+          example: "-1012.12"
+          nullable: true
+          readOnly: true
+          description: "Will be in the primary currency if this is turned on by the user."
         notes:
           type: string
           format: string
