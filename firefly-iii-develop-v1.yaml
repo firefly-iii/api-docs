@@ -13,7 +13,7 @@ info:
     <br><br>
     To learn more about the idiosyncrasies of this API, please read about the API in the [Firefly III API documentation](https://docs.firefly-iii.org/references/firefly-iii/api/).
     <br><br>
-    <small>This file was last generated on 2025-08-03 @ 16:09:38 (UTC)</small>
+    <small>This file was last generated on 2025-08-03 @ 18:29:15 (UTC)</small>
   version: "develop"
   contact:
     name: James Cole
@@ -16383,7 +16383,7 @@ components:
           format: string
           example: "2"
         attributes:
-          $ref: '#/components/schemas/Budget'
+          $ref: '#/components/schemas/BudgetProperties'
     BudgetSingle:
       type: object
       required:
@@ -17974,7 +17974,7 @@ components:
           example: "Example Group"
           nullable: true
           description: The name of the group. NULL if no group.
-    Budget:
+    BudgetProperties:
       type: object
       required:
         - name
@@ -18009,72 +18009,89 @@ components:
           readOnly: true
         auto_budget_type:
           $ref: '#/components/schemas/AutoBudgetType'
+        auto_budget_period:
+          $ref: '#/components/schemas/AutoBudgetPeriod'
+        object_has_currency_setting:
+          type: boolean
+          format: boolean
+          example: true
+          readOnly: true
+          description: "Indicates whether the budget has a currency setting. If it is false, the budget assumes the administration's currency. If true, it is following the auto budget settings."
         currency_id:
           type: string
           format: string
-          example: "12"
-          nullable: true
-          description: "The currency ID that is part of the budget's auto-budget settings, if any."
+          example: "5"
+          description: "The currency ID of the currency associated with this object."
+        currency_name:
+          type: string
+          format: string
+          example: EUR
+          description: "The currency name of the currency associated with this object."
         currency_code:
           type: string
           format: string
-          example: "EUR"
-          nullable: true
-          description: "The currency code that is part of the budget's auto-budget settings, if any."
+          example: EUR
+          description: "The currency code of the currency associated with this object."
         currency_symbol:
           type: string
           format: string
           example: "$"
           readOnly: true
-          nullable: true
-          description: "The currency symbol that is part of the budget's auto-budget settings, if any."
         currency_decimal_places:
           type: integer
           format: int32
           example: 2
           readOnly: true
-          nullable: true
-          description: "The currency decimal places that is part of the budget's auto-budget settings, if any."
         primary_currency_id:
           type: string
           format: string
           example: "5"
+          description: "The currency ID of the administration's primary currency."
           readOnly: true
-          description: "The administration's primary currency ID."
+        primary_currency_name:
+          type: string
+          format: string
+          example: EUR
+          readOnly: true
+          description: "The currency name of the administration's primary currency."
         primary_currency_code:
           type: string
           format: string
           example: EUR
           readOnly: true
-          description: "The administration's primary currency code."
+          description: "The currency code of the administration's primary currency."
         primary_currency_symbol:
           type: string
           format: string
           example: "$"
           readOnly: true
-          description: "The administration's primary currency symbol."
+          description: "The currency symbol of the administration's primary currency."
         primary_currency_decimal_places:
           type: integer
           format: int32
           example: 2
           readOnly: true
-          description: "The administration's primary currency decimal places."
+          description: "The currency decimal places of the administration's primary currency."
         auto_budget_amount:
           type: string
           format: amount
           example: "-1012.12"
           nullable: true
           description: "The amount for the auto-budget, if set."
-        native_auto_budget_amount:
+        pc_auto_budget_amount:
           type: string
           format: amount
           example: "-1012.12"
           nullable: true
-          description: "The native amount for the auto-budget, if set."
-        auto_budget_period:
-          $ref: '#/components/schemas/AutoBudgetPeriod'
+          description: "The amount for the auto-budget, if set in the primary currency of the administration."
         spent:
           description: "Information on how much was spent in this budget. Is only filled in when the start and end date are submitted."
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/BudgetSpent'
+        pc_spent:
+          description: "Information on how much was spent in this budget. Is only filled in when the start and end date are submitted. It is converted to the primary currency of the administration."
           type: array
           readOnly: true
           items:
