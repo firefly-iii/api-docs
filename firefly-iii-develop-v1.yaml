@@ -13,7 +13,7 @@ info:
     <br><br>
     To learn more about the idiosyncrasies of this API, please read about the API in the [Firefly III API documentation](https://docs.firefly-iii.org/references/firefly-iii/api/).
     <br><br>
-    <small>This file was last generated on 2025-08-05 @ 17:06:30 (UTC)</small>
+    <small>This file was last generated on 2025-08-05 @ 17:08:22 (UTC)</small>
   version: "develop"
   contact:
     name: James Cole
@@ -18526,20 +18526,6 @@ components:
           format: amount
           example: "123.45"
           description: The amount earned.
-    CategoryPost:
-      type: object
-      required:
-        - name
-      properties:
-        name:
-          type: string
-          format: string
-          example: "Lunch"
-        notes:
-          type: string
-          format: string
-          nullable: true
-          example: "Some example notes"
     CategoryProperties:
       type: object
       required:
@@ -18661,6 +18647,20 @@ components:
           format: amount
           example: "-12423.45"
           description: The amount spent.
+    CategoryStore:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+          format: string
+          example: "Lunch"
+        notes:
+          type: string
+          format: string
+          nullable: true
+          example: "Some example notes"
     CategoryTransferred:
       type: object
       properties:
