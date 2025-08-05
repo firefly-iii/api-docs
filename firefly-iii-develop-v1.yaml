@@ -13,7 +13,7 @@ info:
     <br><br>
     To learn more about the idiosyncrasies of this API, please read about the API in the [Firefly III API documentation](https://docs.firefly-iii.org/references/firefly-iii/api/).
     <br><br>
-    <small>This file was last generated on 2025-08-05 @ 17:08:22 (UTC)</small>
+    <small>This file was last generated on 2025-08-05 @ 17:46:09 (UTC)</small>
   version: "develop"
   contact:
     name: James Cole
@@ -16519,7 +16519,7 @@ components:
           format: string
           example: "2"
         attributes:
-          $ref: '#/components/schemas/PiggyBankEvent'
+          $ref: '#/components/schemas/PiggyBankEventProperties'
         links:
           $ref: '#/components/schemas/ObjectLink'
     PiggyBankRead:
@@ -19249,7 +19249,7 @@ components:
           example: "Example Group"
           nullable: true
           description: The name of the group. NULL if no group.
-    PiggyBankEvent:
+    PiggyBankEventProperties:
       type: object
       properties:
         created_at:
