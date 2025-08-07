@@ -13,7 +13,7 @@ info:
     <br><br>
     To learn more about the idiosyncrasies of this API, please read about the API in the [Firefly III API documentation](https://docs.firefly-iii.org/references/firefly-iii/api/).
     <br><br>
-    <small>This file was last generated on 2025-08-05 @ 17:48:03 (UTC)</small>
+    <small>This file was last generated on 2025-08-07 @ 05:51:44 (UTC)</small>
   version: "develop"
   contact:
     name: James Cole
@@ -15605,27 +15605,27 @@ components:
           type: string
           format: string
           example: "2"
-          description: ID for the currency used by this account. Even if "convertToNative" is on, the account currency ID is displayed here.
+          description: ID for the currency used by this account. Even if "convertToPrimary" is on, the account currency ID is displayed here.
         account_currency_name:
           type: string
           format: string
           example: "US Dollar"
-          description: Name for the currency used by this account. Even if "convertToNative" is on, the account currency name is displayed here.
+          description: Name for the currency used by this account. Even if "convertToPrimary" is on, the account currency name is displayed here.
         account_currency_code:
           type: string
           format: string
           example: "USD"
-          description: Code for the currency used by this account. Even if "convertToNative" is on, the account currency code is displayed here.
+          description: Code for the currency used by this account. Even if "convertToPrimary" is on, the account currency code is displayed here.
         account_currency_symbol:
           type: string
           format: string
           example: "$"
-          description: Code for the currency used by this account. Even if "convertToNative" is on, the account currency code is displayed here.
+          description: Code for the currency used by this account. Even if "convertToPrimary" is on, the account currency code is displayed here.
         account_currency_decimal_places:
           type: integer
           format: int32
           example: 2
-          description: Number of decimal places for the currency used by this account. Even if "convertToNative" is on, the account currency code is displayed here.
+          description: Number of decimal places for the currency used by this account. Even if "convertToPrimary" is on, the account currency code is displayed here.
     AutocompleteBill:
       type: object
       required:
@@ -16263,134 +16263,6 @@ components:
           format: string
           example: "EUR"
           description: "The currency code of the expenses listed for this account."
-    AttachmentRead:
-      type: object
-      required:
-        - type
-        - id
-        - attributes
-        - links
-      properties:
-        type:
-          type: string
-          format: string
-          example: "attachments"
-          description: "Immutable value"
-        id:
-          type: string
-          format: string
-          example: "2"
-        attributes:
-          $ref: '#/components/schemas/Attachment'
-        links:
-          $ref: '#/components/schemas/ObjectLink'
-    AttachmentSingle:
-      type: object
-      required:
-        - data
-      properties:
-        data:
-          $ref: '#/components/schemas/AttachmentRead'
-    AvailableBudgetRead:
-      type: object
-      required:
-        - type
-        - id
-        - attributes
-      properties:
-        type:
-          type: string
-          format: string
-          example: "available_budgets"
-          description: "Immutable value"
-        id:
-          type: string
-          format: string
-          example: "2"
-        attributes:
-          $ref: '#/components/schemas/AvailableBudgetProperties'
-    AvailableBudgetSingle:
-      type: object
-      required:
-        - data
-      properties:
-        data:
-          $ref: '#/components/schemas/AvailableBudgetRead'
-    BillRead:
-      type: object
-      required:
-        - type
-        - id
-        - attributes
-      properties:
-        type:
-          type: string
-          format: string
-          example: "bills"
-          description: "Immutable value"
-        id:
-          type: string
-          format: string
-          example: "2"
-        attributes:
-          $ref: '#/components/schemas/BillProperties'
-    BillSingle:
-      type: object
-      required:
-        - data
-      properties:
-        data:
-          $ref: '#/components/schemas/BillRead'
-    BudgetLimitRead:
-      type: object
-      required:
-        - type
-        - id
-        - attributes
-      properties:
-        type:
-          type: string
-          format: string
-          example: "budget_limits"
-          description: "Immutable value"
-        id:
-          type: string
-          format: string
-          example: "2"
-        attributes:
-          $ref: '#/components/schemas/BudgetLimitProperties'
-    BudgetLimitSingle:
-      type: object
-      required:
-        - data
-      properties:
-        data:
-          $ref: '#/components/schemas/BudgetLimitRead'
-    BudgetRead:
-      type: object
-      required:
-        - type
-        - id
-        - attributes
-      properties:
-        type:
-          type: string
-          format: string
-          example: "budgets"
-          description: "Immutable value"
-        id:
-          type: string
-          format: string
-          example: "2"
-        attributes:
-          $ref: '#/components/schemas/BudgetProperties'
-    BudgetSingle:
-      type: object
-      required:
-        - data
-      properties:
-        data:
-          $ref: '#/components/schemas/BudgetRead'
     CategoryRead:
       type: object
       required:
@@ -16540,7 +16412,7 @@ components:
           format: string
           example: "2"
         attributes:
-          $ref: '#/components/schemas/PiggyBank'
+          $ref: '#/components/schemas/PiggyBankProperties'
         links:
           $ref: '#/components/schemas/ObjectLink'
     PiggyBankSingle:
@@ -16863,7 +16735,6 @@ components:
           format: boolean
           example: false
           default: true
-          description: "If omitted, defaults to true."
         order:
           type: integer
           format: int32
@@ -16878,6 +16749,25 @@ components:
           $ref: '#/components/schemas/ShortAccountTypeProperty'
         account_role:
           $ref: '#/components/schemas/AccountRoleProperty'
+        object_group_id:
+          type: string
+          format: string
+          example: "5"
+          nullable: true
+          description: The group ID of the group this object is part of. NULL if no group.
+        object_group_order:
+          type: integer
+          format: int32
+          example: 5
+          readOnly: true
+          nullable: true
+          description: The order of the group. At least 1, for the highest sorting.
+        object_group_title:
+          type: string
+          format: string
+          example: "Example Group"
+          nullable: true
+          description: The name of the group. NULL if no group.
         object_has_currency_setting:
             type: boolean
             format: boolean
@@ -17041,7 +16931,6 @@ components:
           format: boolean
           example: true
           default: true
-          description: "If omitted, defaults to true."
         longitude:
           type: number
           format: double
@@ -17060,6 +16949,12 @@ components:
           example: 6
           nullable: true
           description: "Zoom level for the map, if drawn. This to set the box right. Unfortunately this is a proprietary value because each map provider has different zoom levels."
+        last_activity:
+          nullable: true
+          type: string
+          format: date-time
+          example: "2018-09-17T12:46:47+01:00"
+          description: "Last activity of the account."
     AccountRead:
       type: object
       required:
@@ -17308,12 +17203,8 @@ components:
           example: 6
           nullable: true
           description: Zoom level for the map, if drawn. This to set the box right. Unfortunately this is a proprietary value because each map provider has different zoom levels. If omitted, the existing location will be kept. If submitted as NULL, the current location will be removed.
-    Attachment:
+    AttachmentProperties:
       type: object
-      required:
-        - filename
-        - attachable_type
-        - attachable_id
       properties:
         created_at:
           type: string
@@ -17332,16 +17223,11 @@ components:
           format: string
           example: "134"
           description: ID of the model this attachment is linked to.
-        md5:
-          type: string
-          format: string
-          example: "0c3f95f34370baa88f9fd9a671fea305"
-          description: MD5 hash of the file for basic duplicate detection. This field is deprecated.
         hash:
           type: string
           format: string
           example: "0c3f95f34370baa88f9fd9a671fea305"
-          description: Hash of the file for basic duplicate detection. It's still md5 lol.
+          description: Hash of the file for basic duplicate detection.
         filename:
           type: string
           format: string
@@ -17374,6 +17260,34 @@ components:
           format: int32
           example: 48211
           readOnly: true
+    AttachmentRead:
+      type: object
+      required:
+        - type
+        - id
+        - attributes
+        - links
+      properties:
+        type:
+          type: string
+          format: string
+          example: "attachments"
+          description: "Immutable value"
+        id:
+          type: string
+          format: string
+          example: "2"
+        attributes:
+          $ref: '#/components/schemas/AttachmentProperties'
+        links:
+          $ref: '#/components/schemas/ObjectLink'
+    AttachmentSingle:
+      type: object
+      required:
+        - data
+      properties:
+        data:
+          $ref: '#/components/schemas/AttachmentRead'
     AttachmentStore:
       type: object
       required:
@@ -17419,10 +17333,6 @@ components:
           nullable: true
     AvailableBudgetProperties:
       type: object
-      required:
-        - amount
-        - start
-        - end
       properties:
         created_at:
           type: string
@@ -17539,14 +17449,33 @@ components:
           readOnly: true
           description: |
             The amount spent outside of budgets in the primary currency (pc) of this administration.
-    BillProperties:
+    AvailableBudgetRead:
       type: object
       required:
-        - name
-        - amount_min
-        - amount_max
-        - date
-        - repeat_freq
+        - type
+        - id
+        - attributes
+      properties:
+        type:
+          type: string
+          format: string
+          example: "available_budgets"
+          description: "Immutable value"
+        id:
+          type: string
+          format: string
+          example: "2"
+        attributes:
+          $ref: '#/components/schemas/AvailableBudgetProperties'
+    AvailableBudgetSingle:
+      type: object
+      required:
+        - data
+      properties:
+        data:
+          $ref: '#/components/schemas/AvailableBudgetRead'
+    BillProperties:
+      type: object
       properties:
         created_at:
           type: string
@@ -17702,8 +17631,8 @@ components:
           type: integer
           format: int32
           example: 5
-          nullable: true
           readOnly: true
+          nullable: true
           description: The order of the group. At least 1, for the highest sorting.
         object_group_title:
           type: string
@@ -17747,11 +17676,17 @@ components:
                 type: string
                 format: string
                 example: "5"
-                description: The ID of the currency used in this transaction.
+                description: "The currency ID of the currency associated with this object."
+              currency_name:
+                type: string
+                format: string
+                example: EUR
+                description: "The currency name of the currency associated with this object."
               currency_code:
                 type: string
                 format: string
                 example: EUR
+                description: "The currency code of the currency associated with this object."
               currency_symbol:
                 type: string
                 format: string
@@ -17766,26 +17701,32 @@ components:
                 type: string
                 format: string
                 example: "5"
+                description: "The currency ID of the administration's primary currency."
                 readOnly: true
-                description: "The administration's primary currency ID."
+              primary_currency_name:
+                type: string
+                format: string
+                example: EUR
+                readOnly: true
+                description: "The currency name of the administration's primary currency."
               primary_currency_code:
                 type: string
                 format: string
                 example: EUR
                 readOnly: true
-                description: "The administration's primary currency code."
+                description: "The currency code of the administration's primary currency."
               primary_currency_symbol:
                 type: string
                 format: string
                 example: "$"
                 readOnly: true
-                description: "The administration's primary currency symbol."
+                description: "The currency symbol of the administration's primary currency."
               primary_currency_decimal_places:
                 type: integer
                 format: int32
                 example: 2
                 readOnly: true
-                description: "The administration's primary currency decimal places."
+                description: "The currency decimal places of the administration's primary currency."
               amount:
                 type: string
                 format: amount
@@ -17830,6 +17771,31 @@ components:
           description: "Formatted (locally) when the subscription is due."
           nullable: true
           readOnly: true
+    BillRead:
+      type: object
+      required:
+        - type
+        - id
+        - attributes
+      properties:
+        type:
+          type: string
+          format: string
+          example: "bills"
+          description: "Immutable value"
+        id:
+          type: string
+          format: string
+          example: "2"
+        attributes:
+          $ref: '#/components/schemas/BillProperties'
+    BillSingle:
+      type: object
+      required:
+        - data
+      properties:
+        data:
+          $ref: '#/components/schemas/BillRead'
     BillStore:
       type: object
       required:
@@ -17989,34 +17955,53 @@ components:
           format: date-time
           example: "2018-09-17T12:46:47+01:00"
           readOnly: true
-        name:
-          type: string
-          format: string
-          example: "Bills"
         active:
           type: boolean
           format: boolean
           example: false
-        notes:
+        name:
           type: string
           format: string
-          example: "Some notes"
-          nullable: true
+          example: "Bills"
         order:
           type: integer
           format: int32
           example: 5
           readOnly: true
+        notes:
+          type: string
+          format: string
+          example: "Some notes"
+          nullable: true
         auto_budget_type:
           $ref: '#/components/schemas/AutoBudgetType'
         auto_budget_period:
           $ref: '#/components/schemas/AutoBudgetPeriod'
+        object_group_id:
+          type: string
+          format: string
+          example: "5"
+          nullable: true
+          description: The group ID of the group this object is part of. NULL if no group.
+        object_group_order:
+          type: integer
+          format: int32
+          example: 5
+          readOnly: true
+          nullable: true
+          description: The order of the group. At least 1, for the highest sorting.
+        object_group_title:
+          type: string
+          format: string
+          example: "Example Group"
+          nullable: true
+          description: The name of the group. NULL if no group.
         object_has_currency_setting:
           type: boolean
           format: boolean
           example: true
           readOnly: true
-          description: "Indicates whether the budget has a currency setting. If it is false, the budget assumes the administration's currency. If true, it is following the auto budget settings."
+          description: "Indicates whether the object has a currency setting. If false, the object uses the administration's primary currency."
         currency_id:
           type: string
           format: string
@@ -18096,6 +18081,56 @@ components:
           readOnly: true
           items:
             $ref: '#/components/schemas/BudgetSpent'
+    BudgetRead:
+      type: object
+      required:
+        - type
+        - id
+        - attributes
+      properties:
+        type:
+          type: string
+          format: string
+          example: "budgets"
+          description: "Immutable value"
+        id:
+          type: string
+          format: string
+          example: "2"
+        attributes:
+          $ref: '#/components/schemas/BudgetProperties'
+    BudgetSingle:
+      type: object
+      required:
+        - data
+      properties:
+        data:
+          $ref: '#/components/schemas/BudgetRead'
+    BudgetSpent:
+      type: object
+      properties:
+        sum:
+          type: string
+          format: amount
+          example: "123.45"
+          description: "The amount spent. This is in the administration's primary currency, if the conversion is turned on."
+        currency_id:
+          type: string
+          format: string
+          example: "5"
+        currency_code:
+          type: string
+          format: string
+          example: "USD"
+        currency_symbol:
+          type: string
+          format: string
+          example: "$"
+        currency_decimal_places:
+          type: integer
+          format: int32
+          example: 2
+          description: Number of decimals supported by the currency
     BudgetStore:
       type: object
       required:
@@ -18284,7 +18319,7 @@ components:
           type: string
           format: amount
           example: "123.45"
-        native_amount:
+        pc_amount:
           type: string
           format: amount
           example: "123.45"
@@ -18304,6 +18339,31 @@ components:
           example: "Some example notes"
           nullable: true
           description: Some notes for this specific budget limit.
+    BudgetLimitRead:
+      type: object
+      required:
+        - type
+        - id
+        - attributes
+      properties:
+        type:
+          type: string
+          format: string
+          example: "budget_limits"
+          description: "Immutable value"
+        id:
+          type: string
+          format: string
+          example: "2"
+        attributes:
+          $ref: '#/components/schemas/BudgetLimitProperties'
+    BudgetLimitSingle:
+      type: object
+      required:
+        - data
+      properties:
+        data:
+          $ref: '#/components/schemas/BudgetLimitRead'
     BudgetLimitStore:
       type: object
       required:
@@ -18476,31 +18536,6 @@ components:
           example: "Some example notes"
           nullable: true
           description: Some notes for this specific budget limit.
-    BudgetSpent:
-      type: object
-      properties:
-        sum:
-          type: string
-          format: amount
-          example: "123.45"
-          description: "The amount spent. This is in the administration's primary currency, if the conversion is turned on."
-        currency_id:
-          type: string
-          format: string
-          example: "5"
-        currency_code:
-          type: string
-          format: string
-          example: "USD"
-        currency_symbol:
-          type: string
-          format: string
-          example: "$"
-        currency_decimal_places:
-          type: integer
-          format: int32
-          example: 2
-          description: Number of decimals supported by the currency
     CategoryEarned:
       type: object
       properties:
@@ -18933,132 +18968,10 @@ components:
           type: string
           format: uri
           example: "https://demo.firefly-iii.org/api/v1/OBJECT?&page=12"
-    PiggyBank:
-      type: object
-      required:
-        - name
-        - account_id
-        - target_amount
-      properties:
-        created_at:
-          type: string
-          format: date-time
-          example: "2018-09-17T12:46:47+01:00"
-          readOnly: true
-        updated_at:
-          type: string
-          format: date-time
-          example: "2018-09-17T12:46:47+01:00"
-          readOnly: true
-        name:
-          type: string
-          format: string
-          example: "New digital camera"
-        accounts:
-          type: array
-          items:
-            $ref: '#/components/schemas/PiggyBankAccountRead'
-        currency_id:
-          type: string
-          format: string
-          example: "5"
-          readOnly: true
-        currency_code:
-          type: string
-          format: string
-          example: "USD"
-          readOnly: true
-        currency_symbol:
-          type: string
-          format: string
-          example: "$"
-          readOnly: true
-        currency_decimal_places:
-          type: integer
-          format: int32
-          example: 2
-          description: Number of decimals supported by the currency
-          readOnly: true
-        target_amount:
-          type: string
-          format: amount
-          nullable: true
-          example: "123.45"
-        percentage:
-          type: number
-          format: float
-          nullable: true
-          example: 12.5
-          readOnly: true
-        current_amount:
-          type: string
-          format: amount
-          example: "123.45"
-        left_to_save:
-          type: string
-          nullable: true
-          format: string
-          example: "700.00"
-          readOnly: true
-        save_per_month:
-          type: string
-          nullable: true
-          format: string
-          example: "12.45"
-          readOnly: true
-        start_date:
-          type: string
-          format: date
-          example: "2018-09-17"
-          description: "The date you started with this piggy bank."
-        target_date:
-          type: string
-          format: date
-          nullable: true
-          example: "2018-09-17"
-          description: "The date you intend to finish saving money."
-        order:
-          type: integer
-          format: int32
-          example: 5
-        active:
-          type: boolean
-          format: boolean
-          example: true
-          readOnly: true
-        notes:
-          type: string
-          format: string
-          nullable: true
-          example: "Some notes"
-        object_group_id:
-          type: string
-          format: string
-          example: "5"
-          nullable: true
-          description: The group ID of the group this object is part of. NULL if no group.
-        object_group_order:
-          type: integer
-          format: int32
-          example: 5
-          readOnly: true
-          nullable: true
-          description: The order of the group. At least 1, for the highest sorting.
-        object_group_title:
-          type: string
-          format: string
-          example: "Example Group"
-          nullable: true
-          description: The name of the group. NULL if no group.
     PiggyBankAccountRead:
       type: object
-      required:
-        - id
-        - name
-        - current_amount
-        - native_current_amount
       properties:
-        id:
+        account_id:
           type: string
           format: string
           example: "3"
@@ -19075,11 +18988,11 @@ components:
           type: string
           format: amount
           example: "123.45"
-        native_current_amount:
+        pc_current_amount:
           type: string
           format: amount
           example: "123.45"
-          description: "If convertToNative is on, this will show the amount in the primary currency."
+          description: "If convertToPrimary is on, this will show the amount in the primary currency."
     PiggyBankAccountStore:
       type: object
       required:
@@ -19125,6 +19038,185 @@ components:
           nullable: true
           example: "123.45"
           description: "The amount saved currently."
+    PiggyBankProperties:
+      type: object
+      required:
+        - name
+        - account_id
+        - target_amount
+      properties:
+        created_at:
+          type: string
+          format: date-time
+          example: "2018-09-17T12:46:47+01:00"
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          example: "2018-09-17T12:46:47+01:00"
+          readOnly: true
+        name:
+          type: string
+          format: string
+          example: "New digital camera"
+        percentage:
+          type: number
+          format: int32
+          nullable: true
+          example: 12
+          readOnly: true
+          description: "The percentage of the target amount that has been saved, if a target amount is set."
+        start_date:
+          type: string
+          format: date-time
+          example: "2018-09-17T12:46:47+01:00"
+          description: "The date you started with this piggy bank."
+        target_date:
+          type: string
+          nullable: true
+          format: date-time
+          example: "2018-09-17T12:46:47+01:00"
+          description: "The date you intend to finish saving money."
+        order:
+          type: integer
+          format: int32
+          example: 5
+        active:
+          type: boolean
+          format: boolean
+          example: true
+          readOnly: true
+        notes:
+          type: string
+          format: string
+          nullable: true
+          example: "Some notes"
+        object_group_id:
+          type: string
+          format: string
+          example: "5"
+          nullable: true
+          description: The group ID of the group this object is part of. NULL if no group.
+        object_group_order:
+          type: integer
+          format: int32
+          example: 5
+          readOnly: true
+          nullable: true
+          description: The order of the group. At least 1, for the highest sorting.
+        object_group_title:
+          type: string
+          format: string
+          example: "Example Group"
+          nullable: true
+          description: The name of the group. NULL if no group.
+        accounts:
+          type: array
+          items:
+            $ref: '#/components/schemas/PiggyBankAccountRead'
+        object_has_currency_setting:
+          type: boolean
+          format: boolean
+          example: true
+          readOnly: true
+          description: "Indicates whether the object has a currency setting. If false, the object uses the administration's primary currency."
+        currency_id:
+          type: string
+          format: string
+          example: "5"
+          description: "The currency ID of the currency associated with this object."
+        currency_name:
+          type: string
+          format: string
+          example: EUR
+          description: "The currency name of the currency associated with this object."
+        currency_code:
+          type: string
+          format: string
+          example: EUR
+          description: "The currency code of the currency associated with this object."
+        currency_symbol:
+          type: string
+          format: string
+          example: "$"
+          readOnly: true
+        currency_decimal_places:
+          type: integer
+          format: int32
+          example: 2
+          readOnly: true
+        primary_currency_id:
+          type: string
+          format: string
+          example: "5"
+          description: "The currency ID of the administration's primary currency."
+          readOnly: true
+        primary_currency_name:
+          type: string
+          format: string
+          example: EUR
+          readOnly: true
+          description: "The currency name of the administration's primary currency."
+        primary_currency_code:
+          type: string
+          format: string
+          example: EUR
+          readOnly: true
+          description: "The currency code of the administration's primary currency."
+        primary_currency_symbol:
+          type: string
+          format: string
+          example: "$"
+          readOnly: true
+          description: "The currency symbol of the administration's primary currency."
+        primary_currency_decimal_places:
+          type: integer
+          format: int32
+          example: 2
+          readOnly: true
+          description: "The currency decimal places of the administration's primary currency."
+        target_amount:
+          type: string
+          format: amount
+          nullable: true
+          example: "123.45"
+        pc_target_amount:
+          type: string
+          format: amount
+          nullable: true
+          example: "123.45"
+          description: "The target amount in the primary currency of the administration."
+        current_amount:
+          type: string
+          format: amount
+          example: "123.45"
+        pc_current_amount:
+          type: string
+          format: amount
+          example: "123.45"
+          description: "The current amount in the primary currency of the administration."
+        left_to_save:
+          type: string
+          nullable: true
+          format: string
+          example: "700.00"
+        pc_left_to_save:
+          type: string
+          nullable: true
+          format: string
+          example: "700.00"
+        save_per_month:
+          type: string
+          nullable: true
+          format: string
+          example: "12.45"
+          readOnly: true
+        pc_save_per_month:
+          type: string
+          nullable: true
+          format: string
+          example: "12.45"
+          readOnly: true
     PiggyBankStore:
       type: object
       required:
