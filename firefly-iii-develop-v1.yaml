@@ -13,7 +13,7 @@ info:
     <br><br>
     To learn more about the idiosyncrasies of this API, please read about the API in the [Firefly III API documentation](https://docs.firefly-iii.org/references/firefly-iii/api/).
     <br><br>
-    <small>This file was last generated on 2025-08-07 @ 17:31:51 (UTC)</small>
+    <small>This file was last generated on 2025-08-11 @ 17:38:16 (UTC)</small>
   version: "develop"
   contact:
     name: James Cole
@@ -16782,7 +16782,7 @@ components:
         currency_name:
           type: string
           format: string
-          example: EUR
+          example: Euro
           description: "The currency name of the currency associated with this object."
         currency_code:
           type: string
@@ -16808,7 +16808,7 @@ components:
         primary_currency_name:
           type: string
           format: string
-          example: EUR
+          example: Euro
           readOnly: true
           description: "The currency name of the administration's primary currency."
         primary_currency_code:
@@ -17383,7 +17383,7 @@ components:
         currency_name:
           type: string
           format: string
-          example: EUR
+          example: Euro
           description: "The currency name of the currency associated with this object."
         currency_code:
           type: string
@@ -17409,7 +17409,7 @@ components:
         primary_currency_name:
           type: string
           format: string
-          example: EUR
+          example: Euro
           readOnly: true
           description: "The currency name of the administration's primary currency."
         primary_currency_code:
@@ -17531,7 +17531,7 @@ components:
         currency_name:
           type: string
           format: string
-          example: EUR
+          example: Euro
           description: "The currency name of the currency associated with this object."
         currency_code:
           type: string
@@ -17557,7 +17557,7 @@ components:
         primary_currency_name:
           type: string
           format: string
-          example: EUR
+          example: Euro
           readOnly: true
           description: "The currency name of the administration's primary currency."
         primary_currency_code:
@@ -17705,7 +17705,7 @@ components:
               currency_name:
                 type: string
                 format: string
-                example: EUR
+                example: Euro
                 description: "The currency name of the currency associated with this object."
               currency_code:
                 type: string
@@ -17731,7 +17731,7 @@ components:
               primary_currency_name:
                 type: string
                 format: string
-                example: EUR
+                example: Euro
                 readOnly: true
                 description: "The currency name of the administration's primary currency."
               primary_currency_code:
@@ -18035,7 +18035,7 @@ components:
         currency_name:
           type: string
           format: string
-          example: EUR
+          example: Euro
           description: "The currency name of the currency associated with this object."
         currency_code:
           type: string
@@ -18061,7 +18061,7 @@ components:
         primary_currency_name:
           type: string
           format: string
-          example: EUR
+          example: Euro
           readOnly: true
           description: "The currency name of the administration's primary currency."
         primary_currency_code:
@@ -18261,7 +18261,7 @@ components:
         currency_name:
           type: string
           format: string
-          example: EUR
+          example: Euro
           description: "The currency name of the currency associated with this object."
         currency_code:
           type: string
@@ -18287,7 +18287,7 @@ components:
         primary_currency_name:
           type: string
           format: string
-          example: EUR
+          example: Euro
           readOnly: true
           description: "The currency name of the administration's primary currency."
         primary_currency_code:
@@ -18463,7 +18463,7 @@ components:
         currency_name:
           type: string
           format: string
-          example: EUR
+          example: Euro
           description: "The currency name of the currency associated with this object."
         currency_code:
           type: string
@@ -18489,7 +18489,7 @@ components:
         primary_currency_name:
           type: string
           format: string
-          example: EUR
+          example: Euro
           readOnly: true
           description: "The currency name of the administration's primary currency."
         primary_currency_code:
@@ -18580,7 +18580,7 @@ components:
         primary_currency_name:
           type: string
           format: string
-          example: EUR
+          example: Euro
           readOnly: true
           description: "The currency name of the administration's primary currency."
         primary_currency_code:
@@ -19058,7 +19058,7 @@ components:
         currency_name:
           type: string
           format: string
-          example: EUR
+          example: Euro
           description: "The currency name of the currency associated with this object."
         currency_code:
           type: string
@@ -19084,7 +19084,7 @@ components:
         primary_currency_name:
           type: string
           format: string
-          example: EUR
+          example: Euro
           readOnly: true
           description: "The currency name of the administration's primary currency."
         primary_currency_code:
@@ -19304,7 +19304,7 @@ components:
         currency_name:
           type: string
           format: string
-          example: EUR
+          example: Euro
           description: "The currency name of the currency associated with this object."
         currency_code:
           type: string
@@ -19330,7 +19330,7 @@ components:
         primary_currency_name:
           type: string
           format: string
-          example: EUR
+          example: Euro
           readOnly: true
           description: "The currency name of the administration's primary currency."
         primary_currency_code:
@@ -19732,7 +19732,7 @@ components:
         currency_name:
           type: string
           format: string
-          example: EUR
+          example: Euro
           description: "The currency name of the currency associated with this object."
         currency_code:
           type: string
@@ -19758,7 +19758,7 @@ components:
         primary_currency_name:
           type: string
           format: string
-          example: EUR
+          example: Euro
           readOnly: true
           description: "The currency name of the administration's primary currency."
         primary_currency_code:
