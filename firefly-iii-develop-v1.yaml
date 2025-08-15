@@ -13,7 +13,7 @@ info:
     <br><br>
     To learn more about the idiosyncrasies of this API, please read about the API in the [Firefly III API documentation](https://docs.firefly-iii.org/references/firefly-iii/api/).
     <br><br>
-    <small>This file was last generated on 2025-08-15 @ 14:00:26 (Europe/Amsterdam)</small>
+    <small>This file was last generated on 2025-08-15 @ 14:01:47 (Europe/Amsterdam)</small>
   version: "develop"
   contact:
     name: James Cole
@@ -108,7 +108,7 @@ tags:
   description: These endpoints can be used to manage the user&#039;s webhooks and triggers
     them if necessary.
 paths:
-/v1/autocomplete/accounts:
+  /v1/autocomplete/accounts:
     get:
       tags:
         - autocomplete
@@ -194,7 +194,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AutocompleteAccountArray'
-/v1/autocomplete/bills:
+  /v1/autocomplete/bills:
     get:
       tags:
         - autocomplete
@@ -263,7 +263,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AutocompleteBillArray'
-/v1/autocomplete/budgets:
+  /v1/autocomplete/budgets:
     get:
       tags:
         - autocomplete
@@ -332,7 +332,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AutocompleteBudgetArray'
-/v1/autocomplete/categories:
+  /v1/autocomplete/categories:
     get:
       tags:
         - autocomplete
@@ -401,7 +401,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AutocompleteCategoryArray'
-/v1/autocomplete/currencies:
+  /v1/autocomplete/currencies:
     get:
       tags:
         - autocomplete
@@ -533,7 +533,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AutocompleteCurrencyCodeArray'
-/v1/autocomplete/object-groups:
+  /v1/autocomplete/object-groups:
     get:
       tags:
         - autocomplete
@@ -602,7 +602,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AutocompleteObjectGroupArray'
-/v1/autocomplete/piggy-banks:
+  /v1/autocomplete/piggy-banks:
     get:
       tags:
         - autocomplete
@@ -734,7 +734,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AutocompletePiggyBalanceArray'
-/v1/autocomplete/recurring:
+  /v1/autocomplete/recurring:
     get:
       tags:
         - autocomplete
@@ -803,7 +803,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AutocompleteRecurrenceArray'
-/v1/autocomplete/rule-groups:
+  /v1/autocomplete/rule-groups:
     get:
       tags:
         - autocomplete
@@ -872,7 +872,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AutocompleteRuleGroupArray'
-/v1/autocomplete/rules:
+  /v1/autocomplete/rules:
     get:
       tags:
         - autocomplete
@@ -941,7 +941,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AutocompleteRuleArray'
-/v1/autocomplete/tags:
+  /v1/autocomplete/tags:
     get:
       tags:
         - autocomplete
@@ -1010,7 +1010,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AutocompleteTagArray'
-/v1/autocomplete/transaction-types:
+  /v1/autocomplete/transaction-types:
     get:
       tags:
         - autocomplete
@@ -1079,7 +1079,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AutocompleteTransactionTypeArray'
-/v1/autocomplete/transactions:
+  /v1/autocomplete/transactions:
     get:
       tags:
         - autocomplete
@@ -1217,7 +1217,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AutocompleteTransactionIDArray'
-/v1/chart/account/overview:
+  /v1/chart/account/overview:
     get:
       tags:
         - charts
@@ -1288,7 +1288,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ChartLine'
-/v1/chart/balance/balance:
+  /v1/chart/balance/balance:
     get:
       tags:
         - charts
@@ -1359,7 +1359,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ChartLine'
-/v1/chart/budget/overview:
+  /v1/chart/budget/overview:
     get:
       tags:
         - charts
@@ -1430,7 +1430,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ChartLine'
-/v1/chart/category/overview:
+  /v1/chart/category/overview:
     get:
       tags:
         - charts
@@ -1501,7 +1501,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ChartLine'
-/v1/data/bulk/transactions:
+  /v1/data/bulk/transactions:
     post:
       summary: Bulk update transaction properties. For more information, see https://docs.firefly-iii.org/references/firefly-iii/api/specials/
       description: |
@@ -1553,7 +1553,7 @@ paths:
                 $ref: '#/components/schemas/InternalExceptionResponse'
         "204":
           description: Empty response when the update was successful. A future improvement is to include the changed transactions.
-/v1/data/destroy:
+  /v1/data/destroy:
     delete:
       tags:
         - data
@@ -1605,7 +1605,7 @@ paths:
           required: true
           schema:
             $ref: '#/components/schemas/DataDestroyObject'
-/v1/data/export/accounts:
+  /v1/data/export/accounts:
     get:
       summary: Export account data from Firefly III
       description: |
@@ -2141,7 +2141,7 @@ paths:
               schema:
                 type: string
                 format: binary
-/v1/data/purge:
+  /v1/data/purge:
     delete:
       tags:
         - data
@@ -2187,7 +2187,7 @@ paths:
             type: string
             format: uuid
             example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
-/v1/insight/expense/expense:
+  /v1/insight/expense/expense:
     get:
       summary: Insight into expenses, grouped by expense account.
       description: |
@@ -2611,7 +2611,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InsightTransfer'
-/v1/insight/expense/bill:
+  /v1/insight/expense/bill:
     get:
       summary: Insight into expenses, grouped by bill.
       description: |
@@ -2791,7 +2791,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InsightTotal'
-/v1/insight/expense/budget:
+  /v1/insight/expense/budget:
     get:
       summary: Insight into expenses, grouped by budget.
       description: |
@@ -2971,7 +2971,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InsightTotal'
-/v1/insight/expense/category:
+  /v1/insight/expense/category:
     get:
       summary: Insight into expenses, grouped by category.
       description: |
@@ -3511,7 +3511,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InsightTotal'
-/v1/insight/expense/tag:
+  /v1/insight/expense/tag:
     get:
       summary: Insight into expenses, grouped by tag.
       description: |
@@ -4051,7 +4051,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InsightTotal'
-/v1/insight/expense/total:
+  /v1/insight/expense/total:
     get:
       summary: Insight into total expenses.
       description: |
@@ -4303,7 +4303,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InsightTotal'
-/v1/accounts/{id}/transactions:
+  /v1/accounts/{id}/transactions:
     get:
       tags:
         - accounts
@@ -4542,7 +4542,7 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: '#/components/schemas/PiggyBankArray'
-/v1/accounts:
+  /v1/accounts:
     get:
       tags:
         - accounts
@@ -4870,7 +4870,7 @@ paths:
                 $ref: '#/components/schemas/InternalExceptionResponse'
         "204":
           description: Account deleted
-/v1/attachments:
+  /v1/attachments:
     get:
       summary: List all attachments.
       description: |
@@ -5298,7 +5298,7 @@ paths:
             schema:
               type: string
               format: binary
-/v1/available-budgets:
+  /v1/available-budgets:
     get:
       summary: List all available budget amounts.
       description: |
@@ -5436,7 +5436,7 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: '#/components/schemas/AvailableBudgetSingle'
-/v1/bills/{id}/attachments:
+  /v1/bills/{id}/attachments:
     get:
       summary: List all attachments uploaded to the bill.
       description: This endpoint will list all attachments linked to the bill.
@@ -5657,7 +5657,7 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: '#/components/schemas/TransactionArray'
-/v1/bills:
+  /v1/bills:
     get:
       summary: List all bills.
       description: This endpoint will list all the user's bills.
@@ -5995,7 +5995,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
-/v1/budgets/{id}/limits/{limitId}/transactions:
+  /v1/budgets/{id}/limits/{limitId}/transactions:
     get:
       summary: List all transactions by a budget limit ID.
       description: List all the transactions within one budget limit. The start and end date are dictated by the budget limit.
@@ -6079,7 +6079,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
-/v1/budgets/{id}/limits:
+  /v1/budgets/{id}/limits:
     get:
       operationId: listBudgetLimitByBudget
       description: |
@@ -6486,7 +6486,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
-/v1/budgets/{id}/transactions:
+  /v1/budgets/{id}/transactions:
     get:
       summary: All transactions to a budget.
       description: Get all transactions linked to a budget, possibly limited by start and end
@@ -6746,7 +6746,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
-/v1/budgets:
+  /v1/budgets:
     get:
       summary: List all budgets.
       description: List all the budgets the user has made. If the start date and end date are submitted as well, the "spent" array will be updated accordingly.
@@ -7084,7 +7084,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
-/v1/categories/{id}/transactions:
+  /v1/categories/{id}/transactions:
     get:
       summary: List all transactions in a category.
       description: List all transactions in a category, optionally limited to the date ranges specified.
@@ -7250,7 +7250,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
-/v1/categories:
+  /v1/categories:
     get:
       summary: List all categories.
       description: List all categories.
@@ -7570,7 +7570,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
-/v1/exchange-rates:
+  /v1/exchange-rates:
     get:
       summary: List all exchange rates that Firefly III knows.
       description: List exchange rates that Firefly III knows.
@@ -8390,7 +8390,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
-/v1/link-types/{id}/transactions:
+  /v1/link-types/{id}/transactions:
     get:
       tags:
         - links
@@ -8486,7 +8486,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
-/v1/link-types:
+  /v1/link-types:
     get:
       tags:
         - links
@@ -8792,7 +8792,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
-/v1/transaction-links:
+  /v1/transaction-links:
     get:
       tags:
         - links
@@ -9098,7 +9098,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
-/v1/object-groups/{id}/piggy-banks:
+  /v1/object-groups/{id}/piggy-banks:
     get:
       tags:
         - object_groups
@@ -9241,7 +9241,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
-/v1/object-groups:
+  /v1/object-groups:
     get:
       summary: List all object groups.
       description: List all object groups.
@@ -9480,7 +9480,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
-/v1/piggy-banks/{id}/events:
+  /v1/piggy-banks/{id}/events:
     get:
       summary: List all events linked to a piggy bank.
       description: List all events linked to a piggy bank (adding and removing money).
@@ -9622,7 +9622,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
-/v1/piggy-banks:
+  /v1/piggy-banks:
     get:
       summary: List all piggy banks.
       description: List all piggy banks.
@@ -9925,7 +9925,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
-/v1/recurrences/{id}/transactions:
+  /v1/recurrences/{id}/transactions:
     get:
       summary: List all transactions created by a recurring transaction.
       description: List all transactions created by a recurring transaction, optionally limited to the date ranges specified.
@@ -10020,7 +10020,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
-/v1/recurrences:
+  /v1/recurrences:
     get:
       summary: List all recurring transactions.
       description: List all recurring transactions.
@@ -10322,7 +10322,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
-/v1/rule-groups/{id}/rules:
+  /v1/rule-groups/{id}/rules:
     get:
       summary: List rules in this rule group.
       description: List rules in this rule group.
@@ -10393,7 +10393,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
-/v1/rule-groups/{id}/test:
+  /v1/rule-groups/{id}/test:
     get:
       summary: Test which transactions would be hit by the rule group. No changes will be made.
       description: Test which transactions would be hit by the rule group. No changes will be made. Limit the result if you want to.
@@ -10589,7 +10589,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
-/v1/rule-groups:
+  /v1/rule-groups:
     get:
       summary: List all rule groups.
       description: List all rule groups.
@@ -10891,7 +10891,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
-/v1/rules/{id}/test:
+  /v1/rules/{id}/test:
     get:
       summary: Test which transactions would be hit by the rule. No changes will be made.
       description: Test which transactions would be hit by the rule. No changes will be made. Limit the result if you want to.
@@ -11057,7 +11057,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
-/v1/rules:
+  /v1/rules:
     get:
       summary: List all rules.
       description: List all rules.
@@ -11359,7 +11359,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
-/v1/tags/{tag}/attachments:
+  /v1/tags/{tag}/attachments:
     get:
       summary: Lists all attachments.
       description: Lists all attachments.
@@ -11527,7 +11527,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
-/v1/tags:
+  /v1/tags:
     get:
       summary: List all tags.
       description: List all of the user's tags.
@@ -11849,7 +11849,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
-/v1/currencies/{code}/accounts:
+  /v1/currencies/{code}/accounts:
     get:
       summary: List all accounts with this currency.
       description: List all accounts with this currency.
@@ -12407,7 +12407,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
-/v1/currencies:
+  /v1/currencies:
     get:
       summary: List all currencies.
       description: List all currencies.
@@ -12933,7 +12933,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
-/v1/transaction-journals/{id}/links:
+  /v1/transaction-journals/{id}/links:
     get:
       summary: Lists all the transaction links for an individual journal (individual split).
       description: Lists all the transaction links for an individual journal (a split). Don't use the group ID, you need the actual underlying journal (the split).
@@ -13109,7 +13109,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
-/v1/transactions/{id}/attachments:
+  /v1/transactions/{id}/attachments:
     get:
       summary: Lists all attachments.
       description: Lists all attachments.
@@ -13251,7 +13251,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
-/v1/transactions:
+  /v1/transactions:
     get:
       summary: |
         List all the user's transactions.
@@ -13578,7 +13578,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
-/v1/user-groups:
+  /v1/user-groups:
     get:
       summary: |
         List all the user groups available to this user.
@@ -13770,7 +13770,7 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: '#/components/schemas/UserGroupSingle'
-/v1/search/accounts:
+  /v1/search/accounts:
     get:
       summary: Search for accounts
       description: Search for accounts
@@ -13927,7 +13927,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
-/v1/summary/basic:
+  /v1/summary/basic:
     get:
       tags:
         - summary
@@ -14000,7 +14000,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
-/v1/about:
+  /v1/about:
     get:
       tags:
         - about
@@ -14098,7 +14098,7 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: '#/components/schemas/UserSingle'
-/v1/configuration:
+  /v1/configuration:
     get:
       summary: Get Firefly III system configuration values.
       description: Returns all editable and not-editable configuration values for this Firefly III installation
@@ -14272,7 +14272,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ConfigurationUpdate'
         required: true
-/v1/cron/{cliToken}:
+  /v1/cron/{cliToken}:
     get:
       tags:
         - about
@@ -14357,7 +14357,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
-/v1/users:
+  /v1/users:
     get:
       summary: List all users.
       description: List all the users in this instance of Firefly III.
@@ -14660,7 +14660,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
-/v1/preferences:
+  /v1/preferences:
     get:
       summary: List all users preferences.
       description: List all of the preferences of the user.
@@ -14914,7 +14914,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
-/v1/webhooks/{id}/messages:
+  /v1/webhooks/{id}/messages:
     get:
       summary: Get all the messages of a single webhook.
       description: When a webhook is triggered the actual message that will be send is stored in a "message". You can view and analyse these messages.
@@ -15299,7 +15299,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
-/v1/webhooks/{id}/submit:
+  /v1/webhooks/{id}/submit:
     post:
       summary: Submit messages for a webhook.
       description: This endpoint will submit any open messages for this webhook. This is an asynchronous operation, so you can't see the result. Refresh the webhook message and/or the webhook message attempts to see the results. This may take some time if the webhook receiver is slow.
@@ -15398,7 +15398,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
-/v1/webhooks:
+  /v1/webhooks:
     get:
       summary: List all webhooks.
       description: List all the user's webhooks.
@@ -15706,7 +15706,7 @@ paths:
                 $ref: '#/components/schemas/InternalExceptionResponse'
 components:
   schemas:
-AccountArray:
+    AccountArray:
       type: object
       required:
         - data
@@ -15718,7 +15718,7 @@ AccountArray:
             $ref: '#/components/schemas/AccountRead'
         meta:
           $ref: '#/components/schemas/Meta'
-AttachmentArray:
+    AttachmentArray:
       type: object
       required:
         - data
@@ -15730,71 +15730,71 @@ AttachmentArray:
             $ref: '#/components/schemas/AttachmentRead'
         meta:
           $ref: '#/components/schemas/Meta'
-AutocompleteAccountArray:
+    AutocompleteAccountArray:
       type: array
       items:
         $ref: '#/components/schemas/AutocompleteAccount'
-AutocompleteBillArray:
+    AutocompleteBillArray:
       type: array
       items:
         $ref: '#/components/schemas/AutocompleteBill'
-AutocompleteBudgetArray:
+    AutocompleteBudgetArray:
       type: array
       items:
         $ref: '#/components/schemas/AutocompleteBudget'
-AutocompleteCategoryArray:
+    AutocompleteCategoryArray:
       type: array
       items:
         $ref: '#/components/schemas/AutocompleteCategory'
-AutocompleteCurrencyArray:
+    AutocompleteCurrencyArray:
       type: array
       items:
         $ref: '#/components/schemas/AutocompleteCurrency'
-AutocompleteCurrencyCodeArray:
+    AutocompleteCurrencyCodeArray:
       type: array
       items:
         $ref: '#/components/schemas/AutocompleteCurrencyCode'
-AutocompleteObjectGroupArray:
+    AutocompleteObjectGroupArray:
       type: array
       items:
         $ref: '#/components/schemas/AutocompleteObjectGroup'
-AutocompletePiggyArray:
+    AutocompletePiggyArray:
       type: array
       items:
         $ref: '#/components/schemas/AutocompletePiggy'
-AutocompletePiggyBalanceArray:
+    AutocompletePiggyBalanceArray:
       type: array
       items:
         $ref: '#/components/schemas/AutocompletePiggyBalance'
-AutocompleteRecurrenceArray:
+    AutocompleteRecurrenceArray:
       type: array
       items:
         $ref: '#/components/schemas/AutocompleteRecurrence'
-AutocompleteRuleArray:
+    AutocompleteRuleArray:
       type: array
       items:
         $ref: '#/components/schemas/AutocompleteRule'
-AutocompleteRuleGroupArray:
+    AutocompleteRuleGroupArray:
       type: array
       items:
         $ref: '#/components/schemas/AutocompleteRuleGroup'
-AutocompleteTagArray:
+    AutocompleteTagArray:
       type: array
       items:
         $ref: '#/components/schemas/AutocompleteTag'
-AutocompleteTransactionArray:
+    AutocompleteTransactionArray:
       type: array
       items:
         $ref: '#/components/schemas/AutocompleteTransaction'
-AutocompleteTransactionIDArray:
+    AutocompleteTransactionIDArray:
       type: array
       items:
         $ref: '#/components/schemas/AutocompleteTransactionID'
-AutocompleteTransactionTypeArray:
+    AutocompleteTransactionTypeArray:
       type: array
       items:
         $ref: '#/components/schemas/AutocompleteTransactionType'
-AvailableBudgetArray:
+    AvailableBudgetArray:
       type: object
       required:
         - data
@@ -15806,7 +15806,7 @@ AvailableBudgetArray:
             $ref: '#/components/schemas/AvailableBudgetRead'
         meta:
           $ref: '#/components/schemas/Meta'
-BillArray:
+    BillArray:
       type: object
       required:
         - data
@@ -15818,7 +15818,7 @@ BillArray:
             $ref: '#/components/schemas/BillRead'
         meta:
           $ref: '#/components/schemas/Meta'
-BudgetArray:
+    BudgetArray:
       type: object
       required:
         - data
@@ -15830,7 +15830,7 @@ BudgetArray:
             $ref: '#/components/schemas/BudgetRead'
         meta:
           $ref: '#/components/schemas/Meta'
-BudgetLimitArray:
+    BudgetLimitArray:
       type: object
       required:
         - data
@@ -15842,7 +15842,7 @@ BudgetLimitArray:
             $ref: '#/components/schemas/BudgetLimitRead'
         meta:
           $ref: '#/components/schemas/Meta'
-CategoryArray:
+    CategoryArray:
       type: object
       required:
         - data
@@ -15854,11 +15854,11 @@ CategoryArray:
             $ref: '#/components/schemas/CategoryRead'
         meta:
           $ref: '#/components/schemas/Meta'
-ConfigurationArray:
+    ConfigurationArray:
       type: array
       items:
         $ref: '#/components/schemas/Configuration'
-CurrencyArray:
+    CurrencyArray:
       type: object
       required:
         - data
@@ -15873,7 +15873,7 @@ CurrencyArray:
           $ref: '#/components/schemas/Meta'
         links:
           $ref: '#/components/schemas/PageLink'
-CurrencyExchangeRateArray:
+    CurrencyExchangeRateArray:
       type: object
       required:
         - data
@@ -15888,7 +15888,7 @@ CurrencyExchangeRateArray:
           $ref: '#/components/schemas/Meta'
         links:
           $ref: '#/components/schemas/PageLink'
-LinkTypeArray:
+    LinkTypeArray:
       type: object
       required:
         - data
@@ -15903,7 +15903,7 @@ LinkTypeArray:
           $ref: '#/components/schemas/Meta'
         links:
           $ref: '#/components/schemas/PageLink'
-ObjectGroupArray:
+    ObjectGroupArray:
       type: object
       required:
         - data
@@ -15915,7 +15915,7 @@ ObjectGroupArray:
             $ref: '#/components/schemas/ObjectGroupRead'
         meta:
           $ref: '#/components/schemas/Meta'
-PiggyBankArray:
+    PiggyBankArray:
       type: object
       required:
         - data
@@ -15930,7 +15930,7 @@ PiggyBankArray:
           $ref: '#/components/schemas/Meta'
         links:
           $ref: '#/components/schemas/PageLink'
-PiggyBankEventArray:
+    PiggyBankEventArray:
       type: object
       required:
         - data
@@ -15945,7 +15945,7 @@ PiggyBankEventArray:
           $ref: '#/components/schemas/Meta'
         links:
           $ref: '#/components/schemas/PageLink'
-PreferenceArray:
+    PreferenceArray:
       type: object
       required:
         - data
@@ -15960,7 +15960,7 @@ PreferenceArray:
           $ref: '#/components/schemas/Meta'
         links:
           $ref: '#/components/schemas/PageLink'
-RecurrenceArray:
+    RecurrenceArray:
       type: object
       required:
         - data
@@ -15975,7 +15975,7 @@ RecurrenceArray:
           $ref: '#/components/schemas/Meta'
         links:
           $ref: '#/components/schemas/PageLink'
-RuleArray:
+    RuleArray:
       type: object
       required:
         - data
@@ -15990,7 +15990,7 @@ RuleArray:
           $ref: '#/components/schemas/Meta'
         links:
           $ref: '#/components/schemas/PageLink'
-RuleGroupArray:
+    RuleGroupArray:
       type: object
       required:
         - data
@@ -16005,7 +16005,7 @@ RuleGroupArray:
           $ref: '#/components/schemas/Meta'
         links:
           $ref: '#/components/schemas/PageLink'
-TagArray:
+    TagArray:
       type: object
       required:
         - data
@@ -16020,7 +16020,7 @@ TagArray:
           $ref: '#/components/schemas/Meta'
         links:
           $ref: '#/components/schemas/PageLink'
-TransactionArray:
+    TransactionArray:
       type: object
       required:
         - data
@@ -16035,7 +16035,7 @@ TransactionArray:
           $ref: '#/components/schemas/Meta'
         links:
           $ref: '#/components/schemas/PageLink'
-TransactionLinkArray:
+    TransactionLinkArray:
       type: object
       required:
         - data
@@ -16050,7 +16050,7 @@ TransactionLinkArray:
           $ref: '#/components/schemas/Meta'
         links:
           $ref: '#/components/schemas/PageLink'
-UserArray:
+    UserArray:
       type: object
       required:
         - data
@@ -16065,7 +16065,7 @@ UserArray:
           $ref: '#/components/schemas/Meta'
         links:
           $ref: '#/components/schemas/PageLink'
-UserGroupArray:
+    UserGroupArray:
       type: object
       required:
         - data
@@ -16080,7 +16080,7 @@ UserGroupArray:
           $ref: '#/components/schemas/Meta'
         links:
           $ref: '#/components/schemas/PageLink'
-WebhookArray:
+    WebhookArray:
       type: object
       required:
         - data
@@ -16095,7 +16095,7 @@ WebhookArray:
           $ref: '#/components/schemas/Meta'
         links:
           $ref: '#/components/schemas/PageLink'
-WebhookAttemptArray:
+    WebhookAttemptArray:
       type: object
       required:
         - data
@@ -16107,7 +16107,7 @@ WebhookAttemptArray:
             $ref: '#/components/schemas/WebhookAttemptRead'
         meta:
           $ref: '#/components/schemas/Meta'
-WebhookMessageArray:
+    WebhookMessageArray:
       type: object
       required:
         - data
@@ -16119,7 +16119,7 @@ WebhookMessageArray:
             $ref: '#/components/schemas/WebhookMessageRead'
         meta:
           $ref: '#/components/schemas/Meta'
-AutocompleteAccount:
+    AutocompleteAccount:
       type: object
       required:
         - id
@@ -16201,7 +16201,7 @@ AutocompleteAccount:
           format: int32
           example: 2
           description: Number of decimal places for the currency used by this account. Even if "convertToPrimary" is on, the account currency code is displayed here.
-AutocompleteBill:
+    AutocompleteBill:
       type: object
       required:
         - id
@@ -16221,7 +16221,7 @@ AutocompleteBill:
           format: boolean
           example: true
           description: Is the bill active or not?
-AutocompleteBudget:
+    AutocompleteBudget:
       type: object
       required:
         - id
@@ -16236,7 +16236,7 @@ AutocompleteBudget:
           format: string
           example: "Groceries"
           description: Name of the budget found by an auto-complete search.
-AutocompleteCategory:
+    AutocompleteCategory:
       type: object
       required:
         - id
@@ -16251,7 +16251,7 @@ AutocompleteCategory:
           format: string
           example: "Category X"
           description: Name of the category found by an auto-complete search.
-AutocompleteCurrency:
+    AutocompleteCurrency:
       type: object
       required:
         - id
@@ -16282,7 +16282,7 @@ AutocompleteCurrency:
           type: integer
           format: int32
           example: 2
-AutocompleteCurrencyCode:
+    AutocompleteCurrencyCode:
       type: object
       required:
         - id
@@ -16313,7 +16313,7 @@ AutocompleteCurrencyCode:
           type: integer
           format: int32
           example: 2
-AutocompleteObjectGroup:
+    AutocompleteObjectGroup:
       type: object
       required:
         - id
@@ -16334,7 +16334,7 @@ AutocompleteObjectGroup:
           format: string
           example: "Object Group one"
           description: Title of the object group found by an auto-complete search.
-AutocompletePiggy:
+    AutocompletePiggy:
       type: object
       required:
         - id
@@ -16385,7 +16385,7 @@ AutocompletePiggy:
           example: "Example Group"
           nullable: true
           description: The name of the group. NULL if no group.
-AutocompletePiggyBalance:
+    AutocompletePiggyBalance:
       type: object
       required:
         - id
@@ -16437,7 +16437,7 @@ AutocompletePiggyBalance:
           example: "Example Group"
           nullable: true
           description: The name of the group. NULL if no group.
-AutocompleteRecurrence:
+    AutocompleteRecurrence:
       type: object
       required:
         - id
@@ -16457,7 +16457,7 @@ AutocompleteRecurrence:
           format: string
           example: "Should trigger daily."
           description: Description of the recurrence found by auto-complete.
-AutocompleteRule:
+    AutocompleteRule:
       type: object
       required:
         - id
@@ -16477,7 +16477,7 @@ AutocompleteRule:
           format: string
           example: "Useful rule."
           description: Description of the rule found by auto-complete.
-AutocompleteRuleGroup:
+    AutocompleteRuleGroup:
       type: object
       required:
         - id
@@ -16497,7 +16497,7 @@ AutocompleteRuleGroup:
           format: string
           example: "Some rule group."
           description: Description of the rule group found by auto-complete.
-AutocompleteTag:
+    AutocompleteTag:
       type: object
       required:
         - id
@@ -16518,7 +16518,7 @@ AutocompleteTag:
           format: string
           example: "too-expensive-tag-example"
           description: Name of the tag found by an auto-complete search.
-AutocompleteTransaction:
+    AutocompleteTransaction:
       type: object
       required:
         - id
@@ -16545,7 +16545,7 @@ AutocompleteTransaction:
           format: string
           example: "Transaction"
           description: Transaction description
-AutocompleteTransactionID:
+    AutocompleteTransactionID:
       type: object
       required:
         - id
@@ -16572,7 +16572,7 @@ AutocompleteTransactionID:
           format: string
           example: "#12: Transaction"
           description: Transaction description with ID in the name.
-AutocompleteTransactionType:
+    AutocompleteTransactionType:
       type: object
       required:
         - id
@@ -16593,7 +16593,7 @@ AutocompleteTransactionType:
           format: string
           example: "Withdrawal"
           description: Name of the object found by an auto-complete search.
-ChartDataPoint:
+    ChartDataPoint:
       type: object
       properties:
         key:
@@ -16601,7 +16601,7 @@ ChartDataPoint:
           format: string
           example: "value"
           description: "The key is the label of the value, so for example: '2018-01-01' => 13 or 'Groceries' => -123."
-ChartDataSet:
+    ChartDataSet:
       type: object
       properties:
         label:
@@ -16698,11 +16698,11 @@ ChartDataSet:
           description: "The actual entries for this data set. They 'key' value is the label for the data point. The value is the actual (numerical) value."
           items:
             $ref: '#/components/schemas/ChartDataPoint'
-ChartLine:
+    ChartLine:
       type: array
       items:
         $ref: '#/components/schemas/ChartDataSet'
-DataDestroyObject:
+    DataDestroyObject:
       type: string
       enum:
         - not_assets_liabilities
@@ -16723,7 +16723,7 @@ DataDestroyObject:
         - withdrawals
         - deposits
         - transfers
-AccountSearchFieldFilter:
+    AccountSearchFieldFilter:
       type: string
       enum:
         - all
@@ -16731,7 +16731,7 @@ AccountSearchFieldFilter:
         - name
         - number
         - id
-ConfigValueFilter:
+    ConfigValueFilter:
       type: string
       example: "configuration.is_demo_site"
       description: "Title of the configuration value."
@@ -16754,22 +16754,22 @@ ConfigValueFilter:
         - firefly.credit_card_types
         - firefly.languages
         - firefly.valid_view_ranges
-ConfigValueUpdateFilter:
+    ConfigValueUpdateFilter:
       type: string
       enum:
         - configuration.is_demo_site
         - configuration.permission_update_check
         - configuration.last_update_check
         - configuration.single_user_mode
-ExportFileFilter:
+    ExportFileFilter:
       type: string
       enum:
         - csv
-InsightGroup:
+    InsightGroup:
       type: array
       items:
         $ref: '#/components/schemas/InsightGroupEntry'
-InsightGroupEntry:
+    InsightGroupEntry:
       type: object
       properties:
         id:
@@ -16802,11 +16802,11 @@ InsightGroupEntry:
           format: string
           example: "EUR"
           description: "The currency code of the expenses listed for this account."
-InsightTotal:
+    InsightTotal:
       type: array
       items:
         $ref: '#/components/schemas/InsightTotalEntry'
-InsightTotalEntry:
+    InsightTotalEntry:
       type: object
       properties:
         difference:
@@ -16829,11 +16829,11 @@ InsightTotalEntry:
           format: string
           example: "EUR"
           description: "The currency code of the expenses listed for this expense account."
-InsightTransfer:
+    InsightTransfer:
       type: array
       items:
         $ref: '#/components/schemas/InsightTransferEntry'
-InsightTransferEntry:
+    InsightTransferEntry:
       type: object
       properties:
         id:
@@ -16886,7 +16886,7 @@ InsightTransferEntry:
           format: string
           example: "EUR"
           description: "The currency code of the expenses listed for this account."
-CategoryRead:
+    CategoryRead:
       type: object
       required:
         - type
@@ -16904,21 +16904,21 @@ CategoryRead:
           example: "2"
         attributes:
           $ref: '#/components/schemas/CategoryProperties'
-CategorySingle:
+    CategorySingle:
       type: object
       required:
         - data
       properties:
         data:
           $ref: '#/components/schemas/CategoryRead'
-ConfigurationSingle:
+    ConfigurationSingle:
       type: object
       required:
         - data
       properties:
         data:
           $ref: '#/components/schemas/Configuration'
-CurrencyRead:
+    CurrencyRead:
       type: object
       required:
         - type
@@ -16936,14 +16936,14 @@ CurrencyRead:
           example: "2"
         attributes:
           $ref: '#/components/schemas/CurrencyProperties'
-CurrencySingle:
+    CurrencySingle:
       type: object
       required:
         - data
       properties:
         data:
           $ref: '#/components/schemas/CurrencyRead'
-LinkTypeRead:
+    LinkTypeRead:
       type: object
       required:
         - type
@@ -16964,14 +16964,14 @@ LinkTypeRead:
           $ref: '#/components/schemas/LinkType'
         links:
           $ref: '#/components/schemas/ObjectLink'
-LinkTypeSingle:
+    LinkTypeSingle:
       type: object
       required:
         - data
       properties:
         data:
           $ref: '#/components/schemas/LinkTypeRead'
-ObjectGroupRead:
+    ObjectGroupRead:
       type: object
       required:
         - type
@@ -16989,14 +16989,14 @@ ObjectGroupRead:
           example: "2"
         attributes:
           $ref: '#/components/schemas/ObjectGroup'
-ObjectGroupSingle:
+    ObjectGroupSingle:
       type: object
       required:
         - data
       properties:
         data:
           $ref: '#/components/schemas/ObjectGroupRead'
-PiggyBankEventRead:
+    PiggyBankEventRead:
       type: object
       required:
         - type
@@ -17017,7 +17017,7 @@ PiggyBankEventRead:
           $ref: '#/components/schemas/PiggyBankEventProperties'
         links:
           $ref: '#/components/schemas/ObjectLink'
-PiggyBankRead:
+    PiggyBankRead:
       type: object
       required:
         - type
@@ -17038,14 +17038,14 @@ PiggyBankRead:
           $ref: '#/components/schemas/PiggyBankProperties'
         links:
           $ref: '#/components/schemas/ObjectLink'
-PiggyBankSingle:
+    PiggyBankSingle:
       type: object
       required:
         - data
       properties:
         data:
           $ref: '#/components/schemas/PiggyBankRead'
-PreferenceRead:
+    PreferenceRead:
       type: object
       required:
         - type
@@ -17063,14 +17063,14 @@ PreferenceRead:
           example: "2"
         attributes:
           $ref: '#/components/schemas/Preference'
-PreferenceSingle:
+    PreferenceSingle:
       type: object
       required:
         - data
       properties:
         data:
           $ref: '#/components/schemas/PreferenceRead'
-RecurrenceRead:
+    RecurrenceRead:
       type: object
       required:
         - type
@@ -17091,14 +17091,14 @@ RecurrenceRead:
           $ref: '#/components/schemas/RecurrenceProperties'
         links:
           $ref: '#/components/schemas/ObjectLink'
-RecurrenceSingle:
+    RecurrenceSingle:
       type: object
       required:
         - data
       properties:
         data:
           $ref: '#/components/schemas/RecurrenceRead'
-RuleGroupRead:
+    RuleGroupRead:
       type: object
       required:
         - type
@@ -17119,14 +17119,14 @@ RuleGroupRead:
           $ref: '#/components/schemas/RuleGroup'
         links:
           $ref: '#/components/schemas/ObjectLink'
-RuleGroupSingle:
+    RuleGroupSingle:
       type: object
       required:
         - data
       properties:
         data:
           $ref: '#/components/schemas/RuleGroupRead'
-RuleRead:
+    RuleRead:
       type: object
       required:
         - type
@@ -17147,14 +17147,14 @@ RuleRead:
           $ref: '#/components/schemas/Rule'
         links:
           $ref: '#/components/schemas/ObjectLink'
-RuleSingle:
+    RuleSingle:
       type: object
       required:
         - data
       properties:
         data:
           $ref: '#/components/schemas/RuleRead'
-TagRead:
+    TagRead:
       type: object
       required:
         - type
@@ -17175,14 +17175,14 @@ TagRead:
           $ref: '#/components/schemas/TagModel'
         links:
           $ref: '#/components/schemas/ObjectLink'
-TagSingle:
+    TagSingle:
       type: object
       required:
         - data
       properties:
         data:
           $ref: '#/components/schemas/TagRead'
-TransactionLinkRead:
+    TransactionLinkRead:
       type: object
       required:
         - type
@@ -17203,14 +17203,14 @@ TransactionLinkRead:
           $ref: '#/components/schemas/TransactionLink'
         links:
           $ref: '#/components/schemas/ObjectLink'
-TransactionLinkSingle:
+    TransactionLinkSingle:
       type: object
       required:
         - data
       properties:
         data:
           $ref: '#/components/schemas/TransactionLinkRead'
-TransactionRead:
+    TransactionRead:
       type: object
       required:
         - type
@@ -17231,14 +17231,14 @@ TransactionRead:
           $ref: '#/components/schemas/Transaction'
         links:
           $ref: '#/components/schemas/ObjectLink'
-TransactionSingle:
+    TransactionSingle:
       type: object
       required:
         - data
       properties:
         data:
           $ref: '#/components/schemas/TransactionRead'
-UserRead:
+    UserRead:
       type: object
       required:
         - type
@@ -17259,7 +17259,7 @@ UserRead:
           $ref: '#/components/schemas/User'
         links:
           $ref: '#/components/schemas/ObjectLink'
-WebhookAttemptRead:
+    WebhookAttemptRead:
       type: object
       required:
         - type
@@ -17277,14 +17277,14 @@ WebhookAttemptRead:
           example: "2"
         attributes:
           $ref: '#/components/schemas/WebhookAttempt'
-WebhookAttemptSingle:
+    WebhookAttemptSingle:
       type: object
       required:
         - data
       properties:
         data:
           $ref: '#/components/schemas/WebhookAttemptRead'
-WebhookMessageRead:
+    WebhookMessageRead:
       type: object
       required:
         - type
@@ -17302,14 +17302,14 @@ WebhookMessageRead:
           example: "2"
         attributes:
           $ref: '#/components/schemas/WebhookMessage'
-WebhookMessageSingle:
+    WebhookMessageSingle:
       type: object
       required:
         - data
       properties:
         data:
           $ref: '#/components/schemas/WebhookMessageRead'
-WebhookRead:
+    WebhookRead:
       type: object
       required:
         - type
@@ -17330,14 +17330,14 @@ WebhookRead:
           $ref: '#/components/schemas/Webhook'
         links:
           $ref: '#/components/schemas/ObjectLink'
-WebhookSingle:
+    WebhookSingle:
       type: object
       required:
         - data
       properties:
         data:
           $ref: '#/components/schemas/WebhookRead'
-AccountProperties:
+    AccountProperties:
       type: object
       required:
         - name
@@ -17578,7 +17578,7 @@ AccountProperties:
           format: date-time
           example: "2018-09-17T12:46:47+01:00"
           description: "Last activity of the account."
-AccountRead:
+    AccountRead:
       type: object
       required:
         - type
@@ -17596,14 +17596,14 @@ AccountRead:
           example: "2"
         attributes:
           $ref: '#/components/schemas/AccountProperties'
-AccountSingle:
+    AccountSingle:
       type: object
       required:
         - data
       properties:
         data:
           $ref: '#/components/schemas/AccountRead'
-AccountStore:
+    AccountStore:
       type: object
       required:
         - name
@@ -17718,7 +17718,7 @@ AccountStore:
           example: 6
           nullable: true
           description: "Zoom level for the map, if drawn. This to set the box right. Unfortunately this is a proprietary value because each map provider has different zoom levels."
-AccountUpdate:
+    AccountUpdate:
       type: object
       required:
         - name
@@ -17826,7 +17826,7 @@ AccountUpdate:
           example: 6
           nullable: true
           description: Zoom level for the map, if drawn. This to set the box right. Unfortunately this is a proprietary value because each map provider has different zoom levels. If omitted, the existing location will be kept. If submitted as NULL, the current location will be removed.
-ArrayEntryWithCurrencyAndSum:
+    ArrayEntryWithCurrencyAndSum:
       type: object
       properties:
         currency_id:
@@ -17851,7 +17851,7 @@ ArrayEntryWithCurrencyAndSum:
           format: amount
           example: "123.45"
           description: The amount earned, spent or transferred.
-AttachmentProperties:
+    AttachmentProperties:
       type: object
       properties:
         created_at:
@@ -17908,7 +17908,7 @@ AttachmentProperties:
           format: int32
           example: 48211
           readOnly: true
-AttachmentRead:
+    AttachmentRead:
       type: object
       required:
         - type
@@ -17929,14 +17929,14 @@ AttachmentRead:
           $ref: '#/components/schemas/AttachmentProperties'
         links:
           $ref: '#/components/schemas/ObjectLink'
-AttachmentSingle:
+    AttachmentSingle:
       type: object
       required:
         - data
       properties:
         data:
           $ref: '#/components/schemas/AttachmentRead'
-AttachmentStore:
+    AttachmentStore:
       type: object
       required:
         - filename
@@ -17963,7 +17963,7 @@ AttachmentStore:
           format: string
           example: "Some notes"
           nullable: true
-AttachmentUpdate:
+    AttachmentUpdate:
       type: object
       properties:
         filename:
@@ -17979,7 +17979,7 @@ AttachmentUpdate:
           format: string
           example: "Some notes"
           nullable: true
-AvailableBudgetProperties:
+    AvailableBudgetProperties:
       type: object
       properties:
         created_at:
@@ -18097,7 +18097,7 @@ AvailableBudgetProperties:
           readOnly: true
           description: |
             The amount spent outside of budgets in the primary currency (pc) of this administration.
-AvailableBudgetRead:
+    AvailableBudgetRead:
       type: object
       required:
         - type
@@ -18115,14 +18115,14 @@ AvailableBudgetRead:
           example: "2"
         attributes:
           $ref: '#/components/schemas/AvailableBudgetProperties'
-AvailableBudgetSingle:
+    AvailableBudgetSingle:
       type: object
       required:
         - data
       properties:
         data:
           $ref: '#/components/schemas/AvailableBudgetRead'
-BillProperties:
+    BillProperties:
       type: object
       properties:
         created_at:
@@ -18419,7 +18419,7 @@ BillProperties:
           description: "Formatted (locally) when the subscription is due."
           nullable: true
           readOnly: true
-BillRead:
+    BillRead:
       type: object
       required:
         - type
@@ -18437,14 +18437,14 @@ BillRead:
           example: "2"
         attributes:
           $ref: '#/components/schemas/BillProperties'
-BillSingle:
+    BillSingle:
       type: object
       required:
         - data
       properties:
         data:
           $ref: '#/components/schemas/BillRead'
-BillStore:
+    BillStore:
       type: object
       required:
         - name
@@ -18518,7 +18518,7 @@ BillStore:
           example: "Example Group"
           nullable: true
           description: The name of the group. NULL if no group.
-BillUpdate:
+    BillUpdate:
       type: object
       required:
         - name
@@ -18588,7 +18588,7 @@ BillUpdate:
           example: "Example Group"
           nullable: true
           description: The name of the group. NULL if no group.
-BudgetProperties:
+    BudgetProperties:
       type: object
       required:
         - name
@@ -18729,7 +18729,7 @@ BudgetProperties:
           readOnly: true
           items:
             $ref: '#/components/schemas/ArrayEntryWithCurrencyAndSum'
-BudgetRead:
+    BudgetRead:
       type: object
       required:
         - type
@@ -18747,14 +18747,14 @@ BudgetRead:
           example: "2"
         attributes:
           $ref: '#/components/schemas/BudgetProperties'
-BudgetSingle:
+    BudgetSingle:
       type: object
       required:
         - data
       properties:
         data:
           $ref: '#/components/schemas/BudgetRead'
-BudgetStore:
+    BudgetStore:
       type: object
       required:
         - name
@@ -18798,7 +18798,7 @@ BudgetStore:
           nullable: true
         auto_budget_period:
           $ref: '#/components/schemas/AutoBudgetPeriod'
-BudgetUpdate:
+    BudgetUpdate:
       type: object
       required:
         - name
@@ -18841,7 +18841,7 @@ BudgetUpdate:
           nullable: true
         auto_budget_period:
           $ref: '#/components/schemas/AutoBudgetPeriod'
-BudgetLimitProperties:
+    BudgetLimitProperties:
       type: object
       properties:
         created_at:
@@ -18967,7 +18967,7 @@ BudgetLimitProperties:
           example: "Some example notes"
           nullable: true
           description: Some notes for this specific budget limit.
-BudgetLimitRead:
+    BudgetLimitRead:
       type: object
       required:
         - type
@@ -18985,14 +18985,14 @@ BudgetLimitRead:
           example: "2"
         attributes:
           $ref: '#/components/schemas/BudgetLimitProperties'
-BudgetLimitSingle:
+    BudgetLimitSingle:
       type: object
       required:
         - data
       properties:
         data:
           $ref: '#/components/schemas/BudgetLimitRead'
-BudgetLimitStore:
+    BudgetLimitStore:
       type: object
       required:
         - amount
@@ -19043,7 +19043,7 @@ BudgetLimitStore:
           example: "Some example notes"
           nullable: true
           description: Some notes for this specific budget limit.
-BudgetLimitUpdate:
+    BudgetLimitUpdate:
       type: object
       properties:
         created_at:
@@ -19164,7 +19164,7 @@ BudgetLimitUpdate:
           example: "Some example notes"
           nullable: true
           description: Some notes for this specific budget limit.
-CategoryProperties:
+    CategoryProperties:
       type: object
       required:
         - name
@@ -19260,7 +19260,7 @@ CategoryProperties:
           readOnly: true
           items:
             $ref: '#/components/schemas/ArrayEntryWithCurrencyAndSum'
-CategoryStore:
+    CategoryStore:
       type: object
       required:
         - name
@@ -19274,7 +19274,7 @@ CategoryStore:
           format: string
           nullable: true
           example: "Some example notes"
-CategoryUpdate:
+    CategoryUpdate:
       type: object
       required:
         - name
@@ -19288,7 +19288,7 @@ CategoryUpdate:
           format: string
           nullable: true
           example: "Some example notes"
-CurrencyExchangeProperties:
+    CurrencyExchangeProperties:
       type: object
       properties:
         created_at:
@@ -19373,7 +19373,7 @@ CurrencyExchangeProperties:
           readOnly: true
           example: "2018-09-17T12:46:47+01:00"
           description: "Date and time of the exchange rate."
-CurrencyExchangeRateRead:
+    CurrencyExchangeRateRead:
       type: object
       properties:
         type:
@@ -19391,14 +19391,14 @@ CurrencyExchangeRateRead:
           $ref: '#/components/schemas/CurrencyExchangeProperties'
         links:
           $ref: '#/components/schemas/ObjectLink'
-CurrencyExchangeRateSingle:
+    CurrencyExchangeRateSingle:
       type: object
       required:
         - data
       properties:
         data:
           $ref: '#/components/schemas/CurrencyExchangeRateRead'
-CurrencyExchangeRateStore:
+    CurrencyExchangeRateStore:
       type: object
       required:
         - from
@@ -19423,7 +19423,7 @@ CurrencyExchangeRateStore:
           nullable: false
           example: "2.3456"
           description: "The exchange rate from the base currency to the destination currency."
-CurrencyExchangeRateStoreByDate:
+    CurrencyExchangeRateStoreByDate:
       type: object
       required:
         - from
@@ -19443,7 +19443,7 @@ CurrencyExchangeRateStoreByDate:
           example:
             USD: '1.2345'
             GBP: '6.3456'
-CurrencyExchangeRateStoreByPair:
+    CurrencyExchangeRateStoreByPair:
       type: object
       description: "The actual entries for this data set. They 'key' value is the date in YYYY-MM-DD. The value is the exchange rate."
       additionalProperties:
@@ -19451,7 +19451,7 @@ CurrencyExchangeRateStoreByPair:
       example:
         2025-08-01: '1.2345'
         2025-08-02: '6.3456'
-CurrencyExchangeRateUpdate:
+    CurrencyExchangeRateUpdate:
       type: object
       required:
         - date
@@ -19481,7 +19481,7 @@ CurrencyExchangeRateUpdate:
           example: "EUR"
           description: "The destination currency code."
           nullable: true
-CurrencyExchangeRateUpdateNoDate:
+    CurrencyExchangeRateUpdateNoDate:
       type: object
       required:
         - rate
@@ -19492,7 +19492,7 @@ CurrencyExchangeRateUpdateNoDate:
           nullable: false
           example: "2.3456"
           description: "The exchange rate from the base currency to the destination currency."
-ObjectGroup:
+    ObjectGroup:
       type: object
       required:
         - title
@@ -19517,7 +19517,7 @@ ObjectGroup:
           format: int32
           example: 1
           description: "Order of the object group"
-ObjectGroupUpdate:
+    ObjectGroupUpdate:
       type: object
       required:
         - title
@@ -19531,7 +19531,7 @@ ObjectGroupUpdate:
           format: int32
           example: 1
           description: "Order of the object group"
-ObjectLink:
+    ObjectLink:
       type: object
       properties:
         self:
@@ -19549,7 +19549,7 @@ ObjectLink:
               type: string
               format: string
               example: "/OBJECTS/1"
-PageLink:
+    PageLink:
       type: object
       properties:
         self:
@@ -19574,7 +19574,7 @@ PageLink:
           type: string
           format: uri
           example: "https://demo.firefly-iii.org/api/v1/OBJECT?&page=12"
-PiggyBankAccountRead:
+    PiggyBankAccountRead:
       type: object
       properties:
         account_id:
@@ -19599,7 +19599,7 @@ PiggyBankAccountRead:
           format: amount
           example: "123.45"
           description: "If convertToPrimary is on, this will show the amount in the primary currency."
-PiggyBankAccountStore:
+    PiggyBankAccountStore:
       type: object
       required:
         - id
@@ -19621,7 +19621,7 @@ PiggyBankAccountStore:
           format: amount
           example: "123.45"
           description: "The amount saved currently."
-PiggyBankAccountUpdate:
+    PiggyBankAccountUpdate:
       type: object
       required:
         - id
@@ -19644,7 +19644,7 @@ PiggyBankAccountUpdate:
           nullable: true
           example: "123.45"
           description: "The amount saved currently."
-PiggyBankProperties:
+    PiggyBankProperties:
       type: object
       required:
         - name
@@ -19823,7 +19823,7 @@ PiggyBankProperties:
           format: string
           example: "12.45"
           readOnly: true
-PiggyBankStore:
+    PiggyBankStore:
       type: object
       required:
         - name
@@ -19884,7 +19884,7 @@ PiggyBankStore:
           example: "Example Group"
           nullable: true
           description: The name of the group. NULL if no group.
-PiggyBankUpdate:
+    PiggyBankUpdate:
       type: object
       properties:
         name:
@@ -19947,7 +19947,7 @@ PiggyBankUpdate:
           example: "Example Group"
           nullable: true
           description: The name of the group. NULL if no group.
-PiggyBankEventProperties:
+    PiggyBankEventProperties:
       type: object
       properties:
         created_at:
@@ -20039,7 +20039,7 @@ PiggyBankEventProperties:
           example: "4291"
           description: The transaction group associated with the event.
           nullable: true
-Preference:
+    Preference:
       type: object
       required:
         - name
@@ -20061,14 +20061,14 @@ Preference:
           example: currencyPreference
         data:
           $ref: '#/components/schemas/PolymorphicProperty'
-PreferenceUpdate:
+    PreferenceUpdate:
       type: object
       required:
         - data
       properties:
         data:
           $ref: '#/components/schemas/PolymorphicProperty'
-RecurrenceProperties:
+    RecurrenceProperties:
       type: object
       properties:
         created_at:
@@ -20139,7 +20139,7 @@ RecurrenceProperties:
           type: array
           items:
             $ref: '#/components/schemas/RecurrenceTransaction'
-RecurrenceStore:
+    RecurrenceStore:
       type: object
       required:
         - type
@@ -20200,7 +20200,7 @@ RecurrenceStore:
           type: array
           items:
             $ref: '#/components/schemas/RecurrenceTransactionStore'
-RecurrenceUpdate:
+    RecurrenceUpdate:
       type: object
       properties:
         title:
@@ -20252,7 +20252,7 @@ RecurrenceUpdate:
           type: array
           items:
             $ref: '#/components/schemas/RecurrenceTransactionUpdate'
-RecurrenceRepetition:
+    RecurrenceRepetition:
       type: object
       required:
         - type
@@ -20315,7 +20315,7 @@ RecurrenceRepetition:
             type: string
             format: date-time
             example: "2018-09-17T12:46:47+01:00"
-RecurrenceRepetitionStore:
+    RecurrenceRepetitionStore:
       type: object
       required:
         - type
@@ -20349,7 +20349,7 @@ RecurrenceRepetitionStore:
             2. Create no transaction.
             3. Skip to the previous Friday.
             4. Skip to the next Monday.
-RecurrenceRepetitionUpdate:
+    RecurrenceRepetitionUpdate:
       type: object
       properties:
         type:
@@ -20380,7 +20380,7 @@ RecurrenceRepetitionUpdate:
             2. Create no transaction.
             3. Skip to the previous Friday.
             4. Skip to the next Monday.
-RecurrenceTransaction:
+    RecurrenceTransaction:
       type: object
       required:
         - description
@@ -20591,7 +20591,7 @@ RecurrenceTransaction:
           type: string
           format: string
           nullable: true
-RecurrenceTransactionStore:
+    RecurrenceTransactionStore:
       type: object
       required:
         - description
@@ -20678,7 +20678,7 @@ RecurrenceTransactionStore:
           example: "123"
           nullable: true
           description: Optional.
-RecurrenceTransactionUpdate:
+    RecurrenceTransactionUpdate:
       type: object
       required:
         - id
@@ -20759,7 +20759,7 @@ RecurrenceTransactionUpdate:
           example: "123"
           nullable: true
           description: Optional.
-Rule:
+    Rule:
       type: object
       required:
         - title
@@ -20828,7 +20828,7 @@ Rule:
           type: array
           items:
             $ref: '#/components/schemas/RuleAction'
-RuleStore:
+    RuleStore:
       type: object
       required:
         - title
@@ -20886,7 +20886,7 @@ RuleStore:
           type: array
           items:
             $ref: '#/components/schemas/RuleActionStore'
-RuleUpdate:
+    RuleUpdate:
       type: object
       properties:
         title:
@@ -20933,7 +20933,7 @@ RuleUpdate:
           type: array
           items:
             $ref: '#/components/schemas/RuleActionUpdate'
-RuleAction:
+    RuleAction:
       type: object
       required:
         - type
@@ -20979,7 +20979,7 @@ RuleAction:
           example: false
           default: false
           description: When true, other actions will not be fired after this action has fired. Defaults to false.
-RuleActionStore:
+    RuleActionStore:
       type: object
       required:
         - type
@@ -21010,7 +21010,7 @@ RuleActionStore:
           example: false
           default: false
           description: When true, other actions will not be fired after this action has fired. Defaults to false.
-RuleActionUpdate:
+    RuleActionUpdate:
       type: object
       properties:
         type:
@@ -21036,7 +21036,7 @@ RuleActionUpdate:
           format: boolean
           example: false
           description: When true, other actions will not be fired after this action has fired.
-RuleGroup:
+    RuleGroup:
       type: object
       required:
         - title
@@ -21069,7 +21069,7 @@ RuleGroup:
           type: boolean
           format: boolean
           example: true
-RuleGroupStore:
+    RuleGroupStore:
       type: object
       required:
         - title
@@ -21091,7 +21091,7 @@ RuleGroupStore:
           type: boolean
           format: boolean
           example: true
-RuleGroupUpdate:
+    RuleGroupUpdate:
       type: object
       properties:
         title:
@@ -21111,7 +21111,7 @@ RuleGroupUpdate:
           type: boolean
           format: boolean
           example: true
-RuleTrigger:
+    RuleTrigger:
       type: object
       required:
         - type
@@ -21163,7 +21163,7 @@ RuleTrigger:
           example: false
           default: false
           description: When true, other triggers will not be checked if this trigger was triggered. Defaults to false.
-RuleTriggerStore:
+    RuleTriggerStore:
       type: object
       required:
         - type
@@ -21199,7 +21199,7 @@ RuleTriggerStore:
           example: false
           default: false
           description: When true, other triggers will not be checked if this trigger was triggered. Defaults to false.
-RuleTriggerUpdate:
+    RuleTriggerUpdate:
       type: object
       properties:
         type:
@@ -21224,7 +21224,7 @@ RuleTriggerUpdate:
           format: boolean
           example: false
           description: When true, other triggers will not be checked if this trigger was triggered.
-TagModel:
+    TagModel:
       title: "A single tag (C)"
       type: object
       required:
@@ -21274,7 +21274,7 @@ TagModel:
           example: 6
           nullable: true
           description: "Zoom level for the map, if drawn. This to set the box right. Unfortunately this is a proprietary value because each map provider has different zoom levels."
-TagModelStore:
+    TagModelStore:
       title: "A single tag (A)"
       type: object
       required:
@@ -21314,7 +21314,7 @@ TagModelStore:
           example: 6
           nullable: true
           description: "Zoom level for the map, if drawn. This to set the box right. Unfortunately this is a proprietary value because each map provider has different zoom levels."
-TagModelUpdate:
+    TagModelUpdate:
       title: "A single tag (B)"
       type: object
       properties:
@@ -21352,7 +21352,7 @@ TagModelUpdate:
           example: 6
           nullable: true
           description: "Zoom level for the map, if drawn. This to set the box right. Unfortunately this is a proprietary value because each map provider has different zoom levels."
-CurrencyProperties:
+    CurrencyProperties:
       type: object
       required:
         - code
@@ -21407,7 +21407,7 @@ CurrencyProperties:
           format: int32
           example: 2
           description: Supports 0-16 decimals.
-CurrencyStore:
+    CurrencyStore:
       type: object
       required:
         - code
@@ -21442,7 +21442,7 @@ CurrencyStore:
           format: int32
           example: 2
           description: Supports 0-16 decimals.
-CurrencyUpdate:
+    CurrencyUpdate:
       type: object
       properties:
         enabled:
@@ -21477,7 +21477,7 @@ CurrencyUpdate:
           format: int32
           example: 2
           description: "How many decimals to use when displaying this currency. Between 0 and 16."
-Transaction:
+    Transaction:
       type: object
       required:
         - transactions
@@ -21509,7 +21509,7 @@ Transaction:
           type: array
           items:
             $ref: '#/components/schemas/TransactionSplit'
-TransactionStore:
+    TransactionStore:
       type: object
       required:
         - transactions
@@ -21540,7 +21540,7 @@ TransactionStore:
           type: array
           items:
             $ref: '#/components/schemas/TransactionSplitStore'
-TransactionUpdate:
+    TransactionUpdate:
       type: object
       properties:
         apply_rules:
@@ -21564,7 +21564,7 @@ TransactionUpdate:
           type: array
           items:
             $ref: '#/components/schemas/TransactionSplitUpdate'
-TransactionLink:
+    TransactionLink:
       type: object
       required:
         - link_type_id
@@ -21609,7 +21609,7 @@ TransactionLink:
           example: "Some example notes"
           nullable: true
           description: Optional. Some notes.
-TransactionLinkStore:
+    TransactionLinkStore:
       type: object
       required:
         - link_type_id
@@ -21644,7 +21644,7 @@ TransactionLinkStore:
           example: "Some example notes"
           nullable: true
           description: Optional. Some notes.
-TransactionLinkUpdate:
+    TransactionLinkUpdate:
       type: object
       properties:
         link_type_id:
@@ -21675,7 +21675,7 @@ TransactionLinkUpdate:
           example: "Some example notes"
           nullable: true
           description: "Optional. Some notes. If you submit an empty string the current notes will be removed"
-LinkType:
+    LinkType:
       type: object
       required:
         - name
@@ -21699,7 +21699,7 @@ LinkType:
           format: boolean
           example: false
           readOnly: true
-LinkTypeUpdate:
+    LinkTypeUpdate:
       type: object
       properties:
         name:
@@ -21714,7 +21714,7 @@ LinkTypeUpdate:
           type: string
           format: string
           example: "(partially) pays for"
-TransactionSplit:
+    TransactionSplit:
       type: object
       required:
         - amount
@@ -22128,7 +22128,7 @@ TransactionSplit:
           format: boolean
           example: false
           description: "If the transaction has attachments."
-TransactionSplitStore:
+    TransactionSplitStore:
       type: object
       required:
         - amount
@@ -22360,7 +22360,7 @@ TransactionSplitStore:
           type: string
           format: date-time
           nullable: true
-TransactionSplitUpdate:
+    TransactionSplitUpdate:
       type: object
       properties:
         transaction_journal_id:
@@ -22620,7 +22620,7 @@ TransactionSplitUpdate:
           type: string
           format: date-time
           nullable: true
-User:
+    User:
       title: A single user
       type: object
       required:
@@ -22650,7 +22650,7 @@ User:
           $ref: '#/components/schemas/UserBlockedCodeProperty'
         role:
           $ref: '#/components/schemas/UserRoleProperty'
-UserGroupRead:
+    UserGroupRead:
       type: object
       required:
         - type
@@ -22671,7 +22671,7 @@ UserGroupRead:
           $ref: '#/components/schemas/UserGroupReadAttributes'
         links:
           $ref: '#/components/schemas/ObjectLink'
-UserGroupReadAttributes:
+    UserGroupReadAttributes:
       type: object
       properties:
         created_at:
@@ -22729,7 +22729,7 @@ UserGroupReadAttributes:
           type: array
           items:
             $ref: '#/components/schemas/UserGroupReadMembers'
-UserGroupReadMembers:
+    UserGroupReadMembers:
       type: object
       properties:
         user_id:
@@ -22755,7 +22755,7 @@ UserGroupReadMembers:
           uniqueItems: true
           items:
             $ref: '#/components/schemas/UserGroupReadRole'
-UserGroupReadRole:
+    UserGroupReadRole:
       type: string
       enum:
         - owner
@@ -22782,14 +22782,14 @@ UserGroupReadRole:
         - owner
       description: >
           The possible roles of the user in this user group are documented here: https://docs.firefly-iii.org/references/firefly-iii/api/
-UserGroupSingle:
+    UserGroupSingle:
       type: object
       required:
         - data
       properties:
         data:
           $ref: '#/components/schemas/UserGroupRead'
-UserGroupUpdate:
+    UserGroupUpdate:
       type: object
       required:
         - title
@@ -22809,7 +22809,7 @@ UserGroupUpdate:
           format: string
           example: "EUR"
           description: "Use either primary_currency_id or primary_currency_code. This will set the primary currency for the user group ('financial administration')."
-Webhook:
+    Webhook:
       title: "A single webhook (read)"
       type: object
       required:
@@ -22857,7 +22857,7 @@ Webhook:
           example: "https://example.com"
           readOnly: false
           description: The URL of the webhook. Has to start with `https`.
-WebhookStore:
+    WebhookStore:
       title: "A single webhook (store)"
       type: object
       required:
@@ -22889,7 +22889,7 @@ WebhookStore:
           example: "https://example.com"
           readOnly: false
           description: The URL of the webhook. Has to start with `https`.
-WebhookUpdate:
+    WebhookUpdate:
       title: "A single webhook (update)"
       type: object
       properties:
@@ -22920,7 +22920,7 @@ WebhookUpdate:
           example: "https://example.com"
           readOnly: false
           description: The URL of the webhook. Has to start with `https`.
-WebhookAttempt:
+    WebhookAttempt:
       type: object
       properties:
         created_at:
@@ -22956,7 +22956,7 @@ WebhookAttempt:
           example: "Page not found"
           nullable: true
           description: "Webhook receiver response for this attempt, if any. May contain sensitive user data."
-WebhookMessage:
+    WebhookMessage:
       type: object
       properties:
         created_at:
@@ -22995,7 +22995,7 @@ WebhookMessage:
           example: "{some:message}"
           nullable: true
           description: "The actual message that is sent or will be sent as JSON string."
-AttachableType:
+    AttachableType:
       type: string
       format: string
       example: "Bill"
@@ -23007,7 +23007,7 @@ AttachableType:
         - TransactionJournal
         - PiggyBank
         - Tag
-AutoBudgetPeriod:
+    AutoBudgetPeriod:
       type: string
       format: string
       example: "monthly"
@@ -23021,7 +23021,7 @@ AutoBudgetPeriod:
         - "half-year"
         - yearly
         - null
-AutoBudgetType:
+    AutoBudgetType:
       type: string
       format: string
       example: reset
@@ -23032,7 +23032,7 @@ AutoBudgetType:
         - rollover
         - none
         - null
-BillRepeatFrequency:
+    BillRepeatFrequency:
       type: string
       format: string
       example: "monthly"
@@ -23043,7 +23043,7 @@ BillRepeatFrequency:
         - quarterly
         - "half-year"
         - yearly
-PolymorphicProperty:
+    PolymorphicProperty:
       oneOf:
         - type: boolean
         - type: string
@@ -23051,7 +23051,7 @@ PolymorphicProperty:
         - type: array
           items:
             $ref: '#/components/schemas/StringArrayItem'
-RecurrenceRepetitionType:
+    RecurrenceRepetitionType:
       type: string
       format: string
       example: "weekly"
@@ -23062,7 +23062,7 @@ RecurrenceRepetitionType:
         - ndom
         - monthly
         - yearly
-RecurrenceTransactionType:
+    RecurrenceTransactionType:
       type: string
       format: string
       example: "withdrawal"
@@ -23070,7 +23070,7 @@ RecurrenceTransactionType:
         - withdrawal
         - transfer
         - deposit
-RuleActionKeyword:
+    RuleActionKeyword:
       type: string
       format: string
       example: "set_category"
@@ -23098,7 +23098,7 @@ RuleActionKeyword:
         - convert_deposit
         - convert_transfer
         - delete_transaction
-RuleTriggerKeyword:
+    RuleTriggerKeyword:
       type: string
       format: string
       example: "user_action"
@@ -23140,7 +23140,7 @@ RuleTriggerKeyword:
         - source_account_is
         - destination_account_is
         - source_account_starts
-RuleTriggerType:
+    RuleTriggerType:
       type: string
       format: string
       example: store-journal
@@ -23148,12 +23148,12 @@ RuleTriggerType:
       enum:
         - "store-journal"
         - "update-journal"
-StringArrayItem:
+    StringArrayItem:
       type: string
       format: string
       example: "EUR"
       description: "The actual preference content."
-UserBlockedCodeProperty:
+    UserBlockedCodeProperty:
       type: string
       format: string
       nullable: true
@@ -23162,7 +23162,7 @@ UserBlockedCodeProperty:
       enum:
         - email_changed
         - null
-UserRoleProperty:
+    UserRoleProperty:
       type: string
       format: string
       example: "owner"
@@ -23172,7 +23172,7 @@ UserRoleProperty:
         - owner
         - demo
         - null
-WebhookDelivery:
+    WebhookDelivery:
       type: string
       format: string
       nullable: false
@@ -23180,7 +23180,7 @@ WebhookDelivery:
       description: Format of the delivered response.
       enum:
         - JSON
-WebhookResponse:
+    WebhookResponse:
       type: string
       format: string
       nullable: false
@@ -23190,7 +23190,7 @@ WebhookResponse:
         - TRANSACTIONS
         - ACCOUNTS
         - NONE
-WebhookTrigger:
+    WebhookTrigger:
       type: string
       format: string
       nullable: false
@@ -23200,11 +23200,11 @@ WebhookTrigger:
         - STORE_TRANSACTION
         - UPDATE_TRANSACTION
         - DESTROY_TRANSACTION
-BasicSummary:
+    BasicSummary:
       type: object
       additionalProperties:
         $ref: '#/components/schemas/BasicSummaryEntry'
-BasicSummaryEntry:
+    BasicSummaryEntry:
       type: object
       properties:
         key:
@@ -23260,7 +23260,7 @@ BasicSummaryEntry:
           format: string
           example: "$20 + $-40"
           description: "A short explanation of the amounts origin. Already formatted according to the locale of the user or translated, if relevant."
-Configuration:
+    Configuration:
       type: object
       required:
         - title
@@ -23277,14 +23277,14 @@ Configuration:
           example: true
           readOnly: false
           description: "If this config variable can be edited by the user"
-ConfigurationUpdate:
+    ConfigurationUpdate:
       type: object
       required:
         - value
       properties:
         value:
           $ref: '#/components/schemas/PolymorphicProperty'
-CronResult:
+    CronResult:
       type: object
       properties:
         recurring_transactions:
@@ -23293,7 +23293,7 @@ CronResult:
           $ref: '#/components/schemas/CronResultRow'
         telemetry:
           $ref: '#/components/schemas/CronResultRow'
-CronResultRow:
+    CronResultRow:
       type: object
       properties:
         job_fired:
@@ -23326,7 +23326,7 @@ CronResultRow:
           description: |
             If the cron job ran into some kind of an error, this value will be the error message. The success message
             if the job actually ran OK.
-SystemInfo:
+    SystemInfo:
       type: object
       properties:
         data:
@@ -23335,12 +23335,12 @@ SystemInfo:
             version:
               type: string
               format: string
-              example: "6.3.0"
+              example: "%version%"
             api_version:
               type: string
               format: string
               description: Same value as the version field.
-              example: "6.3.0"
+              example: "%version%"
             php_version:
               type: string
               format: string
@@ -23353,14 +23353,14 @@ SystemInfo:
               type: string
               format: string
               example: "mysql"
-UserSingle:
+    UserSingle:
       type: object
       required:
         - data
       properties:
         data:
             $ref: '#/components/schemas/UserRead'
-AccountTypeFilter:
+    AccountTypeFilter:
       type: string
       enum:
         - all
@@ -23384,7 +23384,7 @@ AccountTypeFilter:
         - Loan
         - Debt
         - Mortgage
-TransactionTypeFilter:
+    TransactionTypeFilter:
       type: string
       enum:
         - all
@@ -23401,7 +23401,7 @@ TransactionTypeFilter:
         - special
         - specials
         - default
-Meta:
+    Meta:
       type: object
       properties:
         pagination:
@@ -23422,7 +23422,7 @@ Meta:
             total_pages:
               type: integer
               example: 1
-AccountRoleProperty:
+    AccountRoleProperty:
       type: string
       format: string
       example: "defaultAsset"
@@ -23435,7 +23435,7 @@ AccountRoleProperty:
         - ccAsset
         - cashWalletAsset
         - null
-AccountTypeProperty:
+    AccountTypeProperty:
       type: string
       format: string
       example: "Asset account"
@@ -23453,7 +23453,7 @@ AccountTypeProperty:
         - Loan
         - Debt
         - Mortgage
-ChartDatasetPeriodProperty:
+    ChartDatasetPeriodProperty:
       type: string
       format: string
       example: "1M"
@@ -23465,7 +23465,7 @@ ChartDatasetPeriodProperty:
         - 3M
         - 1Y
         - custom
-CreditCardTypeProperty:
+    CreditCardTypeProperty:
       type: string
       format: string
       example: monthlyFull
@@ -23474,7 +23474,7 @@ CreditCardTypeProperty:
       enum:
         - monthlyFull
         - null
-InterestPeriodProperty:
+    InterestPeriodProperty:
       type: string
       format: string
       example: monthly
@@ -23487,7 +23487,7 @@ InterestPeriodProperty:
         - half-year
         - yearly
         - null
-LiabilityDirectionProperty:
+    LiabilityDirectionProperty:
       type: string
       format: string
       example: credit
@@ -23497,7 +23497,7 @@ LiabilityDirectionProperty:
         - credit
         - debit
         - null
-LiabilityTypeProperty:
+    LiabilityTypeProperty:
       type: string
       format: string
       example: "loan"
@@ -23508,7 +23508,7 @@ LiabilityTypeProperty:
         - debt
         - mortgage
         - null
-ShortAccountTypeProperty:
+    ShortAccountTypeProperty:
       type: string
       format: string
       example: "asset"
@@ -23523,7 +23523,7 @@ ShortAccountTypeProperty:
         - liabilities
         - "initial-balance"
         - reconciliation
-TransactionTypeProperty:
+    TransactionTypeProperty:
       type: string
       format: string
       example: "withdrawal"
@@ -23533,7 +23533,7 @@ TransactionTypeProperty:
         - transfer
         - reconciliation
         - opening balance
-BadRequestResponse:
+    BadRequestResponse:
       type: object
       properties:
         message:
@@ -23544,7 +23544,7 @@ BadRequestResponse:
           type: string
           format: string
           example: "BadRequestHttpException"
-InternalExceptionResponse:
+    InternalExceptionResponse:
       type: object
       properties:
         message:
@@ -23555,7 +23555,7 @@ InternalExceptionResponse:
           type: string
           format: string
           example: "InternalException"
-NotFoundResponse:
+    NotFoundResponse:
       type: object
       properties:
         message:
@@ -23566,7 +23566,7 @@ NotFoundResponse:
           type: string
           format: string
           example: "NotFoundHttpException"
-UnauthenticatedResponse:
+    UnauthenticatedResponse:
       type: object
       properties:
         message:
@@ -23577,7 +23577,7 @@ UnauthenticatedResponse:
           type: string
           format: string
           example: "AuthenticationException"
-ValidationErrorResponse:
+    ValidationErrorResponse:
       type: object
       properties:
         message:
