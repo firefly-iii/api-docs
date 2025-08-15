@@ -13,7 +13,7 @@ info:
     <br><br>
     To learn more about the idiosyncrasies of this API, please read about the API in the [Firefly III API documentation](https://docs.firefly-iii.org/references/firefly-iii/api/).
     <br><br>
-    <small>This file was last generated on 2025-08-15 @ 07:25:56 (Europe/Amsterdam)</small>
+    <small>This file was last generated on 2025-08-15 @ 07:27:24 (Europe/Amsterdam)</small>
   version: "develop"
   contact:
     name: James Cole
@@ -1425,7 +1425,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
         "200":
-          description: Line chart oriented chart information. Check out the model for more details. Each entry is a line (or bar) in the chart.
+          description: Bar chart oriented chart information. Check out the model for more details. Each entry is a line (or bar) in the chart.
           content:
             application/json:
               schema:
@@ -1434,9 +1434,9 @@ paths:
     get:
       tags:
         - charts
-      summary: Dashboard chart with asset account balance information.
+      summary: Dashboard chart with category information.
       description: |
-        This endpoint returns the data required to generate a chart with basic asset account balance information.
+        This endpoint returns the data required to generate a chart with basic category information.
       operationId: getChartCategoryOverview
       parameters:
         - name: X-Trace-Id
