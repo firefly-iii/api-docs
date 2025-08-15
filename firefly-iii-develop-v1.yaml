@@ -13,7 +13,7 @@ info:
     <br><br>
     To learn more about the idiosyncrasies of this API, please read about the API in the [Firefly III API documentation](https://docs.firefly-iii.org/references/firefly-iii/api/).
     <br><br>
-    <small>This file was last generated on 2025-08-15 @ 07:30:35 (Europe/Amsterdam)</small>
+    <small>This file was last generated on 2025-08-15 @ 11:00:10 (Europe/Amsterdam)</small>
   version: "develop"
   contact:
     name: James Cole
@@ -2268,7 +2268,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ValidationErrorResponse'
         "200":
-          description: 'A list of expense accounts and expense details. Each expense acccount has one row per currency.'
+          description: 'A list of expense accounts and expense details. Each expense account has one row per currency.'
           content:
             application/json:
               schema:
@@ -2438,7 +2438,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ValidationErrorResponse'
         "200":
-          description: 'A list of revenue accounts and income details. Each revenue acccount has one row per currency.'
+          description: 'A list of revenue accounts and income details. Each revenue account has one row per currency.'
           content:
             application/json:
               schema:
@@ -4780,7 +4780,7 @@ paths:
           application/x-www-form-urlencoded:
             schema:
               $ref: '#/components/schemas/AccountUpdate'
-        description: JSON array or formdata with updated account information. See the model for the exact specifications.
+        description: JSON array or form-data with updated account information. See the model for the exact specifications.
         required: true
       responses:
         "401":
@@ -7572,8 +7572,8 @@ paths:
                 $ref: '#/components/schemas/InternalExceptionResponse'
   /v1/exchange-rates:
     get:
-      summary: List all exchange rates.
-      description: List exchange rates.
+      summary: List all exchange rates that Firefly III knows.
+      description: List exchange rates that Firefly III knows.
       operationId: listCurrencyExchangeRates
       tags:
         - currency_exchange_rates
@@ -7658,11 +7658,11 @@ paths:
           application/x-www-form-urlencoded:
             schema:
               $ref: '#/components/schemas/CurrencyExchangeRateStore'
-        description: "JSON array or key=value pairs with the necessary category information. See the model for the exact specifications."
+        description: "JSON array or key=value pairs with the necessary exchange rate information. See the model for the exact specifications."
         required: true
       responses:
         "200":
-          description: 'New category stored, result in response.'
+          description: 'New exchange stored, result in response. If a rate already exists for this currency pair and date, it will be updated.'
           content:
             application/vnd.api+json:
               schema:
@@ -7700,7 +7700,7 @@ paths:
   /v1/exchange-rates/{id}:
     get:
       summary: List a single specific exchange rate.
-      description: List a single specific exchange rate
+      description: List a single specific exchange rate by its ID.
       operationId: listSpecificCurrencyExchangeRate
       tags:
         - currency_exchange_rates
@@ -7739,7 +7739,7 @@ paths:
           description: The ID of the requested currency exchange rate.
       responses:
         "200":
-          description: A list of currency exchange rates.
+          description: The exchange rate requested.
           content:
             application/vnd.api+json:
               schema:
@@ -7770,7 +7770,7 @@ paths:
                 $ref: '#/components/schemas/InternalExceptionResponse'
     delete:
       operationId: deleteSpecificCurrencyExchangeRate
-      description: "Delete a specific currency exchange rate."
+      description: "Delete a specific currency exchange rate by its internal ID."
       summary: "Delete a specific currency exchange rate."
       tags:
         - currency_exchange_rates
@@ -7821,7 +7821,7 @@ paths:
     put:
       summary: Update existing currency exchange rate.
       description: |
-        Used to update a single currency exchange rate
+        Used to update a single currency exchange rate by its ID. Including the from/to currency is optional.
       operationId: updateCurrencyExchangeRate
       parameters:
         - name: X-Trace-Id
@@ -7841,7 +7841,7 @@ paths:
             example: "123"
           description: The ID of the currency exchange rate.
       tags:
-        - links
+        - currency_exchange_rates
       requestBody:
         content:
           application/json:
@@ -7850,7 +7850,7 @@ paths:
           application/x-www-form-urlencoded:
             schema:
               $ref: '#/components/schemas/CurrencyExchangeRateUpdate'
-        description: JSON array or formdata with updated exchange rate information. See the model for the exact specifications.
+        description: JSON array or form-data with updated exchange rate information. See the model for the exact specifications.
         required: true
       responses:
         "200":
@@ -7884,10 +7884,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/BadRequestResponse'
   
-  /v1/exchange-rates/rates/{from}/{to}:
+  /v1/exchange-rates/{from}/{to}:
     get:
-      summary: List all exchange rate from/to the mentioned currencies.
-      description: List all exchange rate from/to the mentioned currencies.
+      summary: List all exchange rates from/to the mentioned currencies.
+      description: List all exchange rates from/to the mentioned currencies.
       operationId: listSpecificCurrencyExchangeRates
       tags:
         - currency_exchange_rates
@@ -7964,8 +7964,8 @@ paths:
                 $ref: '#/components/schemas/InternalExceptionResponse'
     delete:
       operationId: deleteSpecificCurrencyExchangeRates
-      description: "Delete all currency exchange rates from 'from' to 'to' on a specific date or today."
-      summary: "Delete all currency exchange rates from 'from' to 'to'."
+      summary: "Deletes ALL currency exchange rates from 'from' to 'to'."
+      description: "Deletes ALL currency exchange rates from 'from' to 'to'. It's important to know that the reverse exchange rates (from 'to' to 'from') will not be deleted and Firefly III will still be able to infer the correct exchange rate from the reverse one."
       tags:
         - currency_exchange_rates
       parameters:
@@ -7992,18 +7992,380 @@ paths:
             type: string
             example: "USD"
           description: "The currency code of the 'to' currency."
-        - in: query
-          name: date
-          description: |
-            A date formatted YYYY-MM-DD. Defaults to today.
-          required: false
-          schema:
-            type: string
-            format: date
-            example: "2018-09-17"
       responses:
         "204":
           description: "Currency exchange rate(s) deleted."
+        "401":
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthenticatedResponse'
+        "404":
+          description: Page not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponse'
+        "500":
+          description: Internal exception
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalExceptionResponse'
+  /v1/exchange-rates/{from}/{to}/{date}:
+    get:
+      summary: List the exchange rate for the from and to-currency on the requested date.
+      description: List the exchange rate for the from and to-currency on the requested date.
+      operationId: listSpecificCurrencyExchangeRateOnDate
+      tags:
+        - currency_exchange_rates
+      parameters:
+        - name: X-Trace-Id
+          in: header
+          description: Unique identifier associated with this request.
+          required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
+          schema:
+            type: string
+            format: uuid
+            example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
+        - in: query
+          name: limit
+          description: Number of items per page. The default pagination is per 50 items.
+          required: false
+          schema:
+            type: integer
+            format: int32
+            example: 10
+        - in: query
+          name: page
+          description: Page number. The default pagination is per 50 items.
+          required: false
+          schema:
+            type: integer
+            format: int32
+            example: 1
+        - in: path
+          name: from
+          required: true
+          schema:
+            type: string
+            example: "EUR"
+          description: "The currency code of the 'from' currency."
+        - in: path
+          name: to
+          required: true
+          schema:
+            type: string
+            example: "USD"
+          description: "The currency code of the 'to' currency."
+        - in: path
+          name: date
+          required: true
+          schema:
+            type: string
+            format: string
+          example: "2020-09-17"
+      responses:
+        "200":
+          description: A list of currency exchange rates.
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/CurrencyExchangeRateArray'
+        "401":
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthenticatedResponse'
+        "404":
+          description: Page not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponse'
+        "500":
+          description: Internal exception
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalExceptionResponse'
+    delete:
+      operationId: deleteSpecificCurrencyExchangeRateOnDate
+      description: "Delete the currency exchange rate from 'from' to 'to' on the specified date.  It's important to know that the reverse exchange rate (from 'to' to 'from') will not be deleted and Firefly III will still be able to infer the correct exchange rate from the reverse one."
+      summary: "Delete the currency exchange rate from 'from' to 'to' on the specified date."
+      tags:
+        - currency_exchange_rates
+      parameters:
+        - name: X-Trace-Id
+          in: header
+          description: Unique identifier associated with this request.
+          required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
+          schema:
+            type: string
+            format: uuid
+            example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
+        - in: path
+          name: from
+          required: true
+          schema:
+            type: string
+            example: "EUR"
+          description: "The currency code of the 'from' currency."
+        - in: path
+          name: to
+          required: true
+          schema:
+            type: string
+            example: "USD"
+          description: "The currency code of the 'to' currency."
+        - in: path
+          name: date
+          required: true
+          schema:
+            type: string
+            format: string
+          example: "2020-09-17"
+      responses:
+        "204":
+          description: "Currency exchange rate(s) deleted."
+        "401":
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthenticatedResponse'
+        "404":
+          description: Page not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponse'
+        "500":
+          description: Internal exception
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalExceptionResponse'
+    put:
+      summary: Update existing currency exchange rate.
+      description: |
+        Used to update a single currency exchange rate by its currency codes and date
+      operationId: updateCurrencyExchangeRateByDate
+      parameters:
+        - name: X-Trace-Id
+          in: header
+          description: Unique identifier associated with this request.
+          required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
+          schema:
+            type: string
+            format: uuid
+            example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
+        - in: path
+          name: from
+          required: true
+          schema:
+            type: string
+            example: "EUR"
+          description: "The currency code of the 'from' currency."
+        - in: path
+          name: to
+          required: true
+          schema:
+            type: string
+            example: "USD"
+          description: "The currency code of the 'to' currency."
+        - in: path
+          name: date
+          required: true
+          schema:
+            type: string
+            format: string
+          example: "2020-09-17"
+      tags:
+        - currency_exchange_rates
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CurrencyExchangeRateUpdateNoDate'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CurrencyExchangeRateUpdate'
+        description: JSON array or form-data with updated exchange rate information. See the model for the exact specifications.
+        required: true
+      responses:
+        "200":
+          description: 'Updated exchange rate stored, result in response'
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/CurrencyExchangeRateSingle'
+        "422":
+          description: 'Validation error. The body will have the exact details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorResponse'
+        "401":
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthenticatedResponse'
+        "404":
+          description: Page not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponse'
+  /v1/exchange-rates/by-date/{date}:
+    post:
+      summary: Store new currency exchange rates under this date
+      description: Stores a new set of exchange rates. The date is fixed (in the URL parameter) and the data required can be submitted as a JSON body.
+      operationId: storeCurrencyExchangeRatesByDate
+      parameters:
+        - name: X-Trace-Id
+          in: header
+          description: Unique identifier associated with this request.
+          required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
+          schema:
+            type: string
+            format: uuid
+            example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
+        - in: path
+          name: date
+          required: true
+          schema:
+            type: string
+            format: string
+          example: "2020-09-17"
+      tags:
+        - currency_exchange_rates
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CurrencyExchangeRateStoreByDate'
+        description: "JSON array with the necessary currency exchange rate information. See the model for the exact specifications."
+        required: true
+      responses:
+        "200":
+          description: 'New exchange rates stored, result in response. If a rate already existed for any submitted entry, it will be updated.'
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/CurrencyExchangeRateArray'
+        "422":
+          description: 'Validation error. The body will have the exact details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorResponse'
+        "401":
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthenticatedResponse'
+        "404":
+          description: Page not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponse'
+        "500":
+          description: Internal exception
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalExceptionResponse'
+  /v1/exchange-rates/by-currencies/{from}/{to}:
+    post:
+      summary: Store new currency exchange rates under this from/to pair.
+      description: Stores a new set of exchange rates for this pair. The date is variable, and the data required can be submitted as a JSON body.
+      operationId: storeCurrencyExchangeRatesByPair
+      parameters:
+        - name: X-Trace-Id
+          in: header
+          description: Unique identifier associated with this request.
+          required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
+          schema:
+            type: string
+            format: uuid
+            example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
+        - in: path
+          name: from
+          required: true
+          schema:
+            type: string
+            example: "EUR"
+          description: "The currency code of the 'from' currency."
+        - in: path
+          name: to
+          required: true
+          schema:
+            type: string
+            example: "USD"
+          description: "The currency code of the 'to' currency."
+      tags:
+        - currency_exchange_rates
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CurrencyExchangeRateStoreByPair'
+        description: "JSON array with the necessary currency exchange rate information. See the model for the exact specifications."
+        required: true
+      responses:
+        "200":
+          description: 'New exchange rates stored, result in response. If a rate already existed for any submitted entry, it will be updated.'
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/CurrencyExchangeRateArray'
+        "422":
+          description: 'Validation error. The body will have the exact details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorResponse'
         "401":
           description: Unauthenticated
           content:
@@ -8340,7 +8702,7 @@ paths:
           application/x-www-form-urlencoded:
             schema:
               $ref: '#/components/schemas/LinkTypeUpdate'
-        description: JSON array or formdata with updated link type information. See the model for the exact specifications.
+        description: JSON array or form-data with updated link type information. See the model for the exact specifications.
         required: true
       responses:
         "200":
@@ -8697,7 +9059,7 @@ paths:
           application/x-www-form-urlencoded:
             schema:
               $ref: '#/components/schemas/TransactionLinkUpdate'
-        description: JSON array or formdata with updated link type information. See the model for the exact specifications.
+        description: JSON array or form-data with updated link type information. See the model for the exact specifications.
         required: true
       responses:
         "200":
@@ -8881,8 +9243,8 @@ paths:
                 $ref: '#/components/schemas/InternalExceptionResponse'
   /v1/object-groups:
     get:
-      summary: List all oject groups.
-      description: List all oject groups.
+      summary: List all object groups.
+      description: List all object groups.
       operationId: listObjectGroups
       tags:
         - object_groups
@@ -10149,7 +10511,7 @@ paths:
   /v1/rule-groups/{id}/trigger:
     post:
       summary: Fire the rule group on your transactions.
-      description: Fire the rule group on your transactions. Changes will be made by the rules in the rule group! Limit the result if you want to.
+      description: Fire the rule group on your transactions. Changes will be made by the rules in the rule group. Limit the result if you want to.
       operationId: fireRuleGroup
       tags:
         - rule_groups
@@ -10617,7 +10979,7 @@ paths:
   /v1/rules/{id}/trigger:
     post:
       summary: Fire the rule on your transactions.
-      description: Fire the rule group on your transactions. Changes will be made by the rules in the group! Limit the result if you want to.
+      description: Fire the rule group on your transactions. Changes will be made by the rules in the group. Limit the result if you want to.
       operationId: fireRule
       tags:
         - rules
@@ -11326,7 +11688,7 @@ paths:
             example: 1
         - in: path
           name: tag
-          description: Either the tag itself or the tag ID. If you use the tag itself, and it contains international (non-ASCII) characters, your milage may vary.
+          description: Either the tag itself or the tag ID. If you use the tag itself, and it contains international (non-ASCII) characters, your mileage may vary.
           required: true
           schema:
             type: string
@@ -11383,7 +11745,7 @@ paths:
             example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
         - in: path
           name: tag
-          description: Either the tag itself or the tag ID. If you use the tag itself, and it contains international (non-ASCII) characters, your milage may vary.
+          description: Either the tag itself or the tag ID. If you use the tag itself, and it contains international (non-ASCII) characters, your mileage may vary.
           required: true
           schema:
             type: string
@@ -11454,7 +11816,7 @@ paths:
             example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
         - in: path
           name: tag
-          description: Either the tag itself or the tag ID. If you use the tag itself, and it contains international (non-ASCII) characters, your milage may vary.
+          description: Either the tag itself or the tag ID. If you use the tag itself, and it contains international (non-ASCII) characters, your mileage may vary.
           required: true
           schema:
             type: string
@@ -13369,7 +13731,7 @@ paths:
           application/x-www-form-urlencoded:
             schema:
               $ref: '#/components/schemas/UserGroupUpdate'
-        description: JSON array or formdata with new user group information. See the model for the exact specifications.
+        description: JSON array or form-data with new user group information. See the model for the exact specifications.
         required: true
       responses:
         "401":
@@ -14250,7 +14612,7 @@ paths:
                 $ref: '#/components/schemas/InternalExceptionResponse'
     delete:
       operationId: deleteUser
-      description: Delete a user. You cannot delete the user you're authenticated with. This cannot be undone. Be careful!
+      description: Delete a user. You cannot delete the user you're authenticated with. This cannot be undone. Be careful.
       summary: Delete a user.
       tags:
         - users
@@ -14941,7 +15303,7 @@ paths:
     post:
       summary: Submit messages for a webhook.
       description: This endpoint will submit any open messages for this webhook. This is an asynchronous operation, so you can't see the result. Refresh the webhook message and/or the webhook message attempts to see the results. This may take some time if the webhook receiver is slow.
-      operationId: submitWebook
+      operationId: submitWebhook
       parameters:
         - name: X-Trace-Id
           in: header
@@ -14969,7 +15331,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/BadRequestResponse'
         "200":
-          description: OK!
+          description: OK.
         "204":
           description: No messages to send, so did nothing.
         "404":
@@ -18945,6 +19307,12 @@ components:
           example: "12"
           readOnly: true
           description: "Base currency ID for this exchange rate entry."
+        from_currency_name:
+          type: string
+          format: string
+          example: "Euro"
+          readOnly: true
+          description: "Base currency name for this exchange rate entry."
         from_currency_code:
           type: string
           format: string
@@ -18969,6 +19337,12 @@ components:
           example: "12"
           readOnly: true
           description: "Destination currency ID for this exchange rate entry."
+        to_currency_name:
+          type: string
+          format: string
+          example: "EUR"
+          readOnly: true
+          description: "Destination currency name for this exchange rate entry."
         to_currency_code:
           type: string
           format: string
@@ -19001,19 +19375,16 @@ components:
           description: "Date and time of the exchange rate."
     CurrencyExchangeRateRead:
       type: object
-      required:
-        - type
-        - id
-        - attributes
-        - links
       properties:
         type:
           type: string
           format: string
+          readOnly: true
           example: "currency_exchange_rates"
           description: "Immutable value"
         id:
           type: string
+          readOnly: true
           format: string
           example: "2"
         attributes:
@@ -19030,9 +19401,60 @@ components:
     CurrencyExchangeRateStore:
       type: object
       required:
-        - date
         - from
         - to
+        - rates
+      properties:
+        from:
+          type: string
+          format: string
+          example: "USD"
+          description: "The base currency code."
+          nullable: false
+        to:
+          type: string
+          format: string
+          example: "EUR"
+          description: "The destination currency code."
+          nullable: false
+        rate:
+          type: string
+          format: string
+          nullable: false
+          example: "2.3456"
+          description: "The exchange rate from the base currency to the destination currency."
+    CurrencyExchangeRateStoreByDate:
+      type: object
+      required:
+        - from
+        - date
+        - rates
+      properties:
+        from:
+          type: string
+          format: string
+          example: "EUR"
+          description: "The 'from'-currency"
+        rates:
+          type: object
+          description: "The actual entries for this data set. They 'key' value is 'to' currency. The value is the exchange rate."
+          additionalProperties:
+            type: string
+          example:
+            USD: '1.2345'
+            GBP: '6.3456'
+    CurrencyExchangeRateStoreByPair:
+      type: object
+      description: "The actual entries for this data set. They 'key' value is the date in YYYY-MM-DD. The value is the exchange rate."
+      additionalProperties:
+        type: string
+      example:
+        2025-08-01: '1.2345'
+        2025-08-02: '6.3456'
+    CurrencyExchangeRateUpdate:
+      type: object
+      required:
+        - date
         - rate
       properties:
         date:
@@ -19052,25 +19474,18 @@ components:
           format: string
           example: "USD"
           description: "The base currency code."
-          nullable: false
+          nullable: true
         to:
           type: string
           format: string
           example: "EUR"
           description: "The destination currency code."
-          nullable: false
-    CurrencyExchangeRateUpdate:
+          nullable: true
+    CurrencyExchangeRateUpdateNoDate:
       type: object
       required:
-        - date
         - rate
       properties:
-        date:
-          type: string
-          format: date
-          example: "2018-09-17"
-          description: The date to which the exchange rate is applicable.
-          nullable: false
         rate:
           type: string
           format: string
@@ -21881,11 +22296,6 @@ components:
           format: string
           nullable: true
           description: External, custom URL for this transaction.
-        bunq_payment_id:
-          type: string
-          nullable: true
-          format: string
-          description: Internal ID of bunq transaction. Field is no longer used but still works.
         sepa_cc:
           type: string
           format: string
@@ -22146,11 +22556,6 @@ components:
           format: string
           nullable: true
           description: External, custom URL for this transaction.
-        bunq_payment_id:
-          type: string
-          nullable: true
-          format: string
-          description: Internal ID of bunq transaction.
         sepa_cc:
           type: string
           format: string
@@ -23086,7 +23491,7 @@ components:
       type: string
       format: string
       example: credit
-      description: "'credit' indicates somebody owes you the liability. 'debit' Indicates you owe this debt yourself. Works only for liabiltiies."
+      description: "'credit' indicates somebody owes you the liability. 'debit' Indicates you owe this debt yourself. Works only for liabilities."
       nullable: true
       enum:
         - credit
