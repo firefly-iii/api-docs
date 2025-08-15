@@ -13,7 +13,7 @@ info:
     <br><br>
     To learn more about the idiosyncrasies of this API, please read about the API in the [Firefly III API documentation](https://docs.firefly-iii.org/references/firefly-iii/api/).
     <br><br>
-    <small>This file was last generated on 2025-08-12 @ 20:39:24 (Europe/Amsterdam)</small>
+    <small>This file was last generated on 2025-08-15 @ 07:25:56 (Europe/Amsterdam)</small>
   version: "develop"
   contact:
     name: James Cole
@@ -1223,8 +1223,221 @@ paths:
         - charts
       summary: Dashboard chart with asset account balance information.
       description: |
-        This endpoint returns the data required to generate a chart with basic asset account balance information.
+        This endpoint returns the data required to generate a chart with basic asset account balance information. This is used on the dashboard.
       operationId: getChartAccountOverview
+      parameters:
+        - name: X-Trace-Id
+          in: header
+          description: Unique identifier associated with this request.
+          required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
+          schema:
+            type: string
+            format: uuid
+            example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
+        - in: query
+          name: start
+          description: |
+            A date formatted YYYY-MM-DD.
+          required: true
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: end
+          description: |
+            A date formatted YYYY-MM-DD.
+          required: true
+          schema:
+            type: string
+            format: date
+      responses:
+        "401":
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthenticatedResponse'
+        "404":
+          description: Page not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponse'
+        "422":
+          description: 'Validation error. The body will have the exact details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorResponse'
+        "500":
+          description: Internal exception
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalExceptionResponse'
+        "200":
+          description: Line chart oriented chart information. Check out the model for more details. Each entry is a line (or bar) in the chart.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChartLine'
+  /v1/chart/balance/balance:
+    get:
+      tags:
+        - charts
+      summary: Dashboard chart with balance information.
+      description: |
+        This endpoint returns the data required to generate a chart with balance information.
+      operationId: getChartBalance
+      parameters:
+        - name: X-Trace-Id
+          in: header
+          description: Unique identifier associated with this request.
+          required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
+          schema:
+            type: string
+            format: uuid
+            example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
+        - in: query
+          name: start
+          description: |
+            A date formatted YYYY-MM-DD.
+          required: true
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: end
+          description: |
+            A date formatted YYYY-MM-DD.
+          required: true
+          schema:
+            type: string
+            format: date
+      responses:
+        "401":
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthenticatedResponse'
+        "404":
+          description: Page not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponse'
+        "422":
+          description: 'Validation error. The body will have the exact details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorResponse'
+        "500":
+          description: Internal exception
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalExceptionResponse'
+        "200":
+          description: Line chart oriented chart information. Check out the model for more details. Each entry is a line (or bar) in the chart.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChartLine'
+  /v1/chart/budget/overview:
+    get:
+      tags:
+        - charts
+      summary: Dashboard chart with budget information.
+      description: |
+        This endpoint returns the data required to generate a chart with basic budget information.
+      operationId: getChartBudgetOverview
+      parameters:
+        - name: X-Trace-Id
+          in: header
+          description: Unique identifier associated with this request.
+          required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
+          schema:
+            type: string
+            format: uuid
+            example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
+        - in: query
+          name: start
+          description: |
+            A date formatted YYYY-MM-DD.
+          required: true
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: end
+          description: |
+            A date formatted YYYY-MM-DD.
+          required: true
+          schema:
+            type: string
+            format: date
+      responses:
+        "401":
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthenticatedResponse'
+        "404":
+          description: Page not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponse'
+        "422":
+          description: 'Validation error. The body will have the exact details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorResponse'
+        "500":
+          description: Internal exception
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalExceptionResponse'
+        "200":
+          description: Line chart oriented chart information. Check out the model for more details. Each entry is a line (or bar) in the chart.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChartLine'
+  /v1/chart/category/overview:
+    get:
+      tags:
+        - charts
+      summary: Dashboard chart with asset account balance information.
+      description: |
+        This endpoint returns the data required to generate a chart with basic asset account balance information.
+      operationId: getChartCategoryOverview
       parameters:
         - name: X-Trace-Id
           in: header
@@ -16038,20 +16251,61 @@ components:
           type: string
           format: string
           example: "5"
-          description: "The currency ID of the currency associated to the data in the entries. This may be the primary currency of administration."
+          description: "The currency ID of the currency associated with this object."
+        currency_name:
+          type: string
+          format: string
+          example: Euro
+          description: "The currency name of the currency associated with this object."
         currency_code:
           type: string
           format: string
-          example: "EUR"
+          example: EUR
+          description: "The currency code of the currency associated with this object."
         currency_symbol:
           type: string
           format: string
           example: "$"
+          readOnly: true
         currency_decimal_places:
           type: integer
           format: int32
           example: 2
-          description: "Number of decimals for the currency associated to the data in the entries."
+          readOnly: true
+        primary_currency_id:
+          type: string
+          format: string
+          example: "5"
+          description: "The currency ID of the administration's primary currency."
+          readOnly: true
+        primary_currency_name:
+          type: string
+          format: string
+          example: Euro
+          readOnly: true
+          description: "The currency name of the administration's primary currency."
+        primary_currency_code:
+          type: string
+          format: string
+          example: EUR
+          readOnly: true
+          description: "The currency code of the administration's primary currency."
+        primary_currency_symbol:
+          type: string
+          format: string
+          example: "$"
+          readOnly: true
+          description: "The currency symbol of the administration's primary currency."
+        primary_currency_decimal_places:
+          type: integer
+          format: int32
+          example: 2
+          readOnly: true
+          description: "The currency decimal places of the administration's primary currency."
+        date:
+          type: string
+          format: date-time
+          example: "2018-09-17T12:46:47+01:00"
         start_date:
           type: string
           format: date-time
@@ -16065,12 +16319,19 @@ components:
           format: string
           example: "line"
           description: "Indicated the type of chart that is expected to be rendered. You can safely ignore this if you want."
+        period:
+          $ref: '#/components/schemas/ChartDatasetPeriodProperty'
         yAxisID:
           type: integer
           format: int32
           example: 0
           description: "Used to indicate the Y axis for this data set. Is usually between 0 and 1 (left and right side of the chart)."
         entries:
+          type: object
+          description: "The actual entries for this data set. They 'key' value is the label for the data point. The value is the actual (numerical) value."
+          items:
+            $ref: '#/components/schemas/ChartDataPoint'
+        pc_entries:
           type: object
           description: "The actual entries for this data set. They 'key' value is the label for the data point. The value is the actual (numerical) value."
           items:
@@ -22787,6 +23048,18 @@ components:
         - Loan
         - Debt
         - Mortgage
+    ChartDatasetPeriodProperty:
+      type: string
+      format: string
+      example: "1M"
+      description: "Period of the chart."
+      enum:
+        - 1D
+        - 1W
+        - 1M
+        - 3M
+        - 1Y
+        - custom
     CreditCardTypeProperty:
       type: string
       format: string
