@@ -13,7 +13,7 @@ info:
     <br><br>
     To learn more about the idiosyncrasies of this API, please read about the API in the [Firefly III API documentation](https://docs.firefly-iii.org/references/firefly-iii/api/).
     <br><br>
-    <small>This file was last generated on 2025-08-15 @ 14:21:55 (Europe/Amsterdam)</small>
+    <small>This file was last generated on 2025-08-15 @ 14:24:36 (Europe/Amsterdam)</small>
   version: "v6.3.0-beta.2"
   contact:
     name: James Cole
@@ -23335,12 +23335,12 @@ components:
             version:
               type: string
               format: string
-              example: ".3.0-beta.2"
+              example: "6.3.0-beta.2"
             api_version:
               type: string
               format: string
               description: Same value as the version field.
-              example: ".3.0-beta.2"
+              example: "6.3.0-beta.2"
             php_version:
               type: string
               format: string
