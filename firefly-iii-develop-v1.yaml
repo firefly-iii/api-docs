@@ -13,7 +13,7 @@ info:
     <br><br>
     To learn more about the idiosyncrasies of this API, please read about the API in the [Firefly III API documentation](https://docs.firefly-iii.org/references/firefly-iii/api/).
     <br><br>
-    <small>This file was last generated on 2025-08-15 @ 14:18:52 (Europe/Amsterdam)</small>
+    <small>This file was last generated on 2025-08-15 @ 14:21:08 (Europe/Amsterdam)</small>
   version: "develop"
   contact:
     name: James Cole
@@ -23326,7 +23326,7 @@ components:
           description: |
             If the cron job ran into some kind of an error, this value will be the error message. The success message
             if the job actually ran OK.
-SystemInfo:
+    SystemInfo:
       type: object
       properties:
         data:
