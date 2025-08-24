@@ -1,0 +1,12 @@
+BillArray:
+  type: object
+  required:
+    - data
+    - meta
+  properties:
+    data:
+      type: array
+      items:
+        $ref: '#/components/schemas/BillRead'
+    meta:
+      $ref: '#/components/schemas/Meta'

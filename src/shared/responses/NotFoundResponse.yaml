@@ -1,0 +1,11 @@
+NotFoundResponse:
+  type: object
+  properties:
+    message:
+      type: string
+      format: string
+      example: "Resource not found"
+    exception:
+      type: string
+      format: string
+      example: "NotFoundHttpException"
