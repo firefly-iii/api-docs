@@ -16,6 +16,6 @@ WebhookRead:
       format: string
       example: "2"
     attributes:
-      $ref: '#/components/schemas/Webhook'
+      $ref: '#/components/schemas/WebhookProperties'
     links:
       $ref: '#/components/schemas/ObjectLink'
