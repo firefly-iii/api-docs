@@ -5,6 +5,11 @@ WebhookTrigger:
   example: "DESTROY_TRANSACTION"
   description: The trigger for the webhook.
   enum:
+    - ANY
     - STORE_TRANSACTION
     - UPDATE_TRANSACTION
     - DESTROY_TRANSACTION
+    - STORE_BUDGET
+    - UPDATE_BUDGET
+    - DESTROY_BUDGET
+    - STORE_UPDATE_BUDGET_LIMIT
