@@ -10,6 +10,10 @@ The results are uploaded to this repository and can be viewed live at [api-docs.
 
 Feel free to create a PR on anything. If you want to change endpoints, check out `src/v1/paths`. Or edit objects in `/src/v1/schemas`. This is my first API document so feel free to tell me how to improve. Make your changes and submit a pull request.
 
+## Branches
+
+This repository is branched for each Firefly III version. The `main` branch holds the latest develop version.
+
 ## Templates
 
 You can see lines in the YAML files that look like this:
