@@ -18,12 +18,12 @@ WebhookStore:
       format: string
       example: "Update magic mirror on new transaction"
       description: A title for the webhook for easy recognition.
-    trigger:
-      $ref: '#/components/schemas/WebhookTrigger'
-    response:
-      $ref: '#/components/schemas/WebhookResponse'
-    delivery:
-      $ref: '#/components/schemas/WebhookDelivery'
+    triggers:
+      $ref: '#/components/schemas/WebhookTriggerArray'
+    responses:
+      $ref: '#/components/schemas/WebhookResponseArray'
+    deliveries:
+      $ref: '#/components/schemas/WebhookDeliveryArray'
     url:
       type: string
       format: string
