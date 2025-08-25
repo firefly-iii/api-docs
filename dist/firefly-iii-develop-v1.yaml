@@ -13,7 +13,7 @@ info:
     <br><br>
     To learn more about the idiosyncrasies of this API, please read about the API in the [Firefly III API documentation](https://docs.firefly-iii.org/references/firefly-iii/api/).
     <br><br>
-    <small>This file was last generated on 2025-08-24 @ 17:20:08 (Europe/Amsterdam)</small>
+    <small>This file was last generated on 2025-08-25 @ 06:47:05 (Europe/Amsterdam)</small>
   version: "develop"
   contact:
     name: James Cole
@@ -22973,9 +22973,14 @@ components:
       example: "DESTROY_TRANSACTION"
       description: The trigger for the webhook.
       enum:
+        - ANY
         - STORE_TRANSACTION
         - UPDATE_TRANSACTION
         - DESTROY_TRANSACTION
+        - STORE_BUDGET
+        - UPDATE_BUDGET
+        - DESTROY_BUDGET
+        - STORE_UPDATE_BUDGET_LIMIT
     WebhookTriggerArray:
       type: array
       minItems: 1
