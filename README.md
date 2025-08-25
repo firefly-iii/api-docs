@@ -26,9 +26,9 @@ These are placeholders which will change during build. You see the name of the t
 
 ## Using the API specification
 
-If you want, you can download the yaml file you need from the `dist` directory and import it into your favorite API development environment to play around with, e.g. [Postman](https://www.getpostman.com/).
+If you want, you can download the yaml file you need from the `dist` directory and import it into your favorite API development environment to play around with, e.g. [Insomnia](https://insomnia.rest/).
 
-![Firefly III API collection in Postman](postman-firefly-iii-collection.png "Firefly III API collection in Postman")
+![Firefly III API collection in Insomnia](.github/insomnia-collection.png "Firefly III API collection in Insomnia")
 
 ## Develop with Firefly III
 
