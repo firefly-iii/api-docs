@@ -13,7 +13,7 @@ info:
     <br><br>
     To learn more about the idiosyncrasies of this API, please read about the API in the [Firefly III API documentation](https://docs.firefly-iii.org/references/firefly-iii/api/).
     <br><br>
-    <small>This file was last generated on 2025-08-26 @ 20:05:32 (Europe/Amsterdam)</small>
+    <small>This file was last generated on 2025-08-26 @ 20:13:17 (Europe/Amsterdam)</small>
   version: "develop"
   contact:
     name: James Cole
@@ -941,6 +941,75 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AutocompleteRuleArray'
+  /v1/autocomplete/subscriptions:
+    get:
+      tags:
+        - autocomplete
+      operationId: getSubscriptionsAC
+      parameters:
+        - name: X-Trace-Id
+          in: header
+          description: Unique identifier associated with this request.
+          required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
+          schema:
+            type: string
+            format: uuid
+            example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
+        - in: query
+          name: query
+          description: The autocomplete search query.
+          required: false
+          schema:
+            type: string
+            format: string
+          example: "string"
+        - in: query
+          name: limit
+          description: The number of items returned.
+          required: false
+          schema:
+            type: integer
+            format: int32
+          example: 10
+      summary: Returns all subscriptions of the user returned in a basic auto-complete array.
+      responses:
+        "401":
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthenticatedResponse'
+        "404":
+          description: Page not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponse'
+        "422":
+          description: 'Validation error. The body will have the exact details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorResponse'
+        "500":
+          description: Internal exception
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalExceptionResponse'
+        "200":
+          description: A list of subscriptions with very basic information.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AutocompleteBillArray'
   /v1/autocomplete/tags:
     get:
       tags:
