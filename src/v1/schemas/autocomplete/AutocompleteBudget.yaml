@@ -13,3 +13,8 @@ AutocompleteBudget:
       format: string
       example: "Groceries"
       description: Name of the budget found by an auto-complete search.
+    active:
+      type: boolean
+      format: boolean
+      example: true
+      description: Is the budget active or not?
