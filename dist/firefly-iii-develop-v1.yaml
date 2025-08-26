@@ -13,7 +13,7 @@ info:
     <br><br>
     To learn more about the idiosyncrasies of this API, please read about the API in the [Firefly III API documentation](https://docs.firefly-iii.org/references/firefly-iii/api/).
     <br><br>
-    <small>This file was last generated on 2025-08-25 @ 06:49:34 (Europe/Amsterdam)</small>
+    <small>This file was last generated on 2025-08-26 @ 20:05:32 (Europe/Amsterdam)</small>
   version: "develop"
   contact:
     name: James Cole
@@ -16196,6 +16196,11 @@ components:
           format: string
           example: "Checking Account ($123.45)"
           description: Asset accounts and liabilities have a second field with the given date's account balance in the account currency or primary currency.
+        active:
+          type: boolean
+          format: boolean
+          example: true
+          description: Is the bill active or not?
         type:
           type: string
           format: string
@@ -16286,6 +16291,11 @@ components:
           format: string
           example: "Groceries"
           description: Name of the budget found by an auto-complete search.
+        active:
+          type: boolean
+          format: boolean
+          example: true
+          description: Is the budget active or not?
     AutocompleteCategory:
       type: object
       required:
@@ -16507,6 +16517,11 @@ components:
           format: string
           example: "Should trigger daily."
           description: Description of the recurrence found by auto-complete.
+        active:
+          type: boolean
+          format: boolean
+          example: true
+          description: Is the recurring transaction active or not?
     AutocompleteRule:
       type: object
       required:
@@ -16527,6 +16542,11 @@ components:
           format: string
           example: "Useful rule."
           description: Description of the rule found by auto-complete.
+        active:
+          type: boolean
+          format: boolean
+          example: true
+          description: Is the bill active or not?
     AutocompleteRuleGroup:
       type: object
       required:
@@ -16547,6 +16567,11 @@ components:
           format: string
           example: "Some rule group."
           description: Description of the rule group found by auto-complete.
+        active:
+          type: boolean
+          format: boolean
+          example: true
+          description: Is the bill active or not?
     AutocompleteTag:
       type: object
       required:
