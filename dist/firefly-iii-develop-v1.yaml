@@ -13,7 +13,7 @@ info:
     <br><br>
     To learn more about the idiosyncrasies of this API, please read about the API in the [Firefly III API documentation](https://docs.firefly-iii.org/references/firefly-iii/api/).
     <br><br>
-    <small>This file was last generated on 2025-08-26 @ 20:13:17 (Europe/Amsterdam)</small>
+    <small>This file was last generated on 2025-08-30 @ 08:43:07 (Europe/Amsterdam)</small>
   version: "develop"
   contact:
     name: James Cole
@@ -10417,6 +10417,69 @@ paths:
       responses:
         "204":
           description: Recurring transaction deleted.
+        "401":
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthenticatedResponse'
+        "404":
+          description: Page not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponse'
+        "500":
+          description: Internal exception
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalExceptionResponse'
+  /v1/recurrences/{id}/trigger:
+    post:
+      summary: Trigger the creation of a transaction for a specific recurring transaction
+      description: Trigger the creation of a transaction for a specific recurring transaction
+      operationId: triggerRecurrenceRecurrence
+      parameters:
+        - name: X-Trace-Id
+          in: header
+          description: Unique identifier associated with this request.
+          required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
+          schema:
+            type: string
+            format: uuid
+            example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+            example: "123"
+          description: The ID of the recurring transaction.
+        - in: query
+          name: date
+          description: |
+            A date formatted YYYY-MM-DD. This is the date for which you want the recurrence to fire.
+          required: true
+          schema:
+            type: string
+            format: date
+      tags:
+        - recurrences
+      responses:
+        "200":
+          description: 'A list of transactions (always just 1) created by the recurrence, or a list of zero (0) when there is nothing to create for this date.'
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/TransactionArray'
         "401":
           description: Unauthenticated
           content:
