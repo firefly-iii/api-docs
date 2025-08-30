@@ -136,3 +136,38 @@
       _tpl_notFoundResponse,3:
       _tpl_badRequestResponse,3:
       _tpl_internalExceptionResponse,3:
+/recurrences/{id}/trigger:
+  post:
+    summary: Trigger the creation of a transaction for a specific recurring transaction
+    description: Trigger the creation of a transaction for a specific recurring transaction
+    operationId: triggerRecurrenceRecurrence
+    parameters:
+      _tpl_correlationParameter,3:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          example: "123"
+        description: The ID of the recurring transaction.
+      - in: query
+        name: date
+        description: |
+          A date formatted YYYY-MM-DD. This is the date for which you want the recurrence to fire.
+        required: true
+        schema:
+          type: string
+          format: date
+    tags:
+      - recurrences
+    responses:
+      "200":
+        description: 'A list of transactions (always just 1) created by the recurrence, or a list of zero (0) when there is nothing to create for this date.'
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/TransactionArray'
+      _tpl_unauthenticatedResponse,3:
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
