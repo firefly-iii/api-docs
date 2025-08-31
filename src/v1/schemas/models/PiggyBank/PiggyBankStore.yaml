@@ -4,6 +4,7 @@ PiggyBankStore:
     - name
     - account_id
     - target_amount
+    - start_date
   properties:
     name:
       type: string
