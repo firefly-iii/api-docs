@@ -139,7 +139,10 @@
 /recurrences/{id}/trigger:
   post:
     summary: Trigger the creation of a transaction for a specific recurring transaction
-    description: Trigger the creation of a transaction for a specific recurring transaction. All recurrences have a set of future occurrences. For those moments, you can trigger the creation of the transaction. That means the transaction will be created NOW, instead of on the indicated date. The transaction will be dated to _today_.
+    description: |
+      Trigger the creation of a transaction for a specific recurring transaction. All recurrences have a set of future occurrences. For those moments, you can trigger the creation of the transaction. That means the transaction will be created NOW, instead of on the indicated date. The transaction will be dated to _today_.
+      
+      So, if you recurring transaction that occurs every Monday, you can trigger the creation of a transaction for Monday in two weeks, today. On that Monday two weeks from now, no transaction will be created. Instead, the transaction is created right now, and dated _today_.
     operationId: triggerRecurrenceRecurrence
     parameters:
       _tpl_correlationParameter,3:
