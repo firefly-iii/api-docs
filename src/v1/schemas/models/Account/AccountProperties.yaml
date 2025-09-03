@@ -55,6 +55,19 @@ _tpl_primaryCurrencyFields,2:
       readOnly: true
       nullable: true
       description: "The current balance of the account in the administration's primary currency. The `primary_currency_*` fields reflect the currency used. This field is NULL if the user does have 'convert to primary' set to true in their settings."
+    balance_difference:
+      type: string
+      format: amount
+      example: "123.45"
+      readOnly: true
+      description: "If you submit a start AND end date, this will be the difference between those two moments."
+    pc_balance_difference:
+      type: string
+      format: amount
+      example: "123.45"
+      readOnly: true
+      nullable: true
+      description: "If you submit a start AND end date, this will be the difference in the currency of the account or the administration's primary currency between those two moments."
     opening_balance:
       type: string
       format: amount

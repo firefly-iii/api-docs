@@ -10,6 +10,7 @@
       _tpl_correlationParameter,3:
       _tpl_limitParameter,3:
       _tpl_pageParameter,3:
+      _tpl_optionalDateRangeParameters,3:
       - in: query
         name: date
         description: |
@@ -75,6 +76,7 @@
     operationId: getAccount
     parameters:
       _tpl_correlationParameter,3:
+      _tpl_optionalDateRangeParameters,3:
       - in: path
         name: id
         required: true
