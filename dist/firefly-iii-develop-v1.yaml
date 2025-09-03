@@ -13,7 +13,7 @@ info:
     <br><br>
     To learn more about the idiosyncrasies of this API, please read about the API in the [Firefly III API documentation](https://docs.firefly-iii.org/references/firefly-iii/api/).
     <br><br>
-    <small>This file was last generated on 2025-09-03 @ 15:21:20 (Europe/Amsterdam)</small>
+    <small>This file was last generated on 2025-09-03 @ 15:25:03 (Europe/Amsterdam)</small>
   version: "develop"
   contact:
     name: James Cole
@@ -10476,7 +10476,9 @@ paths:
   /v1/recurrences/{id}/trigger:
     post:
       summary: Trigger the creation of a transaction for a specific recurring transaction
-      description: Trigger the creation of a transaction for a specific recurring transaction. All recurrences have a set of future occurrences. For those moments, you can trigger the creation of the transaction. That means the transaction will be created NOW, instead of on the indicated date. The transaction will be dated to _today_.
+      description: |
+        Trigger the creation of a transaction for a specific recurring transaction. All recurrences have a set of future occurrences. For those moments, you can trigger the creation of the transaction. That means the transaction will be created NOW, instead of on the indicated date. The transaction will be dated to _today_.
+        So, if you recurring transaction that occurs every Monday, you can trigger the creation of a transaction for Monday in two weeks, today. On that Monday two weeks from now, no transaction will be created. Instead, the transaction is created right now, and dated _today_.
       operationId: triggerRecurrenceRecurrence
       parameters:
         - name: X-Trace-Id
