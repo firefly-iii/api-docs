@@ -1,7 +1,6 @@
 UserGroupReadRole:
   type: string
   enum:
-    - owner
     - ro
     - mng_trx
     - mng_meta
