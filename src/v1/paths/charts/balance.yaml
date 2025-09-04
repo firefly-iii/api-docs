@@ -13,7 +13,7 @@
         name: period
         description: > 
           Optional period to group the data by. If not provided, it will default to '1M' or whatever is deemed relevant for the range provided.
-          
+          <br><br>
           If you want to know which periods are available, see the enums or get the configuration value: `GET /api/v1/configuration/firefly.valid_view_ranges`
         required: false
         nullable: true
