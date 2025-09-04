@@ -13,7 +13,7 @@ info:
     <br><br>
     To learn more about the idiosyncrasies of this API, please read about the API in the [Firefly III API documentation](https://docs.firefly-iii.org/references/firefly-iii/api/).
     <br><br>
-    <small>This file was last generated on 2025-09-04 @ 08:01:28 (Europe/Amsterdam)</small>
+    <small>This file was last generated on 2025-09-04 @ 08:02:54 (Europe/Amsterdam)</small>
 
   version: "develop"
   contact:
@@ -1509,7 +1509,6 @@ paths:
   
             If you want to know which periods are available, see the enums or get the configuration value: `GET /api/v1/configuration/firefly.valid_view_ranges`
           required: false
-          nullable: true
           schema:
             type: string
             enum:
@@ -1533,7 +1532,6 @@ paths:
   
             If no accounts are found, the user's "frontpage accounts" preference will be used. If that is empty, all asset accounts will be used.
           required: false
-          nullable: true
           schema:
             type: string
             enum:
