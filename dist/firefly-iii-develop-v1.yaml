@@ -13,7 +13,7 @@ info:
     <br><br>
     To learn more about the idiosyncrasies of this API, please read about the API in the [Firefly III API documentation](https://docs.firefly-iii.org/references/firefly-iii/api/).
     <br><br>
-    <small>This file was last generated on 2025-09-03 @ 15:25:03 (Europe/Amsterdam)</small>
+    <small>This file was last generated on 2025-09-04 @ 06:35:01 (Europe/Amsterdam)</small>
   version: "develop"
   contact:
     name: James Cole
@@ -23003,7 +23003,6 @@ components:
     UserGroupReadRole:
       type: string
       enum:
-        - owner
         - ro
         - mng_trx
         - mng_meta
