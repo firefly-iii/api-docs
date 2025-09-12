@@ -9,6 +9,8 @@
     parameters:
       _tpl_correlationParameter,3:
       _tpl_mandatoryDateRangeParameters,3:
+      _tpl_periodParameter,3:
+      _tpl_preselectedParameter,3:
     responses:
       _tpl_unauthenticatedResponse,3:
       _tpl_notFoundResponse,3:
