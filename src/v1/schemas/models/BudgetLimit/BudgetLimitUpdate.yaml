@@ -61,3 +61,9 @@ BudgetLimitUpdate:
       example: "Some example notes"
       nullable: true
       description: Some notes for this specific budget limit.
+    fire_webhooks:
+      type: boolean
+      format: boolean
+      example: true
+      default: true
+      description: "Whether or not to fire the webhooks that are related to this event."
