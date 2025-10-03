@@ -21,3 +21,11 @@ ConfigValueFilter:
     - firefly.credit_card_types
     - firefly.languages
     - firefly.valid_view_ranges
+    - cer.enabled
+    - firefly.preselected_accounts
+    - firefly.rule-actions
+    - firefly.context-rule-actions
+    - search.operators
+    - webhook.triggers
+    - webhook.responses
+    - webhook.deliveries
