@@ -13,7 +13,7 @@ info:
     <br><br>
     To learn more about the idiosyncrasies of this API, please read about the API in the [Firefly III API documentation](https://docs.firefly-iii.org/references/firefly-iii/api/).
     <br><br>
-    <small>This file was last generated on 2025-10-03 @ 05:33:54 (Europe/Amsterdam)</small>
+    <small>This file was last generated on 2025-10-03 @ 05:40:18 (Europe/Amsterdam)</small>
 
   version: "develop"
   contact:
@@ -18433,6 +18433,14 @@ components:
         - firefly.credit_card_types
         - firefly.languages
         - firefly.valid_view_ranges
+        - cer.enabled
+        - firefly.preselected_accounts
+        - firefly.rule-actions
+        - firefly.context-rule-actions
+        - search.operators
+        - webhook.triggers
+        - webhook.responses
+        - webhook.deliveries
     ConfigValueUpdateFilter:
       type: string
       enum:
