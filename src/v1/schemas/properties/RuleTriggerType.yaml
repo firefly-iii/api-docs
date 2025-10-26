@@ -6,3 +6,4 @@ RuleTriggerType:
   enum:
     - "store-journal"
     - "update-journal"
+    - "manual-activation"
