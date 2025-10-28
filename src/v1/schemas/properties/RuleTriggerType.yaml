@@ -2,7 +2,8 @@ RuleTriggerType:
   type: string
   format: string
   example: store-journal
-  description: Which action is necessary for the rule to fire? Use either store-journal or update-journal.
+  description: Which action is necessary for the rule to fire? Use either store-journal, update-journal or manual-activation.
   enum:
     - "store-journal"
     - "update-journal"
+    - "manual-activation"
