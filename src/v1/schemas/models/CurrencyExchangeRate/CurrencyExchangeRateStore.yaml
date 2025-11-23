@@ -1,10 +1,17 @@
 CurrencyExchangeRateStore:
   type: object
   required:
+    - date
     - from
     - to
     - rates
   properties:
+    date:
+      type: string
+      format: date
+      example: "%start_date%"
+      description: "The date to which the exchange rate is applicable."
+      nullable: false
     from:
       type: string
       format: string
