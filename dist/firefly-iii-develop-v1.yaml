@@ -13,7 +13,7 @@ info:
     <br><br>
     To learn more about the idiosyncrasies of this API, please read about the API in the [Firefly III API documentation](https://docs.firefly-iii.org/references/firefly-iii/api/).
     <br><br>
-    <small>This file was last generated on 2025-11-24 @ 08:47:51 (Europe/Amsterdam)</small>
+    <small>This file was last generated on 2025-12-26 @ 15:13:04 (Europe/Amsterdam)</small>
 
   version: "develop"
   contact:
@@ -148,7 +148,7 @@ paths:
           schema:
             type: string
             format: string
-          example: "2025-11-01"
+          example: "2025-12-01"
           description: If the account is an asset account or a liability, the autocomplete will also return the balance of the account on this date.
         - in: query
           name: types
@@ -4873,7 +4873,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2025-11-01"
+            example: "2025-12-01"
         - in: query
           name: end
           description: |
@@ -4882,7 +4882,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2025-11-30"
+            example: "2025-12-31"
         - in: query
           name: type
           description: Optional filter on the transaction type(s) returned.
@@ -5985,7 +5985,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2025-11-01"
+            example: "2025-12-01"
         - in: query
           name: end
           description: |
@@ -5994,7 +5994,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2025-11-30"
+            example: "2025-12-31"
       responses:
         "401":
           description: Unauthenticated
@@ -6279,7 +6279,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2025-11-01"
+            example: "2025-12-01"
         - in: query
           name: end
           description: |
@@ -6288,7 +6288,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2025-11-30"
+            example: "2025-12-31"
         - in: query
           name: type
           description: Optional filter on the transaction type(s) returned
@@ -6374,7 +6374,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2025-11-01"
+            example: "2025-12-01"
         - in: query
           name: end
           description: |
@@ -6383,7 +6383,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2025-11-01"
+            example: "2025-12-01"
       responses:
         "401":
           description: Unauthenticated
@@ -6519,7 +6519,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2025-11-01"
+            example: "2025-12-01"
         - in: query
           name: end
           description: |
@@ -6528,7 +6528,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2025-11-30"
+            example: "2025-12-31"
       tags:
         - bills
       responses:
@@ -6822,7 +6822,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2025-11-01"
+            example: "2025-12-01"
         - in: query
           name: end
           description: |
@@ -6831,7 +6831,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2025-11-30"
+            example: "2025-12-31"
       responses:
         "200":
           description: A list of budget limits applicable to this budget.
@@ -7182,7 +7182,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2025-11-01"
+            example: "2025-12-01"
         - in: query
           name: end
           description: |
@@ -7191,7 +7191,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2025-11-30"
+            example: "2025-12-31"
       responses:
         "200":
           description: A list of budget limits.
@@ -7278,7 +7278,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2025-11-01"
+            example: "2025-12-01"
         - in: query
           name: end
           description: |
@@ -7287,7 +7287,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2025-11-30"
+            example: "2025-12-31"
         - in: query
           name: type
           description: Optional filter on the transaction type(s) returned
@@ -7458,7 +7458,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2025-11-01"
+            example: "2025-12-01"
         - in: query
           name: end
           description: |
@@ -7467,7 +7467,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2025-11-30"
+            example: "2025-12-31"
       responses:
         "200":
           description: A list of transactions.
@@ -7554,7 +7554,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2025-11-01"
+            example: "2025-12-01"
         - in: query
           name: end
           description: |
@@ -7563,7 +7563,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2025-11-30"
+            example: "2025-12-31"
       responses:
         "200":
           description: A list of budgets.
@@ -7699,7 +7699,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2025-11-01"
+            example: "2025-12-01"
         - in: query
           name: end
           description: |
@@ -7708,7 +7708,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2025-11-30"
+            example: "2025-12-31"
       tags:
         - budgets
       responses:
@@ -7928,7 +7928,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2025-11-01"
+            example: "2025-12-01"
         - in: query
           name: end
           description: |
@@ -7937,7 +7937,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2025-11-30"
+            example: "2025-12-31"
         - in: query
           name: type
           description: Optional filter on the transaction type(s) returned
@@ -8229,7 +8229,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2025-11-01"
+            example: "2025-12-01"
         - in: query
           name: end
           description: |
@@ -8238,7 +8238,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2025-11-30"
+            example: "2025-12-31"
       tags:
         - categories
       responses:
@@ -8954,7 +8954,7 @@ paths:
           schema:
             type: string
             format: string
-          example: "2025-11-01"
+          example: "2025-12-01"
       responses:
         "200":
           description: A list of currency exchange rates.
@@ -9027,7 +9027,7 @@ paths:
           schema:
             type: string
             format: string
-          example: "2025-11-01"
+          example: "2025-12-01"
       responses:
         "204":
           description: "Currency exchange rate(s) deleted."
@@ -9095,7 +9095,7 @@ paths:
           schema:
             type: string
             format: string
-          example: "2025-11-01"
+          example: "2025-12-01"
       tags:
         - currency_exchange_rates
       requestBody:
@@ -9165,7 +9165,7 @@ paths:
           schema:
             type: string
             format: string
-          example: "2025-11-01"
+          example: "2025-12-01"
       tags:
         - currency_exchange_rates
       requestBody:
@@ -9350,7 +9350,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2025-11-01"
+            example: "2025-12-01"
         - in: query
           name: end
           description: |
@@ -9359,7 +9359,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2025-11-30"
+            example: "2025-12-31"
         - in: query
           name: type
           description: Optional filter on the transaction type(s) returned.
@@ -11033,7 +11033,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2025-11-01"
+            example: "2025-12-01"
         - in: query
           name: end
           description: |
@@ -11042,7 +11042,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2025-11-30"
+            example: "2025-12-31"
         - in: query
           name: type
           description: Optional filter on the transaction type(s) returned
@@ -11616,7 +11616,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2025-11-01"
+            example: "2025-12-01"
         - in: query
           name: end
           description: |
@@ -11625,7 +11625,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2025-11-30"
+            example: "2025-12-31"
         - in: query
           name: search_limit
           description: |
@@ -11719,7 +11719,7 @@ paths:
           required: false
           schema:
             type: string
-            example: "2025-11-01"
+            example: "2025-12-01"
             format: date
         - in: query
           name: end
@@ -11728,7 +11728,7 @@ paths:
           required: false
           schema:
             type: string
-            example: "2025-11-30"
+            example: "2025-12-31"
             format: date
         - in: query
           name: accounts[]
@@ -12137,7 +12137,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2025-11-01"
+            example: "2025-12-01"
         - in: query
           name: end
           description: |
@@ -12146,7 +12146,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2025-11-30"
+            example: "2025-12-31"
         - in: query
           name: accounts[]
           description: |
@@ -12226,7 +12226,7 @@ paths:
           required: false
           schema:
             type: string
-            example: "2025-11-01"
+            example: "2025-12-01"
             format: date
         - in: query
           name: end
@@ -12235,7 +12235,7 @@ paths:
           required: false
           schema:
             type: string
-            example: "2025-11-30"
+            example: "2025-12-31"
             format: date
         - in: query
           name: accounts[]
@@ -12743,7 +12743,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2025-11-01"
+            example: "2025-12-01"
         - in: query
           name: end
           description: |
@@ -12752,7 +12752,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2025-11-30"
+            example: "2025-12-31"
         - in: query
           name: type
           description: Optional filter on the transaction type(s) returned.
@@ -13451,7 +13451,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2025-11-01"
+            example: "2025-12-01"
         - in: query
           name: end
           description: End date for the budget limit list.
@@ -13459,7 +13459,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2025-11-30"
+            example: "2025-12-31"
       responses:
         "200":
           description: A list of budget limits.
@@ -13705,7 +13705,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2025-11-01"
+            example: "2025-12-01"
         - in: query
           name: end
           description: |
@@ -13714,7 +13714,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2025-11-30"
+            example: "2025-12-31"
         - in: query
           name: type
           description: Optional filter on the transaction type(s) returned
@@ -14728,7 +14728,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2025-11-01"
+            example: "2025-12-01"
         - in: query
           name: end
           description: |
@@ -14737,7 +14737,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2025-11-30"
+            example: "2025-12-31"
         - in: query
           name: type
           description: Optional filter on the transaction type(s) returned.
@@ -15829,7 +15829,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2025-11-01"
+            example: "2025-12-01"
         - in: query
           name: force
           description: |
@@ -15838,7 +15838,6 @@ paths:
           required: false
           schema:
             type: boolean
-            format: boolean
             example: false
       operationId: getCron
       summary: Cron job endpoint
@@ -17802,7 +17801,6 @@ components:
           description: Asset accounts and liabilities have a second field with the given date's account balance in the account currency or primary currency.
         active:
           type: boolean
-          format: boolean
           example: true
           description: Is the bill active or not?
         type:
@@ -17877,7 +17875,6 @@ components:
           description: Name of the bill found by an auto-complete search.
         active:
           type: boolean
-          format: boolean
           example: true
           description: Is the bill active or not?
     AutocompleteBudget:
@@ -17897,7 +17894,6 @@ components:
           description: Name of the budget found by an auto-complete search.
         active:
           type: boolean
-          format: boolean
           example: true
           description: Is the budget active or not?
     AutocompleteCategory:
@@ -18123,7 +18119,6 @@ components:
           description: Description of the recurrence found by auto-complete.
         active:
           type: boolean
-          format: boolean
           example: true
           description: Is the recurring transaction active or not?
     AutocompleteRule:
@@ -18148,7 +18143,6 @@ components:
           description: Description of the rule found by auto-complete.
         active:
           type: boolean
-          format: boolean
           example: true
           description: Is the bill active or not?
     AutocompleteRuleGroup:
@@ -18173,7 +18167,6 @@ components:
           description: Description of the rule group found by auto-complete.
         active:
           type: boolean
-          format: boolean
           example: true
           description: Is the bill active or not?
     AutocompleteTag:
@@ -18346,15 +18339,15 @@ components:
         date:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
         start_date:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
         end_date:
           type: string
           format: date-time
-          example: "2025-11-30T23:59:59+00:00"
+          example: "2025-12-31T23:59:59+00:00"
         type:
           type: string
           format: string
@@ -19033,16 +19026,15 @@ components:
         created_at:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           readOnly: true
         updated_at:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           readOnly: true
         active:
           type: boolean
-          format: boolean
           example: false
           default: true
         order:
@@ -19080,7 +19072,6 @@ components:
           description: The name of the group. NULL if no group.
         object_has_currency_setting:
             type: boolean
-            format: boolean
             example: true
             readOnly: true
             description: "Indicates whether the account has a currency setting. If false, the account uses the administration's primary currency. Asset accounts and liability accounts always have a currency setting, while expense and revenue accounts do not."
@@ -19200,7 +19191,7 @@ components:
         current_balance_date:
           type: string
           format: date-time
-          example: "2025-11-30T23:59:59+00:00"
+          example: "2025-12-31T23:59:59+00:00"
           readOnly: true
           description: "The timestamp for this date is always 23:59:59, to indicate it's the balance at the very END of that particular day."
         notes:
@@ -19212,7 +19203,7 @@ components:
           nullable: true
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           description: "Mandatory when the account_role is ccAsset. Moment at which CC payment installments are asked for by the bank."
         credit_card_type:
           $ref: '#/components/schemas/CreditCardTypeProperty'
@@ -19234,7 +19225,7 @@ components:
         opening_balance_date:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           nullable: true
           description: Represents the date of the opening balance.
         liability_type:
@@ -19251,7 +19242,6 @@ components:
           $ref: '#/components/schemas/InterestPeriodProperty'
         include_net_worth:
           type: boolean
-          format: boolean
           example: true
           default: true
         longitude:
@@ -19276,7 +19266,7 @@ components:
           nullable: true
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           description: "Last activity of the account."
     AccountRead:
       type: object
@@ -19338,7 +19328,7 @@ components:
         opening_balance_date:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           nullable: true
           description: Represents the date of the opening balance.
         virtual_balance:
@@ -19357,7 +19347,6 @@ components:
           description: "Use either currency_id or currency_code. Defaults to the user's financial administration's currency."
         active:
           type: boolean
-          format: boolean
           example: false
           default: true
           description: "If omitted, defaults to true."
@@ -19368,7 +19357,6 @@ components:
           description: "Order of the account"
         include_net_worth:
           type: boolean
-          format: boolean
           example: true
           default: true
           description: "If omitted, defaults to true."
@@ -19380,7 +19368,7 @@ components:
           nullable: true
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           description: "Mandatory when the account_role is ccAsset. Moment at which CC payment installments are asked for by the bank."
         liability_type:
           $ref: '#/components/schemas/LiabilityTypeProperty'
@@ -19450,7 +19438,7 @@ components:
         opening_balance_date:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           nullable: true
         virtual_balance:
           type: string
@@ -19468,7 +19456,6 @@ components:
           description: "Use either currency_id or currency_code. Defaults to the user's financial administration's currency."
         active:
           type: boolean
-          format: boolean
           example: false
           default: true
           description: "If omitted, defaults to true."
@@ -19479,7 +19466,6 @@ components:
           description: "Order of the account"
         include_net_worth:
           type: boolean
-          format: boolean
           example: true
           default: true
           description: "If omitted, defaults to true."
@@ -19491,7 +19477,7 @@ components:
           nullable: true
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           description: "Mandatory when the account_role is ccAsset. Moment at which CC payment installments are asked for by the bank."
         liability_type:
           $ref: '#/components/schemas/LiabilityTypeProperty'
@@ -19557,12 +19543,12 @@ components:
         created_at:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           readOnly: true
         updated_at:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           readOnly: true
         attachable_type:
           $ref: '#/components/schemas/AttachableType'
@@ -19685,16 +19671,15 @@ components:
         created_at:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           readOnly: true
         updated_at:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           readOnly: true
         object_has_currency_setting:
           type: boolean
-          format: boolean
           example: true
           readOnly: true
           description: "Indicates whether the object has a currency setting. If false, the object uses the administration's primary currency."
@@ -19766,12 +19751,12 @@ components:
         start:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           description: Start date of the available budget.
         end:
           type: string
           format: date-time
-          example: "2025-11-30T23:59:59+00:00"
+          example: "2025-12-31T23:59:59+00:00"
           description: End date of the available budget.
         spent_in_budgets:
           type: array
@@ -19828,12 +19813,12 @@ components:
         created_at:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           readOnly: true
         updated_at:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           readOnly: true
         name:
           type: string
@@ -19842,7 +19827,6 @@ components:
           description: "The name of the subscription."
         object_has_currency_setting:
           type: boolean
-          format: boolean
           example: true
           readOnly: true
           description: "Indicates whether the object has a currency setting. If false, the object uses the administration's primary currency."
@@ -19934,17 +19918,17 @@ components:
         date:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
         end_date:
           type: string
           format: date-time
-          example: "2025-11-30T23:59:59+00:00"
+          example: "2025-12-31T23:59:59+00:00"
           description: "The date after which this subscription is no longer valid or applicable"
           nullable: true
         extension_date:
           type: string
           format: date-time
-          example: "2025-11-30T23:59:59+00:00"
+          example: "2025-12-31T23:59:59+00:00"
           description: "The date before which the subscription must be renewed (or cancelled)"
           nullable: true
         repeat_freq:
@@ -19956,7 +19940,6 @@ components:
           description: How often the subscription will be skipped. 1 means a bi-monthly subscription.
         active:
           type: boolean
-          format: boolean
           example: true
           description: If the subscription is active.
         order:
@@ -20011,7 +19994,7 @@ components:
               date:
                 type: string
                 format: date-time
-                example: "2025-11-01T00:00:00+00:00"
+                example: "2025-12-01T00:00:00+00:00"
                 description: "Date the bill was paid."
                 readOnly: true
               subscription_id:
@@ -20102,13 +20085,13 @@ components:
           items:
             type: string
             format: date-time
-            example: "2025-11-01T00:00:00+00:00"
+            example: "2025-12-01T00:00:00+00:00"
             readOnly: true
     
         next_expected_match:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           description: "When the subscription is expected to be due."
           nullable: true
           readOnly: true
@@ -20178,16 +20161,16 @@ components:
         date:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
         end_date:
           type: string
           format: date-time
-          example: "2025-11-30T23:59:59+00:00"
+          example: "2025-12-31T23:59:59+00:00"
           description: "The date after which this bill is no longer valid or applicable"
         extension_date:
           type: string
           format: date-time
-          example: "2025-11-30T23:59:59+00:00"
+          example: "2025-12-31T23:59:59+00:00"
           description: "The date before which the bill must be renewed (or cancelled)"
         repeat_freq:
           $ref: '#/components/schemas/BillRepeatFrequency'
@@ -20198,7 +20181,6 @@ components:
           description: How often the bill must be skipped. 1 means a bi-monthly bill.
         active:
           type: boolean
-          format: boolean
           example: true
           description: If the bill is active.
         notes:
@@ -20248,16 +20230,16 @@ components:
         date:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
         end_date:
           type: string
           format: date-time
-          example: "2025-11-30T23:59:59+00:00"
+          example: "2025-12-31T23:59:59+00:00"
           description: "The date after which this bill is no longer valid or applicable"
         extension_date:
           type: string
           format: date-time
-          example: "2025-11-30T23:59:59+00:00"
+          example: "2025-12-31T23:59:59+00:00"
           description: "The date before which the bill must be renewed (or cancelled)"
         repeat_freq:
           $ref: '#/components/schemas/BillRepeatFrequency'
@@ -20268,7 +20250,6 @@ components:
           description: How often the bill must be skipped. 1 means a bi-monthly bill.
         active:
           type: boolean
-          format: boolean
           example: true
           description: If the bill is active.
         notes:
@@ -20296,16 +20277,15 @@ components:
         created_at:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           readOnly: true
         updated_at:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           readOnly: true
         active:
           type: boolean
-          format: boolean
           example: false
         name:
           type: string
@@ -20346,7 +20326,6 @@ components:
           description: The name of the group. NULL if no group.
         object_has_currency_setting:
           type: boolean
-          format: boolean
           example: true
           readOnly: true
           description: "Indicates whether the object has a currency setting. If false, the object uses the administration's primary currency."
@@ -20465,7 +20444,6 @@ components:
           example: "Bills"
         active:
           type: boolean
-          format: boolean
           example: false
         order:
           type: integer
@@ -20479,7 +20457,6 @@ components:
           nullable: true
         fire_webhooks:
           type: boolean
-          format: boolean
           example: true
           default: true
           description: "Whether or not to fire the webhooks that are related to this event."
@@ -20515,7 +20492,6 @@ components:
           example: "Bills"
         active:
           type: boolean
-          format: boolean
           example: false
         order:
           type: integer
@@ -20528,7 +20504,6 @@ components:
           nullable: true
         fire_webhooks:
           type: boolean
-          format: boolean
           example: true
           default: true
           description: "Whether or not to fire the webhooks that are related to this event."
@@ -20559,22 +20534,22 @@ components:
         created_at:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           readOnly: true
         updated_at:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           readOnly: true
         start:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           description: Start date of the budget limit.
         end:
           type: string
           format: date-time
-          example: "2025-11-30T23:59:59+00:00"
+          example: "2025-12-31T23:59:59+00:00"
           description: End date of the budget limit.
         budget_id:
           type: string
@@ -20584,7 +20559,6 @@ components:
           readOnly: true
         object_has_currency_setting:
           type: boolean
-          format: boolean
           example: true
           readOnly: true
           description: "Indicates whether the object has a currency setting. If false, the object uses the administration's primary currency."
@@ -20731,7 +20705,7 @@ components:
         start:
           type: string
           format: date
-          example: "2025-11-01"
+          example: "2025-12-01"
           description: Start date of the budget limit.
         period:
           type: string
@@ -20743,7 +20717,7 @@ components:
         end:
           type: string
           format: date
-          example: "2025-11-30"
+          example: "2025-12-31"
           description: End date of the budget limit.
         amount:
           type: string
@@ -20757,7 +20731,6 @@ components:
           description: Some notes for this specific budget limit.
         fire_webhooks:
           type: boolean
-          format: boolean
           example: true
           default: true
           description: "Whether or not to fire the webhooks that are related to this event."
@@ -20767,22 +20740,22 @@ components:
         created_at:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           readOnly: true
         updated_at:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           readOnly: true
         start:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           description: Start date of the budget limit.
         end:
           type: string
           format: date-time
-          example: "2025-11-30T23:59:59+00:00"
+          example: "2025-12-31T23:59:59+00:00"
           description: End date of the budget limit.
         budget_id:
           type: string
@@ -20792,7 +20765,6 @@ components:
           readOnly: true
         object_has_currency_setting:
           type: boolean
-          format: boolean
           example: true
           readOnly: true
           description: "Indicates whether the object has a currency setting. If false, the object uses the administration's primary currency."
@@ -20884,7 +20856,6 @@ components:
           description: Some notes for this specific budget limit.
         fire_webhooks:
           type: boolean
-          format: boolean
           example: true
           default: true
           description: "Whether or not to fire the webhooks that are related to this event."
@@ -20896,12 +20867,12 @@ components:
         created_at:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           readOnly: true
         updated_at:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           readOnly: true
         name:
           type: string
@@ -20914,7 +20885,6 @@ components:
           example: "Some example notes"
         object_has_currency_setting:
           type: boolean
-          format: boolean
           example: false
           readOnly: false
           description: "This object never has its own currency setting, so this value is always false."
@@ -21018,12 +20988,12 @@ components:
         created_at:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           readOnly: true
         updated_at:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           readOnly: true
         from_currency_id:
           type: string
@@ -21095,7 +21065,7 @@ components:
           type: string
           format: date-time
           readOnly: true
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           description: "Date and time of the exchange rate."
     CurrencyExchangeRateRead:
       type: object
@@ -21133,7 +21103,7 @@ components:
         date:
           type: string
           format: date
-          example: "2025-11-01"
+          example: "2025-12-01"
           description: "The date to which the exchange rate is applicable."
           nullable: false
         from:
@@ -21180,8 +21150,8 @@ components:
       additionalProperties:
         type: string
       example:
-        2025-08-01: '1.2345'
-        2025-08-02: '6.3456'
+        "2025-08-01": "1.2345"
+        "2025-08-02": "6.3456"
     CurrencyExchangeRateUpdate:
       type: object
       required:
@@ -21191,7 +21161,7 @@ components:
         date:
           type: string
           format: date
-          example: "2025-11-01"
+          example: "2025-12-01"
           description: The date to which the exchange rate is applicable.
           nullable: false
         rate:
@@ -21232,12 +21202,12 @@ components:
         created_at:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           readOnly: true
         updated_at:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           readOnly: true
         title:
           type: string
@@ -21385,19 +21355,19 @@ components:
         created_at:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           readOnly: true
         updated_at:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           readOnly: true
         name:
           type: string
           format: string
           example: "New digital camera"
         percentage:
-          type: number
+          type: integer
           format: int32
           nullable: true
           example: 12
@@ -21406,13 +21376,13 @@ components:
         start_date:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           description: "The date you started with this piggy bank."
         target_date:
           type: string
           nullable: true
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           description: "The date you intend to finish saving money."
         order:
           type: integer
@@ -21420,7 +21390,6 @@ components:
           example: 5
         active:
           type: boolean
-          format: boolean
           example: true
           readOnly: true
         notes:
@@ -21453,7 +21422,6 @@ components:
             $ref: '#/components/schemas/PiggyBankAccountRead'
         object_has_currency_setting:
           type: boolean
-          format: boolean
           example: true
           readOnly: true
           description: "Indicates whether the object has a currency setting. If false, the object uses the administration's primary currency."
@@ -21582,13 +21550,13 @@ components:
         start_date:
           type: string
           format: date
-          example: "2025-11-01"
+          example: "2025-12-01"
           description: The date you started with this piggy bank.
         target_date:
           type: string
           format: date
           nullable: true
-          example: "2025-11-30"
+          example: "2025-12-31"
           description: The date you intend to finish saving money.
         order:
           type: integer
@@ -21596,7 +21564,6 @@ components:
           example: 5
         active:
           type: boolean
-          format: boolean
           example: true
           readOnly: true
         notes:
@@ -21645,13 +21612,13 @@ components:
         start_date:
           type: string
           format: date
-          example: "2025-11-01"
+          example: "2025-12-01"
           description: The date you started with this piggy bank.
         target_date:
           type: string
           format: date
           nullable: true
-          example: "2025-11-30"
+          example: "2025-12-31"
           description: The date you intend to finish saving money.
         order:
           type: integer
@@ -21659,7 +21626,6 @@ components:
           example: 5
         active:
           type: boolean
-          format: boolean
           example: true
           readOnly: true
         notes:
@@ -21685,11 +21651,11 @@ components:
         created_at:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
         updated_at:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
         amount:
           type: string
           format: amount
@@ -21700,7 +21666,6 @@ components:
           example: "123.45"
         object_has_currency_setting:
           type: boolean
-          format: boolean
           example: true
           readOnly: true
           description: "Indicates whether the object has a currency setting. If false, the object uses the administration's primary currency."
@@ -21780,12 +21745,12 @@ components:
         created_at:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           readOnly: true
         updated_at:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           readOnly: true
         name:
           type: string
@@ -21806,12 +21771,12 @@ components:
         created_at:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           readOnly: true
         updated_at:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           readOnly: true
         type:
           $ref: '#/components/schemas/RecurrenceTransactionType'
@@ -21827,29 +21792,27 @@ components:
         first_date:
           type: string
           format: date
-          example: "2025-11-30"
+          example: "2025-12-31"
           description: "First time the recurring transaction will fire. Must be after today."
         latest_date:
           type: string
           format: date
-          example: "2025-11-01"
+          example: "2025-12-01"
           description: "Last time the recurring transaction has fired."
           nullable: true
           readOnly: true
         repeat_until:
           type: string
           format: date
-          example: "2025-11-30"
+          example: "2025-12-31"
           description: "Date until the recurring transaction can fire. Use either this field or repetitions."
           nullable: true
         apply_rules:
           type: boolean
-          format: boolean
           example: true
           description: "Whether or not to fire the rules after the creation of a transaction."
         active:
           type: boolean
-          format: boolean
           example: true
           description: If the recurrence is even active.
         nr_of_repetitions:
@@ -21895,12 +21858,12 @@ components:
         first_date:
           type: string
           format: date
-          example: "2025-11-30"
+          example: "2025-12-31"
           description: "First time the recurring transaction will fire. Must be after today."
         repeat_until:
           type: string
           format: date
-          example: "2025-11-30"
+          example: "2025-12-31"
           description: "Date until the recurring transaction can fire. Use either this field or repetitions."
           nullable: true
         nr_of_repetitions:
@@ -21911,12 +21874,10 @@ components:
           nullable: true
         apply_rules:
           type: boolean
-          format: boolean
           example: true
           description: "Whether or not to fire the rules after the creation of a transaction."
         active:
           type: boolean
-          format: boolean
           example: true
           description: If the recurrence is even active.
         notes:
@@ -21947,12 +21908,12 @@ components:
         first_date:
           type: string
           format: date
-          example: "2025-11-30"
+          example: "2025-12-31"
           description: "First time the recurring transaction will fire."
         repeat_until:
           type: string
           format: date
-          example: "2025-11-30"
+          example: "2025-12-31"
           description: Date until when the recurring transaction can fire. After that date, it's basically inactive. Use either this field or repetitions.
           nullable: true
         nr_of_repetitions:
@@ -21963,12 +21924,10 @@ components:
           nullable: true
         apply_rules:
           type: boolean
-          format: boolean
           example: true
           description: "Whether or not to fire the rules after the creation of a transaction."
         active:
           type: boolean
-          format: boolean
           example: true
           description: If the recurrence is even active.
         notes:
@@ -21998,12 +21957,12 @@ components:
         created_at:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           readOnly: true
         updated_at:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           readOnly: true
         type:
           $ref: '#/components/schemas/RecurrenceRepetitionType'
@@ -22017,7 +21976,7 @@ components:
             - For 'weekly', it is day of the week between 1 and 7 (Monday - Sunday).
             - For 'ndom', it is '1,2' or '4,5' or something else, where the first number is the week in the month, and the second number is the day in the week (between 1 and 7). '2,3' means: the 2nd Wednesday of the month
             - For 'monthly' it is the day of the month (1 - 31)
-            - For yearly, it is a full date, ie '2025-11-01'. The year you use does not matter.
+            - For yearly, it is a full date, ie '2025-12-01'. The year you use does not matter.
         skip:
           type: integer
           format: int32
@@ -22046,7 +22005,7 @@ components:
           items:
             type: string
             format: date-time
-            example: "2025-11-30T23:59:59+00:00"
+            example: "2025-12-31T23:59:59+00:00"
     RecurrenceRepetitionStore:
       type: object
       required:
@@ -22065,7 +22024,7 @@ components:
             - For 'weekly', it is day of the week between 1 and 7 (Monday - Sunday).
             - For 'ndom', it is '1,2' or '4,5' or something else, where the first number is the week in the month, and the second number is the day in the week (between 1 and 7). '2,3' means: the 2nd Wednesday of the month
             - For 'monthly' it is the day of the month (1 - 31)
-            - For yearly, it is a full date, ie '2025-11-01'. The year you use does not matter.
+            - For yearly, it is a full date, ie '2025-12-01'. The year you use does not matter.
         skip:
           type: integer
           format: int32
@@ -22096,7 +22055,7 @@ components:
             - For 'weekly', it is day of the week between 1 and 7 (Monday - Sunday).
             - For 'ndom', it is '1,2' or '4,5' or something else, where the first number is the week in the month, and the second number is the day in the week (between 1 and 7). '2,3' means: the 2nd Wednesday of the month
             - For 'monthly' it is the day of the month (1 - 31)
-            - For yearly, it is a full date, ie '2025-11-01'. The year you use does not matter.
+            - For yearly, it is a full date, ie '2025-12-01'. The year you use does not matter.
         skip:
           type: integer
           format: int32
@@ -22128,7 +22087,6 @@ components:
           example: "Rent for the current month"
         object_has_currency_setting:
           type: boolean
-          format: boolean
           example: true
           readOnly: true
           description: "Indicates whether the object has a currency setting. If false, the object uses the administration's primary currency."
@@ -22503,12 +22461,12 @@ components:
         created_at:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           readOnly: true
         updated_at:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           readOnly: true
         title:
           type: string
@@ -22537,18 +22495,15 @@ components:
           $ref: '#/components/schemas/RuleTriggerType'
         active:
           type: boolean
-          format: boolean
           example: true
           default: true
           description: Whether or not the rule is even active. Default is true.
         strict:
           type: boolean
-          format: boolean
           example: true
           description: If the rule is set to be strict, ALL triggers must hit in order for the rule to fire. Otherwise, just one is enough. Default value is true.
         stop_processing:
           type: boolean
-          format: boolean
           example: false
           default: false
           description: If this value is true and the rule is triggered, other rules  after this one in the group will be skipped. Default value is false.
@@ -22595,19 +22550,16 @@ components:
           $ref: '#/components/schemas/RuleTriggerType'
         active:
           type: boolean
-          format: boolean
           example: true
           default: true
           description: Whether or not the rule is even active. Default is true.
         strict:
           type: boolean
-          format: boolean
           example: true
           default: true
           description: If the rule is set to be strict, ALL triggers must hit in order for the rule to fire. Otherwise, just one is enough. Default value is true.
         stop_processing:
           type: boolean
-          format: boolean
           example: false
           description: If this value is true and the rule is triggered, other rules  after this one in the group will be skipped. Default value is false.
         triggers:
@@ -22642,18 +22594,15 @@ components:
           $ref: '#/components/schemas/RuleTriggerType'
         active:
           type: boolean
-          format: boolean
           example: true
           default: true
           description: Whether or not the rule is even active. Default is true.
         strict:
           type: boolean
-          format: boolean
           example: true
           description: If the rule is set to be strict, ALL triggers must hit in order for the rule to fire. Otherwise, just one is enough. Default value is true.
         stop_processing:
           type: boolean
-          format: boolean
           example: false
           default: false
           description: If this value is true and the rule is triggered, other rules  after this one in the group will be skipped. Default value is false.
@@ -22679,12 +22628,12 @@ components:
         created_at:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           readOnly: true
         updated_at:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           readOnly: true
         type:
           $ref: '#/components/schemas/RuleActionKeyword'
@@ -22701,13 +22650,11 @@ components:
           description: "Order of the action"
         active:
           type: boolean
-          format: boolean
           example: true
           default: true
           description: If the action is active. Defaults to true.
         stop_processing:
           type: boolean
-          format: boolean
           example: false
           default: false
           description: When true, other actions will not be fired after this action has fired. Defaults to false.
@@ -22732,13 +22679,11 @@ components:
           description: "Order of the action"
         active:
           type: boolean
-          format: boolean
           example: true
           default: true
           description: If the action is active. Defaults to true.
         stop_processing:
           type: boolean
-          format: boolean
           example: false
           default: false
           description: When true, other actions will not be fired after this action has fired. Defaults to false.
@@ -22760,12 +22705,10 @@ components:
           description: "Order of the action"
         active:
           type: boolean
-          format: boolean
           example: true
           description: If the action is active.
         stop_processing:
           type: boolean
-          format: boolean
           example: false
           description: When true, other actions will not be fired after this action has fired.
     RuleGroup:
@@ -22776,12 +22719,12 @@ components:
         created_at:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           readOnly: true
         updated_at:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           readOnly: true
         title:
           type: string
@@ -22799,7 +22742,6 @@ components:
           readOnly: true
         active:
           type: boolean
-          format: boolean
           example: true
     RuleGroupStore:
       type: object
@@ -22821,7 +22763,6 @@ components:
           example: 4
         active:
           type: boolean
-          format: boolean
           example: true
     RuleGroupUpdate:
       type: object
@@ -22841,7 +22782,6 @@ components:
           example: 4
         active:
           type: boolean
-          format: boolean
           example: true
     RuleTrigger:
       type: object
@@ -22857,12 +22797,12 @@ components:
         created_at:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           readOnly: true
         updated_at:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           readOnly: true
         type:
           $ref: '#/components/schemas/RuleTriggerKeyword'
@@ -22873,7 +22813,6 @@ components:
           description: "The accompanying value the trigger responds to. This value is often mandatory, but this depends on the trigger."
         prohibited:
           type: boolean
-          format: boolean
           example: false
           default: false
           description: If 'prohibited' is true, this rule trigger will be negated. 'Description is' will become 'Description is NOT' etc.
@@ -22885,13 +22824,11 @@ components:
           readOnly: true
         active:
           type: boolean
-          format: boolean
           example: true
           default: true
           description: If the trigger is active. Defaults to true.
         stop_processing:
           type: boolean
-          format: boolean
           example: false
           default: false
           description: When true, other triggers will not be checked if this trigger was triggered. Defaults to false.
@@ -22915,19 +22852,16 @@ components:
           description: "Order of the trigger"
         active:
           type: boolean
-          format: boolean
           example: true
           default: true
           description: If the trigger is active. Defaults to true.
         prohibited:
           type: boolean
-          format: boolean
           example: false
           default: false
           description: If 'prohibited' is true, this rule trigger will be negated. 'Description is' will become 'Description is NOT' etc.
         stop_processing:
           type: boolean
-          format: boolean
           example: false
           default: false
           description: When true, other triggers will not be checked if this trigger was triggered. Defaults to false.
@@ -22948,12 +22882,10 @@ components:
           description: "Order of the trigger"
         active:
           type: boolean
-          format: boolean
           example: true
           description: If the trigger is active.
         stop_processing:
           type: boolean
-          format: boolean
           example: false
           description: When true, other triggers will not be checked if this trigger was triggered.
     TagModel:
@@ -22965,12 +22897,12 @@ components:
         created_at:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           readOnly: true
         updated_at:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           readOnly: true
         tag:
           type: string
@@ -22980,7 +22912,7 @@ components:
         date:
           type: string
           format: date
-          example: "2025-11-01"
+          example: "2025-12-01"
           description: The date to which the tag is applicable.
           nullable: true
         description:
@@ -23020,7 +22952,7 @@ components:
         date:
           type: string
           format: date
-          example: "2025-11-01"
+          example: "2025-12-01"
           description: The date to which the tag is applicable.
           nullable: true
         description:
@@ -23058,7 +22990,7 @@ components:
         date:
           type: string
           format: date
-          example: "2025-11-01"
+          example: "2025-12-01"
           description: The date to which the tag is applicable.
           nullable: true
         description:
@@ -23094,22 +23026,20 @@ components:
         created_at:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           readOnly: true
         updated_at:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           readOnly: true
         enabled:
           type: boolean
-          format: boolean
           example: true
           default: true
           description: Defaults to true
         primary:
           type: boolean
-          format: boolean
           example: false
           description: Is the primary currency?
         code:
@@ -23138,13 +23068,11 @@ components:
       properties:
         enabled:
           type: boolean
-          format: boolean
           example: true
           default: true
           description: Defaults to true
         primary:
           type: boolean
-          format: boolean
           example: true
           description: Make this currency the primary currency for the current administration. You can set this value to FALSE, in which case nothing will change to the primary currency. If you set it to TRUE, the current primary currency will no longer be the primary currency.
         code:
@@ -23169,12 +23097,10 @@ components:
       properties:
         enabled:
           type: boolean
-          format: boolean
           example: true
           description: "If the currency is enabled"
         primary:
           type: boolean
-          format: boolean
           example: true
           description: "If the currency must be the primary for the user. You can only submit TRUE. Submitting FALSE will not drop this currency as the primary currency, because then the system would be without one."
           enum:
@@ -23207,12 +23133,12 @@ components:
         created_at:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           readOnly: true
         updated_at:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           readOnly: true
         user:
           type: string
@@ -23238,17 +23164,14 @@ components:
       properties:
         error_if_duplicate_hash:
           type: boolean
-          format: boolean
           example: false
           description: "Break if the submitted transaction exists already."
         apply_rules:
           type: boolean
-          format: boolean
           example: false
           description: "Whether or not to apply rules when submitting transaction."
         fire_webhooks:
           type: boolean
-          format: boolean
           example: true
           default: true
           description: "Whether or not to fire the webhooks that are related to this event."
@@ -23267,12 +23190,10 @@ components:
       properties:
         apply_rules:
           type: boolean
-          format: boolean
           example: false
           description: "Whether or not to apply rules when submitting transaction."
         fire_webhooks:
           type: boolean
-          format: boolean
           example: true
           default: true
           description: "Whether or not to fire the webhooks that are related to this event."
@@ -23296,12 +23217,12 @@ components:
         created_at:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           readOnly: true
         updated_at:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           readOnly: true
         link_type_id:
           type: string
@@ -23418,7 +23339,6 @@ components:
           example: "(partially) pays for"
         editable:
           type: boolean
-          format: boolean
           example: false
           readOnly: true
     LinkTypeUpdate:
@@ -23465,7 +23385,7 @@ components:
         date:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           description: "Date of the transaction"
         order:
           type: integer
@@ -23475,7 +23395,6 @@ components:
           description: "Order of this entry in the list of transactions."
         object_has_currency_setting:
           type: boolean
-          format: boolean
           example: true
           readOnly: true
           description: "Indicates whether the transaction has a currency setting. For transactions this is always true."
@@ -23698,7 +23617,6 @@ components:
           description: The associated subscription name for this transaction.
         reconciled:
           type: boolean
-          format: boolean
           example: false
           description: "If the transaction has been reconciled already. When you set this, the amount can no longer be edited by the user."
         notes:
@@ -23847,7 +23765,6 @@ components:
           description: "Zoom level for the map, if drawn. This to set the box right. Unfortunately this is a proprietary value because each map provider has different zoom levels."
         has_attachments:
           type: boolean
-          format: boolean
           example: false
           description: "If the transaction has attachments."
     TransactionSplitStore:
@@ -23863,7 +23780,7 @@ components:
         date:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           description: "Date of the transaction"
         amount:
           type: string
@@ -23961,7 +23878,6 @@ components:
           description: "Name of the destination account. You can submit the name instead of the ID. For everything except transfers, the account will be auto-generated if unknown, so submitting a name is enough."
         reconciled:
           type: boolean
-          format: boolean
           example: false
           description: "If the transaction has been reconciled already. When you set this, the amount can no longer be edited by the user."
         piggy_bank_id:
@@ -24095,7 +24011,7 @@ components:
         date:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           description: "Date of the transaction"
         amount:
           type: string
@@ -24233,7 +24149,6 @@ components:
           nullable: true
         reconciled:
           type: boolean
-          format: boolean
           example: false
           description: "If the transaction has been reconciled already. When you set this, the amount can no longer be edited by the user."
         bill_id:
@@ -24351,12 +24266,12 @@ components:
         created_at:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           readOnly: true
         updated_at:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           readOnly: true
         email:
           type: string
@@ -24365,7 +24280,6 @@ components:
           description: The new users email address.
         blocked:
           type: boolean
-          format: boolean
           example: false
           description: Boolean to indicate if the user is blocked.
         blocked_code:
@@ -24399,22 +24313,20 @@ components:
         created_at:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           readOnly: true
         updated_at:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           readOnly: true
         in_use:
           type: boolean
-          format: boolean
           example: false
           readOnly: true
           description: "Is this user group ('financial administration') currently the active administration?"
         can_see_members:
           type: boolean
-          format: boolean
           example: true
           readOnly: true
           description: "Can the current user see the members of this user group?"
@@ -24468,7 +24380,6 @@ components:
           description: "The email address of the member"
         you:
           type: boolean
-          format: boolean
           example: false
           readOnly: true
           description: "Is this you? (the current user)"
@@ -24560,16 +24471,15 @@ components:
         created_at:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           readOnly: true
         updated_at:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           readOnly: true
         active:
           type: boolean
-          format: boolean
           example: false
           description: Boolean to indicate if the webhook is active
         title:
@@ -24627,7 +24537,6 @@ components:
       properties:
         active:
           type: boolean
-          format: boolean
           example: false
           description: Boolean to indicate if the webhook is active
         title:
@@ -24677,7 +24586,6 @@ components:
       properties:
         active:
           type: boolean
-          format: boolean
           example: false
           description: Boolean to indicate if the webhook is active
         title:
@@ -24708,12 +24616,12 @@ components:
         created_at:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           readOnly: true
         updated_at:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           readOnly: true
         webhook_message_id:
           type: string
@@ -24744,21 +24652,19 @@ components:
         created_at:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           readOnly: true
         updated_at:
           type: string
           format: date-time
-          example: "2025-11-01T00:00:00+00:00"
+          example: "2025-12-01T00:00:00+00:00"
           readOnly: true
         sent:
           type: boolean
-          format: boolean
           example: false
           description: If this message is sent yet.
         errored:
           type: boolean
-          format: boolean
           example: false
           description: If this message has errored out.
         webhook_id:
@@ -24997,7 +24903,6 @@ components:
           description: "Number of decimals for the associated currency."
         no_available_budgets:
           type: boolean
-          format: boolean
           example: false
           description: "True if there are no available budgets available."
         value_parsed:
@@ -25028,7 +24933,6 @@ components:
           $ref: '#/components/schemas/PolymorphicProperty'
         editable:
           type: boolean
-          format: boolean
           example: true
           readOnly: false
           description: "If this config variable can be edited by the user"
@@ -25053,7 +24957,6 @@ components:
       properties:
         job_fired:
           type: boolean
-          format: boolean
           example: true
           nullable: true
           description: |
@@ -25061,7 +24964,6 @@ components:
             only fire every 24 hours, for example.
         job_succeeded:
           type: boolean
-          format: boolean
           example: true
           nullable: true
           description: |
@@ -25069,7 +24971,6 @@ components:
             change anything.
         job_errored:
           type: boolean
-          format: boolean
           example: false
           nullable: true
           description: If the cron job ran into some kind of an error, this value will be true.
