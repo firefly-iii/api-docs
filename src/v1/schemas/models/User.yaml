@@ -21,7 +21,6 @@ User:
       description: The new users email address.
     blocked:
       type: boolean
-      format: boolean
       example: false
       description: Boolean to indicate if the user is blocked.
     blocked_code:

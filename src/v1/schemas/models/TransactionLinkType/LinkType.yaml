@@ -19,6 +19,5 @@ LinkType:
       example: "(partially) pays for"
     editable:
       type: boolean
-      format: boolean
       example: false
       readOnly: true

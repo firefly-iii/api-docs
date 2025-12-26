@@ -74,7 +74,6 @@ BillProperties:
       description: How often the subscription will be skipped. 1 means a bi-monthly subscription.
     active:
       type: boolean
-      format: boolean
       example: true
       description: If the subscription is active.
     order:

@@ -18,5 +18,4 @@ RuleGroupStore:
       example: 4
     active:
       type: boolean
-      format: boolean
       example: true

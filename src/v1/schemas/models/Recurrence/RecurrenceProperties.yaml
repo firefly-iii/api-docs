@@ -42,12 +42,10 @@ RecurrenceProperties:
       nullable: true
     apply_rules:
       type: boolean
-      format: boolean
       example: true
       description: "Whether or not to fire the rules after the creation of a transaction."
     active:
       type: boolean
-      format: boolean
       example: true
       description: If the recurrence is even active.
     nr_of_repetitions:

@@ -20,6 +20,5 @@ AutocompleteRuleGroup:
       description: Description of the rule group found by auto-complete.
     active:
       type: boolean
-      format: boolean
       example: true
       description: Is the bill active or not?

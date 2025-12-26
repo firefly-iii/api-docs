@@ -20,6 +20,5 @@ AutocompleteRule:
       description: Description of the rule found by auto-complete.
     active:
       type: boolean
-      format: boolean
       example: true
       description: Is the bill active or not?

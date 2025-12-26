@@ -4,7 +4,6 @@ WebhookUpdate:
   properties:
     active:
       type: boolean
-      format: boolean
       example: false
       description: Boolean to indicate if the webhook is active
     title:

@@ -16,7 +16,6 @@ AccountProperties:
       readOnly: true
     active:
       type: boolean
-      format: boolean
       example: false
       default: true
     order:
@@ -36,7 +35,6 @@ AccountProperties:
 _tpl_standardObjectGroupFields,2:
     object_has_currency_setting:
         type: boolean
-        format: boolean
         example: true
         readOnly: true
         description: "Indicates whether the account has a currency setting. If false, the account uses the administration's primary currency. Asset accounts and liability accounts always have a currency setting, while expense and revenue accounts do not."
@@ -154,7 +152,6 @@ _tpl_primaryCurrencyFields,2:
       $ref: '#/components/schemas/InterestPeriodProperty'
     include_net_worth:
       type: boolean
-      format: boolean
       example: true
       default: true
     longitude:

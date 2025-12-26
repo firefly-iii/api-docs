@@ -41,7 +41,6 @@ PiggyBankUpdate:
       example: 5
     active:
       type: boolean
-      format: boolean
       example: true
       readOnly: true
     notes:

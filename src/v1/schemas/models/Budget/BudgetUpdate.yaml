@@ -9,7 +9,6 @@ BudgetUpdate:
       example: "Bills"
     active:
       type: boolean
-      format: boolean
       example: false
     order:
       type: integer
@@ -22,7 +21,6 @@ BudgetUpdate:
       nullable: true
     fire_webhooks:
       type: boolean
-      format: boolean
       example: true
       default: true
       description: "Whether or not to fire the webhooks that are related to this event."

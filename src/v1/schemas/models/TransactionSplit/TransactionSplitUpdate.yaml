@@ -149,7 +149,6 @@ TransactionSplitUpdate:
       nullable: true
     reconciled:
       type: boolean
-      format: boolean
       example: false
       description: "If the transaction has been reconciled already. When you set this, the amount can no longer be edited by the user."
     bill_id:

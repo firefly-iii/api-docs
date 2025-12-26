@@ -13,12 +13,10 @@ WebhookMessage:
       readOnly: true
     sent:
       type: boolean
-      format: boolean
       example: false
       description: If this message is sent yet.
     errored:
       type: boolean
-      format: boolean
       example: false
       description: If this message has errored out.
     webhook_id:

@@ -5,17 +5,14 @@ TransactionStore:
   properties:
     error_if_duplicate_hash:
       type: boolean
-      format: boolean
       example: false
       description: "Break if the submitted transaction exists already."
     apply_rules:
       type: boolean
-      format: boolean
       example: false
       description: "Whether or not to apply rules when submitting transaction."
     fire_webhooks:
       type: boolean
-      format: boolean
       example: true
       default: true
       description: "Whether or not to fire the webhooks that are related to this event."

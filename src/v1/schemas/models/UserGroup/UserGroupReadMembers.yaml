@@ -15,7 +15,6 @@ UserGroupReadMembers:
       description: "The email address of the member"
     you:
       type: boolean
-      format: boolean
       example: false
       readOnly: true
       description: "Is this you? (the current user)"

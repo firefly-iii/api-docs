@@ -52,7 +52,6 @@ BillStore:
       description: How often the bill must be skipped. 1 means a bi-monthly bill.
     active:
       type: boolean
-      format: boolean
       example: true
       description: If the bill is active.
     notes:

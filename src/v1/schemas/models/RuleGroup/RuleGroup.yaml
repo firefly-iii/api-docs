@@ -29,5 +29,4 @@ RuleGroup:
       readOnly: true
     active:
       type: boolean
-      format: boolean
       example: true

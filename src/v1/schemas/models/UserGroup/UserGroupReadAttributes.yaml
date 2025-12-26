@@ -13,13 +13,11 @@ UserGroupReadAttributes:
       readOnly: true
     in_use:
       type: boolean
-      format: boolean
       example: false
       readOnly: true
       description: "Is this user group ('financial administration') currently the active administration?"
     can_see_members:
       type: boolean
-      format: boolean
       example: true
       readOnly: true
       description: "Can the current user see the members of this user group?"

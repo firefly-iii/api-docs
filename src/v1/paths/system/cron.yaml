@@ -30,7 +30,6 @@
         required: false
         schema:
           type: boolean
-          format: boolean
           example: false
     operationId: getCron
     summary: Cron job endpoint

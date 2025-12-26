@@ -37,7 +37,6 @@ TransactionSplit:
       description: "Order of this entry in the list of transactions."
     object_has_currency_setting:
       type: boolean
-      format: boolean
       example: true
       readOnly: true
       description: "Indicates whether the transaction has a currency setting. For transactions this is always true."
@@ -260,7 +259,6 @@ TransactionSplit:
       description: The associated subscription name for this transaction.
     reconciled:
       type: boolean
-      format: boolean
       example: false
       description: "If the transaction has been reconciled already. When you set this, the amount can no longer be edited by the user."
     notes:
@@ -409,6 +407,5 @@ TransactionSplit:
       description: "Zoom level for the map, if drawn. This to set the box right. Unfortunately this is a proprietary value because each map provider has different zoom levels."
     has_attachments:
       type: boolean
-      format: boolean
       example: false
       description: "If the transaction has attachments."

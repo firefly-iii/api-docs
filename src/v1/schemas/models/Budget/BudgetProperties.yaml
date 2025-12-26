@@ -15,7 +15,6 @@ BudgetProperties:
       readOnly: true
     active:
       type: boolean
-      format: boolean
       example: false
     name:
       type: string

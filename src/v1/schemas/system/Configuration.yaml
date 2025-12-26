@@ -11,7 +11,6 @@ Configuration:
       $ref: '#/components/schemas/PolymorphicProperty'
     editable:
       type: boolean
-      format: boolean
       example: true
       readOnly: false
       description: "If this config variable can be edited by the user"

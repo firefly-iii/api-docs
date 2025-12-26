@@ -3,7 +3,6 @@ CronResultRow:
   properties:
     job_fired:
       type: boolean
-      format: boolean
       example: true
       nullable: true
       description: |
@@ -11,7 +10,6 @@ CronResultRow:
         only fire every 24 hours, for example.
     job_succeeded:
       type: boolean
-      format: boolean
       example: true
       nullable: true
       description: |
@@ -19,7 +17,6 @@ CronResultRow:
         change anything.
     job_errored:
       type: boolean
-      format: boolean
       example: false
       nullable: true
       description: If the cron job ran into some kind of an error, this value will be true.

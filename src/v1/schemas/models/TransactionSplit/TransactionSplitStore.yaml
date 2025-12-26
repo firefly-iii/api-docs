@@ -109,7 +109,6 @@ TransactionSplitStore:
       description: "Name of the destination account. You can submit the name instead of the ID. For everything except transfers, the account will be auto-generated if unknown, so submitting a name is enough."
     reconciled:
       type: boolean
-      format: boolean
       example: false
       description: "If the transaction has been reconciled already. When you set this, the amount can no longer be edited by the user."
     piggy_bank_id:

@@ -27,7 +27,6 @@ AutocompleteAccount:
       description: Asset accounts and liabilities have a second field with the given date's account balance in the account currency or primary currency.
     active:
       type: boolean
-      format: boolean
       example: true
       description: Is the bill active or not?
     type:

@@ -17,13 +17,11 @@ CurrencyProperties:
       readOnly: true
     enabled:
       type: boolean
-      format: boolean
       example: true
       default: true
       description: Defaults to true
     primary:
       type: boolean
-      format: boolean
       example: false
       description: Is the primary currency?
     code:
