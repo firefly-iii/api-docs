@@ -4,5 +4,5 @@ CurrencyExchangeRateStoreByPair:
   additionalProperties:
     type: string
   example:
-    2025-08-01: '1.2345'
-    2025-08-02: '6.3456'
+    "2025-08-01": "1.2345"
+    "2025-08-02": "6.3456"
