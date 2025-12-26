@@ -20,7 +20,7 @@ PiggyBankProperties:
       format: string
       example: "New digital camera"
     percentage:
-      type: number
+      type: integer
       format: int32
       nullable: true
       example: 12
