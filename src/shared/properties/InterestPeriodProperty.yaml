@@ -5,6 +5,7 @@ InterestPeriodProperty:
   description: "Mandatory when type is liability. Period over which the interest is calculated."
   nullable: true
   enum:
+    - daily
     - weekly
     - monthly
     - quarterly
