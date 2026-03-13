@@ -1,18 +1,15 @@
-name: "Issues - Label issues to transfer"
+name: Issues - Transfer issues
 on:
   issues:
-    types: [opened, edited]
-
-permissions:
-  issues: write
-  contents: read
-
+    types:
+      - labeled
 jobs:
-  triage:
+  transfer:
     runs-on: ubuntu-latest
     steps:
-    - uses: github/issue-labeler@v3.4 #May not be the latest version
-      with:
-        configuration-path: .github/labeler.yml
-        enable-versioned-regex: 0
-        repo-token: ${{ secrets.TRANSFER_ISSUE_TOKEN }}
+      - name: Transfer
+        uses: lando/transfer-issue-action@v2
+        with:
+          token: ${{ secrets.TRANSFER_ISSUE_TOKEN }}
+          router: move:firefly-iii
+          create_stub: false
