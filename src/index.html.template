@@ -61,8 +61,8 @@
 
       // pre set oauth stuff
       ui.initOAuth({
-        clientId: "2",
-        clientSecret: "tfWoJQbmV88Fxej1ysAPIxFireflyIIIApiToken"
+        clientId: "019d9ff2-fec9-7211-8458-43c3bbd41985",
+        clientSecret: "eZJGB0GTCIT83MKXR1D0Ph0PMDHkGCXV4Pch8sdc"
         //realm: "your-realms",
         //appName: "your-app-name",
         //scopeSeparator: " ",
