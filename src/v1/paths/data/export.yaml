@@ -55,6 +55,34 @@
             schema:
               type: string
               format: binary
+/data/export/subscriptions:
+  get:
+    summary: Export subscriptions from Firefly III
+    description: |
+      This endpoint allows you to export your subscriptions (also known as bills) from Firefly III into a file. Currently supports CSV exports only.
+    operationId: exportSubscriptions
+    tags:
+      - data
+    parameters:
+      _tpl_correlationParameter,3:
+      - in: query
+        name: type
+        description: The file type the export file (CSV is currently the only option).
+        required: false
+        schema:
+          $ref: '#/components/schemas/ExportFileFilter'
+    responses:
+      _tpl_unauthenticatedResponse,3:
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
+      "200":
+        description: 'The exported transaction in a file.'
+        content:
+          application/octet-stream:
+            schema:
+              type: string
+              format: binary
 /data/export/budgets:
   get:
     summary: Export budgets and budget amount data from Firefly III
