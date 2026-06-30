@@ -248,3 +248,23 @@
       _tpl_notFoundResponse,3:
       _tpl_badRequestResponse,3:
       _tpl_internalExceptionResponse,3:
+/currencies/default:
+  get:
+    summary: Get the default (primary) currency of the current administration.
+    description: Get the default currency of the current administration. This is an alias of `/currencies/primary`.
+    operationId: getDefaultCurrency
+    parameters:
+      _tpl_correlationParameter,3:
+    tags:
+      - currencies
+    responses:
+      "200":
+        description: 'The default currency'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CurrencySingle'
+      _tpl_unauthenticatedResponse,3:
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
