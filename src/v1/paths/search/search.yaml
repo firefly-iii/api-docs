@@ -72,3 +72,64 @@
       _tpl_notFoundResponse,3:
       _tpl_badRequestResponse,3:
       _tpl_internalExceptionResponse,3:
+/search/transactions/count:
+  get:
+    summary: Count transactions matching the given filters.
+    description: |
+      Returns the number of transactions that match the given meta-field filters. This is useful to check for
+      existing transactions (for example to avoid duplicates) before storing new data.
+    operationId: countTransactions
+    tags:
+      - search
+    parameters:
+      _tpl_correlationParameter,3:
+      - in: query
+        name: external_identifier
+        description: Count transactions with this exact external identifier.
+        required: false
+        schema:
+          type: string
+          example: "abcd-1234"
+      - in: query
+        name: internal_reference
+        description: Count transactions with this exact internal reference.
+        required: false
+        schema:
+          type: string
+          example: "INV-998"
+      - in: query
+        name: notes
+        description: Count transactions whose notes contain this string.
+        required: false
+        schema:
+          type: string
+          example: "groceries"
+      - in: query
+        name: description
+        description: Count transactions with this exact description.
+        required: false
+        schema:
+          type: string
+          example: "Monthly rent"
+      - in: query
+        name: include_deleted
+        description: Whether to include soft-deleted transactions in the count.
+        required: false
+        schema:
+          type: boolean
+          example: false
+    responses:
+      "200":
+        description: The number of matching transactions.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                count:
+                  type: integer
+                  example: 42
+      _tpl_unauthenticatedResponse,3:
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:

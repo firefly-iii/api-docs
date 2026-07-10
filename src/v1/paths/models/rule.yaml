@@ -136,3 +136,37 @@
       _tpl_notFoundResponse,3:
       _tpl_badRequestResponse,3:
       _tpl_internalExceptionResponse,3:
+/rules/validate-expression:
+  get:
+    summary: Validate an action expression.
+    description: |
+      Validate an action expression as used in rule actions. Returns whether the submitted expression is valid.
+      If the expression is invalid, a 422 validation error is returned instead.
+    operationId: validateActionExpression
+    tags:
+      - rules
+    parameters:
+      _tpl_correlationParameter,3:
+      - in: query
+        name: expression
+        description: The action expression to validate.
+        required: true
+        schema:
+          type: string
+          example: "{{ description | upper }}"
+    responses:
+      "200":
+        description: The expression is valid.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                valid:
+                  type: boolean
+                  example: true
+      _tpl_validationErrorResponse,3:
+      _tpl_unauthenticatedResponse,3:
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:

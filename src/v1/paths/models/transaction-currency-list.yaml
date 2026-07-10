@@ -264,3 +264,33 @@
       _tpl_notFoundResponse,3:
       _tpl_badRequestResponse,3:
       _tpl_internalExceptionResponse,3:
+/currencies/{code}/cer:
+  get:
+    summary: List all exchange rates for this currency.
+    description: List all currency exchange rates that have this currency as the source or destination currency.
+    operationId: listExchangeRatesByCurrency
+    tags:
+      - currencies
+    parameters:
+      _tpl_correlationParameter,3:
+      _tpl_limitParameter,3:
+      _tpl_pageParameter,3:
+      - in: path
+        name: code
+        required: true
+        schema:
+          type: string
+          format: string
+          example: USD
+        description: The currency code.
+    responses:
+      "200":
+        description: A list of currency exchange rates.
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/CurrencyExchangeRateArray'
+      _tpl_unauthenticatedResponse,3:
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
