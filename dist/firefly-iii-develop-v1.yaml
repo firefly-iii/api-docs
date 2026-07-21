@@ -13,7 +13,7 @@ info:
     <br><br>
     To learn more about the idiosyncrasies of this API, please read about the API in the [Firefly III API documentation](https://docs.firefly-iii.org/references/firefly-iii/api/).
     <br><br>
-    <small>This file was last generated on 2026-07-01 @ 21:48:14 (Europe/Amsterdam)</small>
+    <small>This file was last generated on 2026-07-21 @ 12:44:09 (Europe/Amsterdam)</small>
 
   version: "develop"
   contact:
@@ -10710,6 +10710,84 @@ paths:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
   
+  /v1/piggy-banks/{id}/accounts:
+    get:
+      summary: List all accounts linked to a piggy bank.
+      description: List all accounts linked to a piggy bank. A piggy bank can be linked to multiple accounts.
+      operationId: listAccountByPiggyBank
+      tags:
+        - piggy_banks
+      parameters:
+        - name: X-Trace-Id
+          in: header
+          description: Unique identifier associated with this request.
+          required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
+          schema:
+            type: string
+            format: uuid
+            example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
+  
+        - in: query
+          name: limit
+          description: Number of items per page. The default pagination is per 50 items.
+          required: false
+          schema:
+            type: integer
+            format: int32
+            example: 10
+  
+        - in: query
+          name: page
+          description: Page number. The default pagination is per 50 items.
+          required: false
+          schema:
+            type: integer
+            format: int32
+            example: 1
+  
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+            example: "123"
+          description: The ID of the piggy bank.
+      responses:
+        "200":
+          description: A list of accounts
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/AccountArray'
+        "401":
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthenticatedResponse'
+  
+        "404":
+          description: Page not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+  
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponse'
+  
+        "500":
+          description: Internal exception
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalExceptionResponse'
+  
   /v1/piggy-banks:
     get:
       summary: List all piggy banks.
@@ -12672,6 +12750,79 @@ paths:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
   
+  /v1/rules/validate-expression:
+    get:
+      summary: Validate an action expression.
+      description: |
+        Validate an action expression as used in rule actions. Returns whether the submitted expression is valid.
+        If the expression is invalid, a 422 validation error is returned instead.
+      operationId: validateActionExpression
+      tags:
+        - rules
+      parameters:
+        - name: X-Trace-Id
+          in: header
+          description: Unique identifier associated with this request.
+          required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
+          schema:
+            type: string
+            format: uuid
+            example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
+  
+        - in: query
+          name: expression
+          description: The action expression to validate.
+          required: true
+          schema:
+            type: string
+            example: "{{ description | upper }}"
+      responses:
+        "200":
+          description: The expression is valid.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  valid:
+                    type: boolean
+                    example: true
+        "422":
+          description: 'Validation error. The body will have the exact details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorResponse'
+  
+        "401":
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthenticatedResponse'
+  
+        "404":
+          description: Page not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+  
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponse'
+  
+        "500":
+          description: Internal exception
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalExceptionResponse'
+  
   /v1/subscriptions/{id}/attachments:
     get:
       summary: List all attachments uploaded to the subscription.
@@ -14424,6 +14575,85 @@ paths:
               schema:
                 $ref: '#/components/schemas/InternalExceptionResponse'
   
+  /v1/currencies/{code}/cer:
+    get:
+      summary: List all exchange rates for this currency.
+      description: List all currency exchange rates that have this currency as the source or destination currency.
+      operationId: listExchangeRatesByCurrency
+      tags:
+        - currencies
+      parameters:
+        - name: X-Trace-Id
+          in: header
+          description: Unique identifier associated with this request.
+          required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
+          schema:
+            type: string
+            format: uuid
+            example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
+  
+        - in: query
+          name: limit
+          description: Number of items per page. The default pagination is per 50 items.
+          required: false
+          schema:
+            type: integer
+            format: int32
+            example: 10
+  
+        - in: query
+          name: page
+          description: Page number. The default pagination is per 50 items.
+          required: false
+          schema:
+            type: integer
+            format: int32
+            example: 1
+  
+        - in: path
+          name: code
+          required: true
+          schema:
+            type: string
+            format: string
+            example: USD
+          description: The currency code.
+      responses:
+        "200":
+          description: A list of currency exchange rates.
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/CurrencyExchangeRateArray'
+        "401":
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthenticatedResponse'
+  
+        "404":
+          description: Page not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+  
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponse'
+  
+        "500":
+          description: Internal exception
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalExceptionResponse'
+  
   /v1/currencies:
     get:
       summary: List all currencies.
@@ -14967,6 +15197,59 @@ paths:
       responses:
         "200":
           description: 'The primary currency'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CurrencySingle'
+        "401":
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthenticatedResponse'
+  
+        "404":
+          description: Page not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+  
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponse'
+  
+        "500":
+          description: Internal exception
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalExceptionResponse'
+  
+  /v1/currencies/default:
+    get:
+      summary: Get the default (primary) currency of the current administration.
+      description: Get the default currency of the current administration. This is an alias of `/currencies/primary`.
+      operationId: getDefaultCurrency
+      parameters:
+        - name: X-Trace-Id
+          in: header
+          description: Unique identifier associated with this request.
+          required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
+          schema:
+            type: string
+            format: uuid
+            example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
+  
+      tags:
+        - currencies
+      responses:
+        "200":
+          description: 'The default currency'
           content:
             application/json:
               schema:
@@ -16061,6 +16344,100 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: '#/components/schemas/TransactionArray'
+        "401":
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthenticatedResponse'
+  
+        "404":
+          description: Page not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+  
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponse'
+  
+        "500":
+          description: Internal exception
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalExceptionResponse'
+  
+  /v1/search/transactions/count:
+    get:
+      summary: Count transactions matching the given filters.
+      description: |
+        Returns the number of transactions that match the given meta-field filters. This is useful to check for
+        existing transactions (for example to avoid duplicates) before storing new data.
+      operationId: countTransactions
+      tags:
+        - search
+      parameters:
+        - name: X-Trace-Id
+          in: header
+          description: Unique identifier associated with this request.
+          required: false
+          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
+          schema:
+            type: string
+            format: uuid
+            example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
+  
+        - in: query
+          name: external_identifier
+          description: Count transactions with this exact external identifier.
+          required: false
+          schema:
+            type: string
+            example: "abcd-1234"
+        - in: query
+          name: internal_reference
+          description: Count transactions with this exact internal reference.
+          required: false
+          schema:
+            type: string
+            example: "INV-998"
+        - in: query
+          name: notes
+          description: Count transactions whose notes contain this string.
+          required: false
+          schema:
+            type: string
+            example: "groceries"
+        - in: query
+          name: description
+          description: Count transactions with this exact description.
+          required: false
+          schema:
+            type: string
+            example: "Monthly rent"
+        - in: query
+          name: include_deleted
+          description: Whether to include soft-deleted transactions in the count.
+          required: false
+          schema:
+            type: boolean
+            example: false
+      responses:
+        "200":
+          description: The number of matching transactions.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 42
         "401":
           description: Unauthenticated
           content:
