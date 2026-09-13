@@ -11,7 +11,7 @@
           type: string
           format: string
           example: d5ea6b5fb774618dd6ad6ba6e0a7f55c
-        description: The CLI token of any user in Firefly III, required to run the cron job.
+        description: The CLI token of any user in Firefly III, required to run the cron job. OR this is the `STATIC_CRON_TOKEN`.
       - in: query
         name: date
         description: |
@@ -26,7 +26,7 @@
         name: force
         description: |
           Forces the cron job to fire, regardless of whether it has fired before. This may result
-          in double transactions or weird budgets, so be careful.
+          in double transactions or weird budgets, so be careful. Only system owners can do this.
         required: false
         schema:
           type: boolean

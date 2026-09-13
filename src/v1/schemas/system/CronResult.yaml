@@ -2,8 +2,22 @@ CronResult:
   type: object
   properties:
     recurring_transactions:
-      $ref: '#/components/schemas/CronResultRow'
+      type: array
+      items:
+        $ref: '#/components/schemas/CronResultRow'
     auto_budgets:
-      $ref: '#/components/schemas/CronResultRow'
-    telemetry:
-      $ref: '#/components/schemas/CronResultRow'
+      type: array
+      items:
+        $ref: '#/components/schemas/CronResultRow'
+    exchange_rates:
+      type: array
+      items:
+        $ref: '#/components/schemas/CronResultRow'
+    bill_notifications:
+      type: array
+      items:
+        $ref: '#/components/schemas/CronResultRow'
+    webhooks:
+      type: array
+      items:
+        $ref: '#/components/schemas/CronResultRow'
