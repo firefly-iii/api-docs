@@ -43,11 +43,6 @@ BasicSummaryEntry:
       format: string
       example: "$ 12.45"
       description: "The amount formatted according to the users locale"
-    local_icon:
-      type: string
-      format: string
-      example: "balance-scale"
-      description: "Reference to a font-awesome icon without the fa- part."
     sub_title:
       type: string
       format: string
