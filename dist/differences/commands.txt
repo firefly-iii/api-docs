@@ -1,0 +1,9 @@
+
+First
+
+sudo npm install -g diff2html-cli
+
+Then run the following command. v6.7.0 is the new version here, compared with "develop".
+Next run should compare v6.7.0 with whatever the new version is.
+
+diff -u dist/firefly-iii-v6.7.0-v1.yaml dist/firefly-iii-develop-v1.yaml | diff2html -i stdin -o stdout > dist/differences/v6.6.6-v6.7.0.html
