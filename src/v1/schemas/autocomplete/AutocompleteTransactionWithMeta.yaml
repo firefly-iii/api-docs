@@ -1,0 +1,41 @@
+AutocompleteTransactionWithMeta:
+  type: object
+  required:
+    - id
+    - name
+    - description
+  properties:
+    id:
+      type: string
+      format: string
+      example: "2"
+      description: The ID of a transaction journal (basically a single split).
+    transaction_group_id:
+      type: string
+      format: string
+      example: "2"
+      description: The ID of the underlying transaction group.
+    name:
+      type: string
+      format: string
+      example: "#12: Transaction"
+      description: Transaction description with ID in the name.
+    description:
+      type: string
+      format: string
+      example: "#12: Transaction"
+      description: Transaction description with ID in the name.
+    date:
+      type: string
+      format: date-time
+      example: "%start_date_and_time%"
+    currency_code:
+      type: string
+      format: string
+      example: "EUR"
+      description: Currency code.
+    amount:
+      type: string
+      format: amount
+      example: "123.45"
+      description: "The amount that was paid for this subscription in the subscription's currency."

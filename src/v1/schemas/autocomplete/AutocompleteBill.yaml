@@ -3,6 +3,7 @@ AutocompleteBill:
   required:
     - id
     - name
+    - active
   properties:
     id:
       type: string

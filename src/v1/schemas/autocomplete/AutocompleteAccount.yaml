@@ -4,12 +4,18 @@ AutocompleteAccount:
     - id
     - name
     - name_with_balance
+    - active
     - type
     - currency_id
     - currency_name
     - currency_code
     - currency_symbol
     - currency_decimal_places
+    - account_currency_id
+    - account_currency_name
+    - account_currency_code
+    - account_currency_symbol
+    - account_currency_decimal_places
   properties:
     id:
       type: string
@@ -28,7 +34,7 @@ AutocompleteAccount:
     active:
       type: boolean
       example: true
-      description: Is the bill active or not?
+      description: Is the account active or not?
     type:
       type: string
       format: string

@@ -13,7 +13,7 @@
           type: string
           format: string
         example: "%start_date%"
-        description: If the account is an asset account or a liability, the autocomplete will also return the balance of the account on this date.
+        description: If the account is an asset account or a liability, the autocomplete will also return the balance of the account on this date in the AC title.
       - in: query
         name: types
         description: Optional filter on the account type(s) used in the autocomplete.
