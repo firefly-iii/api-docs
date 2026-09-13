@@ -5,7 +5,7 @@ servers:
   - description: "Local development server (do not use)"
     url: http://firefly.sd.internal/api
 info:
-  title: Firefly III API {% if version starts with 'develop' %}{{ version }}{% else %}v{{ version }}{% endif %}
+  title: Firefly III API {{ version }}
 
   description: |
     This is the documentation of the Firefly III API. Please report any bugs or issues. You may use the "Authorize" button to try the API below.
@@ -16,7 +16,7 @@ info:
     <br><br>
     <small>This file was last generated on {{ time }}</small>
 
-  version: "{% if version starts with 'develop' %}{{ version }}{% else %}v{{ version }}{% endif %}"
+  version: "{{ version }}"
   contact:
     name: James Cole
     email: james@firefly-iii.org
