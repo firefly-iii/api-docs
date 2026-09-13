@@ -5,7 +5,8 @@ servers:
   - description: "Local development server (do not use)"
     url: http://firefly.sd.internal/api
 info:
-  title: Firefly III API vv6.7.0
+  title: Firefly III API v6.7.0
+
   description: |
     This is the documentation of the Firefly III API. Please report any bugs or issues. You may use the "Authorize" button to try the API below.
     <br><br>
@@ -13,9 +14,9 @@ info:
     <br><br>
     To learn more about the idiosyncrasies of this API, please read about the API in the [Firefly III API documentation](https://docs.firefly-iii.org/references/firefly-iii/api/).
     <br><br>
-    <small>This file was last generated on 2026-09-13 @ 06:29:21 (Europe/Amsterdam)</small>
+    <small>This file was last generated on 2026-09-13 @ 07:49:01 (Europe/Amsterdam)</small>
 
-  version: "vv6.7.0"
+  version: "v6.7.0"
   contact:
     name: James Cole
     email: james@firefly-iii.org
@@ -149,7 +150,7 @@ paths:
             type: string
             format: string
           example: "2026-09-01"
-          description: If the account is an asset account or a liability, the autocomplete will also return the balance of the account on this date.
+          description: If the account is an asset account or a liability, the autocomplete will also return the balance of the account on this date in the AC title.
         - in: query
           name: types
           description: Optional filter on the account type(s) used in the autocomplete.
@@ -502,74 +503,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AutocompleteCurrencyArray'
-  /v1/autocomplete/currencies-with-code:
-    get:
-      tags:
-        - autocomplete
-      operationId: getCurrenciesCodeAC
-      parameters:
-        - name: X-Trace-Id
-          in: header
-          description: Unique identifier associated with this request.
-          required: false
-          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
-          schema:
-            type: string
-            format: uuid
-            example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
-  
-        - in: query
-          name: query
-          description: The autocomplete search query.
-          required: false
-          schema:
-            type: string
-            format: string
-          example: "string"
-        - in: query
-          name: limit
-          description: The number of items returned.
-          required: false
-          schema:
-            type: integer
-            format: int32
-          example: 10
-      summary: Returns all currencies of the user returned in a basic auto-complete array. This endpoint is DEPRECATED and I suggest you DO NOT use it.
-      responses:
-        "401":
-          description: Unauthenticated
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UnauthenticatedResponse'
-  
-        "404":
-          description: Page not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/NotFoundResponse'
-  
-        "400":
-          description: Bad request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/BadRequestResponse'
-  
-        "500":
-          description: Internal exception
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/InternalExceptionResponse'
-  
-        "200":
-          description: A list of currencies with very basic information and the currency code between brackets. This endpoint is DEPRECATED and I suggest you DO NOT use it.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/AutocompleteCurrencyCodeArray'
   /v1/autocomplete/object-groups:
     get:
       tags:
@@ -715,75 +648,7 @@ paths:
                 $ref: '#/components/schemas/ValidationErrorResponse'
   
         "200":
-          description: A list of piggy banks with very basic information.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/AutocompletePiggyArray'
-  /v1/autocomplete/piggy-banks-with-balance:
-    get:
-      tags:
-        - autocomplete
-      operationId: getPiggiesBalanceAC
-      parameters:
-        - name: X-Trace-Id
-          in: header
-          description: Unique identifier associated with this request.
-          required: false
-          example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
-          schema:
-            type: string
-            format: uuid
-            example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00
-  
-        - in: query
-          name: query
-          description: The autocomplete search query.
-          required: false
-          schema:
-            type: string
-            format: string
-          example: "string"
-        - in: query
-          name: limit
-          description: The number of items returned.
-          required: false
-          schema:
-            type: integer
-            format: int32
-          example: 10
-      summary: Returns all piggy banks of the user returned in a basic auto-complete array.
-      responses:
-        "401":
-          description: Unauthenticated
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UnauthenticatedResponse'
-  
-        "404":
-          description: Page not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/NotFoundResponse'
-  
-        "400":
-          description: Bad request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/BadRequestResponse'
-  
-        "500":
-          description: Internal exception
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/InternalExceptionResponse'
-  
-        "200":
-          description: A list of piggy banks with very basic balance information.
+          description: A list of piggy banks with basic information.
           content:
             application/json:
               schema:
@@ -1313,11 +1178,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AutocompleteTransactionArray'
-  /v1/autocomplete/transactions-with-id:
+  /v1/autocomplete/transactions-with-meta:
     get:
       tags:
         - autocomplete
-      operationId: getTransactionsIDAC
+      operationId: getTransactionsWithMeta
       parameters:
         - name: X-Trace-Id
           in: header
@@ -1345,7 +1210,7 @@ paths:
             type: integer
             format: int32
           example: 10
-      summary: Returns all transactions, complemented with their ID, of the user returned in a basic auto-complete array. This endpoint is DEPRECATED and I suggest you DO NOT use it.
+      summary: Returns all transactions, complemented with meta information.
       responses:
         "401":
           description: Unauthenticated
@@ -1383,11 +1248,11 @@ paths:
                 $ref: '#/components/schemas/InternalExceptionResponse'
   
         "200":
-          description: A list of transactions with very basic information. This endpoint is DEPRECATED and I suggest you DO NOT use it.
+          description: Returns all transactions, complemented with meta information.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AutocompleteTransactionIDArray'
+                $ref: '#/components/schemas/AutocompleteTransactionWithMetaArray'
   /v1/chart/account/overview:
     get:
       tags:
@@ -16914,7 +16779,7 @@ paths:
             type: string
             format: string
             example: d5ea6b5fb774618dd6ad6ba6e0a7f55c
-          description: The CLI token of any user in Firefly III, required to run the cron job.
+          description: The CLI token of any user in Firefly III, required to run the cron job. OR this is the `STATIC_CRON_TOKEN`.
         - in: query
           name: date
           description: |
@@ -16929,7 +16794,7 @@ paths:
           name: force
           description: |
             Forces the cron job to fire, regardless of whether it has fired before. This may result
-            in double transactions or weird budgets, so be careful.
+            in double transactions or weird budgets, so be careful. Only system owners can do this.
           required: false
           schema:
             type: boolean
@@ -18542,6 +18407,10 @@ components:
       type: array
       items:
         $ref: '#/components/schemas/AutocompleteTransactionType'
+    AutocompleteTransactionWithMetaArray:
+      type: array
+      items:
+        $ref: '#/components/schemas/AutocompleteTransactionWithMeta'
     AvailableBudgetArray:
       type: object
       required:
@@ -18873,12 +18742,18 @@ components:
         - id
         - name
         - name_with_balance
+        - active
         - type
         - currency_id
         - currency_name
         - currency_code
         - currency_symbol
         - currency_decimal_places
+        - account_currency_id
+        - account_currency_name
+        - account_currency_code
+        - account_currency_symbol
+        - account_currency_decimal_places
       properties:
         id:
           type: string
@@ -18897,7 +18772,7 @@ components:
         active:
           type: boolean
           example: true
-          description: Is the bill active or not?
+          description: Is the account active or not?
         type:
           type: string
           format: string
@@ -18958,6 +18833,7 @@ components:
       required:
         - id
         - name
+        - active
       properties:
         id:
           type: string
@@ -18977,6 +18853,7 @@ components:
       required:
         - id
         - name
+        - active
       properties:
         id:
           type: string
@@ -19079,12 +18956,12 @@ components:
           type: string
           format: string
           example: "2"
-        title:
+        name:
           type: string
           format: string
           example: "Object Group one"
           description: Title of the object group found by an auto-complete search.
-        name:
+        title:
           type: string
           format: string
           example: "Object Group one"
@@ -19360,6 +19237,47 @@ components:
           format: string
           example: "Withdrawal"
           description: Name of the object found by an auto-complete search.
+    AutocompleteTransactionWithMeta:
+      type: object
+      required:
+        - id
+        - name
+        - description
+      properties:
+        id:
+          type: string
+          format: string
+          example: "2"
+          description: The ID of a transaction journal (basically a single split).
+        transaction_group_id:
+          type: string
+          format: string
+          example: "2"
+          description: The ID of the underlying transaction group.
+        name:
+          type: string
+          format: string
+          example: "#12: Transaction"
+          description: Transaction description with ID in the name.
+        description:
+          type: string
+          format: string
+          example: "#12: Transaction"
+          description: Transaction description with ID in the name.
+        date:
+          type: string
+          format: date-time
+          example: "2026-09-01T00:00:00+00:00"
+        currency_code:
+          type: string
+          format: string
+          example: "EUR"
+          description: Currency code.
+        amount:
+          type: string
+          format: amount
+          example: "123.45"
+          description: "The amount that was paid for this subscription in the subscription's currency."
     ChartDataPoint:
       type: object
       properties:
@@ -26048,11 +25966,25 @@ components:
       type: object
       properties:
         recurring_transactions:
-          $ref: '#/components/schemas/CronResultRow'
+          type: array
+          items:
+            $ref: '#/components/schemas/CronResultRow'
         auto_budgets:
-          $ref: '#/components/schemas/CronResultRow'
-        telemetry:
-          $ref: '#/components/schemas/CronResultRow'
+          type: array
+          items:
+            $ref: '#/components/schemas/CronResultRow'
+        exchange_rates:
+          type: array
+          items:
+            $ref: '#/components/schemas/CronResultRow'
+        bill_notifications:
+          type: array
+          items:
+            $ref: '#/components/schemas/CronResultRow'
+        webhooks:
+          type: array
+          items:
+            $ref: '#/components/schemas/CronResultRow'
     CronResultRow:
       type: object
       properties:
@@ -26083,6 +26015,13 @@ components:
           description: |
             If the cron job ran into some kind of an error, this value will be the error message. The success message
             if the job actually ran OK.
+        user:
+          type: string
+          format: string
+          example: "1"
+          nullable: false
+          description: |
+            The user for which this particular job result is.
     SystemInfo:
       type: object
       properties:
