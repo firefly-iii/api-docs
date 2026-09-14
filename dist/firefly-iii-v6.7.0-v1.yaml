@@ -14,7 +14,7 @@ info:
     <br><br>
     To learn more about the idiosyncrasies of this API, please read about the API in the [Firefly III API documentation](https://docs.firefly-iii.org/references/firefly-iii/api/).
     <br><br>
-    <small>This file was last generated on 2026-09-13 @ 07:50:51 (Europe/Amsterdam)</small>
+    <small>This file was last generated on 2026-09-14 @ 07:42:46 (Europe/Amsterdam)</small>
 
   version: "v6.7.0"
   contact:
@@ -25929,11 +25929,6 @@ components:
           format: string
           example: "$ 12.45"
           description: "The amount formatted according to the users locale"
-        local_icon:
-          type: string
-          format: string
-          example: "balance-scale"
-          description: "Reference to a font-awesome icon without the fa- part."
         sub_title:
           type: string
           format: string
