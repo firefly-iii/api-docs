@@ -21,3 +21,26 @@
           application/json:
             schema:
               $ref: '#/components/schemas/ChartLine'
+/chart/budget/overview-with-limits:
+  get:
+    tags:
+      - charts
+    summary: Dashboard chart with budget and budget limit information.
+    description: |
+      This endpoint returns the data required to generate a chart with basic budget information, grouped by budget limit when necessary.
+    operationId: getChartBudgetOverview
+    parameters:
+      _tpl_correlationParameter,3:
+      _tpl_mandatoryDateRangeParameters,3:
+    responses:
+      _tpl_unauthenticatedResponse,3:
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_validationErrorResponse,3:
+      _tpl_internalExceptionResponse,3:
+      "200":
+        description: Bar chart oriented chart information. Check out the model for more details. Each entry is a line (or bar) in the chart.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChartLine'
