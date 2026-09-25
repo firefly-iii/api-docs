@@ -1,0 +1,8 @@
+- in: query
+  name: active
+  description: Should the endpoint return only active objects or inactive ones? Will be both if not applied.
+  required: false
+  schema:
+    type: boolean
+    format: boolean
+    example: true

@@ -10,6 +10,7 @@
       _tpl_correlationParameter,3:
       _tpl_limitParameter,3:
       _tpl_pageParameter,3:
+      _tpl_activeParameter,3:
       _tpl_optionalDateRangeParameters,3:
       - in: query
         name: date
