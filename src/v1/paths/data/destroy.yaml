@@ -22,3 +22,17 @@
         required: true
         schema:
           $ref: '#/components/schemas/DataDestroyObject'
+      - in: query
+        name: unused
+        description: |
+          Only applies when "objects" is set to: not_assets_liabilities, accounts, asset_accounts, expense_accounts, revenue_accounts or liabilities.
+          
+          If set to true, only unused accounts will be destroyed. This effectively cleans up the autocomplete dropdowns.
+        required: false
+        explode: true
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int64
+          example: [ 1, 2, 3 ]
