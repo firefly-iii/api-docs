@@ -14,7 +14,7 @@ info:
     <br><br>
     To learn more about the idiosyncrasies of this API, please read about the API in the [Firefly III API documentation](https://docs.firefly-iii.org/references/firefly-iii/api/).
     <br><br>
-    <small>This file was last generated on 2026-10-08 @ 08:57:33 (Europe/Amsterdam)</small>
+    <small>This file was last generated on 2026-10-08 @ 21:17:43 (Europe/Amsterdam)</small>
 
   version: "v6.7.7"
   contact:
@@ -1584,7 +1584,7 @@ paths:
       summary: Dashboard chart with budget and budget limit information.
       description: |
         This endpoint returns the data required to generate a chart with basic budget information, grouped by budget limit when necessary.
-      operationId: getChartBudgetOverview
+      operationId: getChartBudgetOverviewWithLimits
       parameters:
         - name: X-Trace-Id
           in: header
