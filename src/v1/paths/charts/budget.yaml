@@ -28,7 +28,7 @@
     summary: Dashboard chart with budget and budget limit information.
     description: |
       This endpoint returns the data required to generate a chart with basic budget information, grouped by budget limit when necessary.
-    operationId: getChartBudgetOverview
+    operationId: getChartBudgetOverviewWithLimits
     parameters:
       _tpl_correlationParameter,3:
       _tpl_mandatoryDateRangeParameters,3:
