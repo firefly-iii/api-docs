@@ -14,7 +14,7 @@ info:
     <br><br>
     To learn more about the idiosyncrasies of this API, please read about the API in the [Firefly III API documentation](https://docs.firefly-iii.org/references/firefly-iii/api/).
     <br><br>
-    <small>This file was last generated on 2026-10-09 @ 14:44:46 (Europe/Amsterdam)</small>
+    <small>This file was last generated on 2026-10-09 @ 22:19:01 (Europe/Amsterdam)</small>
 
   version: "v6.7.8"
   contact:
@@ -16637,7 +16637,7 @@ paths:
   
         - in: path
           name: version
-          required: true
+          required: false
           schema:
             type: string
             format: string
@@ -26210,12 +26210,13 @@ components:
           type: string
           format: string
           example: "6.7.8"
-          nullable: true
         release_notes:
+          nullable: true
           type: string
           format: string
           description: The release notes as HTML.
         release_notes_markdown:
+          nullable: true
           type: string
           format: string
           description: The release notes in Markdown format.
