@@ -1,0 +1,19 @@
+ReleaseNotes:
+  type: object
+  properties:
+    data:
+      type: object
+      properties:
+        version:
+          type: string
+          format: string
+          example: "%version%"
+          nullable: true
+        release_notes:
+          type: string
+          format: string
+          description: The release notes as HTML.
+        release_notes_markdown:
+          type: string
+          format: string
+          description: The release notes in Markdown format.

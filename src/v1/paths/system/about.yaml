@@ -40,3 +40,32 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/UserSingle'
+/release-notes/{version}:
+  get:
+    tags:
+      - about
+    summary: Release notes endpoint.
+    operationId: getReleaseNotes
+    parameters:
+      _tpl_correlationParameter,3:
+      - in: path
+        name: version
+        required: true
+        schema:
+          type: string
+          format: string
+          example: 6.8.0
+        description: The version of the release notes to retrieve. Also possible is "v6.7.8" or "develop-2026-10-12". Notice the dash instead of the forward slash.
+    description: |
+      Returns the release notes for a specific version of Firefly III.
+    responses:
+      _tpl_unauthenticatedResponse,3:
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
+      "200":
+        description: The release notes for the specified version.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReleaseNotes'
