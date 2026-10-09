@@ -50,7 +50,7 @@
       _tpl_correlationParameter,3:
       - in: path
         name: version
-        required: true
+        required: false
         schema:
           type: string
           format: string
