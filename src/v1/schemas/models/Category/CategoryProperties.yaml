@@ -17,6 +17,11 @@ CategoryProperties:
       type: string
       format: string
       example: "Lunch"
+    color:
+      type: string
+      format: string
+      example: "FF0000"
+      description: "The color of the category in HEX format. Firefly III does not use this field, but your app might."
     notes:
       type: string
       format: string

@@ -12,3 +12,9 @@ CategoryStore:
       format: string
       nullable: true
       example: "Some example notes"
+    color:
+      type: string
+      format: string
+      nullable: true
+      example: "FF0000"
+      description: "The color of the category in HEX format. Firefly III does not use this field, but your app might."
