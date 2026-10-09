@@ -22,6 +22,12 @@ CategoryProperties:
       format: string
       example: "FF0000"
       description: "The color of the category in HEX format. Firefly III does not use this field, but your app might."
+    last_activity:
+      nullable: true
+      type: string
+      format: date-time
+      example: "%start_date_and_time%"
+      description: "Last activity of the category."
     notes:
       type: string
       format: string
