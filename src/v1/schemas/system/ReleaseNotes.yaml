@@ -5,12 +5,13 @@ ReleaseNotes:
       type: string
       format: string
       example: "%version%"
-      nullable: true
     release_notes:
+      nullable: true
       type: string
       format: string
       description: The release notes as HTML.
     release_notes_markdown:
+      nullable: true
       type: string
       format: string
       description: The release notes in Markdown format.
