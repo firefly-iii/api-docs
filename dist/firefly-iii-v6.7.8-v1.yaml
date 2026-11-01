@@ -14,7 +14,7 @@ info:
     <br><br>
     To learn more about the idiosyncrasies of this API, please read about the API in the [Firefly III API documentation](https://docs.firefly-iii.org/references/firefly-iii/api/).
     <br><br>
-    <small>This file was last generated on 2026-10-31 @ 07:34:38 (Europe/Amsterdam)</small>
+    <small>This file was last generated on 2026-11-01 @ 08:05:36 (Europe/Amsterdam)</small>
 
   version: "v6.7.8"
   contact:
@@ -149,7 +149,7 @@ paths:
           schema:
             type: string
             format: string
-          example: "2026-10-01"
+          example: "2026-11-01"
           description: If the account is an asset account or a liability, the autocomplete will also return the balance of the account on this date in the AC title.
         - in: query
           name: types
@@ -4891,7 +4891,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2026-10-01"
+            example: "2026-11-01"
         - in: query
           name: end
           description: |
@@ -4900,7 +4900,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2026-10-31"
+            example: "2026-11-30"
         - in: query
           name: type
           description: Optional filter on the transaction type(s) returned.
@@ -6012,7 +6012,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2026-10-01"
+            example: "2026-11-01"
         - in: query
           name: end
           description: |
@@ -6021,7 +6021,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2026-10-31"
+            example: "2026-11-30"
       responses:
         "401":
           description: Unauthenticated
@@ -6306,7 +6306,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2026-10-01"
+            example: "2026-11-01"
         - in: query
           name: end
           description: |
@@ -6315,7 +6315,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2026-10-31"
+            example: "2026-11-30"
         - in: query
           name: type
           description: Optional filter on the transaction type(s) returned
@@ -6401,7 +6401,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2026-10-01"
+            example: "2026-11-01"
         - in: query
           name: end
           description: |
@@ -6410,7 +6410,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2026-10-01"
+            example: "2026-11-01"
       responses:
         "401":
           description: Unauthenticated
@@ -6546,7 +6546,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2026-10-01"
+            example: "2026-11-01"
         - in: query
           name: end
           description: |
@@ -6555,7 +6555,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2026-10-31"
+            example: "2026-11-30"
       tags:
         - bills
       responses:
@@ -6849,7 +6849,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2026-10-01"
+            example: "2026-11-01"
         - in: query
           name: end
           description: |
@@ -6858,7 +6858,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2026-10-31"
+            example: "2026-11-30"
       responses:
         "200":
           description: A list of budget limits applicable to this budget.
@@ -7209,7 +7209,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2026-10-01"
+            example: "2026-11-01"
         - in: query
           name: end
           description: |
@@ -7218,7 +7218,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2026-10-31"
+            example: "2026-11-30"
       responses:
         "200":
           description: A list of budget limits.
@@ -7305,7 +7305,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2026-10-01"
+            example: "2026-11-01"
         - in: query
           name: end
           description: |
@@ -7314,7 +7314,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2026-10-31"
+            example: "2026-11-30"
         - in: query
           name: type
           description: Optional filter on the transaction type(s) returned
@@ -7485,7 +7485,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2026-10-01"
+            example: "2026-11-01"
         - in: query
           name: end
           description: |
@@ -7494,7 +7494,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2026-10-31"
+            example: "2026-11-30"
       responses:
         "200":
           description: A list of transactions.
@@ -7581,7 +7581,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2026-10-01"
+            example: "2026-11-01"
         - in: query
           name: end
           description: |
@@ -7590,7 +7590,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2026-10-31"
+            example: "2026-11-30"
       responses:
         "200":
           description: A list of budgets.
@@ -7726,7 +7726,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2026-10-01"
+            example: "2026-11-01"
         - in: query
           name: end
           description: |
@@ -7735,7 +7735,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2026-10-31"
+            example: "2026-11-30"
       tags:
         - budgets
       responses:
@@ -7955,7 +7955,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2026-10-01"
+            example: "2026-11-01"
         - in: query
           name: end
           description: |
@@ -7964,7 +7964,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2026-10-31"
+            example: "2026-11-30"
         - in: query
           name: type
           description: Optional filter on the transaction type(s) returned
@@ -8256,7 +8256,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2026-10-01"
+            example: "2026-11-01"
         - in: query
           name: end
           description: |
@@ -8265,7 +8265,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2026-10-31"
+            example: "2026-11-30"
       tags:
         - categories
       responses:
@@ -8981,7 +8981,7 @@ paths:
           schema:
             type: string
             format: string
-          example: "2026-10-01"
+          example: "2026-11-01"
       responses:
         "200":
           description: A list of currency exchange rates.
@@ -9054,7 +9054,7 @@ paths:
           schema:
             type: string
             format: string
-          example: "2026-10-01"
+          example: "2026-11-01"
       responses:
         "204":
           description: "Currency exchange rate(s) deleted."
@@ -9122,7 +9122,7 @@ paths:
           schema:
             type: string
             format: string
-          example: "2026-10-01"
+          example: "2026-11-01"
       tags:
         - currency_exchange_rates
       requestBody:
@@ -9192,7 +9192,7 @@ paths:
           schema:
             type: string
             format: string
-          example: "2026-10-01"
+          example: "2026-11-01"
       tags:
         - currency_exchange_rates
       requestBody:
@@ -9377,7 +9377,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2026-10-01"
+            example: "2026-11-01"
         - in: query
           name: end
           description: |
@@ -9386,7 +9386,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2026-10-31"
+            example: "2026-11-30"
         - in: query
           name: type
           description: Optional filter on the transaction type(s) returned.
@@ -11138,7 +11138,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2026-10-01"
+            example: "2026-11-01"
         - in: query
           name: end
           description: |
@@ -11147,7 +11147,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2026-10-31"
+            example: "2026-11-30"
         - in: query
           name: type
           description: Optional filter on the transaction type(s) returned
@@ -11721,7 +11721,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2026-10-01"
+            example: "2026-11-01"
         - in: query
           name: end
           description: |
@@ -11730,7 +11730,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2026-10-31"
+            example: "2026-11-30"
         - in: query
           name: search_limit
           description: |
@@ -11824,7 +11824,7 @@ paths:
           required: false
           schema:
             type: string
-            example: "2026-10-01"
+            example: "2026-11-01"
             format: date
         - in: query
           name: end
@@ -11833,7 +11833,7 @@ paths:
           required: false
           schema:
             type: string
-            example: "2026-10-31"
+            example: "2026-11-30"
             format: date
         - in: query
           name: accounts[]
@@ -12242,7 +12242,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2026-10-01"
+            example: "2026-11-01"
         - in: query
           name: end
           description: |
@@ -12251,7 +12251,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2026-10-31"
+            example: "2026-11-30"
         - in: query
           name: accounts[]
           description: |
@@ -12331,7 +12331,7 @@ paths:
           required: false
           schema:
             type: string
-            example: "2026-10-01"
+            example: "2026-11-01"
             format: date
         - in: query
           name: end
@@ -12340,7 +12340,7 @@ paths:
           required: false
           schema:
             type: string
-            example: "2026-10-31"
+            example: "2026-11-30"
             format: date
         - in: query
           name: accounts[]
@@ -12978,7 +12978,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2026-10-01"
+            example: "2026-11-01"
         - in: query
           name: end
           description: |
@@ -12987,7 +12987,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2026-10-31"
+            example: "2026-11-30"
         - in: query
           name: type
           description: Optional filter on the transaction type(s) returned
@@ -13073,7 +13073,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2026-10-01"
+            example: "2026-11-01"
         - in: query
           name: end
           description: |
@@ -13082,7 +13082,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2026-10-01"
+            example: "2026-11-01"
       responses:
         "401":
           description: Unauthenticated
@@ -13218,7 +13218,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2026-10-01"
+            example: "2026-11-01"
         - in: query
           name: end
           description: |
@@ -13227,7 +13227,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2026-10-31"
+            example: "2026-11-30"
       tags:
         - bills
       responses:
@@ -13528,7 +13528,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2026-10-01"
+            example: "2026-11-01"
         - in: query
           name: end
           description: |
@@ -13537,7 +13537,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2026-10-31"
+            example: "2026-11-30"
         - in: query
           name: type
           description: Optional filter on the transaction type(s) returned.
@@ -14236,7 +14236,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2026-10-01"
+            example: "2026-11-01"
         - in: query
           name: end
           description: End date for the budget limit list.
@@ -14244,7 +14244,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2026-10-31"
+            example: "2026-11-30"
       responses:
         "200":
           description: A list of budget limits.
@@ -14490,7 +14490,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2026-10-01"
+            example: "2026-11-01"
         - in: query
           name: end
           description: |
@@ -14499,7 +14499,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2026-10-31"
+            example: "2026-11-30"
         - in: query
           name: type
           description: Optional filter on the transaction type(s) returned
@@ -15645,7 +15645,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2026-10-01"
+            example: "2026-11-01"
         - in: query
           name: end
           description: |
@@ -15654,7 +15654,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2026-10-31"
+            example: "2026-11-30"
         - in: query
           name: type
           description: Optional filter on the transaction type(s) returned.
@@ -16952,7 +16952,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2026-10-01"
+            example: "2026-11-01"
         - in: query
           name: force
           description: |
@@ -19430,7 +19430,7 @@ components:
         date:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
         currency_code:
           type: string
           format: string
@@ -19515,15 +19515,15 @@ components:
         date:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
         start_date:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
         end_date:
           type: string
           format: date-time
-          example: "2026-10-31T23:59:59+00:00"
+          example: "2026-11-30T23:59:59+00:00"
         type:
           type: string
           format: string
@@ -20208,12 +20208,12 @@ components:
         created_at:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           readOnly: true
         updated_at:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           readOnly: true
         active:
           type: boolean
@@ -20373,7 +20373,7 @@ components:
         current_balance_date:
           type: string
           format: date-time
-          example: "2026-10-31T23:59:59+00:00"
+          example: "2026-11-30T23:59:59+00:00"
           readOnly: true
           description: "The timestamp for this date is always 23:59:59, to indicate it's the balance at the very END of that particular day."
         notes:
@@ -20385,7 +20385,7 @@ components:
           nullable: true
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           description: "Mandatory when the account_role is ccAsset. Moment at which CC payment installments are asked for by the bank."
         credit_card_type:
           $ref: '#/components/schemas/CreditCardTypeProperty'
@@ -20407,7 +20407,7 @@ components:
         opening_balance_date:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           nullable: true
           description: Represents the date of the opening balance.
         liability_type:
@@ -20448,7 +20448,7 @@ components:
           nullable: true
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           description: "Last activity of the account."
     AccountRead:
       type: object
@@ -20510,7 +20510,7 @@ components:
         opening_balance_date:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           nullable: true
           description: Represents the date of the opening balance.
         virtual_balance:
@@ -20550,7 +20550,7 @@ components:
           nullable: true
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           description: "Mandatory when the account_role is ccAsset. Moment at which CC payment installments are asked for by the bank."
         liability_type:
           $ref: '#/components/schemas/LiabilityTypeProperty'
@@ -20620,7 +20620,7 @@ components:
         opening_balance_date:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           nullable: true
         virtual_balance:
           type: string
@@ -20659,7 +20659,7 @@ components:
           nullable: true
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           description: "Mandatory when the account_role is ccAsset. Moment at which CC payment installments are asked for by the bank."
         liability_type:
           $ref: '#/components/schemas/LiabilityTypeProperty'
@@ -20725,12 +20725,12 @@ components:
         created_at:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           readOnly: true
         updated_at:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           readOnly: true
         attachable_type:
           $ref: '#/components/schemas/AttachableType'
@@ -20853,12 +20853,12 @@ components:
         created_at:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           readOnly: true
         updated_at:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           readOnly: true
         object_has_currency_setting:
           type: boolean
@@ -20933,12 +20933,12 @@ components:
         start:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           description: Start date of the available budget.
         end:
           type: string
           format: date-time
-          example: "2026-10-31T23:59:59+00:00"
+          example: "2026-11-30T23:59:59+00:00"
           description: End date of the available budget.
         spent_in_budgets:
           type: array
@@ -20995,12 +20995,12 @@ components:
         created_at:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           readOnly: true
         updated_at:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           readOnly: true
         name:
           type: string
@@ -21100,17 +21100,17 @@ components:
         date:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
         end_date:
           type: string
           format: date-time
-          example: "2026-10-31T23:59:59+00:00"
+          example: "2026-11-30T23:59:59+00:00"
           description: "The date after which this subscription is no longer valid or applicable"
           nullable: true
         extension_date:
           type: string
           format: date-time
-          example: "2026-10-31T23:59:59+00:00"
+          example: "2026-11-30T23:59:59+00:00"
           description: "The date before which the subscription must be renewed (or cancelled)"
           nullable: true
         repeat_freq:
@@ -21176,7 +21176,7 @@ components:
               date:
                 type: string
                 format: date-time
-                example: "2026-10-01T00:00:00+00:00"
+                example: "2026-11-01T00:00:00+00:00"
                 description: "Date the bill was paid."
                 readOnly: true
               subscription_id:
@@ -21267,13 +21267,13 @@ components:
           items:
             type: string
             format: date-time
-            example: "2026-10-01T00:00:00+00:00"
+            example: "2026-11-01T00:00:00+00:00"
             readOnly: true
     
         next_expected_match:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           description: "When the subscription is expected to be due."
           nullable: true
           readOnly: true
@@ -21343,16 +21343,16 @@ components:
         date:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
         end_date:
           type: string
           format: date-time
-          example: "2026-10-31T23:59:59+00:00"
+          example: "2026-11-30T23:59:59+00:00"
           description: "The date after which this bill is no longer valid or applicable"
         extension_date:
           type: string
           format: date-time
-          example: "2026-10-31T23:59:59+00:00"
+          example: "2026-11-30T23:59:59+00:00"
           description: "The date before which the bill must be renewed (or cancelled)"
         repeat_freq:
           $ref: '#/components/schemas/BillRepeatFrequency'
@@ -21412,16 +21412,16 @@ components:
         date:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
         end_date:
           type: string
           format: date-time
-          example: "2026-10-31T23:59:59+00:00"
+          example: "2026-11-30T23:59:59+00:00"
           description: "The date after which this bill is no longer valid or applicable"
         extension_date:
           type: string
           format: date-time
-          example: "2026-10-31T23:59:59+00:00"
+          example: "2026-11-30T23:59:59+00:00"
           description: "The date before which the bill must be renewed (or cancelled)"
         repeat_freq:
           $ref: '#/components/schemas/BillRepeatFrequency'
@@ -21459,12 +21459,12 @@ components:
         created_at:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           readOnly: true
         updated_at:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           readOnly: true
         active:
           type: boolean
@@ -21716,22 +21716,22 @@ components:
         created_at:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           readOnly: true
         updated_at:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           readOnly: true
         start:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           description: Start date of the budget limit.
         end:
           type: string
           format: date-time
-          example: "2026-10-31T23:59:59+00:00"
+          example: "2026-11-30T23:59:59+00:00"
           description: End date of the budget limit.
         budget_id:
           type: string
@@ -21887,7 +21887,7 @@ components:
         start:
           type: string
           format: date
-          example: "2026-10-01"
+          example: "2026-11-01"
           description: Start date of the budget limit.
         period:
           type: string
@@ -21899,7 +21899,7 @@ components:
         end:
           type: string
           format: date
-          example: "2026-10-31"
+          example: "2026-11-30"
           description: End date of the budget limit.
         amount:
           type: string
@@ -21922,22 +21922,22 @@ components:
         created_at:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           readOnly: true
         updated_at:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           readOnly: true
         start:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           description: Start date of the budget limit.
         end:
           type: string
           format: date-time
-          example: "2026-10-31T23:59:59+00:00"
+          example: "2026-11-30T23:59:59+00:00"
           description: End date of the budget limit.
         budget_id:
           type: string
@@ -22049,12 +22049,12 @@ components:
         created_at:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           readOnly: true
         updated_at:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           readOnly: true
         name:
           type: string
@@ -22069,7 +22069,7 @@ components:
           nullable: true
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           description: "Last activity of the category."
         notes:
           type: string
@@ -22193,12 +22193,12 @@ components:
         created_at:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           readOnly: true
         updated_at:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           readOnly: true
         from_currency_id:
           type: string
@@ -22270,7 +22270,7 @@ components:
           type: string
           format: date-time
           readOnly: true
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           description: "Date and time of the exchange rate."
     CurrencyExchangeRateRead:
       type: object
@@ -22308,7 +22308,7 @@ components:
         date:
           type: string
           format: date
-          example: "2026-10-01"
+          example: "2026-11-01"
           description: "The date to which the exchange rate is applicable."
           nullable: false
         from:
@@ -22366,7 +22366,7 @@ components:
         date:
           type: string
           format: date
-          example: "2026-10-01"
+          example: "2026-11-01"
           description: The date to which the exchange rate is applicable.
           nullable: false
         rate:
@@ -22407,12 +22407,12 @@ components:
         created_at:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           readOnly: true
         updated_at:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           readOnly: true
         title:
           type: string
@@ -22560,12 +22560,12 @@ components:
         created_at:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           readOnly: true
         updated_at:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           readOnly: true
         name:
           type: string
@@ -22581,13 +22581,13 @@ components:
         start_date:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           description: "The date you started with this piggy bank."
         target_date:
           type: string
           nullable: true
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           description: "The date you intend to finish saving money."
         order:
           type: integer
@@ -22755,13 +22755,13 @@ components:
         start_date:
           type: string
           format: date
-          example: "2026-10-01"
+          example: "2026-11-01"
           description: The date you started with this piggy bank.
         target_date:
           type: string
           format: date
           nullable: true
-          example: "2026-10-31"
+          example: "2026-11-30"
           description: The date you intend to finish saving money.
         order:
           type: integer
@@ -22817,13 +22817,13 @@ components:
         start_date:
           type: string
           format: date
-          example: "2026-10-01"
+          example: "2026-11-01"
           description: The date you started with this piggy bank.
         target_date:
           type: string
           format: date
           nullable: true
-          example: "2026-10-31"
+          example: "2026-11-30"
           description: The date you intend to finish saving money.
         order:
           type: integer
@@ -22856,11 +22856,11 @@ components:
         created_at:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
         updated_at:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
         amount:
           type: string
           format: amount
@@ -22950,12 +22950,12 @@ components:
         created_at:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           readOnly: true
         updated_at:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           readOnly: true
         name:
           type: string
@@ -22976,12 +22976,12 @@ components:
         created_at:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           readOnly: true
         updated_at:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           readOnly: true
         type:
           $ref: '#/components/schemas/RecurrenceTransactionType'
@@ -22997,19 +22997,19 @@ components:
         first_date:
           type: string
           format: date
-          example: "2026-10-31"
+          example: "2026-11-30"
           description: "First time the recurring transaction will fire. Must be after today."
         latest_date:
           type: string
           format: date
-          example: "2026-10-01"
+          example: "2026-11-01"
           description: "Last time the recurring transaction has fired."
           nullable: true
           readOnly: true
         repeat_until:
           type: string
           format: date
-          example: "2026-10-31"
+          example: "2026-11-30"
           description: "Date until the recurring transaction can fire. Use either this field or repetitions."
           nullable: true
         apply_rules:
@@ -23063,12 +23063,12 @@ components:
         first_date:
           type: string
           format: date
-          example: "2026-10-31"
+          example: "2026-11-30"
           description: "First time the recurring transaction will fire. Must be after today."
         repeat_until:
           type: string
           format: date
-          example: "2026-10-31"
+          example: "2026-11-30"
           description: "Date until the recurring transaction can fire. Use either this field or repetitions."
           nullable: true
         nr_of_repetitions:
@@ -23113,12 +23113,12 @@ components:
         first_date:
           type: string
           format: date
-          example: "2026-10-31"
+          example: "2026-11-30"
           description: "First time the recurring transaction will fire."
         repeat_until:
           type: string
           format: date
-          example: "2026-10-31"
+          example: "2026-11-30"
           description: Date until when the recurring transaction can fire. After that date, it's basically inactive. Use either this field or repetitions.
           nullable: true
         nr_of_repetitions:
@@ -23162,12 +23162,12 @@ components:
         created_at:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           readOnly: true
         updated_at:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           readOnly: true
         type:
           $ref: '#/components/schemas/RecurrenceRepetitionType'
@@ -23181,7 +23181,7 @@ components:
             - For 'weekly', it is day of the week between 1 and 7 (Monday - Sunday).
             - For 'ndom', it is '1,2' or '4,5' or something else, where the first number is the week in the month, and the second number is the day in the week (between 1 and 7). '2,3' means: the 2nd Wednesday of the month
             - For 'monthly' it is the day of the month (1 - 31)
-            - For yearly, it is a full date, ie '2026-10-01'. The year you use does not matter.
+            - For yearly, it is a full date, ie '2026-11-01'. The year you use does not matter.
         skip:
           type: integer
           format: int32
@@ -23210,7 +23210,7 @@ components:
           items:
             type: string
             format: date-time
-            example: "2026-10-31T23:59:59+00:00"
+            example: "2026-11-30T23:59:59+00:00"
     RecurrenceRepetitionStore:
       type: object
       required:
@@ -23229,7 +23229,7 @@ components:
             - For 'weekly', it is day of the week between 1 and 7 (Monday - Sunday).
             - For 'ndom', it is '1,2' or '4,5' or something else, where the first number is the week in the month, and the second number is the day in the week (between 1 and 7). '2,3' means: the 2nd Wednesday of the month
             - For 'monthly' it is the day of the month (1 - 31)
-            - For yearly, it is a full date, ie '2026-10-01'. The year you use does not matter.
+            - For yearly, it is a full date, ie '2026-11-01'. The year you use does not matter.
         skip:
           type: integer
           format: int32
@@ -23260,7 +23260,7 @@ components:
             - For 'weekly', it is day of the week between 1 and 7 (Monday - Sunday).
             - For 'ndom', it is '1,2' or '4,5' or something else, where the first number is the week in the month, and the second number is the day in the week (between 1 and 7). '2,3' means: the 2nd Wednesday of the month
             - For 'monthly' it is the day of the month (1 - 31)
-            - For yearly, it is a full date, ie '2026-10-01'. The year you use does not matter.
+            - For yearly, it is a full date, ie '2026-11-01'. The year you use does not matter.
         skip:
           type: integer
           format: int32
@@ -23666,12 +23666,12 @@ components:
         created_at:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           readOnly: true
         updated_at:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           readOnly: true
         title:
           type: string
@@ -23833,12 +23833,12 @@ components:
         created_at:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           readOnly: true
         updated_at:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           readOnly: true
         type:
           $ref: '#/components/schemas/RuleActionKeyword'
@@ -23924,12 +23924,12 @@ components:
         created_at:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           readOnly: true
         updated_at:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           readOnly: true
         title:
           type: string
@@ -24002,12 +24002,12 @@ components:
         created_at:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           readOnly: true
         updated_at:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           readOnly: true
         type:
           $ref: '#/components/schemas/RuleTriggerKeyword'
@@ -24102,12 +24102,12 @@ components:
         created_at:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           readOnly: true
         updated_at:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           readOnly: true
         tag:
           type: string
@@ -24117,7 +24117,7 @@ components:
         date:
           type: string
           format: date
-          example: "2026-10-01"
+          example: "2026-11-01"
           description: The date to which the tag is applicable.
           nullable: true
         description:
@@ -24157,7 +24157,7 @@ components:
         date:
           type: string
           format: date
-          example: "2026-10-01"
+          example: "2026-11-01"
           description: The date to which the tag is applicable.
           nullable: true
         description:
@@ -24195,7 +24195,7 @@ components:
         date:
           type: string
           format: date
-          example: "2026-10-01"
+          example: "2026-11-01"
           description: The date to which the tag is applicable.
           nullable: true
         description:
@@ -24231,12 +24231,12 @@ components:
         created_at:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           readOnly: true
         updated_at:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           readOnly: true
         enabled:
           type: boolean
@@ -24338,12 +24338,12 @@ components:
         created_at:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           readOnly: true
         updated_at:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           readOnly: true
         user:
           type: string
@@ -24422,12 +24422,12 @@ components:
         created_at:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           readOnly: true
         updated_at:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           readOnly: true
         link_type_id:
           type: string
@@ -24590,7 +24590,7 @@ components:
         date:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           description: "Date of the transaction"
         order:
           type: integer
@@ -24985,7 +24985,7 @@ components:
         date:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           description: "Date of the transaction"
         amount:
           type: string
@@ -25216,7 +25216,7 @@ components:
         date:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           description: "Date of the transaction"
         amount:
           type: string
@@ -25471,12 +25471,12 @@ components:
         created_at:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           readOnly: true
         updated_at:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           readOnly: true
         email:
           type: string
@@ -25518,12 +25518,12 @@ components:
         created_at:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           readOnly: true
         updated_at:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           readOnly: true
         in_use:
           type: boolean
@@ -25676,12 +25676,12 @@ components:
         created_at:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           readOnly: true
         updated_at:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           readOnly: true
         active:
           type: boolean
@@ -25821,12 +25821,12 @@ components:
         created_at:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           readOnly: true
         updated_at:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           readOnly: true
         webhook_message_id:
           type: string
@@ -25857,12 +25857,12 @@ components:
         created_at:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           readOnly: true
         updated_at:
           type: string
           format: date-time
-          example: "2026-10-01T00:00:00+00:00"
+          example: "2026-11-01T00:00:00+00:00"
           readOnly: true
         sent:
           type: boolean
